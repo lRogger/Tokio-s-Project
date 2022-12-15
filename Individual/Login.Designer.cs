@@ -43,7 +43,7 @@
             this.pwd.Name = "pwd";
             this.pwd.PasswordChar = '●';
             this.pwd.Size = new System.Drawing.Size(100, 23);
-            this.pwd.TabIndex = 0;
+            this.pwd.TabIndex = 1;
             this.pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
             // 
             // user
@@ -51,7 +51,8 @@
             this.user.Location = new System.Drawing.Point(162, 34);
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(100, 23);
-            this.user.TabIndex = 1;
+            this.user.TabIndex = 0;
+            this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
             this.user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_KeyPress);
             // 
             // label1
@@ -78,7 +79,7 @@
             this.checkBox1.Location = new System.Drawing.Point(55, 113);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(115, 19);
-            this.checkBox1.TabIndex = 4;
+            this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "Recordar usuario";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -87,7 +88,7 @@
             this.button1.Location = new System.Drawing.Point(98, 138);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 31);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Iniciar Sesión";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -98,7 +99,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(98, 174);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(119, 15);
-            this.linkLabel1.TabIndex = 6;
+            this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Olvidé mi contraseña";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -116,6 +117,7 @@
             this.Controls.Add(this.user);
             this.Controls.Add(this.pwd);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicia sesión";
             this.ResumeLayout(false);
             this.PerformLayout();

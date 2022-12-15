@@ -38,7 +38,7 @@ namespace Individual
                 try
                 {
                     DataSet ds = Utilidades.consultar("SELECT * FROM personas WHERE cedula = '"+user.Text.Trim()+"'");
-                    
+
                     if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
                     {
                         MessageBox.Show("Sesion iniciada, bienvenido " + ds.Tables[0].Rows[0]["nombre"]);
@@ -62,6 +62,11 @@ namespace Individual
         {
             Forgotpwd fg = new Forgotpwd();
             fg.Show();
+        }
+
+        private void user_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

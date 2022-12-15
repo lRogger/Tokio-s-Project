@@ -68,7 +68,7 @@ namespace Individual
                 try
                 {
                     Utilidades.instruccionDB("UPDATE personas SET password = '" +
-                        BCrypt.Net.BCrypt.EnhancedHashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" + 
+                        BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" + 
                         cedulafpwd.Text.Trim() + "'");
                     MessageBox.Show("Contraseña cambiada con éxito!");
                     iguales = true;
