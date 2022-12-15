@@ -68,5 +68,10 @@ namespace Individual
         {
 
         }
+
+        private void pwd_Enter(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

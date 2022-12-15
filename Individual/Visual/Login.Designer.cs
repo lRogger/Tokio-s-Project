@@ -44,6 +44,7 @@
             this.pwd.PasswordChar = '●';
             this.pwd.Size = new System.Drawing.Size(100, 23);
             this.pwd.TabIndex = 1;
+            this.pwd.Enter += new System.EventHandler(this.pwd_Enter);
             this.pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
             // 
             // user
