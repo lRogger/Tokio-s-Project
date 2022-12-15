@@ -54,5 +54,16 @@ namespace Individual
             DataSet ds = Utilidades.consultar("SELECT * FROM comida");
             prueba.DataSource = ds.Tables[0];
         }
+
+        private void prueba_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void verToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+        }
     }
 } 

@@ -101,6 +101,7 @@
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
             this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.verToolStripMenuItem.Text = "Ver";
+            this.verToolStripMenuItem.Click += new System.EventHandler(this.verToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -126,6 +127,7 @@
             this.prueba.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.prueba.Size = new System.Drawing.Size(604, 150);
             this.prueba.TabIndex = 4;
+            this.prueba.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prueba_CellContentClick);
             // 
             // button2
             // 
