@@ -37,7 +37,7 @@ namespace LibreriaGrupal
             }
             catch(Exception e)
             {
-                Console.WriteLine("Error: "+e);
+                Console.WriteLine("Error:"+e);
             }
 
             return ds;
