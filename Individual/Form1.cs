@@ -45,7 +45,7 @@ namespace Individual
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataSet ds = Utilidades.consultar("SELECT * FROM clientes");
+            DataSet ds = Utilidades.consultar("SELECT * FROM personas");
             prueba.DataSource = ds.Tables[0];
         }
 
