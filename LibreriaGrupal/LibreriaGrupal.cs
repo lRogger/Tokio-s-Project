@@ -9,7 +9,7 @@ namespace LibreriaGrupal
     public class Utilidades
     {
 
-        public static DataSet consultar (string cmd)
+        public static MySqlConnection conectarDB()
         {
             string server = "us-east.connect.psdb.cloud";
             string user = "u1deef4ok1sdaos254mh";
@@ -17,20 +17,23 @@ namespace LibreriaGrupal
             string db = "chichar";
             string strCon;
 
-
-            DataSet ds = new DataSet();
-            strCon = "server=" + server +  
+            MySqlConnection con = new MySqlConnection();
+            strCon = "server=" + server +
                 ";user id=" + user + ";password=" + pass + ";database=" + db + ";";
-            MySqlConnection con = new MySqlConnection(strCon);
+            con.ConnectionString = strCon;
+            con.Open();
+            return con;
+        }
+
+        public static DataSet consultar (string cmd)
+        {
+            
+            DataSet ds = new DataSet();
             try
             {
 
-                
-                con.ConnectionString = strCon;
-                con.Open();
-
+                MySqlConnection con = conectarDB();
                 MySqlDataAdapter dp = new MySqlDataAdapter(cmd, con);
-
                 dp.Fill(ds);
                 con.Close();
             }
@@ -42,6 +45,15 @@ namespace LibreriaGrupal
             return ds;
             
         }
+
+        public static void instruccionDB(string cmd)
+        {
+            MySqlConnection con = conectarDB();
+            MySqlCommand comando = new MySqlCommand(cmd, con);
+            comando.ExecuteNonQuery();
+            con.Close();
+        }
+        
 
         public bool validar(char e, string tipo)
         {

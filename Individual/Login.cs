@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Org.BouncyCastle.Crypto.Generators;
 
 namespace Individual
 {
@@ -34,7 +35,17 @@ namespace Individual
         {
             if(pwd.Text != "" && user.Text != "")
             {
-                MessageBox.Show("xd");
+                try
+                {
+                    DataSet ds = Utilidades.consultar(String.Format("SELECT * FROM personas WHERE " +
+                    "cedula='{0}' AND password ='{1}'", user.Text.Trim(), BCrypt.Net.BCrypt.HashPassword(pwd.Text.Trim())));
+                    MessageBox.Show("Sesion iniciada!");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex);
+                }
+                
             }
         }
     }
