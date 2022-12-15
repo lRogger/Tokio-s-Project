@@ -37,16 +37,31 @@ namespace Individual
             {
                 try
                 {
-                    DataSet ds = Utilidades.consultar(String.Format("SELECT * FROM personas WHERE " +
-                    "cedula='{0}' AND password ='{1}'", user.Text.Trim(), BCrypt.Net.BCrypt.HashPassword(pwd.Text.Trim())));
-                    MessageBox.Show("Sesion iniciada!");
+                    DataSet ds = Utilidades.consultar("SELECT * FROM personas WHERE cedula = '"+user.Text.Trim()+"'");
+                    
+                    if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
+                    {
+                        MessageBox.Show("Sesion iniciada, bienvenido " + ds.Tables[0].Rows[0]["nombre"]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña incorrecta!");
+                    }
+                    
+                    
                 }
-                catch(Exception ex)
+                catch
                 {
-                    MessageBox.Show("Error: " + ex);
+                    MessageBox.Show("Nombre de usuario no encontrado");
                 }
                 
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Forgotpwd fg = new Forgotpwd();
+            fg.Show();
         }
     }
 }
