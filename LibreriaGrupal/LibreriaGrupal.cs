@@ -11,16 +11,15 @@ namespace LibreriaGrupal
 
         public static DataSet consultar (string cmd)
         {
-            string server = "localhost";
-            string user = "root";
-            string pass ="";
-            string puerto = "3306";
+            string server = "us-east.connect.psdb.cloud";
+            string user = "u1deef4ok1sdaos254mh";
+            string pass = "pscale_pw_eYFZVgEnWtWE0R6fAkZHVhXPL3vCw9wxeJ9fOaJ3SDd";
             string db = "chichar";
             string strCon;
 
 
             DataSet ds = new DataSet();
-            strCon = "server=" + server + ";port=" + puerto + 
+            strCon = "server=" + server +  
                 ";user id=" + user + ";password=" + pass + ";database=" + db + ";";
             MySqlConnection con = new MySqlConnection(strCon);
             try
