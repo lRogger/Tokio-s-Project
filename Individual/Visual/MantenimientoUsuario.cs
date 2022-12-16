@@ -32,10 +32,22 @@ namespace Individual.Visual
 
         private void buscarUser_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 DataSet ds = Utilidades.consultar("SELECT cedula, nombre, " +
-                    "correo, edad FROM personas WHERE nombre like '%"+buscarUser.Text.Trim()+"%'");
+                    "correo, edad FROM personas WHERE nombre like '%"+buscarUser.Text.Trim()+"%'" +
+                    " or cedula like '%"+buscarUser.Text.Trim()+"%'");
+                usersDGV.DataSource = ds.Tables[0];
+            }
+            
+        }
+
+        private void buscarUser_TextChanged(object sender, EventArgs e)
+        {
+            if (buscarUser.Text == "")
+            {
+                DataSet ds = Utilidades.consultar("SELECT cedula, nombre, correo, edad from personas");
                 usersDGV.DataSource = ds.Tables[0];
             }
         }

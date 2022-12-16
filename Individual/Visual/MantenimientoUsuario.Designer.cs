@@ -62,14 +62,24 @@
             this.buscarUser.PlaceholderText = "   🔎 Buscar...";
             this.buscarUser.Size = new System.Drawing.Size(740, 23);
             this.buscarUser.TabIndex = 1;
+            this.buscarUser.TextChanged += new System.EventHandler(this.buscarUser_TextChanged);
             this.buscarUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buscarUser_KeyPress);
             // 
             // usersDGV
             // 
+            this.usersDGV.AllowUserToAddRows = false;
+            this.usersDGV.AllowUserToDeleteRows = false;
+            this.usersDGV.AllowUserToOrderColumns = true;
+            this.usersDGV.AllowUserToResizeColumns = false;
+            this.usersDGV.AllowUserToResizeRows = false;
+            this.usersDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.usersDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.usersDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersDGV.Location = new System.Drawing.Point(-1, 22);
             this.usersDGV.Name = "usersDGV";
             this.usersDGV.RowTemplate.Height = 25;
+            this.usersDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.usersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersDGV.Size = new System.Drawing.Size(740, 580);
             this.usersDGV.TabIndex = 0;
             // 
@@ -167,7 +177,6 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Label label1;
-        private TextBox textBox1;
         private Button button1;
         private DataGridView usersDGV;
         private TextBox buscarUser;
