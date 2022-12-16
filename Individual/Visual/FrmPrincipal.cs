@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,22 +13,19 @@ namespace Individual.Visual
 {
     public partial class FrmPrincipal : Form
     {
-        private int childFormNumber = 0;
         private Login lg;
+        private int posX = 0, posY = 0;
 
         public FrmPrincipal(Login lg)
         {
             InitializeComponent();
             this.lg = lg;
+            profileP.ImageLocation = "../../../../data/Img/nube/" + lg.ds.Tables[0].Rows[0]["cedula"] + ".jpg";
+
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
-            childForm.Show();
-        }
+
+
 
         private void OpenFile(object sender, EventArgs e)
         {
@@ -42,6 +40,8 @@ namespace Individual.Visual
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
@@ -127,10 +127,39 @@ namespace Individual.Visual
             }
         }
 
+        private void menuStrip_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
+        }
+
+        private void toolStrip_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
+        }
+
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MantenimientoUsuario mu = new MantenimientoUsuario();
             mu.Show();
         }
+
     }
 }

@@ -7,6 +7,8 @@ namespace Individual
     public partial class Login : Form
     {
         private int posX = 0, posY = 0;
+        public DataSet ds;
+
         public Login()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace Individual
             {
                 try
                 {
-                    DataSet ds = Utilidades.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'");
+                    ds = Utilidades.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'");
 
                     if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
                     {

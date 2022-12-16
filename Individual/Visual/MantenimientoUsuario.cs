@@ -17,6 +17,7 @@ namespace Individual.Visual
         int posY = 0, posX = 0;
         public MantenimientoUsuario()
         {
+            
             InitializeComponent();
             DataSet ds = Utilidades.consultar("SELECT cedula, nombre, correo, edad from personas");
             usersDGV.DataSource = ds.Tables[0];

@@ -69,9 +69,11 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.cerrarSesion = new System.Windows.Forms.Button();
+            this.profileP = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profileP)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -84,9 +86,10 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(737, 24);
+            this.menuStrip.Size = new System.Drawing.Size(790, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            this.menuStrip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseMove);
             // 
             // fileMenu
             // 
@@ -115,7 +118,6 @@
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.newToolStripMenuItem.Text = "&Nuevo";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // openToolStripMenuItem
             // 
@@ -331,9 +333,10 @@
             this.toolStripSeparator2});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(737, 25);
+            this.toolStrip.Size = new System.Drawing.Size(790, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
+            this.toolStrip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.toolStrip_MouseMove);
             // 
             // newToolStripButton
             // 
@@ -343,7 +346,6 @@
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.newToolStripButton.Text = "Nuevo";
-            this.newToolStripButton.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // openToolStripButton
             // 
@@ -387,10 +389,10 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 501);
+            this.statusStrip.Location = new System.Drawing.Point(0, 364);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            this.statusStrip.Size = new System.Drawing.Size(737, 22);
+            this.statusStrip.Size = new System.Drawing.Size(790, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -410,11 +412,21 @@
             this.cerrarSesion.UseVisualStyleBackColor = true;
             this.cerrarSesion.Click += new System.EventHandler(this.cerrarSesion_Click);
             // 
+            // profileP
+            // 
+            this.profileP.Location = new System.Drawing.Point(12, 61);
+            this.profileP.Name = "profileP";
+            this.profileP.Size = new System.Drawing.Size(61, 75);
+            this.profileP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profileP.TabIndex = 8;
+            this.profileP.TabStop = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 523);
+            this.ClientSize = new System.Drawing.Size(790, 386);
+            this.Controls.Add(this.profileP);
             this.Controls.Add(this.cerrarSesion);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
@@ -431,6 +443,7 @@
             this.toolStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profileP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,6 +490,7 @@
         public ToolStripMenuItem adminMenu;
         private ToolStripMenuItem mantenimientoPersonasToolStripMenuItem;
         private ToolStripMenuItem mantenimientoRopaToolStripMenuItem;
+        private PictureBox profileP;
     }
 }
 
