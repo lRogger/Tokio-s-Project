@@ -6,6 +6,7 @@ namespace Individual
 {
     public partial class Login : Form
     {
+        private int posX = 0, posY = 0;
         public Login()
         {
             InitializeComponent();
@@ -87,14 +88,32 @@ namespace Individual
             Application.Exit();
         }
 
-        private void cerrar_MouseHover(object sender, EventArgs e)
+        private void splitContainer1_Panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            Cursor = Cursors.Hand;
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
         }
 
-        private void cerrar_MouseLeave(object sender, EventArgs e)
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            Cursor = Cursors.Default;
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
         }
 
         private void pwd_Enter(object sender, EventArgs e)

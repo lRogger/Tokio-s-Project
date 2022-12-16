@@ -55,7 +55,7 @@
             this.pwd.Name = "pwd";
             this.pwd.PasswordChar = '●';
             this.pwd.PlaceholderText = "Contraseña";
-            this.pwd.Size = new System.Drawing.Size(261, 19);
+            this.pwd.Size = new System.Drawing.Size(261, 18);
             this.pwd.TabIndex = 2;
             this.pwd.Enter += new System.EventHandler(this.pwd_Enter);
             this.pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
@@ -64,6 +64,7 @@
             // 
             this.button1.AutoSize = true;
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(92, 292);
@@ -71,7 +72,7 @@
             this.button1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.button1.Size = new System.Drawing.Size(147, 36);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Iniciar Sesión";
+            this.button1.Text = "Iniciar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -103,6 +104,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(1, 1);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -117,6 +119,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.user);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.pwd);
+            this.splitContainer1.Panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_Panel1_MouseMove);
             // 
             // splitContainer1.Panel2
             // 
@@ -167,6 +170,7 @@
             // 
             this.cerrar.AutoSize = true;
             this.cerrar.BackColor = System.Drawing.Color.Transparent;
+            this.cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cerrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cerrar.ForeColor = System.Drawing.Color.Purple;
             this.cerrar.Location = new System.Drawing.Point(352, 0);
@@ -177,8 +181,6 @@
             this.cerrar.TabIndex = 8;
             this.cerrar.Text = "X";
             this.cerrar.Click += new System.EventHandler(this.cerrar_Click);
-            this.cerrar.MouseLeave += new System.EventHandler(this.cerrar_MouseLeave);
-            this.cerrar.MouseHover += new System.EventHandler(this.cerrar_MouseHover);
             // 
             // pictureBox1
             // 
@@ -190,12 +192,13 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 613);
+            this.ClientSize = new System.Drawing.Size(753, 404);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";

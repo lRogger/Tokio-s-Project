@@ -13,8 +13,8 @@ namespace Individual.Visual
 {
     public partial class MantenimientoUsuario : Form
     {
-        
 
+        int posY = 0, posX = 0;
         public MantenimientoUsuario()
         {
             InitializeComponent();
@@ -50,6 +50,25 @@ namespace Individual.Visual
                 DataSet ds = Utilidades.consultar("SELECT cedula, nombre, correo, edad from personas");
                 usersDGV.DataSource = ds.Tables[0];
             }
+        }
+
+        private void MantenimientoUsuario_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
