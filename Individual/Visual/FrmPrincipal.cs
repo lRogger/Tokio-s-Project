@@ -126,5 +126,11 @@ namespace Individual.Visual
                 // Do something  
             }
         }
+
+        private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MantenimientoUsuario mu = new MantenimientoUsuario();
+            mu.Show();
+        }
     }
 }

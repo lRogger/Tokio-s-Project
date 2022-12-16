@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pwd = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -55,7 +54,7 @@
             this.pwd.Name = "pwd";
             this.pwd.PasswordChar = '●';
             this.pwd.PlaceholderText = "Contraseña";
-            this.pwd.Size = new System.Drawing.Size(261, 18);
+            this.pwd.Size = new System.Drawing.Size(261, 19);
             this.pwd.TabIndex = 2;
             this.pwd.Enter += new System.EventHandler(this.pwd_Enter);
             this.pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
@@ -182,7 +181,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::Individual.Properties.Resources.Stickers_cuadrado;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(-5, 0);
             this.pictureBox1.Name = "pictureBox1";
@@ -195,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 404);
+            this.ClientSize = new System.Drawing.Size(753, 613);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";

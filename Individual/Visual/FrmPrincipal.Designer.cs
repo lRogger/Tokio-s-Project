@@ -56,6 +56,8 @@
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoPersonasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoRopaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -67,8 +69,6 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.cerrarSesion = new System.Windows.Forms.Button();
-            this.mantenimientoPersonasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenimientoRopaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -307,6 +307,19 @@
             this.adminMenu.Text = "Admin";
             this.adminMenu.Visible = false;
             // 
+            // mantenimientoPersonasToolStripMenuItem
+            // 
+            this.mantenimientoPersonasToolStripMenuItem.Name = "mantenimientoPersonasToolStripMenuItem";
+            this.mantenimientoPersonasToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.mantenimientoPersonasToolStripMenuItem.Text = "Mantenimiento Personas";
+            this.mantenimientoPersonasToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoPersonasToolStripMenuItem_Click);
+            // 
+            // mantenimientoRopaToolStripMenuItem
+            // 
+            this.mantenimientoRopaToolStripMenuItem.Name = "mantenimientoRopaToolStripMenuItem";
+            this.mantenimientoRopaToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.mantenimientoRopaToolStripMenuItem.Text = "Mantenimiento Ropa";
+            // 
             // toolStrip
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -396,18 +409,6 @@
             this.cerrarSesion.Text = "Cerrar Sesión";
             this.cerrarSesion.UseVisualStyleBackColor = true;
             this.cerrarSesion.Click += new System.EventHandler(this.cerrarSesion_Click);
-            // 
-            // mantenimientoPersonasToolStripMenuItem
-            // 
-            this.mantenimientoPersonasToolStripMenuItem.Name = "mantenimientoPersonasToolStripMenuItem";
-            this.mantenimientoPersonasToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.mantenimientoPersonasToolStripMenuItem.Text = "Mantenimiento Personas";
-            // 
-            // mantenimientoRopaToolStripMenuItem
-            // 
-            this.mantenimientoRopaToolStripMenuItem.Name = "mantenimientoRopaToolStripMenuItem";
-            this.mantenimientoRopaToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.mantenimientoRopaToolStripMenuItem.Text = "Mantenimiento Ropa";
             // 
             // FrmPrincipal
             // 
