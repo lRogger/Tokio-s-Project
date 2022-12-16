@@ -30,7 +30,10 @@ namespace Individual.Visual
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Utilidades.consultar("select * from personas");
+
+            DataSet ds = Utilidades.consultar("SELECT * FROM personas");
+
+            dataGridView1.DataSource = ds.Tables[0];
         }
     }
 }
