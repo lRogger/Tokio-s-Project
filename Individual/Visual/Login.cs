@@ -18,6 +18,7 @@ namespace Individual
         public Login()
         {
             InitializeComponent();
+            this.cerrar.Parent = this.pictureBox1;
         }
 
         private void pwd_KeyPress(object sender, KeyPressEventArgs e)
@@ -116,6 +117,11 @@ namespace Individual
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
