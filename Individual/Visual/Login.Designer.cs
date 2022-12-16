@@ -32,7 +32,6 @@
             this.pwd = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.user = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -84,24 +83,10 @@
             this.linkLabel1.Location = new System.Drawing.Point(199, 254);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(92, 12);
-            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Olvidé mi contraseña";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.checkBox1.FlatAppearance.BorderSize = 2;
-            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(69)))), ((int)(((byte)(215)))));
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBox1.Location = new System.Drawing.Point(39, 251);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 16);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Recordar usuario";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // user
             // 
@@ -114,7 +99,6 @@
             this.user.PlaceholderText = "Cédula";
             this.user.Size = new System.Drawing.Size(261, 15);
             this.user.TabIndex = 1;
-            this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
             this.user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_KeyPress);
             // 
             // splitContainer1
@@ -133,19 +117,15 @@
             this.splitContainer1.Panel1.Controls.Add(this.user);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.pwd);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBox1);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.splitContainer1.Panel2.Controls.Add(this.cerrar);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(750, 401);
             this.splitContainer1.SplitterDistance = 354;
             this.splitContainer1.TabIndex = 5;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
             // panel3
             // 
@@ -174,7 +154,6 @@
             this.label3.Size = new System.Drawing.Size(228, 41);
             this.label3.TabIndex = 0;
             this.label3.Text = "Iniciar Sesion";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // splitter1
             // 
@@ -238,7 +217,6 @@
         private TextBox pwd;
         private Button button1;
         private LinkLabel linkLabel1;
-        private CheckBox checkBox1;
         private TextBox user;
         private SplitContainer splitContainer1;
         private Splitter splitter1;

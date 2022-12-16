@@ -1,15 +1,6 @@
-﻿using LibreriaGrupal;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Individual.Visual;
+using LibreriaGrupal;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Org.BouncyCastle.Crypto.Generators;
-using Individual.Visual;
 
 namespace Individual
 {
@@ -21,9 +12,54 @@ namespace Individual
             this.cerrar.Parent = this.pictureBox1;
         }
 
+        private void ingresar()
+        {
+            if (pwd.Text != "" && user.Text != "")
+            {
+                try
+                {
+                    DataSet ds = Utilidades.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'");
+
+                    if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
+                    {
+                        MessageBox.Show("Sesion iniciada, bienvenido " + ds.Tables[0].Rows[0]["nombre"]);
+                        FrmPrincipal frmp = new FrmPrincipal(this);
+                        if (ds.Tables[0].Rows[0]["admin"] is true)
+                        {
+                            frmp.adminMenu.Visible = true;
+                        }
+                        frmp.Show();
+                        this.Hide();
+                        pwd.Text = "";
+                        user.Text = "";
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña incorrecta!");
+                        pwd.Text = "";
+                    }
+
+
+                }
+                catch
+                {
+                    MessageBox.Show("Nombre de usuario no encontrado");
+                    pwd.Text = "";
+                    user.Text = "";
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Campos vacios!");
+            }
+        }
+
         private void pwd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if ((e.KeyChar == Convert.ToChar(Keys.Enter)))
+                ingresar();
         }
 
         private void user_KeyPress(object sender, KeyPressEventArgs e)
@@ -35,32 +71,7 @@ namespace Individual
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(pwd.Text != "" && user.Text != "")
-            {
-                try
-                {
-                    DataSet ds = Utilidades.consultar("SELECT * FROM personas WHERE cedula = '"+user.Text.Trim()+"'");
-
-                    if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
-                    {
-                        MessageBox.Show("Sesion iniciada, bienvenido " + ds.Tables[0].Rows[0]["nombre"]);
-                        Form1 f1 = new Form1();
-                        f1.Show();
-                        
-                    }
-                    else
-                    {
-                        MessageBox.Show("Contraseña incorrecta!");
-                    }
-                    
-                    
-                }
-                catch
-                {
-                    MessageBox.Show("Nombre de usuario no encontrado");
-                }
-                
-            }
+            ingresar();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -69,55 +80,7 @@ namespace Individual
             fg.Show();
         }
 
-        private void user_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void pwd_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void cerrar_Click(object sender, EventArgs e)
         {
@@ -131,7 +94,12 @@ namespace Individual
 
         private void cerrar_MouseLeave(object sender, EventArgs e)
         {
-            Cursor =Cursors.Default;
+            Cursor = Cursors.Default;
+        }
+
+        private void pwd_Enter(object sender, EventArgs e)
+        {
+            
         }
     }
 }
