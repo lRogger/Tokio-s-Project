@@ -50,12 +50,12 @@
             // pwd
             // 
             this.pwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pwd.Location = new System.Drawing.Point(39, 201);
+            this.pwd.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.pwd.Location = new System.Drawing.Point(34, 187);
             this.pwd.Name = "pwd";
             this.pwd.PasswordChar = '●';
-            this.pwd.PlaceholderText = "Contraseña";
-            this.pwd.Size = new System.Drawing.Size(261, 18);
+            this.pwd.PlaceholderText = "Contraseña                                 🔑";
+            this.pwd.Size = new System.Drawing.Size(223, 14);
             this.pwd.TabIndex = 2;
             this.pwd.Enter += new System.EventHandler(this.pwd_Enter);
             this.pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
@@ -65,13 +65,14 @@
             this.button1.AutoSize = true;
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(92, 292);
+            this.button1.Location = new System.Drawing.Point(34, 243);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.button1.Size = new System.Drawing.Size(147, 36);
+            this.button1.Size = new System.Drawing.Size(223, 36);
             this.button1.TabIndex = 3;
+            this.button1.Tag = "";
             this.button1.Text = "Iniciar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -80,13 +81,14 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.LinkColor = System.Drawing.Color.Purple;
-            this.linkLabel1.Location = new System.Drawing.Point(199, 254);
+            this.linkLabel1.LinkColor = System.Drawing.Color.Gray;
+            this.linkLabel1.Location = new System.Drawing.Point(99, 283);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(92, 12);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Olvidé mi contraseña";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.LightGray;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // user
@@ -94,17 +96,18 @@
             this.user.BackColor = System.Drawing.Color.White;
             this.user.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.user.CausesValidation = false;
-            this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.user.Location = new System.Drawing.Point(39, 161);
+            this.user.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.user.Location = new System.Drawing.Point(34, 147);
             this.user.Name = "user";
-            this.user.PlaceholderText = "Cédula";
-            this.user.Size = new System.Drawing.Size(261, 15);
+            this.user.PlaceholderText = "Cédula                                         ℹ";
+            this.user.Size = new System.Drawing.Size(223, 14);
             this.user.TabIndex = 1;
+            this.user.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
             this.user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_KeyPress);
             // 
             // splitContainer1
             // 
-            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(1, 1);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -119,6 +122,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.user);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.pwd);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             this.splitContainer1.Panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_Panel1_MouseMove);
             // 
             // splitContainer1.Panel2
@@ -126,37 +130,41 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.splitContainer1.Panel2.Controls.Add(this.cerrar);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(750, 401);
-            this.splitContainer1.SplitterDistance = 354;
+            this.splitContainer1.SplitterDistance = 290;
             this.splitContainer1.TabIndex = 5;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(39, 225);
+            this.panel3.Location = new System.Drawing.Point(34, 210);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(261, 2);
+            this.panel3.Size = new System.Drawing.Size(223, 2);
             this.panel3.TabIndex = 8;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(39, 182);
+            this.panel1.Location = new System.Drawing.Point(34, 169);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(261, 2);
+            this.panel1.Size = new System.Drawing.Size(223, 2);
             this.panel1.TabIndex = 7;
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Gotham", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.label3.Location = new System.Drawing.Point(33, 82);
+            this.label3.Location = new System.Drawing.Point(3, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(228, 41);
+            this.label3.Size = new System.Drawing.Size(287, 41);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Iniciar Sesion";
+            this.label3.Text = "Bienvenido";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // splitter1
             // 
@@ -198,7 +206,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 404);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(686, 401);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
