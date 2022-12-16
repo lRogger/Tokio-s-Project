@@ -203,11 +203,15 @@
             this.cerrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cerrar.ForeColor = System.Drawing.Color.Purple;
             this.cerrar.Location = new System.Drawing.Point(352, 8);
+            this.cerrar.Margin = new System.Windows.Forms.Padding(5);
             this.cerrar.Name = "cerrar";
-            this.cerrar.Size = new System.Drawing.Size(30, 32);
+            this.cerrar.Padding = new System.Windows.Forms.Padding(5);
+            this.cerrar.Size = new System.Drawing.Size(40, 42);
             this.cerrar.TabIndex = 8;
             this.cerrar.Text = "X";
             this.cerrar.Click += new System.EventHandler(this.cerrar_Click);
+            this.cerrar.MouseLeave += new System.EventHandler(this.cerrar_MouseLeave);
+            this.cerrar.MouseHover += new System.EventHandler(this.cerrar_MouseHover);
             // 
             // pictureBox1
             // 

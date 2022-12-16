@@ -123,5 +123,15 @@ namespace Individual
         {
             Application.Exit();
         }
+
+        private void cerrar_MouseHover(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void cerrar_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor =Cursors.Default;
+        }
     }
 }
