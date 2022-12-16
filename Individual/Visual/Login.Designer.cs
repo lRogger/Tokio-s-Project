@@ -40,6 +40,8 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.cerrar = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -51,11 +53,11 @@
             // 
             this.pwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pwd.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pwd.Location = new System.Drawing.Point(34, 187);
+            this.pwd.Location = new System.Drawing.Point(34, 191);
             this.pwd.Name = "pwd";
             this.pwd.PasswordChar = '●';
-            this.pwd.PlaceholderText = "Contraseña                                 🔑";
-            this.pwd.Size = new System.Drawing.Size(223, 14);
+            this.pwd.PlaceholderText = "Contraseña";
+            this.pwd.Size = new System.Drawing.Size(207, 14);
             this.pwd.TabIndex = 2;
             this.pwd.Enter += new System.EventHandler(this.pwd_Enter);
             this.pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
@@ -82,7 +84,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.linkLabel1.LinkColor = System.Drawing.Color.Gray;
-            this.linkLabel1.Location = new System.Drawing.Point(99, 283);
+            this.linkLabel1.Location = new System.Drawing.Point(99, 284);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(92, 12);
             this.linkLabel1.TabIndex = 0;
@@ -97,12 +99,11 @@
             this.user.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.user.CausesValidation = false;
             this.user.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.user.Location = new System.Drawing.Point(34, 147);
+            this.user.Location = new System.Drawing.Point(34, 151);
             this.user.Name = "user";
-            this.user.PlaceholderText = "Cédula                                         ℹ";
-            this.user.Size = new System.Drawing.Size(223, 14);
+            this.user.PlaceholderText = "Cédula";
+            this.user.Size = new System.Drawing.Size(207, 14);
             this.user.TabIndex = 1;
-            this.user.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
             this.user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_KeyPress);
             // 
@@ -114,6 +115,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.panel3);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
@@ -158,7 +161,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Gotham", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.label3.Location = new System.Drawing.Point(3, 82);
+            this.label3.Location = new System.Drawing.Point(3, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(287, 41);
             this.label3.TabIndex = 0;
@@ -202,6 +205,32 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.CausesValidation = false;
+            this.textBox1.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(235, 151);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PlaceholderText = "ℹ";
+            this.textBox1.Size = new System.Drawing.Size(22, 14);
+            this.textBox1.TabIndex = 9;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.CausesValidation = false;
+            this.textBox2.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(235, 191);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PlaceholderText = "🔑";
+            this.textBox2.Size = new System.Drawing.Size(22, 14);
+            this.textBox2.TabIndex = 10;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -237,5 +266,7 @@
         private Label cerrar;
         private Panel panel1;
         private Panel panel3;
+        private TextBox textBox2;
+        private TextBox textBox1;
     }
 }
