@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Org.BouncyCastle.Crypto.Generators;
+using Individual.Visual;
 
 namespace Individual
 {
@@ -42,6 +43,9 @@ namespace Individual
                     if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
                     {
                         MessageBox.Show("Sesion iniciada, bienvenido " + ds.Tables[0].Rows[0]["nombre"]);
+                        Form1 f1 = new Form1();
+                        f1.Show();
+                        
                     }
                     else
                     {

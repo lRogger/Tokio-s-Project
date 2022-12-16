@@ -61,7 +61,6 @@ namespace Individual
 
         private void enviar_Click(object sender, EventArgs e)
         {
-            bool iguales = false;
 
             if(newpwd.Text.Trim() == newpwd2.Text.Trim())
             {
@@ -71,7 +70,6 @@ namespace Individual
                         BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" + 
                         cedulafpwd.Text.Trim() + "'");
                     MessageBox.Show("Contraseña cambiada con éxito!");
-                    iguales = true;
                 }
                 catch(Exception ex)
                 {
