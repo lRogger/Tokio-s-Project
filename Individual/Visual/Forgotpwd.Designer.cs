@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 228);
+            this.ClientSize = new System.Drawing.Size(482, 318);
             this.Controls.Add(this.newpwd2);
             this.Controls.Add(this.newpwd);
             this.Controls.Add(this.enviar);
@@ -151,6 +151,7 @@
             this.Name = "Forgotpwd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgotpwd";
+            this.Load += new System.EventHandler(this.Forgotpwd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

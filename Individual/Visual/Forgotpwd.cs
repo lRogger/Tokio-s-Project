@@ -90,5 +90,10 @@ namespace Individual
         {
 
         }
+
+        private void Forgotpwd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

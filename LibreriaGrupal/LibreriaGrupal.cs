@@ -1,13 +1,16 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
-using System.Data.SqlClient;
+using System.IO.Enumeration;
 using System.Runtime.ConstrainedExecution;
-
+using System.Security.Principal;
 
 namespace LibreriaGrupal
 {
+
     public class Utilidades
     {
+
+          
 
         public static MySqlConnection conectarDB()
         {
@@ -78,4 +81,6 @@ namespace LibreriaGrupal
         }
 
     }
+
+
 }//Lindsay estuvo aqui

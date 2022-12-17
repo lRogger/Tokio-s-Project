@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Individual", "Individual\Individual.csproj", "{FB3F5003-4063-4F94-93AB-E8AE783235ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Individual", "Individual\Individual.csproj", "{FB3F5003-4063-4F94-93AB-E8AE783235ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreriaGrupal", "LibreriaGrupal\LibreriaGrupal.csproj", "{990D8E98-A02D-4E21-8457-C4E6ABC9B099}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibreriaGrupal", "LibreriaGrupal\LibreriaGrupal.csproj", "{990D8E98-A02D-4E21-8457-C4E6ABC9B099}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
