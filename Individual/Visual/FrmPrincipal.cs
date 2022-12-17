@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibreriaGrupal;
+using Org.BouncyCastle.Crypto.Macs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
 
 namespace Individual.Visual
 {
@@ -15,13 +18,36 @@ namespace Individual.Visual
     {
         private Login lg;
         private int posX = 0, posY = 0;
+        plantillaRopa p1 = new plantillaRopa();
+        plantillaRopa p2 = new plantillaRopa();
+        plantillaRopa p3 = new plantillaRopa();
+        plantillaRopa p4 = new plantillaRopa();
 
         public FrmPrincipal(Login lg)
         {
             InitializeComponent();
             this.lg = lg;
-            profileP.ImageLocation = "../../../../data/Img/nube/" + lg.ds.Tables[0].Rows[0]["cedula"] + ".jpg";
-            sesion.Text = "Sesión: "+ lg.ds.Tables[0].Rows[0]["nombre"];
+
+
+            
+            MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["imagen"]);
+            Image img = Image.FromStream(ms);
+            profileP.Image = img;
+            
+
+
+
+
+
+
+            flPanel.Controls.Add(p1);
+            flPanel.Controls.Add(p2);
+            flPanel.Controls.Add(p3);
+            flPanel.Controls.Add(p4);
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            
 
         }
 
@@ -50,6 +76,8 @@ namespace Individual.Visual
             {
                 string FileName = saveFileDialog.FileName;
             }
+
+            
         }
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
@@ -74,10 +102,6 @@ namespace Individual.Visual
             toolStrip.Visible = toolBarToolStripMenuItem.Checked;
         }
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -154,6 +178,22 @@ namespace Individual.Visual
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            p1.Hide();
+            p2.Hide();
+            p3.Hide();
+            p4.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            p1.Show();
+            p2.Show();
+            p3.Show();
+            p4.Show();
         }
 
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)

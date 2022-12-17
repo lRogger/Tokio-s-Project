@@ -1,6 +1,8 @@
 ﻿using Individual.Visual;
 using LibreriaGrupal;
+using MySql.Data.MySqlClient;
 using System.Data;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace Individual
@@ -8,7 +10,7 @@ namespace Individual
     public partial class Login : Form
     {
         private int posX = 0, posY = 0;
-        public DataSet ds;
+        public DataSet ds = new DataSet();
 
         public Login()
         {
@@ -19,6 +21,25 @@ namespace Individual
 
         private void ingresar()
         {
+            /*
+            MemoryStream ms = new MemoryStream();
+            pictureBox1.Image.Save(ms, ImageFormat.Jpeg);
+            byte[] aByte = ms.GetBuffer();
+            Utilidades.instruccionDB("UPDATE personas SET imagen = '" + aByte + "' WHERE nombre='Rogger Parraga'");
+
+
+            
+            MySqlCommand comando = new MySqlCommand(("select imagen from personas where nombre = 'Rogger Parraga'"), Utilidades.conectarDB());
+            MySqlDataReader reader = comando.ExecuteReader();
+            reader.Read();
+            MessageBox.Show(reader["imagen"].ToString());
+            MemoryStream md = new MemoryStream((byte[])reader["imagen"]);
+            Bitmap bm = new Bitmap(md);
+            pictureBox2.Image = bm;
+            */
+
+
+
             if (pwd.Text != "" && user.Text != "")
             {
                 try
@@ -45,11 +66,10 @@ namespace Individual
                         pwd.Text = "";
                     }
 
-
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Nombre de usuario no encontrado");
+                    MessageBox.Show(ex.ToString());
                     pwd.Text = "";
                     user.Text = "";
                 }
