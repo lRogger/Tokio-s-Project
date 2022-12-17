@@ -29,11 +29,11 @@ namespace Individual.Visual
             this.lg = lg;
 
 
-            
+            /*
             MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["imagen"]);
             Image img = Image.FromStream(ms);
             profileP.Image = img;
-            
+            */
 
 
 
