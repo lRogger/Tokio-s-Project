@@ -21,6 +21,7 @@ namespace Individual.Visual
             InitializeComponent();
             this.lg = lg;
             profileP.ImageLocation = "../../../../data/Img/nube/" + lg.ds.Tables[0].Rows[0]["cedula"] + ".jpg";
+            sesion.Text = "Sesión: "+ lg.ds.Tables[0].Rows[0]["nombre"];
 
         }
 

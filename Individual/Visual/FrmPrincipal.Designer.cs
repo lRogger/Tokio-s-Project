@@ -70,6 +70,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.cerrarSesion = new System.Windows.Forms.Button();
             this.profileP = new System.Windows.Forms.PictureBox();
+            this.sesion = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -421,11 +422,21 @@
             this.profileP.TabIndex = 8;
             this.profileP.TabStop = false;
             // 
+            // sesion
+            // 
+            this.sesion.AutoSize = true;
+            this.sesion.Location = new System.Drawing.Point(94, 73);
+            this.sesion.Name = "sesion";
+            this.sesion.Size = new System.Drawing.Size(62, 15);
+            this.sesion.TabIndex = 10;
+            this.sesion.Text = "Sesion: ___";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 386);
+            this.Controls.Add(this.sesion);
             this.Controls.Add(this.profileP);
             this.Controls.Add(this.cerrarSesion);
             this.Controls.Add(this.statusStrip);
@@ -491,6 +502,7 @@
         private ToolStripMenuItem mantenimientoPersonasToolStripMenuItem;
         private ToolStripMenuItem mantenimientoRopaToolStripMenuItem;
         private PictureBox profileP;
+        private Label sesion;
     }
 }
 

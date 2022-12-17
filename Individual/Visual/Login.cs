@@ -1,6 +1,7 @@
 ﻿using Individual.Visual;
 using LibreriaGrupal;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Individual
 {
@@ -13,6 +14,7 @@ namespace Individual
         {
             InitializeComponent();
             this.cerrar.Parent = this.pictureBox1;
+            
         }
 
         private void ingresar()
@@ -62,7 +64,10 @@ namespace Individual
         private void pwd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar == Convert.ToChar(Keys.Enter)))
+            {
                 ingresar();
+            }
+                
         }
 
         private void user_KeyPress(object sender, KeyPressEventArgs e)
