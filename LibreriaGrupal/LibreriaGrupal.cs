@@ -14,9 +14,17 @@ namespace LibreriaGrupal
 
         public static MySqlConnection conectarDB()
         {
+            /*
             string server = "us-east.connect.psdb.cloud";
             string user = "u1deef4ok1sdaos254mh";
             string pass = "pscale_pw_eYFZVgEnWtWE0R6fAkZHVhXPL3vCw9wxeJ9fOaJ3SDd";
+            string db = "chichar";
+            string strCon;
+            */
+
+            string server = "db4free.net";
+            string user = "lrogger";
+            string pass = "Rogger123";
             string db = "chichar";
             string strCon;
 
