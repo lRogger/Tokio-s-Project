@@ -34,13 +34,15 @@ namespace CustomControls.RJControls
         #endregion
 
         #region -> Constructor
+#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public RJComboBox()
+#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         {
             cmbList = new ComboBox();
             lblText = new Label();
             btnIcon = new Button();
             this.SuspendLayout();
-
+#pragma warning disable CS8622
             //ComboBox: Dropdown list
             cmbList.BackColor = listBackColor;
             cmbList.Font = new Font(this.Font.Name, 10F);
@@ -66,10 +68,13 @@ namespace CustomControls.RJControls
             lblText.Padding = new Padding(8, 0, 0, 0);
             lblText.Font = new Font(this.Font.Name, 10F);
             //->Attach label events to user control event
-            lblText.Click += new EventHandler(Surface_Click);//Select combo box
-            lblText.MouseEnter += new EventHandler(Surface_MouseEnter);
-            lblText.MouseLeave += new EventHandler(Surface_MouseLeave);
 
+            lblText.Click += new EventHandler(Surface_Click);//Select combo box
+ // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
+            lblText.MouseEnter += new EventHandler(Surface_MouseEnter);
+ // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
+            lblText.MouseLeave += new EventHandler(Surface_MouseLeave);
+#pragma warning restore CS8622
             //User Control
             this.Controls.Add(lblText);//2
             this.Controls.Add(btnIcon);//1
@@ -80,7 +85,9 @@ namespace CustomControls.RJControls
             this.Padding = new Padding(borderSize);//Border Size
             this.Font = new Font(this.Font.Name, 10F);
             base.BackColor = borderColor; //Border Color
+#pragma warning disable CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
             this.Load += new System.EventHandler(this.RJComboBox_Load);
+#pragma warning restore CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
             this.ResumeLayout();
             AdjustComboBoxDimensions();
         }

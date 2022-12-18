@@ -1,4 +1,5 @@
-﻿using LibreriaGrupal;
+﻿using Individual.Modelos;
+using LibreriaGrupal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +16,22 @@ namespace Individual.Visual
     {
 
         int posY = 0, posX = 0;
+        private DataBase db = new DataBase();
         public MantenimientoUsuario()
         {
             
             InitializeComponent();
-            DataSet ds = Utilidades.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
+            DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
             usersDGV.DataSource = ds.Tables[0];
             usersDGV.RowHeadersVisible = false;
+
+            usersDGV.RowTemplate.Height = (int)((double)usersDGV.Columns[5].Width * 1.4);
+
+            DataGridViewImageColumn dgvImagen = (DataGridViewImageColumn)usersDGV.Columns[5];
+
+            dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+            dgvImagen.DefaultCellStyle.NullValue = null;
 
 
         }
@@ -37,7 +47,7 @@ namespace Individual.Visual
             
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                DataSet ds = Utilidades.consultar("SELECT id, cedula, nombre, " +
+                DataSet ds = db.consultar("SELECT id, cedula, nombre, " +
                     "correo, edad, imagen FROM personas WHERE cedula != 0 and (nombre like '%" + buscarUser.Text.Trim()+"%'" +
                     " or cedula like '%"+buscarUser.Text.Trim()+"%')");
                 usersDGV.DataSource = ds.Tables[0];
@@ -49,7 +59,7 @@ namespace Individual.Visual
         {
             if (buscarUser.Text == "")
             {
-                DataSet ds = Utilidades.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
+                DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
                 usersDGV.DataSource = ds.Tables[0];
             }
         }

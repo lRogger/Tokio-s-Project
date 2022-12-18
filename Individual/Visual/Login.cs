@@ -1,4 +1,5 @@
-﻿using Individual.Visual;
+﻿using Individual.Modelos;
+using Individual.Visual;
 using LibreriaGrupal;
 using MySql.Data.MySqlClient;
 using System.Data;
@@ -11,6 +12,7 @@ namespace Individual
     {
         private int posX = 0, posY = 0;
         public DataSet ds = new DataSet();
+        private DataBase db = new DataBase();
 
         public Login()
         {
@@ -44,7 +46,7 @@ namespace Individual
             {
                 try
                 {
-                    ds = Utilidades.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'");
+                    ds = db.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'");
 
                     if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
                     {

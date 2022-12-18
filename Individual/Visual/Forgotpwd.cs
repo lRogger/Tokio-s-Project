@@ -1,4 +1,5 @@
-﻿using LibreriaGrupal;
+﻿using Individual.Modelos;
+using LibreriaGrupal;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Individual
     public partial class Forgotpwd : Form
     {
         private DataSet ds = new DataSet();
+        private DataBase db = new DataBase();
 
         public Forgotpwd()
         {
@@ -41,7 +43,7 @@ namespace Individual
         private void BtnValidarFp_Click(object sender, EventArgs e)
         {
             
-            ds = Utilidades.consultar("SELECT * FROM personas WHERE cedula = '" + 
+            ds = db.consultar("SELECT * FROM personas WHERE cedula = '" + 
                 correofpwd.Text.ToLower() + "' AND correo = '" + cedulafpwd + "'");
 
             if(ds != null)
@@ -66,7 +68,7 @@ namespace Individual
             {
                 try
                 {
-                    Utilidades.instruccionDB("UPDATE personas SET password = '" +
+                    db.instruccionDB("UPDATE personas SET password = '" +
                         BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" + 
                         cedulafpwd.Text.Trim() + "'");
                     MessageBox.Show("Contraseña cambiada con éxito!");

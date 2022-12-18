@@ -11,11 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using Individual.Modelos;
 
 namespace Individual.Visual
 {
     public partial class FrmPrincipal : Form
     {
+        private DataBase db = new DataBase();
         private Login lg;
         private int posX = 0, posY = 0;
         plantillaRopa p1 = new plantillaRopa();
@@ -33,7 +35,7 @@ namespace Individual.Visual
                 Image img = Image.FromStream(ms);
                 profileP.Image = img;
             }
-            catch(Exception ex)
+            catch
             {
                 profileP.ImageLocation = "../../../../data/Img/defaultAvatar.png";
             }

@@ -73,7 +73,9 @@ namespace Individual.Visual.ComponentesMod
             Size = new Size(150, 40);
             BackColor = Color.MediumSlateBlue;
             ForeColor = Color.White;
+#pragma warning disable CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
             Resize += new EventHandler(Button_Resize);
+#pragma warning restore CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
         }
 
         //Methods
@@ -139,7 +141,9 @@ namespace Individual.Visual.ComponentesMod
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
+#pragma warning disable CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
             Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+#pragma warning restore CS8622 // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
         }
         private void Container_BackColorChanged(object sender, EventArgs e)
         {
