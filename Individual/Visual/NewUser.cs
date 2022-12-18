@@ -48,27 +48,12 @@ namespace Individual.Visual
 
         private void Cerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(cedUser.Enabled.ToString());
-            if (!cedUser.Enabled)
-            {
-                enviar();
-            }else if (cedUser.Enabled)
-            {
-                DataSet ds = db.consultar("SELECT cedula FROM personas WHERE cedula = " + cedUser.Text);
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    MessageBox.Show("Cedula ya se encuentra registrada");
-                }
-                else
-                {
-                    enviar();
-                }
-            }
+
 
 
         }
@@ -119,6 +104,62 @@ namespace Individual.Visual
                 Top = Top + (e.Y - posY);
             }
 
+
+        }
+
+        private void edadUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void correoUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nomUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cedUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cerrar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(cedUser.Enabled.ToString());
+            if (!cedUser.Enabled)
+            {
+                enviar();
+            }
+            else if (cedUser.Enabled)
+            {
+                DataSet ds = db.consultar("SELECT cedula FROM personas WHERE cedula = " + cedUser.Text);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    MessageBox.Show("Cedula ya se encuentra registrada");
+                }
+                else
+                {
+                    enviar();
+                }
+            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void admUser_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
 

@@ -22,7 +22,7 @@ namespace Individual.Visual
             usersDGV.DataSource = ds.Tables[0];
             usersDGV.RowHeadersVisible = false;
 
-            usersDGV.RowTemplate.Height = (int)((double)usersDGV.Columns[5].Width/0.75);
+            usersDGV.RowTemplate.Height = usersDGV.Columns[5].Width;
 
             DataGridViewImageColumn dgvImagen = (DataGridViewImageColumn)usersDGV.Columns[5];
 
@@ -163,7 +163,10 @@ namespace Individual.Visual
             }
         }
 
+        private void MantenimientoUsuario_Load(object sender, EventArgs e)
+        {
 
+        }
 
         private void cargarTabla()
         {
