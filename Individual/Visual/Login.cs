@@ -23,22 +23,9 @@ namespace Individual
 
         private void ingresar()
         {
-            /*
             MemoryStream ms = new MemoryStream();
             pictureBox1.Image.Save(ms, ImageFormat.Jpeg);
-            byte[] aByte = ms.GetBuffer();
-            Utilidades.instruccionDB("UPDATE personas SET imagen = '" + aByte + "' WHERE nombre='Rogger Parraga'");
-
-
-            
-            MySqlCommand comando = new MySqlCommand(("select imagen from personas where nombre = 'Rogger Parraga'"), Utilidades.conectarDB());
-            MySqlDataReader reader = comando.ExecuteReader();
-            reader.Read();
-            MessageBox.Show(reader["imagen"].ToString());
-            MemoryStream md = new MemoryStream((byte[])reader["imagen"]);
-            Bitmap bm = new Bitmap(md);
-            pictureBox2.Image = bm;
-            */
+            byte[] aByte = ms.ToArray();
 
 
 
@@ -101,6 +88,7 @@ namespace Individual
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             ingresar();
         }
 

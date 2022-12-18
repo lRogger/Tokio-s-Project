@@ -66,7 +66,16 @@ namespace Individual.Modelos
         {
             MySqlConnection con = conectarDB();
             MySqlCommand comando = new MySqlCommand(cmd, con);
-            comando.ExecuteNonQuery();
+
+            try
+            {
+                comando.ExecuteNonQuery();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            
             con.Close();
         }
 

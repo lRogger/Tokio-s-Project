@@ -35,9 +35,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.editar = new System.Windows.Forms.Button();
+            this.crear = new System.Windows.Forms.Button();
+            this.eliminar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -123,32 +123,35 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // editar
             // 
-            this.button2.Location = new System.Drawing.Point(308, 65);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.editar.Location = new System.Drawing.Point(308, 65);
+            this.editar.Name = "editar";
+            this.editar.Size = new System.Drawing.Size(75, 23);
+            this.editar.TabIndex = 5;
+            this.editar.Text = "Editar";
+            this.editar.UseVisualStyleBackColor = true;
+            this.editar.Click += new System.EventHandler(this.editar_Click);
             // 
-            // button3
+            // crear
             // 
-            this.button3.Location = new System.Drawing.Point(389, 65);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Crear";
-            this.button3.UseVisualStyleBackColor = true;
+            this.crear.Location = new System.Drawing.Point(389, 65);
+            this.crear.Name = "crear";
+            this.crear.Size = new System.Drawing.Size(75, 23);
+            this.crear.TabIndex = 6;
+            this.crear.Text = "Crear";
+            this.crear.UseVisualStyleBackColor = true;
+            this.crear.Click += new System.EventHandler(this.crear_Click);
             // 
-            // button4
+            // eliminar
             // 
-            this.button4.Location = new System.Drawing.Point(470, 65);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Eliminar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.eliminar.Location = new System.Drawing.Point(470, 65);
+            this.eliminar.Name = "eliminar";
+            this.eliminar.Size = new System.Drawing.Size(75, 23);
+            this.eliminar.TabIndex = 7;
+            this.eliminar.Text = "Eliminar";
+            this.eliminar.UseVisualStyleBackColor = true;
+            this.eliminar.Click += new System.EventHandler(this.eliminar_Click);
             // 
             // MantenimientoUsuario
             // 
@@ -156,9 +159,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(764, 709);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.eliminar);
+            this.Controls.Add(this.crear);
+            this.Controls.Add(this.editar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -184,8 +187,8 @@
         private Button button1;
         private DataGridView usersDGV;
         private TextBox buscarUser;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button editar;
+        private Button crear;
+        private Button eliminar;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Individual.Modelos
 {
-    internal class Persona
+    public class Persona
     {
 
         private int id;
@@ -14,19 +14,26 @@ namespace Individual.Modelos
         private string cedula;
         private string correo;
         private int edad;
-        private string password;
         private bool admin;
         private byte[] foto;
 
+        public Persona()
+        {
+            this.nombre = "";
+            this.cedula = "";
+            this.correo = "";
+            this.edad = 0;
+            this.admin = false;
+            this.foto = new byte[0];
+        }
 
         public Persona(string nombre, string cedula, string correo,
-            int edad, string password, bool admin, byte[] foto)
+            int edad, bool admin, byte[] foto)
         {
             this.nombre = nombre;
             this.cedula = cedula;
             this.correo = correo;
             this.edad = edad;
-            this.password = password;
             this.admin = admin;
             this.foto = foto;
         }
@@ -36,7 +43,6 @@ namespace Individual.Modelos
         public string Cedula { get => cedula; set => cedula = value; }
         public string Correo { get => correo; set => correo = value; }
         public int Edad { get => edad; set => edad = value; }
-        public string Password { get => password; set => password = value; }
         public bool Admin { get => admin; set => admin = value; }
         public byte[] Foto { get => foto; set => foto = value; }
     }

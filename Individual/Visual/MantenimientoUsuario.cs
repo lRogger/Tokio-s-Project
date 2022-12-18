@@ -1,14 +1,9 @@
 ﻿using Individual.Modelos;
-using LibreriaGrupal;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using Individual.Visual.ComponentesMod;
+using Microsoft.VisualBasic;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Individual.Visual
 {
@@ -17,6 +12,8 @@ namespace Individual.Visual
 
         int posY = 0, posX = 0;
         private DataBase db = new DataBase();
+
+
         public MantenimientoUsuario()
         {
             
@@ -25,7 +22,7 @@ namespace Individual.Visual
             usersDGV.DataSource = ds.Tables[0];
             usersDGV.RowHeadersVisible = false;
 
-            usersDGV.RowTemplate.Height = (int)((double)usersDGV.Columns[5].Width * 1.4);
+            usersDGV.RowTemplate.Height = (int)((double)usersDGV.Columns[5].Width/0.75);
 
             DataGridViewImageColumn dgvImagen = (DataGridViewImageColumn)usersDGV.Columns[5];
 
@@ -59,8 +56,7 @@ namespace Individual.Visual
         {
             if (buscarUser.Text == "")
             {
-                DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
-                usersDGV.DataSource = ds.Tables[0];
+                cargarTabla();
             }
         }
 
@@ -78,9 +74,97 @@ namespace Individual.Visual
             }
         }
 
+        private void editar_Click(object sender, EventArgs e)
+        {
+            if(usersDGV.SelectedRows.Count > 0)
+            {
+                int i = usersDGV.CurrentRow.Index;
+                DataSet dsa = db.consultar("Select cedula, nombre, correo, edad, admin, imagen" +
+                    " FROM personas WHERE cedula = " + usersDGV.Rows[i].Cells["cedula"].Value.ToString());
+
+
+                NewUser nu = new NewUser();
+                nu.cedUser.Text = dsa.Tables[0].Rows[0]["cedula"].ToString();
+                nu.cedUser.Enabled = false;
+
+                nu.nomUser.Text = dsa.Tables[0].Rows[0]["nombre"].ToString();
+                nu.correoUser.Text = dsa.Tables[0].Rows[0]["correo"].ToString();
+                nu.edadUser.Text = dsa.Tables[0].Rows[0]["edad"].ToString();
+                nu.admUser.Checked = (dsa.Tables[0].Rows[0]["admin"].ToString() == "True") 
+                    ? true : false;
+
+                MemoryStream ms = new MemoryStream((byte[])dsa.Tables[0].Rows[0]["imagen"]);
+                Image img = Image.FromStream(ms);
+                nu.fotoUser.Image = img;
+                if(nu.ShowDialog() == DialogResult.OK)
+                {
+                    cargarTabla();
+                }
+                else
+                {
+                    MessageBox.Show("Operación no completada!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una persona!");
+            }
+ 
+            
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+        private void eliminar_Click(object sender, EventArgs e)
+        {
+
+            string message = "Eliminar el registro?";
+            string title = "ATENCIÓN ⚠️";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                int i = usersDGV.CurrentRow.Index;
+
+                db.instruccionDB("Delete from personas WHERE cedula = " +
+                        usersDGV.Rows[i].Cells["cedula"].Value.ToString());
+
+                cargarTabla();
+            }
+            else
+            {
+                // Do something  
+            }
+            
+
+
+            
+        }
+
+        private void crear_Click(object sender, EventArgs e)
+        {
+            NewUser nu = new NewUser();
+            if (nu.ShowDialog() == DialogResult.OK)
+            {
+                cargarTabla();
+                MessageBox.Show("Operación completada!");
+            }
+            else
+            {
+                MessageBox.Show("Operación no completada!");
+            }
+        }
+
+
+
+        private void cargarTabla()
+        {
+            DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
+            usersDGV.DataSource = ds.Tables[0];
         }
     }
 }
