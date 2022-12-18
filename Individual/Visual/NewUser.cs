@@ -27,7 +27,6 @@ namespace Individual.Visual
         public NewUser()
         {
             InitializeComponent();
-
         }
 
 
@@ -54,6 +53,28 @@ namespace Individual.Visual
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(cedUser.Enabled.ToString());
+            if (!cedUser.Enabled)
+            {
+                enviar();
+            }else if (cedUser.Enabled)
+            {
+                DataSet ds = db.consultar("SELECT cedula FROM personas WHERE cedula = " + cedUser.Text);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    MessageBox.Show("Cedula ya se encuentra registrada");
+                }
+                else
+                {
+                    enviar();
+                }
+            }
+
+
+        }
+
+        private void enviar()
+        {
             if (cedUser.Text.Trim() != "" && nomUser.Text.Trim() != ""
                 && correoUser.Text.Trim() != "" && edadUser.Text.Trim() != "")
             {
@@ -77,7 +98,10 @@ namespace Individual.Visual
                 comando.Parameters.Add(new MySqlParameter("_imagen", p.Foto));
                 comando.ExecuteNonQuery();
                 this.Close();
-
+            }
+            else
+            {
+                MessageBox.Show("Campos Vacios!");
             }
         }
 

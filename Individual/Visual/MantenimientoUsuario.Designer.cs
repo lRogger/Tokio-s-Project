@@ -185,10 +185,10 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button button1;
-        private DataGridView usersDGV;
         private TextBox buscarUser;
         private Button editar;
         private Button crear;
         private Button eliminar;
+        public DataGridView usersDGV;
     }
 }

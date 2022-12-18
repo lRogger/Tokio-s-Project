@@ -37,12 +37,12 @@
             this.cedUser = new System.Windows.Forms.TextBox();
             this.buscarFoto = new System.Windows.Forms.Button();
             this.fotoUser = new System.Windows.Forms.PictureBox();
+            this.cerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fotoUser)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Location = new System.Drawing.Point(89, 195);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -113,11 +113,22 @@
             this.fotoUser.TabIndex = 0;
             this.fotoUser.TabStop = false;
             // 
+            // cerrar
+            // 
+            this.cerrar.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.cerrar.Location = new System.Drawing.Point(209, 1);
+            this.cerrar.Name = "cerrar";
+            this.cerrar.Size = new System.Drawing.Size(27, 23);
+            this.cerrar.TabIndex = 8;
+            this.cerrar.Text = "X";
+            this.cerrar.UseVisualStyleBackColor = true;
+            // 
             // NewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(238, 281);
+            this.Controls.Add(this.cerrar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.fotoUser);
             this.Controls.Add(this.admUser);
@@ -146,5 +157,6 @@
         public TextBox correoUser;
         public TextBox nomUser;
         public TextBox cedUser;
+        private Button cerrar;
     }
 }

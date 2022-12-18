@@ -96,8 +96,10 @@ namespace Individual.Visual
                 MemoryStream ms = new MemoryStream((byte[])dsa.Tables[0].Rows[0]["imagen"]);
                 Image img = Image.FromStream(ms);
                 nu.fotoUser.Image = img;
-                if(nu.ShowDialog() == DialogResult.OK)
+
+                if(nu.ShowDialog() != DialogResult.Abort)
                 {
+                    MessageBox.Show("Proceso exitoso!");
                     cargarTabla();
                 }
                 else
@@ -122,8 +124,8 @@ namespace Individual.Visual
         private void eliminar_Click(object sender, EventArgs e)
         {
 
-            string message = "Eliminar el registro?";
-            string title = "ATENCIÓN ⚠️";
+            string message = "Seguro? si elimina el registro no podrá recuperarlo";
+            string title = "ATENCIÓN ⚠️⚠️";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
@@ -147,11 +149,13 @@ namespace Individual.Visual
 
         private void crear_Click(object sender, EventArgs e)
         {
+
             NewUser nu = new NewUser();
-            if (nu.ShowDialog() == DialogResult.OK)
+            if (nu.ShowDialog() != DialogResult.Abort)
             {
+                MessageBox.Show("Proceso exitoso!");
                 cargarTabla();
-                MessageBox.Show("Operación completada!");
+                
             }
             else
             {
