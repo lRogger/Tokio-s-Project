@@ -165,7 +165,7 @@
             this.panelMod1.GradientAngle = 90F;
             this.panelMod1.GradientBottomColor = System.Drawing.Color.White;
             this.panelMod1.GradientTopColor = System.Drawing.Color.White;
-            this.panelMod1.Location = new System.Drawing.Point(2, -35);
+            this.panelMod1.Location = new System.Drawing.Point(1, -35);
             this.panelMod1.Name = "panelMod1";
             this.panelMod1.Size = new System.Drawing.Size(390, 241);
             this.panelMod1.TabIndex = 12;

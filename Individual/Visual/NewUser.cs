@@ -134,17 +134,23 @@ namespace Individual.Visual
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(cedUser.Enabled.ToString());
             if (!cedUser.Enabled)
             {
                 enviar();
             }
             else if (cedUser.Enabled)
             {
-                DataSet ds = db.consultar("SELECT cedula FROM personas WHERE cedula = " + cedUser.Text);
-                if (ds.Tables[0].Rows.Count > 0)
+                DataSet ds = new DataSet();
+                ds = db.consultar("SELECT cedula FROM personas WHERE cedula = " + cedUser.Text);
+                if (ds.Tables.Count > 0)
                 {
-                    MessageBox.Show("Cedula ya se encuentra registrada");
+                    if (ds.Tables[0].Rows.Count > 0){
+                        MessageBox.Show("Cedula ya se encuentra registrada");
+                    }
+                    else
+                    {
+                        enviar();
+                    }
                 }
                 else
                 {

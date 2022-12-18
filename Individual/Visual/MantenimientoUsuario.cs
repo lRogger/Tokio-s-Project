@@ -29,6 +29,7 @@ namespace Individual.Visual
             dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
             dgvImagen.DefaultCellStyle.NullValue = null;
+            
 
 
         }
