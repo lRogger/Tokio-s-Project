@@ -169,6 +169,11 @@ namespace Individual.Visual
 
         }
 
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            cargarTabla();
+        }
+
         private void cargarTabla()
         {
             DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");

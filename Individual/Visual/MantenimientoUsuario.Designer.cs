@@ -39,6 +39,7 @@
             this.eliminar = new System.Windows.Forms.Button();
             this.rjButton1 = new Individual.Visual.ComponentesMod.RJButton();
             this.separador = new System.Windows.Forms.Panel();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,10 +69,10 @@
             this.usersDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.usersDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.usersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -105,7 +106,7 @@
             this.editar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editar.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.editar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.editar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.editar.Location = new System.Drawing.Point(171, 21);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(82, 43);
@@ -120,7 +121,7 @@
             this.crear.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.crear.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.crear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.crear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.crear.Location = new System.Drawing.Point(91, 21);
             this.crear.Margin = new System.Windows.Forms.Padding(0);
             this.crear.Name = "crear";
@@ -136,8 +137,8 @@
             this.eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eliminar.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.eliminar.Location = new System.Drawing.Point(258, 21);
+            this.eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.eliminar.Location = new System.Drawing.Point(364, 21);
             this.eliminar.Name = "eliminar";
             this.eliminar.Size = new System.Drawing.Size(87, 43);
             this.eliminar.TabIndex = 7;
@@ -147,8 +148,8 @@
             // 
             // rjButton1
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.rjButton1.BorderColor = System.Drawing.Color.PapayaWhip;
             this.rjButton1.BorderRadius = 10;
             this.rjButton1.BorderSize = 0;
@@ -156,7 +157,7 @@
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(625, 27);
+            this.rjButton1.Location = new System.Drawing.Point(625, 26);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(98, 33);
             this.rjButton1.TabIndex = 8;
@@ -172,12 +173,28 @@
             this.separador.Size = new System.Drawing.Size(686, 2);
             this.separador.TabIndex = 9;
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.BackColor = System.Drawing.Color.White;
+            this.btnRefrescar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefrescar.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRefrescar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnRefrescar.Location = new System.Drawing.Point(259, 21);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(99, 43);
+            this.btnRefrescar.TabIndex = 10;
+            this.btnRefrescar.Text = "Actualizar";
+            this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
             // MantenimientoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(764, 684);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.usersDGV);
             this.Controls.Add(this.buscarUser);
             this.Controls.Add(this.separador);
@@ -208,5 +225,6 @@
         public DataGridView usersDGV;
         private ComponentesMod.RJButton rjButton1;
         private Panel separador;
+        private Button btnRefrescar;
     }
 }

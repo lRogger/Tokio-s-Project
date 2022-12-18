@@ -43,48 +43,14 @@ namespace Individual
         private void BtnValidarFp_Click(object sender, EventArgs e)
         {
             
-            ds = db.consultar("SELECT * FROM personas WHERE cedula = '" + 
-                correofpwd.Text.ToLower() + "' AND correo = '" + cedulafpwd + "'");
-
-            if(ds != null)
-            {
-                enviar.Enabled = true;
-                newpwd.Enabled = true;
-                newpwd2.Enabled = true;
-                MessageBox.Show("Ingresa tu nueva contraseña");
-
-            }
-            else
-            {
-                MessageBox.Show("No se ha encontrado la cuenta");
-            }
+           
             
         }
 
         private void enviar_Click(object sender, EventArgs e)
         {
 
-            if(newpwd.Text.Trim() == newpwd2.Text.Trim())
-            {
-                try
-                {
-                    db.instruccionDB("UPDATE personas SET password = '" +
-                        BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" + 
-                        cedulafpwd.Text.Trim() + "'");
-                    MessageBox.Show("Contraseña cambiada con éxito!");
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Las contraseñas no coinciden!");
-                newpwd.Text = "";
-                newpwd2.Text = "";
-            }
+            
             
         }
 
@@ -96,6 +62,55 @@ namespace Individual
         private void Forgotpwd_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if (newpwd.Text.Trim() == newpwd2.Text.Trim())
+            {
+                try
+                {
+                    db.instruccionDB("UPDATE personas SET password = '" +
+                        BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" +
+                        cedulafpwd.Text.Trim() + "'");
+                    MessageBox.Show("Contraseña cambiada con éxito!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Las contraseñas no coinciden!");
+                newpwd.Text = "";
+                newpwd2.Text = "";
+            }
+        }
+
+        private void btnValidar_Click(object sender, EventArgs e)
+        {
+            ds = db.consultar("SELECT * FROM personas WHERE cedula = '" +
+               correofpwd.Text.ToLower() + "' AND correo = '" + cedulafpwd + "'");
+
+            if (ds != null)
+            {
+                btnEnviar.Enabled = true;
+                newpwd.Enabled = true;
+                newpwd2.Enabled = true;
+                MessageBox.Show("Ingresa tu nueva contraseña");
+
+            }
+            else
+            {
+                MessageBox.Show("No se ha encontrado la cuenta");
+            }
         }
     }
 }
