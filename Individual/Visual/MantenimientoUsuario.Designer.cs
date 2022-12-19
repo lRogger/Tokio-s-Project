@@ -34,9 +34,9 @@
             this.buscarUser = new System.Windows.Forms.TextBox();
             this.usersDGV = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.editar = new System.Windows.Forms.Button();
-            this.crear = new System.Windows.Forms.Button();
-            this.eliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             this.separador = new System.Windows.Forms.Panel();
             this.btnRefrescar = new System.Windows.Forms.Button();
@@ -100,51 +100,51 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // editar
+            // btnEditar
             // 
-            this.editar.BackColor = System.Drawing.Color.White;
-            this.editar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.editar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.editar.Location = new System.Drawing.Point(171, 21);
-            this.editar.Name = "editar";
-            this.editar.Size = new System.Drawing.Size(82, 43);
-            this.editar.TabIndex = 5;
-            this.editar.Text = "Editar";
-            this.editar.UseVisualStyleBackColor = false;
-            this.editar.Click += new System.EventHandler(this.editar_Click);
+            this.btnEditar.BackColor = System.Drawing.Color.White;
+            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnEditar.Location = new System.Drawing.Point(171, 21);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(82, 43);
+            this.btnEditar.TabIndex = 5;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.editar_Click);
             // 
-            // crear
+            // btnCrear
             // 
-            this.crear.BackColor = System.Drawing.Color.White;
-            this.crear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.crear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.crear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.crear.Location = new System.Drawing.Point(91, 21);
-            this.crear.Margin = new System.Windows.Forms.Padding(0);
-            this.crear.Name = "crear";
-            this.crear.Size = new System.Drawing.Size(76, 43);
-            this.crear.TabIndex = 6;
-            this.crear.Text = "Crear";
-            this.crear.UseVisualStyleBackColor = false;
-            this.crear.Click += new System.EventHandler(this.crear_Click);
+            this.btnCrear.BackColor = System.Drawing.Color.White;
+            this.btnCrear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCrear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCrear.Location = new System.Drawing.Point(91, 21);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(76, 43);
+            this.btnCrear.TabIndex = 6;
+            this.btnCrear.Text = "Crear";
+            this.btnCrear.UseVisualStyleBackColor = false;
+            this.btnCrear.Click += new System.EventHandler(this.crear_Click);
             // 
-            // eliminar
+            // btnEliminar
             // 
-            this.eliminar.BackColor = System.Drawing.Color.White;
-            this.eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.eliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.eliminar.Location = new System.Drawing.Point(364, 21);
-            this.eliminar.Name = "eliminar";
-            this.eliminar.Size = new System.Drawing.Size(87, 43);
-            this.eliminar.TabIndex = 7;
-            this.eliminar.Text = "Eliminar";
-            this.eliminar.UseVisualStyleBackColor = false;
-            this.eliminar.Click += new System.EventHandler(this.eliminar_Click);
+            this.btnEliminar.BackColor = System.Drawing.Color.White;
+            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnEliminar.Location = new System.Drawing.Point(364, 21);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(87, 43);
+            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.eliminar_Click);
             // 
             // btnCerrar
             // 
@@ -200,9 +200,9 @@
             this.Controls.Add(this.buscarUser);
             this.Controls.Add(this.separador);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.eliminar);
-            this.Controls.Add(this.crear);
-            this.Controls.Add(this.editar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnCrear);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MantenimientoUsuario";
@@ -220,9 +220,9 @@
         #endregion
         private PictureBox pictureBox1;
         private TextBox buscarUser;
-        private Button editar;
-        private Button crear;
-        private Button eliminar;
+        private Button btnEditar;
+        private Button btnCrear;
+        private Button btnEliminar;
         public DataGridView usersDGV;
         private ComponentesMod.RJButton btnCerrar;
         private Panel separador;

@@ -167,6 +167,7 @@
             this.btnEnviar.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnEnviar.BorderRadius = 17;
             this.btnEnviar.BorderSize = 0;
+            this.btnEnviar.Enabled = false;
             this.btnEnviar.FlatAppearance.BorderSize = 0;
             this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnviar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);

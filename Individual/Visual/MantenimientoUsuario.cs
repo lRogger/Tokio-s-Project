@@ -186,9 +186,28 @@ namespace Individual.Visual
 
         private async void cargarTabla()
         {
+            btnRefrescar.Enabled = false;
+            
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
+            
             await Task.Run(() => db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0"));
+            btnRefrescar.Enabled = true;
+            
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+
             DataSet ds = db.Ds;
-            usersDGV.DataSource = ds.Tables[0];
+            try
+            {
+               
+                usersDGV.DataSource = ds.Tables[0];
+            }catch
+            {
+                new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
+                    "intenta nuevamente!");
+            }
+            
         }
     }
 }

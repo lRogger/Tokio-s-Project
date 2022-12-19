@@ -34,8 +34,6 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.user = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,7 +54,7 @@
             this.pwd.Location = new System.Drawing.Point(34, 191);
             this.pwd.Name = "pwd";
             this.pwd.PasswordChar = '●';
-            this.pwd.PlaceholderText = "Contraseña";
+            this.pwd.PlaceholderText = "🔑 Contraseña";
             this.pwd.Size = new System.Drawing.Size(207, 15);
             this.pwd.TabIndex = 2;
             this.pwd.Enter += new System.EventHandler(this.pwd_Enter);
@@ -101,7 +99,7 @@
             this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.user.Location = new System.Drawing.Point(34, 151);
             this.user.Name = "user";
-            this.user.PlaceholderText = "Cédula";
+            this.user.PlaceholderText = "ℹ Cédula";
             this.user.Size = new System.Drawing.Size(207, 15);
             this.user.TabIndex = 1;
             this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
@@ -115,8 +113,6 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.panel3);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
@@ -137,32 +133,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(750, 401);
             this.splitContainer1.SplitterDistance = 290;
             this.splitContainer1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.CausesValidation = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(235, 191);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "🔑";
-            this.textBox2.Size = new System.Drawing.Size(22, 15);
-            this.textBox2.TabIndex = 10;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.CausesValidation = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(235, 151);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "ℹ";
-            this.textBox1.Size = new System.Drawing.Size(22, 15);
-            this.textBox1.TabIndex = 9;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panel3
             // 
@@ -254,11 +224,7 @@
         }
 
         #endregion
-
-        private TextBox pwd;
-        private Button button1;
         private LinkLabel linkLabel1;
-        private TextBox user;
         private SplitContainer splitContainer1;
         private Splitter splitter1;
         private Label label3;
@@ -266,7 +232,8 @@
         private Label cerrar;
         private Panel panel1;
         private Panel panel3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        public TextBox pwd;
+        public Button button1;
+        public TextBox user;
     }
 }

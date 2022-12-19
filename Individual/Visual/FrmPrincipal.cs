@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using Individual.Modelos;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Individual.Visual
 {
@@ -143,7 +144,9 @@ namespace Individual.Visual
             if (result == DialogResult.OK)
             {
                 lg.Show();
-                
+                lg.pwd.Enabled = true;
+                lg.user.Enabled = true;
+                lg.button1.Enabled = true;
                 this.Close();
                 
             }
