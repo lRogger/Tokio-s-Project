@@ -188,6 +188,20 @@ namespace Individual.Visual
             }
         }
 
+        private void cedUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilidades u = new Utilidades();
+
+            e.Handled = u.validar((char)e.KeyChar, "numero");
+        }
+
+        private void edadUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilidades u = new Utilidades();
+
+            e.Handled = u.validar((char)e.KeyChar, "numero");
+        }
+
         private void NewUser_Load(object sender, EventArgs e)
         {
 

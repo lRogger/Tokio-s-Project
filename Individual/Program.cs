@@ -1,3 +1,5 @@
+using Individual.Visual;
+
 namespace Individual
 {
     internal static class Program

@@ -112,5 +112,10 @@ namespace Individual
                 MessageBox.Show("No se ha encontrado la cuenta");
             }
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

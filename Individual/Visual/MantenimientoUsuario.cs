@@ -174,6 +174,11 @@ namespace Individual.Visual
             cargarTabla();
         }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void cargarTabla()
         {
             DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");

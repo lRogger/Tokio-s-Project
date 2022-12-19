@@ -51,7 +51,8 @@ namespace Individual
                     }
                     else
                     {
-                        MessageBox.Show("Contraseña incorrecta!");
+                        
+                        new Emergente("advertencia", "Error", "Contraseña Incorrecta").ShowDialog();
                         pwd.Text = "";
                     }
 

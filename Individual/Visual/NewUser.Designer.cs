@@ -59,7 +59,7 @@
             // edadUser
             // 
             this.edadUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.edadUser.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.edadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.edadUser.Location = new System.Drawing.Point(128, 135);
             this.edadUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.edadUser.Name = "edadUser";
@@ -67,11 +67,12 @@
             this.edadUser.Size = new System.Drawing.Size(125, 27);
             this.edadUser.TabIndex = 5;
             this.edadUser.TextChanged += new System.EventHandler(this.edadUser_TextChanged);
+            this.edadUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edadUser_KeyPress);
             // 
             // correoUser
             // 
             this.correoUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.correoUser.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.correoUser.Location = new System.Drawing.Point(128, 101);
             this.correoUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.correoUser.Name = "correoUser";
@@ -83,7 +84,7 @@
             // nomUser
             // 
             this.nomUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nomUser.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nomUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.nomUser.Location = new System.Drawing.Point(128, 69);
             this.nomUser.MaximumSize = new System.Drawing.Size(0, 25);
             this.nomUser.MinimumSize = new System.Drawing.Size(0, 27);
@@ -96,7 +97,7 @@
             // cedUser
             // 
             this.cedUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cedUser.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cedUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cedUser.Location = new System.Drawing.Point(128, 36);
             this.cedUser.MaximumSize = new System.Drawing.Size(200, 25);
             this.cedUser.MinimumSize = new System.Drawing.Size(0, 27);
@@ -105,6 +106,7 @@
             this.cedUser.Size = new System.Drawing.Size(193, 27);
             this.cedUser.TabIndex = 2;
             this.cedUser.TextChanged += new System.EventHandler(this.cedUser_TextChanged);
+            this.cedUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cedUser_KeyPress);
             // 
             // buscarFoto
             // 

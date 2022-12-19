@@ -137,11 +137,11 @@ namespace Individual.Visual
 
         private void cerrarSesion_Click(object sender, EventArgs e)
         {
-            string message = "Cerrar sesión?";
-            string title = "Cerrar sesión";
+            string mensaje = "Está seguro que desea cerrar la sesión actual?";
+            string titulo = "Cerrar Sesión";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes)
+            DialogResult result = new Emergente("si/no", titulo, mensaje).ShowDialog();
+            if (result == DialogResult.OK)
             {
                 lg.Show();
                 
