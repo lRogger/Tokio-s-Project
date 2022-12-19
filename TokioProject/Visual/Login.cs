@@ -30,10 +30,11 @@ namespace Individual
                     user.Enabled = false;
                     button1.Enabled = false;
 
-
+                    Cursor.Current = Cursors.Hand;
                     await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'"));
                     ds.Tables.Clear();
                     ds = db.Ds;
+                    Cursor.Current = Cursors.Default;
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {

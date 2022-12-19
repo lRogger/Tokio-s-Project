@@ -63,7 +63,6 @@
             // 
             this.button1.AutoSize = true;
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(34, 243);
@@ -119,7 +118,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.user);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.pwd);
-
             this.splitContainer1.Panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_Panel1_MouseMove);
             // 
             // splitContainer1.Panel2
@@ -127,7 +125,6 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.splitContainer1.Panel2.Controls.Add(this.cerrar);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
-
             this.splitContainer1.Size = new System.Drawing.Size(750, 401);
             this.splitContainer1.SplitterDistance = 290;
             this.splitContainer1.TabIndex = 5;

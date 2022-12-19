@@ -39,7 +39,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.cerrarSesion = new System.Windows.Forms.Button();
             this.profileP = new System.Windows.Forms.PictureBox();
-            this.sesion = new System.Windows.Forms.Label();
+            this.lblSesion = new System.Windows.Forms.Label();
             this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -126,23 +126,22 @@
             this.profileP.TabIndex = 8;
             this.profileP.TabStop = false;
             // 
-            // sesion
+            // lblSesion
             // 
-            this.sesion.AutoSize = true;
-            this.sesion.Location = new System.Drawing.Point(88, 61);
-            this.sesion.Name = "sesion";
-            this.sesion.Size = new System.Drawing.Size(62, 15);
-            this.sesion.TabIndex = 10;
-            this.sesion.Text = "Sesion: ___";
+            this.lblSesion.AutoSize = true;
+            this.lblSesion.Location = new System.Drawing.Point(88, 61);
+            this.lblSesion.Name = "lblSesion";
+            this.lblSesion.Size = new System.Drawing.Size(62, 15);
+            this.lblSesion.TabIndex = 10;
+            this.lblSesion.Text = "Sesion: ___";
             // 
             // flPanel
             // 
             this.flPanel.AutoScroll = true;
             this.flPanel.BackColor = System.Drawing.Color.Transparent;
-            this.flPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flPanel.Location = new System.Drawing.Point(72, 166);
+            this.flPanel.Location = new System.Drawing.Point(48, 166);
             this.flPanel.Name = "flPanel";
-            this.flPanel.Size = new System.Drawing.Size(669, 345);
+            this.flPanel.Size = new System.Drawing.Size(700, 345);
             this.flPanel.TabIndex = 14;
             // 
             // button1
@@ -173,7 +172,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flPanel);
-            this.Controls.Add(this.sesion);
+            this.Controls.Add(this.lblSesion);
             this.Controls.Add(this.profileP);
             this.Controls.Add(this.cerrarSesion);
             this.Controls.Add(this.menuStrip);
@@ -183,6 +182,7 @@
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrincipal";
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profileP)).EndInit();
@@ -201,7 +201,7 @@
         private ToolStripMenuItem mantenimientoPersonasToolStripMenuItem;
         private ToolStripMenuItem mantenimientoRopaToolStripMenuItem;
         private PictureBox profileP;
-        private Label sesion;
+        private Label lblSesion;
         private FlowLayoutPanel flPanel;
         private Button button1;
         private Button button2;

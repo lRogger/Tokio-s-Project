@@ -1,4 +1,6 @@
 ﻿using Individual.Modelos;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Data;
 
 namespace Individual.Visual
 {
@@ -16,16 +18,6 @@ namespace Individual.Visual
         {
             InitializeComponent();
             this.lg = lg;
-            try
-            {
-                MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["imagen"]);
-                Image img = Image.FromStream(ms);
-                profileP.Image = img;
-            }
-            catch
-            {
-                profileP.ImageLocation = "../../../../data/Img/defaultAvatar.png";
-            }
 
             flPanel.Controls.Add(p1);
             flPanel.Controls.Add(p2);
@@ -249,9 +241,51 @@ namespace Individual.Visual
             p4.Show();
         }
 
-        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            NewUser nu = new NewUser();
+            nu.cedUser.Text = lg.ds.Tables[0].Rows[0]["cedula"].ToString();
+            nu.cedUser.Enabled = false;
+
+            nu.nomUser.Text = lg.ds.Tables[0].Rows[0]["nombre"].ToString();
+            nu.correoUser.Text = lg.ds.Tables[0].Rows[0]["correo"].ToString();
+            nu.edadUser.Text = lg.ds.Tables[0].Rows[0]["edad"].ToString();
+            nu.admUser.Checked = (lg.ds.Tables[0].Rows[0]["admin"].ToString() == "True")
+                ? true : false;
+
+            MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["imagen"]);
+            Image img = Image.FromStream(ms);
+            nu.fotoUser.Image = img;
+
+            if (nu.ShowDialog() != DialogResult.Abort)
+            {
+                new Emergente("advertencia", "Datos cambiados", "Proceso exitoso, los cambios se aplicarán en la siguiente sesión").ShowDialog();
+                await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + lg.ds.Tables[0].Rows[0]["cedula"] + "'"));
+                lg.ds.Tables.Clear();
+                lg.ds = db.Ds;
+                this.Refresh();
+            }
+            else
+            {
+                new Emergente("advertencia", "Error", "Operación no completada!");
+            }
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["imagen"]);
+                Image img = Image.FromStream(ms);
+                profileP.Image = img;
+                lblSesion.Text = "Sesión actual: " + lg.ds.Tables[0].Rows[0]["Nombre"].ToString();
+            }
+            catch
+            {
+                profileP.ImageLocation = "../../../../data/Img/defaultAvatar.png";
+                
+            }
         }
 
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)

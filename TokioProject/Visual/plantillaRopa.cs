@@ -24,6 +24,7 @@
             set { imagenRopa.Image = value; }
         }
 
+        /*
         public string NombreRopa
         {
             get { return NombreRopa; }
@@ -41,5 +42,6 @@
             get { return Stock; }
             set { lblstock.Text = value.ToString(); }
         }
+        */
     }
 }
