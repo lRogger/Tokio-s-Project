@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Individual.Visual
+﻿namespace Individual.Visual
 {
     public partial class Emergente : Form
     {
@@ -35,20 +24,23 @@ namespace Individual.Visual
                 int izq, der;
                 izq = btnOk.Margin.Left + btnCancel.Margin.Left + (btnCancel.Width / 2);
                 der = btnOk.Margin.Right + btnCancel.Margin.Right + (btnCancel.Width / 2);
-                
+
                 btnOk.Text = "OK";
 
                 btnOk.Margin = new Padding((izq), (btnOk.Margin.Top), der, btnOk.Margin.Bottom);
                 btnCancel.Hide();
 
-            }else if(tipo == "si/no")
+            }
+            else if (tipo == "si/no")
             {
 
-            }else if(tipo == "espera"){
+            }
+            else if (tipo == "espera")
+            {
 
                 flPanel.Visible = false;
             }
-            
+
         }
 
         private void btnOk_Click(object sender, EventArgs e)

@@ -15,7 +15,7 @@ namespace Individual
         {
             InitializeComponent();
             this.cerrar.Parent = this.pictureBox1;
-            
+
         }
 
         private async void ingresar()
@@ -23,7 +23,7 @@ namespace Individual
 
             if (pwd.Text != "" && user.Text != "")
             {
-                
+
                 try
                 {
                     pwd.Enabled = false;
@@ -70,7 +70,7 @@ namespace Individual
                     }
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                     pwd.Text = "";
@@ -90,7 +90,7 @@ namespace Individual
             {
                 ingresar();
             }
-                
+
         }
 
         private void user_KeyPress(object sender, KeyPressEventArgs e)

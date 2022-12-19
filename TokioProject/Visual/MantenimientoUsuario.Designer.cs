@@ -208,7 +208,6 @@
             this.Name = "MantenimientoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MantenimientoUsuario";
-            this.Load += new System.EventHandler(this.MantenimientoUsuario_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MantenimientoUsuario_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

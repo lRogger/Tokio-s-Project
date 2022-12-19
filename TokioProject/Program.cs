@@ -1,4 +1,3 @@
-using Individual.Visual;
 
 namespace Individual
 {

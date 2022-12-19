@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Individual.Modelos;
+﻿using Individual.Modelos;
 using LibreriaGrupal;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Individual.Visual
 {
 
     public partial class NewUser : Form
     {
-      
+
 
         private DataBase db = new DataBase();
         int posY = 0, posX = 0;
@@ -48,7 +38,7 @@ namespace Individual.Visual
 
         private void Cerrar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -146,7 +136,8 @@ namespace Individual.Visual
                 ds = db.Ds;
                 if (ds.Tables.Count > 0)
                 {
-                    if (ds.Tables[0].Rows.Count > 0){
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
                         MessageBox.Show("Cedula ya se encuentra registrada");
                     }
                     else

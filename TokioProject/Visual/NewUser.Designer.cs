@@ -61,6 +61,7 @@
             this.edadUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.edadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.edadUser.Location = new System.Drawing.Point(128, 135);
+            this.edadUser.MaxLength = 3;
             this.edadUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.edadUser.Name = "edadUser";
             this.edadUser.PlaceholderText = "Edad";

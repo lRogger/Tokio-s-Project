@@ -1,9 +1,5 @@
 ﻿using Individual.Modelos;
-using Individual.Visual.ComponentesMod;
-using Microsoft.VisualBasic;
 using System.Data;
-using System.Security.Cryptography;
-using System.Windows.Forms;
 
 
 namespace Individual.Visual
@@ -17,9 +13,9 @@ namespace Individual.Visual
 
         public MantenimientoUsuario()
         {
-            
+
             InitializeComponent();
-            
+
             db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
             DataSet ds = db.Ds;
             usersDGV.DataSource = ds.Tables[0];
@@ -32,21 +28,17 @@ namespace Individual.Visual
             dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
             dgvImagen.DefaultCellStyle.NullValue = null;
-            
 
 
-        }
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
+
+
 
         private async void buscarUser_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 await Task.Run(() => db.consultar("SELECT id, cedula, nombre, " +
                     "correo, edad, imagen FROM personas WHERE cedula != 0 and (nombre like '%" + buscarUser.Text.Trim() + "%'" +
@@ -54,7 +46,7 @@ namespace Individual.Visual
                 DataSet ds = db.Ds;
                 usersDGV.DataSource = ds.Tables[0];
             }
-            
+
         }
 
         private void buscarUser_TextChanged(object sender, EventArgs e)
@@ -67,7 +59,7 @@ namespace Individual.Visual
 
         private void MantenimientoUsuario_MouseMove(object sender, MouseEventArgs e)
         {
-            if(e.Button != MouseButtons.Left)
+            if (e.Button != MouseButtons.Left)
             {
                 posX = e.X;
                 posY = e.Y;
@@ -81,7 +73,7 @@ namespace Individual.Visual
 
         private async void editar_Click(object sender, EventArgs e)
         {
-            if(usersDGV.SelectedRows.Count > 0)
+            if (usersDGV.SelectedRows.Count > 0)
             {
                 int i = usersDGV.CurrentRow.Index;
                 await Task.Run(() => db.consultar("Select cedula, nombre, correo, edad, admin, imagen" +
@@ -96,14 +88,14 @@ namespace Individual.Visual
                 nu.nomUser.Text = dsa.Tables[0].Rows[0]["nombre"].ToString();
                 nu.correoUser.Text = dsa.Tables[0].Rows[0]["correo"].ToString();
                 nu.edadUser.Text = dsa.Tables[0].Rows[0]["edad"].ToString();
-                nu.admUser.Checked = (dsa.Tables[0].Rows[0]["admin"].ToString() == "True") 
+                nu.admUser.Checked = (dsa.Tables[0].Rows[0]["admin"].ToString() == "True")
                     ? true : false;
 
                 MemoryStream ms = new MemoryStream((byte[])dsa.Tables[0].Rows[0]["imagen"]);
                 Image img = Image.FromStream(ms);
                 nu.fotoUser.Image = img;
 
-                if(nu.ShowDialog() != DialogResult.Abort)
+                if (nu.ShowDialog() != DialogResult.Abort)
                 {
                     MessageBox.Show("Proceso exitoso!");
                     cargarTabla();
@@ -117,13 +109,8 @@ namespace Individual.Visual
             {
                 MessageBox.Show("Selecciona una persona!");
             }
- 
-            
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
+
         }
 
 
@@ -147,10 +134,10 @@ namespace Individual.Visual
             {
                 // Do something  
             }
-            
 
 
-            
+
+
         }
 
         private void crear_Click(object sender, EventArgs e)
@@ -161,7 +148,7 @@ namespace Individual.Visual
             {
                 MessageBox.Show("Proceso exitoso!");
                 cargarTabla();
-                
+
             }
             else
             {
@@ -169,10 +156,6 @@ namespace Individual.Visual
             }
         }
 
-        private void MantenimientoUsuario_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
@@ -187,27 +170,28 @@ namespace Individual.Visual
         private async void cargarTabla()
         {
             btnRefrescar.Enabled = false;
-            
+
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
-            
+
             await Task.Run(() => db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0"));
             btnRefrescar.Enabled = true;
-            
+
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
 
             DataSet ds = db.Ds;
             try
             {
-               
+
                 usersDGV.DataSource = ds.Tables[0];
-            }catch
+            }
+            catch
             {
                 new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
                     "intenta nuevamente!");
             }
-            
+
         }
     }
 }

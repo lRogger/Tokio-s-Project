@@ -1,18 +1,4 @@
-﻿using LibreriaGrupal;
-using Org.BouncyCastle.Crypto.Macs;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing.Imaging;
-using Individual.Modelos;
-using Microsoft.VisualBasic.ApplicationServices;
+﻿using Individual.Modelos;
 
 namespace Individual.Visual
 {
@@ -40,8 +26,6 @@ namespace Individual.Visual
             {
                 profileP.ImageLocation = "../../../../data/Img/defaultAvatar.png";
             }
-            
-
 
             flPanel.Controls.Add(p1);
             flPanel.Controls.Add(p2);
@@ -50,7 +34,92 @@ namespace Individual.Visual
             flPanel.Controls.Add(new plantillaRopa());
             flPanel.Controls.Add(new plantillaRopa());
             flPanel.Controls.Add(new plantillaRopa());
-            
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+            flPanel.Controls.Add(new plantillaRopa());
+
 
         }
 
@@ -70,7 +139,7 @@ namespace Individual.Visual
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -80,30 +149,10 @@ namespace Individual.Visual
                 string FileName = saveFileDialog.FileName;
             }
 
-            
+
         }
 
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
 
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,9 +179,9 @@ namespace Individual.Visual
         {
             foreach (Form childForm in MdiChildren)
             {
-                
+
                 childForm.Close();
-                
+
             }
         }
 
@@ -148,7 +197,7 @@ namespace Individual.Visual
                 lg.user.Enabled = true;
                 lg.button1.Enabled = true;
                 this.Close();
-                
+
             }
             else
             {
@@ -198,6 +247,11 @@ namespace Individual.Visual
             p2.Show();
             p3.Show();
             p4.Show();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Individual.Visual
+﻿namespace Individual.Visual
 {
     public partial class plantillaRopa : UserControl
     {
@@ -22,15 +12,15 @@ namespace Individual.Visual
 
         public int Id { get { return id; } set { id = value; } }
 
-        public string Descripcion 
-        { 
-            get { return descripcion; } 
-            set { descripcion= value; } 
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
         }
 
-        public Image ImgRopa 
-        { 
-            get { return ImgRopa;}
+        public Image ImgRopa
+        {
+            get { return ImgRopa; }
             set { imagenRopa.Image = value; }
         }
 

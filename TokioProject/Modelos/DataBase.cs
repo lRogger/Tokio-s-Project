@@ -69,11 +69,11 @@ namespace Individual.Modelos
             {
                 comando.ExecuteNonQuery();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
-            
+
             con.Close();
         }
 

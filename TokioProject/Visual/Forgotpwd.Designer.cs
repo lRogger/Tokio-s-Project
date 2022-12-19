@@ -74,7 +74,6 @@
             this.cedulafpwd.Name = "cedulafpwd";
             this.cedulafpwd.Size = new System.Drawing.Size(157, 23);
             this.cedulafpwd.TabIndex = 3;
-            this.cedulafpwd.TextChanged += new System.EventHandler(this.cedulafpwd_TextChanged);
             this.cedulafpwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cedulafpwd_KeyPress);
             // 
             // label3
@@ -85,7 +84,7 @@
             this.label3.Size = new System.Drawing.Size(105, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nueva contraseña:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+
             // 
             // label4
             // 
@@ -113,7 +112,6 @@
             this.newpwd2.PasswordChar = '●';
             this.newpwd2.Size = new System.Drawing.Size(238, 23);
             this.newpwd2.TabIndex = 9;
-            this.newpwd2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.newpwd2_KeyPress);
             // 
             // btnCerrar
             // 
@@ -147,7 +145,6 @@
             this.label5.Size = new System.Drawing.Size(154, 21);
             this.label5.TabIndex = 12;
             this.label5.Text = "Verifique sus datos";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -223,7 +220,6 @@
             this.Name = "Forgotpwd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgotpwd";
-            this.Load += new System.EventHandler(this.Forgotpwd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

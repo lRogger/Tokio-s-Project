@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Windows.Forms;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.Drawing.Design;
+using System.Drawing.Drawing2D;
 
 namespace CustomControls.RJControls
 {
@@ -70,9 +62,9 @@ namespace CustomControls.RJControls
             //->Attach label events to user control event
 
             lblText.Click += new EventHandler(Surface_Click);//Select combo box
- // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
+                                                             // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
             lblText.MouseEnter += new EventHandler(Surface_MouseEnter);
- // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
+            // La nulabilidad de los tipos de referencia del tipo de parámetro no coincide con el delegado de destino (posiblemente debido a los atributos de nulabilidad).
             lblText.MouseLeave += new EventHandler(Surface_MouseLeave);
 #pragma warning restore CS8622
             //User Control
@@ -309,7 +301,7 @@ namespace CustomControls.RJControls
             };
             if (cmbList.Height >= this.Height)
             {
-                this.Height = cmbList.Height + (this.borderSize*2);
+                this.Height = cmbList.Height + (this.borderSize * 2);
             }
         }
         #endregion
