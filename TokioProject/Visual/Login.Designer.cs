@@ -57,7 +57,6 @@
             this.pwd.PlaceholderText = "🔑 Contraseña";
             this.pwd.Size = new System.Drawing.Size(207, 15);
             this.pwd.TabIndex = 2;
-            this.pwd.Enter += new System.EventHandler(this.pwd_Enter);
             this.pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
             // 
             // button1
@@ -102,7 +101,6 @@
             this.user.PlaceholderText = "ℹ Cédula";
             this.user.Size = new System.Drawing.Size(207, 15);
             this.user.TabIndex = 1;
-            this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
             this.user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_KeyPress);
             // 
             // splitContainer1
@@ -121,7 +119,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.user);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.pwd);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+
             this.splitContainer1.Panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_Panel1_MouseMove);
             // 
             // splitContainer1.Panel2
@@ -129,7 +127,7 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.splitContainer1.Panel2.Controls.Add(this.cerrar);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+
             this.splitContainer1.Size = new System.Drawing.Size(750, 401);
             this.splitContainer1.SplitterDistance = 290;
             this.splitContainer1.TabIndex = 5;
@@ -142,7 +140,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(223, 2);
             this.panel3.TabIndex = 8;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -163,7 +160,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Bienvenido";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // splitter1
             // 
