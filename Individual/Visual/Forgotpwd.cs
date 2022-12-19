@@ -106,8 +106,8 @@ namespace Individual
         private async void btnValidar_Click(object sender, EventArgs e)
         {
             if(correofpwd.Text!="" && cedulafpwd.Text != ""){
-                await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" +
-                correofpwd.Text.ToLower() + "' AND correo = '" + cedulafpwd.Text));
+                await Task.Run(() => db.consultar("SELECT * FROM personas WHERE correo = '" +
+                correofpwd.Text.ToLower() + "' AND cedula = '" + cedulafpwd.Text + "'"));
                 ds = db.Ds;
 
                 if (ds.Tables.Count > 0)

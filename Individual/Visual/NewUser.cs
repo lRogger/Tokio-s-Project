@@ -77,7 +77,7 @@ namespace Individual.Visual
 
                 comando.Parameters.Add(new MySqlParameter("_cedula", p.Cedula));
                 comando.Parameters.Add(new MySqlParameter("_nombre", p.Nombre));
-                comando.Parameters.Add(new MySqlParameter("_correo", p.Correo));
+                comando.Parameters.Add(new MySqlParameter("_correo", p.Correo.ToLower()));
                 comando.Parameters.Add(new MySqlParameter("_edad", p.Edad));
                 comando.Parameters.Add(new MySqlParameter("_admin", p.Admin));
                 comando.Parameters.Add(new MySqlParameter("_imagen", p.Foto));
