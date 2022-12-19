@@ -1,4 +1,5 @@
 ﻿using Individual.Modelos;
+using Individual.Visual;
 using LibreriaGrupal;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -71,47 +72,63 @@ namespace Individual
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (newpwd.Text.Trim() == newpwd2.Text.Trim())
+            if(newpwd.Text.Trim()!="" &&  newpwd2.Text.Trim() != "")
             {
-                try
+                if (newpwd.Text.Trim() == newpwd2.Text.Trim())
                 {
-                    db.instruccionDB("UPDATE personas SET password = '" +
-                        BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" +
-                        cedulafpwd.Text.Trim() + "'");
-                    MessageBox.Show("Contraseña cambiada con éxito!");
+                    try
+                    {
+                        db.instruccionDB("UPDATE personas SET password = '" +
+                            BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" +
+                            cedulafpwd.Text.Trim() + "'");
+                        MessageBox.Show("Contraseña cambiada con éxito!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    this.Close();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show("Las contraseñas no coinciden!");
+                    newpwd.Text = "";
+                    newpwd2.Text = "";
                 }
-                this.Close();
             }
             else
             {
-                MessageBox.Show("Las contraseñas no coinciden!");
-                newpwd.Text = "";
-                newpwd2.Text = "";
+                new Emergente("advertencia", "Eror", "Campos vacios!").Show();
             }
+
         }
 
         private async void btnValidar_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" +
-               correofpwd.Text.ToLower() + "' AND correo = '" + cedulafpwd + "'"));
-            ds = db.Ds;
+            if(correofpwd.Text!="" && cedulafpwd.Text != ""){
+                await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" +
+                correofpwd.Text.ToLower() + "' AND correo = '" + cedulafpwd.Text));
+                ds = db.Ds;
 
-            if (ds != null)
-            {
-                btnEnviar.Enabled = true;
-                newpwd.Enabled = true;
-                newpwd2.Enabled = true;
-                MessageBox.Show("Ingresa tu nueva contraseña");
+                if (ds.Tables.Count > 0)
+                {
+                    btnEnviar.Enabled = true;
+                    newpwd.Enabled = true;
+                    newpwd2.Enabled = true;
+                    MessageBox.Show("Ingresa tu nueva contraseña");
 
+                }
+                else
+                {
+                    MessageBox.Show("No se ha encontrado la cuenta");
+                }
             }
             else
             {
-                MessageBox.Show("No se ha encontrado la cuenta");
+                new Emergente("advertencia", "Eror", "Campos vacios!").Show();
             }
+
+            
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

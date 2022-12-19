@@ -61,7 +61,7 @@ namespace Individual.Visual
         private async void enviar()
         {
             if (cedUser.Text.Trim() != "" && nomUser.Text.Trim() != ""
-                && correoUser.Text.Trim() != "" && edadUser.Text.Trim() != "")
+                && correoUser.Text.Trim().ToLower() != "" && edadUser.Text.Trim() != "")
             {
                 bool admin = admUser.Checked;
 
