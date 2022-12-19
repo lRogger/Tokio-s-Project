@@ -94,10 +94,11 @@ namespace Individual
             }
         }
 
-        private void btnValidar_Click(object sender, EventArgs e)
+        private async void btnValidar_Click(object sender, EventArgs e)
         {
-            ds = db.consultar("SELECT * FROM personas WHERE cedula = '" +
-               correofpwd.Text.ToLower() + "' AND correo = '" + cedulafpwd + "'");
+            await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" +
+               correofpwd.Text.ToLower() + "' AND correo = '" + cedulafpwd + "'"));
+            ds = db.Ds;
 
             if (ds != null)
             {

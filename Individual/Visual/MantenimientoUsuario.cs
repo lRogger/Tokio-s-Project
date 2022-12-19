@@ -2,6 +2,7 @@
 using Individual.Visual.ComponentesMod;
 using Microsoft.VisualBasic;
 using System.Data;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 
@@ -18,8 +19,9 @@ namespace Individual.Visual
         {
             
             InitializeComponent();
-
-            DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
+            
+            db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
+            DataSet ds = db.Ds;
             usersDGV.DataSource = ds.Tables[0];
             usersDGV.RowHeadersVisible = false;
 
@@ -41,14 +43,15 @@ namespace Individual.Visual
 
         }
 
-        private void buscarUser_KeyPress(object sender, KeyPressEventArgs e)
+        private async void buscarUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                DataSet ds = db.consultar("SELECT id, cedula, nombre, " +
-                    "correo, edad, imagen FROM personas WHERE cedula != 0 and (nombre like '%" + buscarUser.Text.Trim()+"%'" +
-                    " or cedula like '%"+buscarUser.Text.Trim()+"%')");
+                await Task.Run(() => db.consultar("SELECT id, cedula, nombre, " +
+                    "correo, edad, imagen FROM personas WHERE cedula != 0 and (nombre like '%" + buscarUser.Text.Trim() + "%'" +
+                    " or cedula like '%" + buscarUser.Text.Trim() + "%')"));
+                DataSet ds = db.Ds;
                 usersDGV.DataSource = ds.Tables[0];
             }
             
@@ -76,13 +79,14 @@ namespace Individual.Visual
             }
         }
 
-        private void editar_Click(object sender, EventArgs e)
+        private async void editar_Click(object sender, EventArgs e)
         {
             if(usersDGV.SelectedRows.Count > 0)
             {
                 int i = usersDGV.CurrentRow.Index;
-                DataSet dsa = db.consultar("Select cedula, nombre, correo, edad, admin, imagen" +
-                    " FROM personas WHERE cedula = " + usersDGV.Rows[i].Cells["cedula"].Value.ToString());
+                await Task.Run(() => db.consultar("Select cedula, nombre, correo, edad, admin, imagen" +
+                    " FROM personas WHERE cedula = " + usersDGV.Rows[i].Cells["cedula"].Value.ToString()));
+                DataSet dsa = db.Ds;
 
 
                 NewUser nu = new NewUser();
@@ -180,9 +184,10 @@ namespace Individual.Visual
             this.Close();
         }
 
-        private void cargarTabla()
+        private async void cargarTabla()
         {
-            DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
+            await Task.Run(() => db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0"));
+            DataSet ds = db.Ds;
             usersDGV.DataSource = ds.Tables[0];
         }
     }

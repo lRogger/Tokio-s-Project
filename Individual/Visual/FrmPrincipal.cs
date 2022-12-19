@@ -139,7 +139,6 @@ namespace Individual.Visual
         {
             string mensaje = "Está seguro que desea cerrar la sesión actual?";
             string titulo = "Cerrar Sesión";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = new Emergente("si/no", titulo, mensaje).ShowDialog();
             if (result == DialogResult.OK)
             {

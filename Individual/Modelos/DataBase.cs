@@ -7,6 +7,7 @@ namespace Individual.Modelos
     public class DataBase
     {
         private string server, user, pass, db, strCon;
+        private DataSet ds;
 
         /*  PRIMER HOST IMPLEMENTADO, DETALLES
          
@@ -23,10 +24,12 @@ namespace Individual.Modelos
             this.user = "lrogger";
             this.pass = "Rogger123";
             this.db = "chichar";
-
+            this.ds = new DataSet();
             strCon = "server=" + server +
                 ";user id=" + user + ";password=" + pass + ";database=" + db + ";";
         }
+
+        public DataSet Ds { get => ds; set => ds = value; }
 
         public MySqlConnection conectarDB()
         {
@@ -37,10 +40,10 @@ namespace Individual.Modelos
             return con;
         }
 
-        public DataSet consultar(string cmd)
+        public void consultar(string cmd)
         {
 
-            DataSet ds = new DataSet();
+            ds = new DataSet();
 
             try
             {
@@ -54,8 +57,6 @@ namespace Individual.Modelos
             {
                 Console.WriteLine("Error:" + e);
             }
-
-            return ds;
 
         }
 

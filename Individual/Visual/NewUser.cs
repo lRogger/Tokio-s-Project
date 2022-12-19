@@ -58,7 +58,7 @@ namespace Individual.Visual
 
         }
 
-        private void enviar()
+        private async void enviar()
         {
             if (cedUser.Text.Trim() != "" && nomUser.Text.Trim() != ""
                 && correoUser.Text.Trim() != "" && edadUser.Text.Trim() != "")
@@ -81,7 +81,8 @@ namespace Individual.Visual
                 comando.Parameters.Add(new MySqlParameter("_edad", p.Edad));
                 comando.Parameters.Add(new MySqlParameter("_admin", p.Admin));
                 comando.Parameters.Add(new MySqlParameter("_imagen", p.Foto));
-                comando.ExecuteNonQuery();
+                this.Hide();
+                await Task.Run(() => comando.ExecuteNonQuery());
                 this.Close();
             }
             else
@@ -132,7 +133,7 @@ namespace Individual.Visual
 
         }
 
-        private void btnEnviar_Click(object sender, EventArgs e)
+        private async void btnEnviar_Click(object sender, EventArgs e)
         {
             if (!cedUser.Enabled)
             {
@@ -141,7 +142,8 @@ namespace Individual.Visual
             else if (cedUser.Enabled)
             {
                 DataSet ds = new DataSet();
-                ds = db.consultar("SELECT cedula FROM personas WHERE cedula = " + cedUser.Text);
+                await Task.Run(() => db.consultar("SELECT cedula FROM personas WHERE cedula = " + cedUser.Text));
+                ds = db.Ds;
                 if (ds.Tables.Count > 0)
                 {
                     if (ds.Tables[0].Rows.Count > 0){

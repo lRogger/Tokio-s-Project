@@ -24,15 +24,13 @@ namespace Individual
         private async void ingresar()
         {
 
-             
-            
-
             if (pwd.Text != "" && user.Text != "")
             {
                 
                 try
                 {
-                    ds = db.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'");
+                    await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'"));
+                    ds = db.Ds;
 
                     if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
                     {
