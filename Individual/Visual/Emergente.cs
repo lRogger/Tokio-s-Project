@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,10 @@ namespace Individual.Visual
 
         private void Emergente_Load(object sender, EventArgs e)
         {
-            if(tipo == "advertencia")
+            lblTitulo.Text = titulo;
+            lblTexto.Text = mensaje;
+
+            if (tipo == "advertencia")
             {
                 int izq, der;
                 izq = btnOk.Margin.Left + btnCancel.Margin.Left + (btnCancel.Width / 2);
@@ -40,9 +44,11 @@ namespace Individual.Visual
             }else if(tipo == "si/no")
             {
 
+            }else if(tipo == "espera"){
+
+                flPanel.Visible = false;
             }
-            lblTitulo.Text = titulo;
-            lblTexto.Text = mensaje;
+            
         }
 
         private void btnOk_Click(object sender, EventArgs e)

@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnOk = new Individual.Visual.ComponentesMod.RJButton();
             this.btnCancel = new Individual.Visual.ComponentesMod.RJButton();
             this.lblTexto = new System.Windows.Forms.Label();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flPanel.SuspendLayout();
             this.panelMod1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flPanel
             // 
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.flowLayoutPanel1.Controls.Add(this.btnOk);
-            this.flowLayoutPanel1.Controls.Add(this.btnCancel);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 96);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(212, 36);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.flPanel.Controls.Add(this.btnOk);
+            this.flPanel.Controls.Add(this.btnCancel);
+            this.flPanel.Location = new System.Drawing.Point(19, 96);
+            this.flPanel.Name = "flPanel";
+            this.flPanel.Size = new System.Drawing.Size(212, 36);
+            this.flPanel.TabIndex = 0;
             // 
             // btnOk
             // 
@@ -132,13 +132,13 @@
             this.ClientSize = new System.Drawing.Size(252, 133);
             this.Controls.Add(this.panelMod1);
             this.Controls.Add(this.lblTexto);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Emergente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Emergente";
             this.Load += new System.EventHandler(this.Emergente_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flPanel.ResumeLayout(false);
             this.panelMod1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -146,7 +146,7 @@
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flPanel;
         private ComponentesMod.RJButton btnOk;
         private ComponentesMod.RJButton btnCancel;
         private Label lblTexto;

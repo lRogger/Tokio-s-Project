@@ -18,6 +18,7 @@ namespace Individual.Visual
         {
             
             InitializeComponent();
+
             DataSet ds = db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
             usersDGV.DataSource = ds.Tables[0];
             usersDGV.RowHeadersVisible = false;

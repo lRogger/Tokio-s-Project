@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Individual.Modelos
 {
@@ -13,6 +9,7 @@ namespace Individual.Modelos
         private string server, user, pass, db, strCon;
 
         /*  PRIMER HOST IMPLEMENTADO, DETALLES
+         
             string server = "us-east.connect.psdb.cloud";
             string user = "u1deef4ok1sdaos254mh";
             string pass = "pscale_pw_eYFZVgEnWtWE0R6fAkZHVhXPL3vCw9wxeJ9fOaJ3SDd";
@@ -35,7 +32,6 @@ namespace Individual.Modelos
         {
 
             MySqlConnection con = new MySqlConnection();
-
             con.ConnectionString = strCon;
             con.Open();
             return con;
@@ -45,6 +41,7 @@ namespace Individual.Modelos
         {
 
             DataSet ds = new DataSet();
+
             try
             {
 

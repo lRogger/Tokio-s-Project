@@ -21,23 +21,21 @@ namespace Individual
             
         }
 
-        private void ingresar()
+        private async void ingresar()
         {
-            MemoryStream ms = new MemoryStream();
-            pictureBox1.Image.Save(ms, ImageFormat.Jpeg);
-            byte[] aByte = ms.ToArray();
 
-
+             
+            
 
             if (pwd.Text != "" && user.Text != "")
             {
+                
                 try
                 {
                     ds = db.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'");
 
                     if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
                     {
-                        MessageBox.Show("Sesion iniciada, bienvenido " + ds.Tables[0].Rows[0]["nombre"]);
                         FrmPrincipal frmp = new FrmPrincipal(this);
                         if (ds.Tables[0].Rows[0]["admin"] is true)
                         {
@@ -51,7 +49,6 @@ namespace Individual
                     }
                     else
                     {
-                        
                         new Emergente("advertencia", "Error", "Contraseña Incorrecta").ShowDialog();
                         pwd.Text = "";
                     }
@@ -89,7 +86,6 @@ namespace Individual
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             ingresar();
         }
 
