@@ -14,8 +14,9 @@ namespace Individual
         public Login()
         {
             InitializeComponent();
-            this.cerrar.Parent = this.pictureBox1;
-
+            //this.cerrar.Parent = this.pictureBox1;
+     
+            panelMod1.BackColor = Color.FromArgb(25, Color.Black);
         }
 
         private async void ingresar()
@@ -131,6 +132,31 @@ namespace Individual
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void user_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pwd_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
