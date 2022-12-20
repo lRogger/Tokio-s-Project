@@ -185,8 +185,8 @@ namespace Individual.Visual
             if (result == DialogResult.OK)
             {
                 lg.Show();
-                lg.pwd.Enabled = true;
-                lg.user.Enabled = true;
+                lg.tbpwd.Enabled = true;
+                lg.tbUser.Enabled = true;
                 lg.btnIniciar.Enabled = true;
                 this.Close();
 

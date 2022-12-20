@@ -16,30 +16,31 @@ namespace Individual
             InitializeComponent();
             //this.cerrar.Parent = this.pictureBox1;
      
-            panelMod1.BackColor = Color.FromArgb(25, Color.Black);
+            panelMod1.BackColor = Color.FromArgb(75, Color.Black);
+
         }
 
         private async void ingresar()
         {
 
-            if (pwd.Text != "" && user.Text != "")
+            if (tbpwd.Text != "" && tbUser.Text != "")
             {
 
                 try
                 {
-                    pwd.Enabled = false;
-                    user.Enabled = false;
+                    tbpwd.Enabled = false;
+                    tbUser.Enabled = false;
                     btnIniciar.Enabled = false;
 
                     //Cursor.Current = Cursors.Hand;
-                    await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'"));
+                    await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + tbUser.Text.Trim() + "'"));
                     ds.Tables.Clear();
                     ds = db.Ds;
                     //Cursor.Current = Cursors.Default;
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        if (BCrypt.Net.BCrypt.Verify(pwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
+                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
                         {
                             FrmPrincipal frmp = new FrmPrincipal(this);
                             if (ds.Tables[0].Rows[0]["admin"] is true)
@@ -48,35 +49,35 @@ namespace Individual
                             }
                             frmp.Show();
                             this.Hide();
-                            pwd.Text = "";
-                            user.Text = "";
+                            tbpwd.Text = "";
+                            tbUser.Text = "";
 
                         }
                         else
                         {
                             new Emergente("advertencia", "Error", "Contraseña Incorrecta").ShowDialog();
-                            pwd.Text = "";
-                            pwd.Enabled = true;
-                            user.Enabled = true;
+                            tbpwd.Text = "";
+                            tbpwd.Enabled = true;
+                            tbUser.Enabled = true;
                             btnIniciar.Enabled = true;
                         }
                     }
                     else
                     {
                         new Emergente("advertencia", "ERROR", "Usuario no encontrado").ShowDialog();
-                        pwd.Enabled = true;
-                        user.Enabled = true;
+                        tbpwd.Enabled = true;
+                        tbUser.Enabled = true;
                         btnIniciar.Enabled = true;
-                        pwd.Text = "";
-                        user.Text = "";
+                        tbpwd.Text = "";
+                        tbUser.Text = "";
                     }
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
-                    pwd.Text = "";
-                    user.Text = "";
+                    tbpwd.Text = "";
+                    tbUser.Text = "";
                 }
 
             }
@@ -88,23 +89,18 @@ namespace Individual
 
         private void pwd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar == Convert.ToChar(Keys.Enter)))
-            {
-                ingresar();
-            }
+            
 
         }
 
         private void user_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utilidades u = new Utilidades();
-
-            e.Handled = u.validar((char)e.KeyChar, "numero");
+            
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            ingresar();
+            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -185,6 +181,30 @@ namespace Individual
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
+        }
+
+        private void tbUser__TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilidades u = new Utilidades();
+            e.Handled = u.validar((char)e.KeyChar, "numero");
+        }
+
+        private void rjTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar == Convert.ToChar(Keys.Enter)))
+            {
+                ingresar();
+            }
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            ingresar();
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)

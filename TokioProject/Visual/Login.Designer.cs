@@ -30,13 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.cerrar = new System.Windows.Forms.Label();
-            this.pwd = new System.Windows.Forms.TextBox();
-            this.btnIniciar = new System.Windows.Forms.Button();
-            this.user = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
-            this.tbPwd = new CustomControls.RJControls.RJTextBox();
+            this.btnIniciar = new Individual.Visual.ComponentesMod.RJButton();
+            this.tbpwd = new CustomControls.RJControls.RJTextBox();
+            this.tbUser = new CustomControls.RJControls.RJTextBox();
             this.panelMod1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,58 +55,6 @@
             this.cerrar.Text = "X";
             this.cerrar.Click += new System.EventHandler(this.cerrar_Click);
             // 
-            // pwd
-            // 
-            this.pwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
-            this.pwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pwd.ForeColor = System.Drawing.SystemColors.Window;
-            this.pwd.Location = new System.Drawing.Point(47, 215);
-            this.pwd.MaximumSize = new System.Drawing.Size(0, 50);
-            this.pwd.MinimumSize = new System.Drawing.Size(0, 25);
-            this.pwd.Name = "pwd";
-            this.pwd.PasswordChar = '●';
-            this.pwd.PlaceholderText = "🔑 Contraseña";
-            this.pwd.Size = new System.Drawing.Size(223, 25);
-            this.pwd.TabIndex = 5;
-            this.pwd.TextChanged += new System.EventHandler(this.pwd_TextChanged);
-            this.pwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwd_KeyPress);
-            // 
-            // btnIniciar
-            // 
-            this.btnIniciar.AutoSize = true;
-            this.btnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnIniciar.FlatAppearance.BorderSize = 0;
-            this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnIniciar.ForeColor = System.Drawing.Color.White;
-            this.btnIniciar.Location = new System.Drawing.Point(83, 287);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.btnIniciar.Size = new System.Drawing.Size(151, 36);
-            this.btnIniciar.TabIndex = 3;
-            this.btnIniciar.Tag = "";
-            this.btnIniciar.Text = "Iniciar";
-            this.btnIniciar.UseVisualStyleBackColor = false;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
-            // 
-            // user
-            // 
-            this.user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
-            this.user.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.user.CausesValidation = false;
-            this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.user.ForeColor = System.Drawing.Color.White;
-            this.user.Location = new System.Drawing.Point(47, 156);
-            this.user.MaximumSize = new System.Drawing.Size(0, 30);
-            this.user.MinimumSize = new System.Drawing.Size(0, 25);
-            this.user.Name = "user";
-            this.user.PlaceholderText = "ℹ Cédula";
-            this.user.Size = new System.Drawing.Size(223, 25);
-            this.user.TabIndex = 1;
-            this.user.TextChanged += new System.EventHandler(this.user_TextChanged);
-            this.user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.user_KeyPress);
-            // 
             // linkLabel1
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.BlueViolet;
@@ -116,7 +63,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.linkLabel1.ForeColor = System.Drawing.Color.White;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(112, 326);
+            this.linkLabel1.Location = new System.Drawing.Point(116, 308);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(92, 12);
             this.linkLabel1.TabIndex = 0;
@@ -130,7 +77,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(63, 81);
+            this.label3.Location = new System.Drawing.Point(67, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(191, 41);
             this.label3.TabIndex = 0;
@@ -141,12 +88,11 @@
             // 
             this.panelMod1.BackColor = System.Drawing.Color.Black;
             this.panelMod1.BorderRadius = 30;
-            this.panelMod1.Controls.Add(this.tbPwd);
             this.panelMod1.Controls.Add(this.btnIniciar);
+            this.panelMod1.Controls.Add(this.tbpwd);
+            this.panelMod1.Controls.Add(this.tbUser);
             this.panelMod1.Controls.Add(this.linkLabel1);
             this.panelMod1.Controls.Add(this.label3);
-            this.panelMod1.Controls.Add(this.pwd);
-            this.panelMod1.Controls.Add(this.user);
             this.panelMod1.ForeColor = System.Drawing.Color.Black;
             this.panelMod1.GradientAngle = 90F;
             this.panelMod1.GradientBottomColor = System.Drawing.Color.Transparent;
@@ -158,33 +104,77 @@
             this.panelMod1.TabIndex = 11;
             this.panelMod1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMod1_MouseMove);
             // 
-            // tbPwd
+            // btnIniciar
             // 
-            this.tbPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
-            this.tbPwd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
-            this.tbPwd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
-            this.tbPwd.BorderRadius = 10;
-            this.tbPwd.BorderSize = 2;
-            this.tbPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbPwd.Location = new System.Drawing.Point(38, 47);
-            this.tbPwd.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPwd.Multiline = false;
-            this.tbPwd.Name = "tbPwd";
-            this.tbPwd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbPwd.PasswordChar = false;
-            this.tbPwd.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tbPwd.PlaceholderText = "ℹ Cédula";
-            this.tbPwd.Size = new System.Drawing.Size(250, 31);
-            this.tbPwd.TabIndex = 6;
-            this.tbPwd.Texts = "";
-            this.tbPwd.UnderlinedStyle = false;
+            this.btnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnIniciar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnIniciar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnIniciar.BorderRadius = 15;
+            this.btnIniciar.BorderSize = 0;
+            this.btnIniciar.FlatAppearance.BorderSize = 0;
+            this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciar.ForeColor = System.Drawing.Color.White;
+            this.btnIniciar.Location = new System.Drawing.Point(87, 263);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(150, 40);
+            this.btnIniciar.TabIndex = 12;
+            this.btnIniciar.Text = "Iniciar";
+            this.btnIniciar.TextColor = System.Drawing.Color.White;
+            this.btnIniciar.UseVisualStyleBackColor = false;
+            this.btnIniciar.Click += new System.EventHandler(this.rjButton1_Click);
+            // 
+            // tbpwd
+            // 
+            this.tbpwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tbpwd.BorderColor = System.Drawing.Color.Transparent;
+            this.tbpwd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
+            this.tbpwd.BorderRadius = 10;
+            this.tbpwd.BorderSize = 2;
+            this.tbpwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbpwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbpwd.Location = new System.Drawing.Point(51, 207);
+            this.tbpwd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbpwd.Multiline = false;
+            this.tbpwd.Name = "tbpwd";
+            this.tbpwd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbpwd.PasswordChar = false;
+            this.tbpwd.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbpwd.PlaceholderText = "🔑 Contraseña";
+            this.tbpwd.Size = new System.Drawing.Size(223, 31);
+            this.tbpwd.TabIndex = 7;
+            this.tbpwd.Texts = "";
+            this.tbpwd.UnderlinedStyle = false;
+            this.tbpwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rjTextBox1_KeyPress);
+            // 
+            // tbUser
+            // 
+            this.tbUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tbUser.BorderColor = System.Drawing.Color.Transparent;
+            this.tbUser.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
+            this.tbUser.BorderRadius = 10;
+            this.tbUser.BorderSize = 2;
+            this.tbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbUser.Location = new System.Drawing.Point(51, 166);
+            this.tbUser.Margin = new System.Windows.Forms.Padding(4);
+            this.tbUser.Multiline = false;
+            this.tbUser.Name = "tbUser";
+            this.tbUser.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbUser.PasswordChar = false;
+            this.tbUser.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbUser.PlaceholderText = "ℹ Cédula";
+            this.tbUser.Size = new System.Drawing.Size(223, 31);
+            this.tbUser.TabIndex = 6;
+            this.tbUser.Texts = "";
+            this.tbUser.UnderlinedStyle = false;
+            this.tbUser._TextChanged += new System.EventHandler(this.tbUser__TextChanged);
+            this.tbUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUser_KeyPress);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(750, 543);
@@ -206,12 +196,11 @@
         #endregion
 
         private Label cerrar;
-        public TextBox pwd;
-        public Button btnIniciar;
-        public TextBox user;
         private LinkLabel linkLabel1;
         private Label label3;
         private Visual.ComponentesMod.PanelMod panelMod1;
-        private CustomControls.RJControls.RJTextBox tbPwd;
+        public CustomControls.RJControls.RJTextBox tbUser;
+        public CustomControls.RJControls.RJTextBox tbpwd;
+        public Visual.ComponentesMod.RJButton btnIniciar;
     }
 }

@@ -44,15 +44,15 @@
             this.flPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.flPanel.Controls.Add(this.btnOk);
             this.flPanel.Controls.Add(this.btnCancel);
-            this.flPanel.Location = new System.Drawing.Point(19, 96);
+            this.flPanel.Location = new System.Drawing.Point(27, 96);
             this.flPanel.Name = "flPanel";
-            this.flPanel.Size = new System.Drawing.Size(212, 36);
+            this.flPanel.Size = new System.Drawing.Size(196, 36);
             this.flPanel.TabIndex = 0;
             // 
             // btnOk
             // 
-            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnOk.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(9)))), ((int)(((byte)(141)))));
+            this.btnOk.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(9)))), ((int)(((byte)(141)))));
             this.btnOk.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnOk.BorderRadius = 10;
             this.btnOk.BorderSize = 0;
@@ -60,8 +60,8 @@
             this.btnOk.FlatAppearance.BorderSize = 0;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.ForeColor = System.Drawing.Color.White;
-            this.btnOk.Location = new System.Drawing.Point(13, 8);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(13, 8, 13, 8);
+            this.btnOk.Location = new System.Drawing.Point(8, 8);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(8);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(80, 20);
             this.btnOk.TabIndex = 0;
@@ -72,8 +72,8 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnCancel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(9)))), ((int)(((byte)(141)))));
+            this.btnCancel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(9)))), ((int)(((byte)(141)))));
             this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnCancel.BorderRadius = 10;
             this.btnCancel.BorderSize = 0;
@@ -81,8 +81,8 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(119, 8);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(13, 8, 13, 8);
+            this.btnCancel.Location = new System.Drawing.Point(104, 8);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(8);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 20);
             this.btnCancel.TabIndex = 1;
@@ -102,20 +102,21 @@
             // 
             // panelMod1
             // 
-            this.panelMod1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.panelMod1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(9)))), ((int)(((byte)(141)))));
             this.panelMod1.BorderRadius = 0;
             this.panelMod1.Controls.Add(this.lblTitulo);
             this.panelMod1.ForeColor = System.Drawing.Color.Black;
             this.panelMod1.GradientAngle = 0F;
-            this.panelMod1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.panelMod1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.panelMod1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(9)))), ((int)(((byte)(141)))));
+            this.panelMod1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(9)))), ((int)(((byte)(141)))));
             this.panelMod1.Location = new System.Drawing.Point(0, 0);
             this.panelMod1.Name = "panelMod1";
-            this.panelMod1.Size = new System.Drawing.Size(252, 31);
+            this.panelMod1.Size = new System.Drawing.Size(264, 31);
             this.panelMod1.TabIndex = 4;
             // 
             // lblTitulo
             // 
+            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(9, 0);
@@ -135,6 +136,7 @@
             this.Controls.Add(this.flPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Emergente";
+            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Emergente";
             this.Load += new System.EventHandler(this.Emergente_Load);
