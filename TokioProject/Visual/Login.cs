@@ -8,7 +8,8 @@ namespace Individual
     public partial class Login : Form
     {
         private int posX = 0, posY = 0;
-        public DataSet ds = new DataSet();
+       
+public DataSet ds = new DataSet();
         private DataBase db = new DataBase();
 
         public Login()

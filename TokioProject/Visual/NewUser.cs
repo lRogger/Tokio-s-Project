@@ -17,6 +17,7 @@ namespace Individual.Visual
         public NewUser()
         {
             InitializeComponent();
+            
         }
 
 
@@ -200,6 +201,10 @@ namespace Individual.Visual
 
         private void NewUser_Load(object sender, EventArgs e)
         {
+            if (!cedUser.Enabled)
+            {
+                lblTitulo.Text = "Editar Usuario";
+            }
 
         }
 

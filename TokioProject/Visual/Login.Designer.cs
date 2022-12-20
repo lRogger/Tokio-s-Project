@@ -137,7 +137,7 @@
             this.tbpwd.Multiline = false;
             this.tbpwd.Name = "tbpwd";
             this.tbpwd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbpwd.PasswordChar = false;
+            this.tbpwd.PasswordChar = true;
             this.tbpwd.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbpwd.PlaceholderText = "🔑 Contraseña";
             this.tbpwd.Size = new System.Drawing.Size(223, 31);

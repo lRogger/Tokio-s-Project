@@ -1,6 +1,7 @@
 ﻿using Individual.Modelos;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Data;
+using TokiosProject.Visual;
 
 namespace Individual.Visual
 {
@@ -289,6 +290,12 @@ namespace Individual.Visual
                 profileP.ImageLocation = "../../../../data/Img/defaultAvatar.png";
                 
             }
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePwd changePW = new ChangePwd(lg.ds);
+            changePW.ShowDialog();
         }
 
 

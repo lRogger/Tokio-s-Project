@@ -53,13 +53,15 @@
             this.tbPwdAnt.Multiline = false;
             this.tbPwdAnt.Name = "tbPwdAnt";
             this.tbPwdAnt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbPwdAnt.PasswordChar = false;
+            this.tbPwdAnt.PasswordChar = true;
             this.tbPwdAnt.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbPwdAnt.PlaceholderText = "🔑 Contraseña";
             this.tbPwdAnt.Size = new System.Drawing.Size(311, 31);
             this.tbPwdAnt.TabIndex = 0;
             this.tbPwdAnt.Texts = "";
             this.tbPwdAnt.UnderlinedStyle = false;
+            this.tbPwdAnt._TextChanged += new System.EventHandler(this.tbPwdAnt__TextChanged);
+            this.tbPwdAnt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPwdAnt_KeyPress);
             // 
             // tbPwdNew
             // 
@@ -75,13 +77,14 @@
             this.tbPwdNew.Multiline = false;
             this.tbPwdNew.Name = "tbPwdNew";
             this.tbPwdNew.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbPwdNew.PasswordChar = false;
+            this.tbPwdNew.PasswordChar = true;
             this.tbPwdNew.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbPwdNew.PlaceholderText = "🔑 Nueva Contraseña";
             this.tbPwdNew.Size = new System.Drawing.Size(311, 31);
             this.tbPwdNew.TabIndex = 1;
             this.tbPwdNew.Texts = "";
             this.tbPwdNew.UnderlinedStyle = false;
+            this.tbPwdNew.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPwdAnt_KeyPress);
             // 
             // tbPwdRep
             // 
@@ -97,13 +100,14 @@
             this.tbPwdRep.Multiline = false;
             this.tbPwdRep.Name = "tbPwdRep";
             this.tbPwdRep.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbPwdRep.PasswordChar = false;
+            this.tbPwdRep.PasswordChar = true;
             this.tbPwdRep.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbPwdRep.PlaceholderText = "🔑 Repetir Contraseña";
             this.tbPwdRep.Size = new System.Drawing.Size(311, 31);
             this.tbPwdRep.TabIndex = 2;
             this.tbPwdRep.Texts = "";
             this.tbPwdRep.UnderlinedStyle = false;
+            this.tbPwdRep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPwdAnt_KeyPress);
             // 
             // label1
             // 
@@ -159,6 +163,7 @@
             this.rjButton1.Text = "Cambiar ";
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
             // 
             // btnCerrar
             // 
@@ -180,6 +185,7 @@
             this.btnCerrar.Text = "X";
             this.btnCerrar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // ChangePwd
             // 
@@ -199,7 +205,9 @@
             this.Controls.Add(this.tbPwdAnt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChangePwd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePwd";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChangePwd_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

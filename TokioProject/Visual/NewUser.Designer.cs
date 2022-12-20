@@ -39,7 +39,7 @@
             this.btnEnviar = new Individual.Visual.ComponentesMod.RJButton();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fotoUser)).BeginInit();
             this.panelMod1.SuspendLayout();
             this.SuspendLayout();
@@ -196,16 +196,16 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britanica-HeavySemiExpanded", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(89, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 29);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Nuevo Usuario";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(89, 6);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(172, 29);
+            this.lblTitulo.TabIndex = 13;
+            this.lblTitulo.Text = "Nuevo Usuario";
             // 
             // NewUser
             // 
@@ -213,7 +213,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.ClientSize = new System.Drawing.Size(363, 279);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.panelMod1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -241,6 +241,6 @@
         private ComponentesMod.RJButton btnEnviar;
         private ComponentesMod.PanelMod panelMod1;
         private ComponentesMod.RJButton btnCerrar;
-        private Label label1;
+        private Label lblTitulo;
     }
 }
