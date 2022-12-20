@@ -159,7 +159,7 @@ namespace Individual
 
         }
 
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        private void Login_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
             {
@@ -171,6 +171,25 @@ namespace Individual
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
+        }
+
+        private void panelMod1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            
         }
 
     }

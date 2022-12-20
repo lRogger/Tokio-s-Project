@@ -36,6 +36,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
+            this.tbPwd = new CustomControls.RJControls.RJTextBox();
             this.panelMod1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             this.cerrar.BackColor = System.Drawing.Color.Transparent;
             this.cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cerrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cerrar.ForeColor = System.Drawing.Color.Purple;
+            this.cerrar.ForeColor = System.Drawing.Color.Thistle;
             this.cerrar.Location = new System.Drawing.Point(709, 1);
             this.cerrar.Margin = new System.Windows.Forms.Padding(0);
             this.cerrar.Name = "cerrar";
@@ -140,6 +141,7 @@
             // 
             this.panelMod1.BackColor = System.Drawing.Color.Black;
             this.panelMod1.BorderRadius = 30;
+            this.panelMod1.Controls.Add(this.tbPwd);
             this.panelMod1.Controls.Add(this.btnIniciar);
             this.panelMod1.Controls.Add(this.linkLabel1);
             this.panelMod1.Controls.Add(this.label3);
@@ -149,11 +151,34 @@
             this.panelMod1.GradientAngle = 90F;
             this.panelMod1.GradientBottomColor = System.Drawing.Color.Transparent;
             this.panelMod1.GradientTopColor = System.Drawing.Color.Transparent;
-            this.panelMod1.Location = new System.Drawing.Point(182, 62);
+            this.panelMod1.Location = new System.Drawing.Point(215, 54);
             this.panelMod1.Margin = new System.Windows.Forms.Padding(0);
             this.panelMod1.Name = "panelMod1";
             this.panelMod1.Size = new System.Drawing.Size(321, 433);
             this.panelMod1.TabIndex = 11;
+            this.panelMod1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMod1_MouseMove);
+            // 
+            // tbPwd
+            // 
+            this.tbPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
+            this.tbPwd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
+            this.tbPwd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
+            this.tbPwd.BorderRadius = 10;
+            this.tbPwd.BorderSize = 2;
+            this.tbPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbPwd.Location = new System.Drawing.Point(38, 47);
+            this.tbPwd.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPwd.Multiline = false;
+            this.tbPwd.Name = "tbPwd";
+            this.tbPwd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbPwd.PasswordChar = false;
+            this.tbPwd.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tbPwd.PlaceholderText = "ℹ Cédula";
+            this.tbPwd.Size = new System.Drawing.Size(250, 31);
+            this.tbPwd.TabIndex = 6;
+            this.tbPwd.Texts = "";
+            this.tbPwd.UnderlinedStyle = false;
             // 
             // Login
             // 
@@ -170,6 +195,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicia sesión";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Login_MouseMove);
             this.panelMod1.ResumeLayout(false);
             this.panelMod1.PerformLayout();
             this.ResumeLayout(false);
@@ -186,5 +212,6 @@
         private LinkLabel linkLabel1;
         private Label label3;
         private Visual.ComponentesMod.PanelMod panelMod1;
+        private CustomControls.RJControls.RJTextBox tbPwd;
     }
 }
