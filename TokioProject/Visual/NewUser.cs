@@ -74,9 +74,9 @@ namespace Individual.Visual
                 comando.Parameters.Add(new MySqlParameter("_edad", p.Edad));
                 comando.Parameters.Add(new MySqlParameter("_admin", p.Admin));
                 comando.Parameters.Add(new MySqlParameter("_imagen", p.Foto));
-                con.Close();
                 this.Hide();
                 await Task.Run(() => comando.ExecuteNonQuery());
+                con.Close();
                 this.Close();
             }
             else

@@ -1,5 +1,7 @@
 ﻿using Individual.Modelos;
 using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 
 namespace Individual.Visual
@@ -21,15 +23,14 @@ namespace Individual.Visual
             usersDGV.DataSource = ds.Tables[0];
             usersDGV.RowHeadersVisible = false;
 
-            usersDGV.RowTemplate.Height = usersDGV.Columns[5].Width;
-
             DataGridViewImageColumn dgvImagen = (DataGridViewImageColumn)usersDGV.Columns[5];
 
             dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
             dgvImagen.DefaultCellStyle.NullValue = null;
 
-
+            
+            usersDGV.RowTemplate.Height = (usersDGV.Width / 6);
 
         }
 
@@ -183,12 +184,14 @@ namespace Individual.Visual
             {
 
                 usersDGV.DataSource = ds.Tables[0];
+                
             }
             catch
             {
                 new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
                     "intenta nuevamente!");
             }
+            
 
         }
     }
