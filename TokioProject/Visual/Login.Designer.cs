@@ -60,12 +60,12 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.BlueViolet;
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.Font = new System.Drawing.Font("Britanica-Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.linkLabel1.ForeColor = System.Drawing.Color.White;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(116, 308);
+            this.linkLabel1.Location = new System.Drawing.Point(105, 310);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(92, 12);
+            this.linkLabel1.Size = new System.Drawing.Size(115, 15);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Olvidé mi contraseña";
@@ -75,7 +75,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Britanica-Heavy", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(67, 104);
             this.label3.Name = "label3";
@@ -106,17 +106,18 @@
             // 
             // btnIniciar
             // 
-            this.btnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnIniciar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnIniciar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.btnIniciar.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnIniciar.BorderRadius = 15;
             this.btnIniciar.BorderSize = 0;
             this.btnIniciar.FlatAppearance.BorderSize = 0;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciar.Font = new System.Drawing.Font("Britanica-Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIniciar.ForeColor = System.Drawing.Color.White;
-            this.btnIniciar.Location = new System.Drawing.Point(87, 263);
+            this.btnIniciar.Location = new System.Drawing.Point(77, 265);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(150, 40);
+            this.btnIniciar.Size = new System.Drawing.Size(171, 40);
             this.btnIniciar.TabIndex = 12;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.TextColor = System.Drawing.Color.White;
@@ -130,9 +131,9 @@
             this.tbpwd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
             this.tbpwd.BorderRadius = 10;
             this.tbpwd.BorderSize = 2;
-            this.tbpwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbpwd.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbpwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbpwd.Location = new System.Drawing.Point(51, 207);
+            this.tbpwd.Location = new System.Drawing.Point(51, 208);
             this.tbpwd.Margin = new System.Windows.Forms.Padding(4);
             this.tbpwd.Multiline = false;
             this.tbpwd.Name = "tbpwd";
@@ -153,7 +154,7 @@
             this.tbUser.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
             this.tbUser.BorderRadius = 10;
             this.tbUser.BorderSize = 2;
-            this.tbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbUser.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbUser.Location = new System.Drawing.Point(51, 166);
             this.tbUser.Margin = new System.Windows.Forms.Padding(4);
@@ -174,10 +175,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(750, 543);
+            this.ClientSize = new System.Drawing.Size(750, 550);
             this.Controls.Add(this.panelMod1);
             this.Controls.Add(this.cerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

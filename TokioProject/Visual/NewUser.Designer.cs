@@ -48,9 +48,10 @@
             // 
             this.admUser.AutoSize = true;
             this.admUser.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.admUser.Font = new System.Drawing.Font("Britanica-Heavy", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.admUser.Location = new System.Drawing.Point(259, 140);
             this.admUser.Name = "admUser";
-            this.admUser.Size = new System.Drawing.Size(62, 19);
+            this.admUser.Size = new System.Drawing.Size(63, 20);
             this.admUser.TabIndex = 6;
             this.admUser.Text = "Admin";
             this.admUser.UseVisualStyleBackColor = false;
@@ -59,12 +60,12 @@
             // edadUser
             // 
             this.edadUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.edadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.edadUser.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.edadUser.Location = new System.Drawing.Point(128, 135);
             this.edadUser.MaxLength = 3;
             this.edadUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.edadUser.Name = "edadUser";
-            this.edadUser.PlaceholderText = "Edad";
+            this.edadUser.PlaceholderText = " Edad";
             this.edadUser.Size = new System.Drawing.Size(125, 27);
             this.edadUser.TabIndex = 5;
             this.edadUser.TextChanged += new System.EventHandler(this.edadUser_TextChanged);
@@ -73,11 +74,11 @@
             // correoUser
             // 
             this.correoUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.correoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.correoUser.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.correoUser.Location = new System.Drawing.Point(128, 101);
             this.correoUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.correoUser.Name = "correoUser";
-            this.correoUser.PlaceholderText = "Correo";
+            this.correoUser.PlaceholderText = " Correo";
             this.correoUser.Size = new System.Drawing.Size(193, 27);
             this.correoUser.TabIndex = 4;
             this.correoUser.TextChanged += new System.EventHandler(this.correoUser_TextChanged);
@@ -85,12 +86,12 @@
             // nomUser
             // 
             this.nomUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nomUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nomUser.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.nomUser.Location = new System.Drawing.Point(128, 69);
             this.nomUser.MaximumSize = new System.Drawing.Size(0, 25);
             this.nomUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.nomUser.Name = "nomUser";
-            this.nomUser.PlaceholderText = "Nombre";
+            this.nomUser.PlaceholderText = " Nombre";
             this.nomUser.Size = new System.Drawing.Size(193, 27);
             this.nomUser.TabIndex = 3;
             this.nomUser.TextChanged += new System.EventHandler(this.nomUser_TextChanged);
@@ -98,12 +99,12 @@
             // cedUser
             // 
             this.cedUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cedUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cedUser.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cedUser.Location = new System.Drawing.Point(128, 36);
             this.cedUser.MaximumSize = new System.Drawing.Size(200, 25);
             this.cedUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.cedUser.Name = "cedUser";
-            this.cedUser.PlaceholderText = "Cedula";
+            this.cedUser.PlaceholderText = " Cedula";
             this.cedUser.Size = new System.Drawing.Size(193, 27);
             this.cedUser.TabIndex = 2;
             this.cedUser.TextChanged += new System.EventHandler(this.cedUser_TextChanged);
@@ -142,6 +143,7 @@
             this.btnEnviar.BorderSize = 0;
             this.btnEnviar.FlatAppearance.BorderSize = 0;
             this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviar.Font = new System.Drawing.Font("Britanica-Heavy", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEnviar.ForeColor = System.Drawing.Color.Black;
             this.btnEnviar.Location = new System.Drawing.Point(109, 242);
             this.btnEnviar.Name = "btnEnviar";
@@ -199,11 +201,11 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.Font = new System.Drawing.Font("Britanica-Heavy", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(89, 6);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(172, 29);
+            this.lblTitulo.Size = new System.Drawing.Size(187, 32);
             this.lblTitulo.TabIndex = 13;
             this.lblTitulo.Text = "Nuevo Usuario";
             // 

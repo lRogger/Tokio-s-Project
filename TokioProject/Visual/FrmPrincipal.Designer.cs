@@ -120,7 +120,7 @@
             // 
             // profileP
             // 
-            this.profileP.Location = new System.Drawing.Point(12, 61);
+            this.profileP.Location = new System.Drawing.Point(12, 37);
             this.profileP.Name = "profileP";
             this.profileP.Size = new System.Drawing.Size(61, 75);
             this.profileP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -130,7 +130,7 @@
             // lblSesion
             // 
             this.lblSesion.AutoSize = true;
-            this.lblSesion.Location = new System.Drawing.Point(88, 61);
+            this.lblSesion.Location = new System.Drawing.Point(79, 37);
             this.lblSesion.Name = "lblSesion";
             this.lblSesion.Size = new System.Drawing.Size(62, 15);
             this.lblSesion.TabIndex = 10;
@@ -147,7 +147,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(267, 129);
+            this.button1.Location = new System.Drawing.Point(262, 129);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 16;

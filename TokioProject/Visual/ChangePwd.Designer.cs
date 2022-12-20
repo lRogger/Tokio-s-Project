@@ -46,7 +46,7 @@
             this.tbPwdAnt.BorderFocusColor = System.Drawing.Color.HotPink;
             this.tbPwdAnt.BorderRadius = 10;
             this.tbPwdAnt.BorderSize = 1;
-            this.tbPwdAnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbPwdAnt.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbPwdAnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPwdAnt.Location = new System.Drawing.Point(38, 108);
             this.tbPwdAnt.Margin = new System.Windows.Forms.Padding(4);
@@ -70,7 +70,7 @@
             this.tbPwdNew.BorderFocusColor = System.Drawing.Color.HotPink;
             this.tbPwdNew.BorderRadius = 10;
             this.tbPwdNew.BorderSize = 1;
-            this.tbPwdNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbPwdNew.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbPwdNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPwdNew.Location = new System.Drawing.Point(38, 174);
             this.tbPwdNew.Margin = new System.Windows.Forms.Padding(4);
@@ -93,7 +93,7 @@
             this.tbPwdRep.BorderFocusColor = System.Drawing.Color.HotPink;
             this.tbPwdRep.BorderRadius = 10;
             this.tbPwdRep.BorderSize = 1;
-            this.tbPwdRep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbPwdRep.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbPwdRep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPwdRep.Location = new System.Drawing.Point(38, 213);
             this.tbPwdRep.Margin = new System.Windows.Forms.Padding(4);
@@ -112,18 +112,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Britanica-Heavy", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(38, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 15);
+            this.label1.Size = new System.Drawing.Size(116, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Contraseña Actual:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britanica-Heavy", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(38, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 15);
+            this.label2.Size = new System.Drawing.Size(115, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Contraseña Nueva:";
             // 
@@ -138,11 +140,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Britanica-Heavy", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.label4.Location = new System.Drawing.Point(38, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(210, 30);
+            this.label4.Size = new System.Drawing.Size(264, 32);
             this.label4.TabIndex = 7;
             this.label4.Text = "Cambiar Contraseña";
             // 
@@ -155,6 +157,7 @@
             this.rjButton1.BorderSize = 0;
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Britanica-Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rjButton1.ForeColor = System.Drawing.Color.White;
             this.rjButton1.Location = new System.Drawing.Point(38, 263);
             this.rjButton1.Name = "rjButton1";

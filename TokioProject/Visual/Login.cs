@@ -17,7 +17,7 @@ public DataSet ds = new DataSet();
             InitializeComponent();
             //this.cerrar.Parent = this.pictureBox1;
      
-            panelMod1.BackColor = Color.FromArgb(75, Color.Black);
+            panelMod1.BackColor = Color.FromArgb(110, Color.Black);
 
         }
 
