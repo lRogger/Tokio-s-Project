@@ -23,7 +23,7 @@ namespace Individual
         private async void ingresar()
         {
 
-            if (tbpwd.Text != "" && tbUser.Text != "")
+            if (tbpwd.Texts != "" && tbUser.Texts != "")
             {
 
                 try
@@ -33,14 +33,14 @@ namespace Individual
                     btnIniciar.Enabled = false;
 
                     //Cursor.Current = Cursors.Hand;
-                    await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + tbUser.Text.Trim() + "'"));
+                    await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + tbUser.Texts.Trim() + "'"));
                     ds.Tables.Clear();
                     ds = db.Ds;
                     //Cursor.Current = Cursors.Default;
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Text.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
+                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
                         {
                             FrmPrincipal frmp = new FrmPrincipal(this);
                             if (ds.Tables[0].Rows[0]["admin"] is true)
@@ -49,14 +49,14 @@ namespace Individual
                             }
                             frmp.Show();
                             this.Hide();
-                            tbpwd.Text = "";
-                            tbUser.Text = "";
+                            tbpwd.Texts = "";
+                            tbUser.Texts = "";
 
                         }
                         else
                         {
                             new Emergente("advertencia", "Error", "Contraseña Incorrecta").ShowDialog();
-                            tbpwd.Text = "";
+                            tbpwd.Texts = "";
                             tbpwd.Enabled = true;
                             tbUser.Enabled = true;
                             btnIniciar.Enabled = true;
@@ -68,16 +68,16 @@ namespace Individual
                         tbpwd.Enabled = true;
                         tbUser.Enabled = true;
                         btnIniciar.Enabled = true;
-                        tbpwd.Text = "";
-                        tbUser.Text = "";
+                        tbpwd.Texts = "";
+                        tbUser.Texts = "";
                     }
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
-                    tbpwd.Text = "";
-                    tbUser.Text = "";
+                    tbpwd.Texts = "";
+                    tbUser.Texts = "";
                 }
 
             }

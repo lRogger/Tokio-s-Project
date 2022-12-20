@@ -199,11 +199,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(152, 9);
+            this.label1.Font = new System.Drawing.Font("Britanica-HeavySemiExpanded", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(89, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(186, 29);
             this.label1.TabIndex = 13;
-            this.label1.Text = "label1";
+            this.label1.Text = "Nuevo Usuario";
             // 
             // NewUser
             // 

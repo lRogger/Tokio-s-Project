@@ -125,7 +125,7 @@
             // 
             // tbpwd
             // 
-            this.tbpwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tbpwd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbpwd.BorderColor = System.Drawing.Color.Transparent;
             this.tbpwd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
             this.tbpwd.BorderRadius = 10;
@@ -148,7 +148,7 @@
             // 
             // tbUser
             // 
-            this.tbUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tbUser.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbUser.BorderColor = System.Drawing.Color.Transparent;
             this.tbUser.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
             this.tbUser.BorderRadius = 10;

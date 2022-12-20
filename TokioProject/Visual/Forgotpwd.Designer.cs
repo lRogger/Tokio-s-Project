@@ -65,14 +65,14 @@
             // 
             this.correofpwd.Location = new System.Drawing.Point(27, 92);
             this.correofpwd.Name = "correofpwd";
-            this.correofpwd.Size = new System.Drawing.Size(238, 23);
+            this.correofpwd.Size = new System.Drawing.Size(238, 24);
             this.correofpwd.TabIndex = 2;
             // 
             // cedulafpwd
             // 
             this.cedulafpwd.Location = new System.Drawing.Point(27, 137);
             this.cedulafpwd.Name = "cedulafpwd";
-            this.cedulafpwd.Size = new System.Drawing.Size(157, 23);
+            this.cedulafpwd.Size = new System.Drawing.Size(157, 24);
             this.cedulafpwd.TabIndex = 3;
             this.cedulafpwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cedulafpwd_KeyPress);
             // 
@@ -84,7 +84,6 @@
             this.label3.Size = new System.Drawing.Size(105, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nueva contraseña:";
-
             // 
             // label4
             // 
@@ -101,7 +100,7 @@
             this.newpwd.Location = new System.Drawing.Point(27, 242);
             this.newpwd.Name = "newpwd";
             this.newpwd.PasswordChar = '●';
-            this.newpwd.Size = new System.Drawing.Size(238, 23);
+            this.newpwd.Size = new System.Drawing.Size(238, 24);
             this.newpwd.TabIndex = 8;
             // 
             // newpwd2
@@ -110,7 +109,7 @@
             this.newpwd2.Location = new System.Drawing.Point(27, 287);
             this.newpwd2.Name = "newpwd2";
             this.newpwd2.PasswordChar = '●';
-            this.newpwd2.Size = new System.Drawing.Size(238, 23);
+            this.newpwd2.Size = new System.Drawing.Size(238, 24);
             this.newpwd2.TabIndex = 9;
             // 
             // btnCerrar
@@ -138,22 +137,22 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.label5.Location = new System.Drawing.Point(27, 44);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 21);
+            this.label5.Size = new System.Drawing.Size(180, 25);
             this.label5.TabIndex = 12;
             this.label5.Text = "Verifique sus datos";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.label6.Location = new System.Drawing.Point(27, 197);
+            this.label6.Location = new System.Drawing.Point(27, 193);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(190, 21);
+            this.label6.Size = new System.Drawing.Size(220, 25);
             this.label6.TabIndex = 13;
             this.label6.Text = "Actualice su contraseña";
             // 
