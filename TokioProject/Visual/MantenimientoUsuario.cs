@@ -114,7 +114,7 @@ namespace Individual.Visual
         }
 
 
-        private void eliminar_Click(object sender, EventArgs e)
+        private async void eliminar_Click(object sender, EventArgs e)
         {
 
             string message = "Seguro? si elimina el registro no podrá recuperarlo";
@@ -125,8 +125,8 @@ namespace Individual.Visual
             {
                 int i = usersDGV.CurrentRow.Index;
 
-                db.instruccionDB("Delete from personas WHERE cedula = " +
-                        usersDGV.Rows[i].Cells["cedula"].Value.ToString());
+                await Task.Run(()=> db.instruccionDB("Delete from personas WHERE cedula = " +
+                        usersDGV.Rows[i].Cells["cedula"].Value.ToString()));
 
                 cargarTabla();
             }
@@ -170,13 +170,11 @@ namespace Individual.Visual
         private async void cargarTabla()
         {
             btnRefrescar.Enabled = false;
-
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
 
             await Task.Run(() => db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0"));
             btnRefrescar.Enabled = true;
-
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
 

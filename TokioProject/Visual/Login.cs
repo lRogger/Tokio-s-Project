@@ -28,13 +28,13 @@ namespace Individual
                 {
                     pwd.Enabled = false;
                     user.Enabled = false;
-                    button1.Enabled = false;
+                    btnIniciar.Enabled = false;
 
-                    Cursor.Current = Cursors.Hand;
+                    //Cursor.Current = Cursors.Hand;
                     await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + user.Text.Trim() + "'"));
                     ds.Tables.Clear();
                     ds = db.Ds;
-                    Cursor.Current = Cursors.Default;
+                    //Cursor.Current = Cursors.Default;
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
@@ -57,7 +57,7 @@ namespace Individual
                             pwd.Text = "";
                             pwd.Enabled = true;
                             user.Enabled = true;
-                            button1.Enabled = true;
+                            btnIniciar.Enabled = true;
                         }
                     }
                     else
@@ -65,7 +65,7 @@ namespace Individual
                         new Emergente("advertencia", "ERROR", "Usuario no encontrado").ShowDialog();
                         pwd.Enabled = true;
                         user.Enabled = true;
-                        button1.Enabled = true;
+                        btnIniciar.Enabled = true;
                         pwd.Text = "";
                         user.Text = "";
                     }
@@ -101,7 +101,7 @@ namespace Individual
             e.Handled = u.validar((char)e.KeyChar, "numero");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnIniciar_Click(object sender, EventArgs e)
         {
             ingresar();
         }

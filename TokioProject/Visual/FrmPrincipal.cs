@@ -187,7 +187,7 @@ namespace Individual.Visual
                 lg.Show();
                 lg.pwd.Enabled = true;
                 lg.user.Enabled = true;
-                lg.button1.Enabled = true;
+                lg.btnIniciar.Enabled = true;
                 this.Close();
 
             }
@@ -241,6 +241,7 @@ namespace Individual.Visual
             p4.Show();
         }
 
+        //MÉTODO PARA EDITAR USUARIO
         private async void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -253,6 +254,8 @@ namespace Individual.Visual
             nu.edadUser.Text = lg.ds.Tables[0].Rows[0]["edad"].ToString();
             nu.admUser.Checked = (lg.ds.Tables[0].Rows[0]["admin"].ToString() == "True")
                 ? true : false;
+
+            nu.admUser.Enabled = false;
 
             MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["imagen"]);
             Image img = Image.FromStream(ms);
@@ -288,6 +291,8 @@ namespace Individual.Visual
             }
         }
 
+
+        //ABRIR VENTANA PARA CRUD PERSONAS
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MantenimientoUsuario mu = new MantenimientoUsuario();

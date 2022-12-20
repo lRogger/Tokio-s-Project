@@ -62,7 +62,9 @@ namespace Individual.Visual
                 Persona p = new Persona(nomUser.Text, cedUser.Text, correoUser.Text,
                     Int32.Parse(edadUser.Text), admin, aByte);
 
-                MySqlCommand comando = new MySqlCommand("actualizaUsuario", db.conectarDB());
+                MySqlConnection con = db.conectarDB();
+
+                MySqlCommand comando = new MySqlCommand("actualizaUsuario", con);
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.Add(new MySqlParameter("_cedula", p.Cedula));
@@ -71,6 +73,7 @@ namespace Individual.Visual
                 comando.Parameters.Add(new MySqlParameter("_edad", p.Edad));
                 comando.Parameters.Add(new MySqlParameter("_admin", p.Admin));
                 comando.Parameters.Add(new MySqlParameter("_imagen", p.Foto));
+                con.Close();
                 this.Hide();
                 await Task.Run(() => comando.ExecuteNonQuery());
                 this.Close();
