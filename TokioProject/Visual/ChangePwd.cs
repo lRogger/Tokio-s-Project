@@ -23,7 +23,7 @@ namespace TokiosProject.Visual
         private int posX = 0, posY = 0;
         
 
-public ChangePwd(DataSet ds)
+        public ChangePwd(DataSet ds)
         {
             InitializeComponent();
             dsCuenta = ds;

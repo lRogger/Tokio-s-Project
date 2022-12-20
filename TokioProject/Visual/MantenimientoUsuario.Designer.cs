@@ -48,10 +48,10 @@
             // 
             this.buscarUser.BackColor = System.Drawing.Color.White;
             this.buscarUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.buscarUser.Location = new System.Drawing.Point(37, 102);
+            this.buscarUser.Location = new System.Drawing.Point(80, 102);
             this.buscarUser.Name = "buscarUser";
             this.buscarUser.PlaceholderText = " 🔎 Buscar...";
-            this.buscarUser.Size = new System.Drawing.Size(685, 16);
+            this.buscarUser.Size = new System.Drawing.Size(600, 16);
             this.buscarUser.TabIndex = 1;
             this.buscarUser.TextChanged += new System.EventHandler(this.buscarUser_TextChanged);
             this.buscarUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buscarUser_KeyPress);
@@ -63,9 +63,9 @@
             this.usersDGV.AllowUserToOrderColumns = true;
             this.usersDGV.AllowUserToResizeColumns = false;
             this.usersDGV.AllowUserToResizeRows = false;
-            this.usersDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.usersDGV.BackgroundColor = System.Drawing.Color.White;
             this.usersDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usersDGV.CausesValidation = false;
             this.usersDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.usersDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -80,14 +80,14 @@
             this.usersDGV.EnableHeadersVisualStyles = false;
             this.usersDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.usersDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.usersDGV.Location = new System.Drawing.Point(37, 126);
+            this.usersDGV.Location = new System.Drawing.Point(80, 124);
             this.usersDGV.Name = "usersDGV";
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.usersDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.usersDGV.RowTemplate.Height = 25;
             this.usersDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.usersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDGV.Size = new System.Drawing.Size(686, 528);
+            this.usersDGV.Size = new System.Drawing.Size(600, 528);
             this.usersDGV.TabIndex = 0;
             // 
             // pictureBox1
@@ -208,6 +208,7 @@
             this.Name = "MantenimientoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MantenimientoUsuario";
+            this.Load += new System.EventHandler(this.MantenimientoUsuario_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MantenimientoUsuario_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -1,4 +1,5 @@
 ﻿using Individual.Modelos;
+using MySqlX.XDevAPI.Relational;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -18,43 +19,74 @@ namespace Individual.Visual
 
             InitializeComponent();
 
+            //CARGA Y AJUSTE DEL DATAGRIDVIEW
             db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0");
             DataSet ds = db.Ds;
             usersDGV.DataSource = ds.Tables[0];
             usersDGV.RowHeadersVisible = false;
-
             DataGridViewImageColumn dgvImagen = (DataGridViewImageColumn)usersDGV.Columns[5];
-
             dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
             dgvImagen.DefaultCellStyle.NullValue = null;
+            usersDGV.RowTemplate.Height = 75;
+            usersDGV.Columns["id"].Width = 50;
+            usersDGV.Columns["nombre"].Width = 125;
+            usersDGV.Columns["cedula"].Width = 100;
+            usersDGV.Columns["correo"].Width = 200;
+            usersDGV.Columns["edad"].Width = 50;
+            usersDGV.Columns["imagen"].Width = 75;
+            usersDGV.ReadOnly = true;
 
-            
-            usersDGV.RowTemplate.Height = (usersDGV.Width / 6);
 
         }
 
 
 
-        private async void buscarUser_KeyPress(object sender, KeyPressEventArgs e)
+        private void buscarUser_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                await Task.Run(() => db.consultar("SELECT id, cedula, nombre, " +
-                    "correo, edad, imagen FROM personas WHERE cedula != 0 and (nombre like '%" + buscarUser.Text.Trim() + "%'" +
-                    " or cedula like '%" + buscarUser.Text.Trim() + "%')"));
-                DataSet ds = db.Ds;
-                usersDGV.DataSource = ds.Tables[0];
-            }
+            
 
         }
 
         private void buscarUser_TextChanged(object sender, EventArgs e)
         {
-            if (buscarUser.Text == "")
+
+            if (buscarUser.Text.Trim() != "")
             {
-                cargarTabla();
+                usersDGV.CurrentCell = null;
+                foreach (DataGridViewRow row in usersDGV.Rows)
+                {
+                    bool encontrado = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value != null &&
+                            cell.Value.ToString().ToLower().Contains(buscarUser.Text.ToLower()))
+                        {
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (encontrado)
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        
+                        row.Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                foreach(DataGridViewRow row in usersDGV.Rows)
+                {
+                    if(!row.Visible)
+                    {
+                        row.Visible = true;
+                    }
+                }
             }
         }
 
@@ -166,6 +198,11 @@ namespace Individual.Visual
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void MantenimientoUsuario_Load(object sender, EventArgs e)
+        {
+
         }
 
         private async void cargarTabla()

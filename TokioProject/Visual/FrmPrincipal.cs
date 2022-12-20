@@ -265,10 +265,7 @@ namespace Individual.Visual
             if (nu.ShowDialog() != DialogResult.Abort)
             {
                 new Emergente("advertencia", "Datos cambiados", "Proceso exitoso, los cambios se aplicarán en la siguiente sesión").ShowDialog();
-                await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + lg.ds.Tables[0].Rows[0]["cedula"] + "'"));
-                lg.ds.Tables.Clear();
-                lg.ds = db.Ds;
-                this.Refresh();
+
             }
             else
             {
