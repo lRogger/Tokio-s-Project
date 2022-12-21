@@ -9,6 +9,7 @@ namespace Individual
     {
         private DataSet ds = new DataSet();
         private DataBase db = new DataBase();
+        private int posX = 0, posY = 0;
 
         public Forgotpwd()
         {
@@ -89,6 +90,20 @@ namespace Individual
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Forgotpwd_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
         }
     }
 }

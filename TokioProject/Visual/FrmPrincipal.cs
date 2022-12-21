@@ -10,108 +10,12 @@ namespace Individual.Visual
         private DataBase db = new DataBase();
         private Login lg;
         private int posX = 0, posY = 0;
-        plantillaRopa p1 = new plantillaRopa();
-        plantillaRopa p2 = new plantillaRopa();
-        plantillaRopa p3 = new plantillaRopa();
-        plantillaRopa p4 = new plantillaRopa();
+
 
         public FrmPrincipal(Login lg)
         {
             InitializeComponent();
             this.lg = lg;
-
-            flPanel.Controls.Add(p1);
-            flPanel.Controls.Add(p2);
-            flPanel.Controls.Add(p3);
-            flPanel.Controls.Add(p4);
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
-            flPanel.Controls.Add(new plantillaRopa());
 
 
         }
@@ -228,18 +132,12 @@ namespace Individual.Visual
 
         private void button1_Click(object sender, EventArgs e)
         {
-            p1.Hide();
-            p2.Hide();
-            p3.Hide();
-            p4.Hide();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            p1.Show();
-            p2.Show();
-            p3.Show();
-            p4.Show();
+ 
         }
 
         //MÉTODO PARA EDITAR USUARIO

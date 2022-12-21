@@ -65,14 +65,14 @@
             // 
             this.correofpwd.Location = new System.Drawing.Point(27, 92);
             this.correofpwd.Name = "correofpwd";
-            this.correofpwd.Size = new System.Drawing.Size(238, 24);
+            this.correofpwd.Size = new System.Drawing.Size(238, 23);
             this.correofpwd.TabIndex = 2;
             // 
             // cedulafpwd
             // 
             this.cedulafpwd.Location = new System.Drawing.Point(27, 137);
             this.cedulafpwd.Name = "cedulafpwd";
-            this.cedulafpwd.Size = new System.Drawing.Size(157, 24);
+            this.cedulafpwd.Size = new System.Drawing.Size(157, 23);
             this.cedulafpwd.TabIndex = 3;
             this.cedulafpwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cedulafpwd_KeyPress);
             // 
@@ -100,7 +100,7 @@
             this.newpwd.Location = new System.Drawing.Point(27, 242);
             this.newpwd.Name = "newpwd";
             this.newpwd.PasswordChar = '●';
-            this.newpwd.Size = new System.Drawing.Size(238, 24);
+            this.newpwd.Size = new System.Drawing.Size(238, 23);
             this.newpwd.TabIndex = 8;
             // 
             // newpwd2
@@ -109,7 +109,7 @@
             this.newpwd2.Location = new System.Drawing.Point(27, 287);
             this.newpwd2.Name = "newpwd2";
             this.newpwd2.PasswordChar = '●';
-            this.newpwd2.Size = new System.Drawing.Size(238, 24);
+            this.newpwd2.Size = new System.Drawing.Size(238, 23);
             this.newpwd2.TabIndex = 9;
             // 
             // btnCerrar
@@ -219,6 +219,7 @@
             this.Name = "Forgotpwd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgotpwd";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Forgotpwd_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
