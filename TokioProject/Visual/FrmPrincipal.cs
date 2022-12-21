@@ -243,7 +243,7 @@ namespace Individual.Visual
         }
 
         //MÉTODO PARA EDITAR USUARIO
-        private async void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             NewUser nu = new NewUser();
@@ -300,7 +300,7 @@ namespace Individual.Visual
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MantenimientoUsuario mu = new MantenimientoUsuario();
-            mu.Show();
+            mu.ShowDialog();
         }
 
     }

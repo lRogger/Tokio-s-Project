@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoUsuario));
             this.buscarUser = new System.Windows.Forms.TextBox();
             this.usersDGV = new System.Windows.Forms.DataGridView();
@@ -77,17 +78,26 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.usersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.usersDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.usersDGV.DefaultCellStyle = dataGridViewCellStyle2;
             this.usersDGV.EnableHeadersVisualStyles = false;
             this.usersDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.usersDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.usersDGV.Location = new System.Drawing.Point(80, 124);
+            this.usersDGV.Location = new System.Drawing.Point(72, 124);
+            this.usersDGV.MultiSelect = false;
             this.usersDGV.Name = "usersDGV";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.usersDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.usersDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.usersDGV.RowTemplate.Height = 25;
             this.usersDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.usersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDGV.Size = new System.Drawing.Size(600, 528);
+            this.usersDGV.Size = new System.Drawing.Size(617, 374);
             this.usersDGV.TabIndex = 0;
             // 
             // pictureBox1
@@ -194,7 +204,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(764, 684);
+            this.ClientSize = new System.Drawing.Size(780, 510);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.usersDGV);
             this.Controls.Add(this.buscarUser);
