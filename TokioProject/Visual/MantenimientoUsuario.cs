@@ -17,8 +17,7 @@ namespace Individual.Visual
         {
             InitializeComponent();
             cargarTabla();
-            usersDGV.RowTemplate.Height = 75;
-            //CARGA Y AJUSTE DEL DATAGRIDVIEW
+            usersDGV.RowTemplate.Height = 55;
         }
 
 
@@ -196,11 +195,11 @@ namespace Individual.Visual
                 dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 dgvImagen.DefaultCellStyle.NullValue = null;
                 usersDGV.Columns["id"].Width = 50;
-                usersDGV.Columns["nombre"].Width = 125;
-                usersDGV.Columns["cedula"].Width = 100;
-                usersDGV.Columns["correo"].Width = 200;
+                usersDGV.Columns["nombre"].Width = 105;
+                usersDGV.Columns["cedula"].Width = 80;
+                usersDGV.Columns["correo"].Width = 180;
                 usersDGV.Columns["edad"].Width = 50;
-                usersDGV.Columns["imagen"].Width = 75;
+                usersDGV.Columns["imagen"].Width = 55;
                 usersDGV.ReadOnly = true;
                 
 

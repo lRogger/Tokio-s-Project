@@ -10,13 +10,14 @@ namespace Individual.Visual
         private DataBase db = new DataBase();
         private Login lg;
         private int posX = 0, posY = 0;
+        MantenimientoUsuario mu;
 
 
         public FrmPrincipal(Login lg)
         {
             InitializeComponent();
             this.lg = lg;
-
+            mu = new MantenimientoUsuario();
 
         }
 
@@ -197,7 +198,10 @@ namespace Individual.Visual
         //ABRIR VENTANA PARA CRUD PERSONAS
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MantenimientoUsuario mu = new MantenimientoUsuario();
+            if(mu.IsDisposed)
+            {
+                mu = new MantenimientoUsuario();
+            }
             mu.TopLevel = false;
             this.panelPrincipal.Controls.Add(mu);
             mu.Show();

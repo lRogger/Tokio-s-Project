@@ -120,7 +120,7 @@
             // 
             this.profileP.Location = new System.Drawing.Point(12, 37);
             this.profileP.Name = "profileP";
-            this.profileP.Size = new System.Drawing.Size(61, 75);
+            this.profileP.Size = new System.Drawing.Size(70, 70);
             this.profileP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profileP.TabIndex = 8;
             this.profileP.TabStop = false;
@@ -128,7 +128,7 @@
             // lblSesion
             // 
             this.lblSesion.AutoSize = true;
-            this.lblSesion.Location = new System.Drawing.Point(79, 37);
+            this.lblSesion.Location = new System.Drawing.Point(88, 37);
             this.lblSesion.Name = "lblSesion";
             this.lblSesion.Size = new System.Drawing.Size(62, 15);
             this.lblSesion.TabIndex = 10;
@@ -136,16 +136,16 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(45, 118);
+            this.panelPrincipal.Location = new System.Drawing.Point(108, 126);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(700, 400);
+            this.panelPrincipal.Size = new System.Drawing.Size(560, 400);
             this.panelPrincipal.TabIndex = 20;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 527);
+            this.ClientSize = new System.Drawing.Size(790, 545);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.lblSesion);
             this.Controls.Add(this.profileP);
