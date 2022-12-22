@@ -10,7 +10,6 @@ namespace Individual.Visual
     public partial class MantenimientoUsuario : Form
     {
 
-        int posY = 0, posX = 0;
         private DataBase db = new DataBase();
 
 
@@ -74,16 +73,6 @@ namespace Individual.Visual
 
         private void MantenimientoUsuario_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left)
-            {
-                posX = e.X;
-                posY = e.Y;
-            }
-            else
-            {
-                Left = Left + (e.X - posX);
-                Top = Top + (e.Y - posY);
-            }
         }
 
         private async void editar_Click(object sender, EventArgs e)

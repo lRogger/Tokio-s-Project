@@ -40,9 +40,7 @@
             this.cerrarSesion = new System.Windows.Forms.Button();
             this.profileP = new System.Windows.Forms.PictureBox();
             this.lblSesion = new System.Windows.Forms.Label();
-            this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profileP)).BeginInit();
             this.SuspendLayout();
@@ -136,43 +134,19 @@
             this.lblSesion.TabIndex = 10;
             this.lblSesion.Text = "Sesion: ___";
             // 
-            // flPanel
+            // panelPrincipal
             // 
-            this.flPanel.AutoScroll = true;
-            this.flPanel.BackColor = System.Drawing.Color.Transparent;
-            this.flPanel.Location = new System.Drawing.Point(48, 166);
-            this.flPanel.Name = "flPanel";
-            this.flPanel.Size = new System.Drawing.Size(700, 345);
-            this.flPanel.TabIndex = 14;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(262, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(395, 129);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.panelPrincipal.Location = new System.Drawing.Point(45, 118);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(700, 400);
+            this.panelPrincipal.TabIndex = 20;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 520);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.flPanel);
+            this.ClientSize = new System.Drawing.Size(790, 527);
+            this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.lblSesion);
             this.Controls.Add(this.profileP);
             this.Controls.Add(this.cerrarSesion);
@@ -203,11 +177,9 @@
         private ToolStripMenuItem mantenimientoRopaToolStripMenuItem;
         private PictureBox profileP;
         private Label lblSesion;
-        private FlowLayoutPanel flPanel;
-        private Button button1;
-        private Button button2;
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
+        private Panel panelPrincipal;
     }
 }
 

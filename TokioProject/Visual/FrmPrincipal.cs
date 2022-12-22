@@ -198,7 +198,9 @@ namespace Individual.Visual
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MantenimientoUsuario mu = new MantenimientoUsuario();
-            mu.ShowDialog();
+            mu.TopLevel = false;
+            this.panelPrincipal.Controls.Add(mu);
+            mu.Show();
         }
 
     }
