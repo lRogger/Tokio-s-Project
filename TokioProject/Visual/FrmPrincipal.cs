@@ -194,6 +194,11 @@ namespace Individual.Visual
             changePW.ShowDialog();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         //ABRIR VENTANA PARA CRUD PERSONAS
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)

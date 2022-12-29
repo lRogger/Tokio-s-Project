@@ -41,6 +41,7 @@
             this.profileP = new System.Windows.Forms.PictureBox();
             this.lblSesion = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profileP)).BeginInit();
             this.SuspendLayout();
@@ -141,11 +142,23 @@
             this.panelPrincipal.Size = new System.Drawing.Size(560, 400);
             this.panelPrincipal.TabIndex = 20;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(271, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(263, 37);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "WORK IN PROGRESS";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 545);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.lblSesion);
             this.Controls.Add(this.profileP);
@@ -180,6 +193,7 @@
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         private Panel panelPrincipal;
+        private Label label1;
     }
 }
 
