@@ -1,4 +1,4 @@
-﻿using Individual.Modelos;
+﻿using Datos;
 using Individual.Visual;
 using LibreriaGrupal;
 using System.Data;

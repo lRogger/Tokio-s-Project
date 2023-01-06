@@ -1,4 +1,5 @@
-﻿using Individual.Modelos;
+﻿using Entidades;
+using Datos;
 using Individual.Visual;
 using LibreriaGrupal;
 using System.Data;
@@ -15,7 +16,6 @@ public DataSet ds = new DataSet();
         public Login()
         {
             InitializeComponent();
-            //this.cerrar.Parent = this.pictureBox1;
      
             panelMod1.BackColor = Color.FromArgb(110, Color.Black);
 

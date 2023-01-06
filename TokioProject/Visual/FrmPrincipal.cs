@@ -1,4 +1,4 @@
-﻿using Individual.Modelos;
+﻿using Datos;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Data;
 using TokiosProject.Visual;

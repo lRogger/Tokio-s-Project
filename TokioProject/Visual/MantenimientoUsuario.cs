@@ -1,4 +1,4 @@
-﻿using Individual.Modelos;
+﻿using Datos;
 using MySqlX.XDevAPI.Relational;
 using System.Data;
 using System.Drawing;
@@ -40,7 +40,7 @@ namespace Individual.Visual
                     foreach (DataGridViewCell cell in row.Cells)
                     {
                         if (cell.Value != null &&
-                            cell.Value.ToString().ToLower().Contains(buscarUser.Text.ToLower()))
+                            (cell.Value.ToString()+"").ToLower().Contains(buscarUser.Text.ToLower()))
                         {
                             encontrado = true;
                             break;

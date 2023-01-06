@@ -1,7 +1,8 @@
-﻿using Individual.Modelos;
+﻿using Datos;
 using LibreriaGrupal;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Entidades;
 
 namespace Individual.Visual
 {

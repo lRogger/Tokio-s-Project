@@ -1,8 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
 
-
-namespace Individual.Modelos
+namespace Datos
 {
     public class DataBase
     {
@@ -71,12 +70,11 @@ namespace Individual.Modelos
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                Console.WriteLine(e.ToString());
             }
 
             con.Close();
         }
 
     }
-
 }

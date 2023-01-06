@@ -1,8 +1,7 @@
-﻿namespace Individual.Modelos
+﻿namespace Entidades
 {
     public class Persona
     {
-
         private int id;
         private string nombre;
         private string cedula;
