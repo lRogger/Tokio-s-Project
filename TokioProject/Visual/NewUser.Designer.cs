@@ -40,6 +40,10 @@
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fotoUser)).BeginInit();
             this.panelMod1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +53,7 @@
             this.admUser.AutoSize = true;
             this.admUser.BackColor = System.Drawing.Color.WhiteSmoke;
             this.admUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.admUser.Location = new System.Drawing.Point(259, 140);
+            this.admUser.Location = new System.Drawing.Point(343, 38);
             this.admUser.Name = "admUser";
             this.admUser.Size = new System.Drawing.Size(64, 20);
             this.admUser.TabIndex = 6;
@@ -59,67 +63,66 @@
             // 
             // edadUser
             // 
-            this.edadUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.edadUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.edadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.edadUser.Location = new System.Drawing.Point(128, 135);
+            this.edadUser.Location = new System.Drawing.Point(215, 139);
             this.edadUser.MaxLength = 3;
             this.edadUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.edadUser.Name = "edadUser";
-            this.edadUser.PlaceholderText = " Edad";
-            this.edadUser.Size = new System.Drawing.Size(125, 27);
+            this.edadUser.Size = new System.Drawing.Size(190, 27);
             this.edadUser.TabIndex = 5;
             this.edadUser.TextChanged += new System.EventHandler(this.edadUser_TextChanged);
             this.edadUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edadUser_KeyPress);
             // 
             // correoUser
             // 
-            this.correoUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.correoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.correoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.correoUser.Location = new System.Drawing.Point(128, 101);
+            this.correoUser.Location = new System.Drawing.Point(215, 104);
             this.correoUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.correoUser.Name = "correoUser";
-            this.correoUser.PlaceholderText = " Correo";
-            this.correoUser.Size = new System.Drawing.Size(193, 27);
+            this.correoUser.Size = new System.Drawing.Size(190, 27);
             this.correoUser.TabIndex = 4;
             this.correoUser.TextChanged += new System.EventHandler(this.correoUser_TextChanged);
             // 
             // nomUser
             // 
-            this.nomUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nomUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nomUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nomUser.Location = new System.Drawing.Point(128, 69);
+            this.nomUser.Location = new System.Drawing.Point(215, 68);
             this.nomUser.MaximumSize = new System.Drawing.Size(0, 25);
             this.nomUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.nomUser.Name = "nomUser";
-            this.nomUser.PlaceholderText = " Nombre";
-            this.nomUser.Size = new System.Drawing.Size(193, 27);
+            this.nomUser.Size = new System.Drawing.Size(190, 27);
             this.nomUser.TabIndex = 3;
             this.nomUser.TextChanged += new System.EventHandler(this.nomUser_TextChanged);
             // 
             // cedUser
             // 
-            this.cedUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cedUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cedUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cedUser.Location = new System.Drawing.Point(128, 36);
+            this.cedUser.Location = new System.Drawing.Point(215, 35);
             this.cedUser.MaximumSize = new System.Drawing.Size(200, 25);
             this.cedUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.cedUser.Name = "cedUser";
-            this.cedUser.PlaceholderText = " Cedula";
-            this.cedUser.Size = new System.Drawing.Size(193, 27);
+            this.cedUser.Size = new System.Drawing.Size(122, 27);
             this.cedUser.TabIndex = 2;
             this.cedUser.TextChanged += new System.EventHandler(this.cedUser_TextChanged);
             this.cedUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cedUser_KeyPress);
             // 
             // buscarFoto
             // 
-            this.buscarFoto.BackColor = System.Drawing.Color.LightGray;
-            this.buscarFoto.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buscarFoto.BackColor = System.Drawing.Color.DimGray;
+            this.buscarFoto.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.buscarFoto.FlatAppearance.BorderSize = 2;
-            this.buscarFoto.Location = new System.Drawing.Point(26, 134);
+            this.buscarFoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buscarFoto.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buscarFoto.ForeColor = System.Drawing.Color.White;
+            this.buscarFoto.Location = new System.Drawing.Point(38, 141);
             this.buscarFoto.Name = "buscarFoto";
-            this.buscarFoto.Size = new System.Drawing.Size(92, 28);
+            this.buscarFoto.Size = new System.Drawing.Size(79, 20);
             this.buscarFoto.TabIndex = 1;
-            this.buscarFoto.Text = "Cargar";
+            this.buscarFoto.Text = "Subir Foto";
             this.buscarFoto.UseVisualStyleBackColor = false;
             this.buscarFoto.Click += new System.EventHandler(this.buscarFoto_Click);
             // 
@@ -127,38 +130,41 @@
             // 
             this.fotoUser.BackColor = System.Drawing.Color.WhiteSmoke;
             this.fotoUser.Image = ((System.Drawing.Image)(resources.GetObject("fotoUser.Image")));
-            this.fotoUser.Location = new System.Drawing.Point(26, 36);
+            this.fotoUser.Location = new System.Drawing.Point(38, 35);
             this.fotoUser.Name = "fotoUser";
-            this.fotoUser.Size = new System.Drawing.Size(92, 92);
+            this.fotoUser.Size = new System.Drawing.Size(100, 100);
             this.fotoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fotoUser.TabIndex = 0;
             this.fotoUser.TabStop = false;
             // 
             // btnEnviar
             // 
-            this.btnEnviar.BackColor = System.Drawing.Color.White;
-            this.btnEnviar.BackgroundColor = System.Drawing.Color.White;
-            this.btnEnviar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEnviar.BorderRadius = 7;
+            this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnEnviar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnEnviar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnEnviar.BorderRadius = 15;
             this.btnEnviar.BorderSize = 0;
             this.btnEnviar.FlatAppearance.BorderSize = 0;
             this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEnviar.ForeColor = System.Drawing.Color.Black;
-            this.btnEnviar.Location = new System.Drawing.Point(109, 242);
+            this.btnEnviar.Font = new System.Drawing.Font("Britanica-Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEnviar.ForeColor = System.Drawing.Color.White;
+            this.btnEnviar.Location = new System.Drawing.Point(339, 289);
             this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(151, 27);
+            this.btnEnviar.Size = new System.Drawing.Size(135, 35);
             this.btnEnviar.TabIndex = 9;
-            this.btnEnviar.Text = "Enviar";
-            this.btnEnviar.TextColor = System.Drawing.Color.Black;
+            this.btnEnviar.Text = "Guardar";
+            this.btnEnviar.TextColor = System.Drawing.Color.White;
             this.btnEnviar.UseVisualStyleBackColor = false;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // panelMod1
             // 
-            this.panelMod1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelMod1.BorderRadius = 0;
-            this.panelMod1.Controls.Add(this.btnCerrar);
+            this.panelMod1.BackColor = System.Drawing.Color.White;
+            this.panelMod1.BorderRadius = 25;
+            this.panelMod1.Controls.Add(this.label4);
+            this.panelMod1.Controls.Add(this.label3);
+            this.panelMod1.Controls.Add(this.label1);
+            this.panelMod1.Controls.Add(this.label2);
             this.panelMod1.Controls.Add(this.edadUser);
             this.panelMod1.Controls.Add(this.admUser);
             this.panelMod1.Controls.Add(this.cedUser);
@@ -168,11 +174,11 @@
             this.panelMod1.Controls.Add(this.buscarFoto);
             this.panelMod1.ForeColor = System.Drawing.Color.Black;
             this.panelMod1.GradientAngle = 90F;
-            this.panelMod1.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
-            this.panelMod1.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-            this.panelMod1.Location = new System.Drawing.Point(6, 41);
+            this.panelMod1.GradientBottomColor = System.Drawing.Color.White;
+            this.panelMod1.GradientTopColor = System.Drawing.Color.White;
+            this.panelMod1.Location = new System.Drawing.Point(24, 73);
             this.panelMod1.Name = "panelMod1";
-            this.panelMod1.Size = new System.Drawing.Size(350, 193);
+            this.panelMod1.Size = new System.Drawing.Size(450, 200);
             this.panelMod1.TabIndex = 12;
             this.panelMod1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMod1_MouseMove);
             // 
@@ -180,43 +186,89 @@
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrar.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCerrar.BorderRadius = 7;
-            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCerrar.BorderRadius = 15;
+            this.btnCerrar.BorderSize = 2;
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnCerrar.Location = new System.Drawing.Point(318, -3);
+            this.btnCerrar.Font = new System.Drawing.Font("Britanica-Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCerrar.Location = new System.Drawing.Point(218, 289);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(38, 33);
+            this.btnCerrar.Size = new System.Drawing.Size(115, 35);
             this.btnCerrar.TabIndex = 10;
-            this.btnCerrar.Text = "X";
-            this.btnCerrar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCerrar.Text = "Cancelar";
+            this.btnCerrar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(89, 6);
+            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitulo.Font = new System.Drawing.Font("Britanica-Heavy", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.lblTitulo.Location = new System.Drawing.Point(24, 21);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(194, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(239, 42);
             this.lblTitulo.TabIndex = 13;
             this.lblTitulo.Text = "Nuevo Usuario";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(148, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 19);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Cedula:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(148, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 19);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Nombre:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(148, 107);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 19);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Correo:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(148, 140);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 19);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Edad:";
             // 
             // NewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.ClientSize = new System.Drawing.Size(363, 279);
-            this.Controls.Add(this.lblTitulo);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.ClientSize = new System.Drawing.Size(500, 350);
             this.Controls.Add(this.btnEnviar);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panelMod1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewUser";
@@ -244,5 +296,9 @@
         private ComponentesMod.PanelMod panelMod1;
         private ComponentesMod.RJButton btnCerrar;
         private Label lblTitulo;
+        private Label label4;
+        private Label label3;
+        private Label label1;
+        private Label label2;
     }
 }

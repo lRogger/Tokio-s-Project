@@ -102,13 +102,13 @@
             // 
             // panelMod1
             // 
-            this.panelMod1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(9)))), ((int)(((byte)(141)))));
+            this.panelMod1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
             this.panelMod1.BorderRadius = 0;
             this.panelMod1.Controls.Add(this.lblTitulo);
             this.panelMod1.ForeColor = System.Drawing.Color.Black;
             this.panelMod1.GradientAngle = 0F;
-            this.panelMod1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.panelMod1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.panelMod1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
+            this.panelMod1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
             this.panelMod1.Location = new System.Drawing.Point(0, 0);
             this.panelMod1.Name = "panelMod1";
             this.panelMod1.Size = new System.Drawing.Size(264, 31);

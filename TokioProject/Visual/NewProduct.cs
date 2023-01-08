@@ -16,5 +16,10 @@ namespace GUIs.Visual
         {
             InitializeComponent();
         }
+
+        private void panelMod1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

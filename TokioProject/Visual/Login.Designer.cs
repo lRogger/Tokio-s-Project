@@ -128,7 +128,7 @@
             // 
             this.tbpwd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbpwd.BorderColor = System.Drawing.Color.Transparent;
-            this.tbpwd.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
+            this.tbpwd.BorderFocusColor = System.Drawing.Color.White;
             this.tbpwd.BorderRadius = 10;
             this.tbpwd.BorderSize = 2;
             this.tbpwd.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -151,7 +151,7 @@
             // 
             this.tbUser.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbUser.BorderColor = System.Drawing.Color.Transparent;
-            this.tbUser.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(99)))), ((int)(((byte)(169)))));
+            this.tbUser.BorderFocusColor = System.Drawing.Color.White;
             this.tbUser.BorderRadius = 10;
             this.tbUser.BorderSize = 2;
             this.tbUser.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
