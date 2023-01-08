@@ -28,19 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.usersDGV = new System.Windows.Forms.DataGridView();
-            this.buscarUser = new System.Windows.Forms.TextBox();
-            this.separador = new System.Windows.Forms.Panel();
-            this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +41,13 @@
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buscarUser = new System.Windows.Forms.TextBox();
+            this.separador = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,14 +76,14 @@
             this.usersDGV.CausesValidation = false;
             this.usersDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.usersDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.usersDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -95,14 +94,14 @@
             this.Color,
             this.Stock,
             this.Precio});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.usersDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.usersDGV.DefaultCellStyle = dataGridViewCellStyle5;
             this.usersDGV.EnableHeadersVisualStyles = false;
             this.usersDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.usersDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -111,8 +110,8 @@
             this.usersDGV.Name = "usersDGV";
             this.usersDGV.ReadOnly = true;
             this.usersDGV.RowHeadersWidth = 4;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.usersDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.usersDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.usersDGV.RowTemplate.Height = 25;
             this.usersDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.usersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -120,11 +119,75 @@
             this.usersDGV.TabIndex = 11;
             this.usersDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDGV_CellContentClick);
             // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 40;
+            // 
+            // Categoria
+            // 
+            this.Categoria.Frozen = true;
+            this.Categoria.HeaderText = "Categoría";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 70;
+            // 
+            // Talla
+            // 
+            this.Talla.Frozen = true;
+            this.Talla.HeaderText = "Talla";
+            this.Talla.Name = "Talla";
+            this.Talla.ReadOnly = true;
+            this.Talla.Width = 40;
+            // 
+            // Nombre
+            // 
+            this.Nombre.Frozen = true;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 70;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.Frozen = true;
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 120;
+            // 
+            // Color
+            // 
+            this.Color.Frozen = true;
+            this.Color.HeaderText = "Color";
+            this.Color.Name = "Color";
+            this.Color.ReadOnly = true;
+            this.Color.Width = 75;
+            // 
+            // Stock
+            // 
+            this.Stock.Frozen = true;
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 40;
+            // 
+            // Precio
+            // 
+            this.Precio.Frozen = true;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 80;
+            // 
             // buscarUser
             // 
             this.buscarUser.BackColor = System.Drawing.Color.White;
             this.buscarUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.buscarUser.Location = new System.Drawing.Point(4, 86);
+            this.buscarUser.Location = new System.Drawing.Point(4, 80);
             this.buscarUser.Name = "buscarUser";
             this.buscarUser.PlaceholderText = " 🔎 Buscar...";
             this.buscarUser.Size = new System.Drawing.Size(300, 16);
@@ -137,26 +200,6 @@
             this.separador.Name = "separador";
             this.separador.Size = new System.Drawing.Size(537, 2);
             this.separador.TabIndex = 17;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnCerrar.BorderColor = System.Drawing.Color.PapayaWhip;
-            this.btnCerrar.BorderRadius = 10;
-            this.btnCerrar.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(443, 11);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(98, 33);
-            this.btnCerrar.TabIndex = 16;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.TextColor = System.Drawing.Color.White;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnEliminar
             // 
@@ -211,7 +254,7 @@
             "M",
             "L",
             "XL"});
-            this.comboBox1.Location = new System.Drawing.Point(420, 78);
+            this.comboBox1.Location = new System.Drawing.Point(420, 77);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 19;
@@ -225,82 +268,18 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Tallas:";
             // 
-            // ID
-            // 
-            this.ID.Frozen = true;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // Categoria
-            // 
-            this.Categoria.Frozen = true;
-            this.Categoria.HeaderText = "Categoría";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 80;
-            // 
-            // Talla
-            // 
-            this.Talla.Frozen = true;
-            this.Talla.HeaderText = "Talla";
-            this.Talla.Name = "Talla";
-            this.Talla.ReadOnly = true;
-            this.Talla.Width = 50;
-            // 
-            // Nombre
-            // 
-            this.Nombre.Frozen = true;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 80;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.Frozen = true;
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 150;
-            // 
-            // Color
-            // 
-            this.Color.Frozen = true;
-            this.Color.HeaderText = "Color";
-            this.Color.Name = "Color";
-            this.Color.ReadOnly = true;
-            this.Color.Width = 75;
-            // 
-            // Stock
-            // 
-            this.Stock.Frozen = true;
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 50;
-            // 
-            // Precio
-            // 
-            this.Precio.Frozen = true;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            this.Precio.Width = 75;
-            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 361);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(560, 400);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.usersDGV);
             this.Controls.Add(this.buscarUser);
             this.Controls.Add(this.separador);
-            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.btnEditar);
@@ -320,7 +299,6 @@
         public DataGridView usersDGV;
         private TextBox buscarUser;
         private Panel separador;
-        private Individual.Visual.ComponentesMod.RJButton btnCerrar;
         private Button btnEliminar;
         private Button btnCrear;
         private Button btnEditar;

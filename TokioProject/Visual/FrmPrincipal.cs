@@ -9,7 +9,6 @@ namespace Individual.Visual
         private DataBase db = new DataBase();
         private Login lg;
         private int posX = 0, posY = 0;
-        MantenimientoUsuario mu;
         MantenimientoProducto mp;
 
 
@@ -18,9 +17,7 @@ namespace Individual.Visual
             InitializeComponent();
             this.lg = lg;
             mp = new MantenimientoProducto();
-            mu = new MantenimientoUsuario();
             
-
         }
 
 
@@ -176,6 +173,10 @@ namespace Individual.Visual
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            mp = new MantenimientoProducto();
+            mp.TopLevel = false;
+            this.panelPrincipal.Controls.Add(mp);
+            mp.Show();
             try
             {
                 MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["Imagen"]);
@@ -201,19 +202,12 @@ namespace Individual.Visual
 
         }
 
+
+        //Abrir ventana productos
         private void mantenimientoRopaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (mp.IsDisposed)
-            {
-                mp = new MantenimientoProducto();
-            }
-            else
-            {
-                mp.TopLevel = false;
-                this.panelPrincipal.Controls.Clear();
-                this.panelPrincipal.Controls.Add(mp);
-                mp.Show();
-            }
+
+            VentanaProductos();
             
         }
 
@@ -221,13 +215,36 @@ namespace Individual.Visual
         //ABRIR VENTANA PARA CRUD PERSONAS
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(mu.IsDisposed)
+            VentanaUsuarios();
+
+        }
+
+        private void MantenimientoUsuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mp.Show();
+        }
+
+        private void VentanaProductos()
+        {
+            if (mp.IsDisposed)
             {
-                mu = new MantenimientoUsuario();
+                mp = new MantenimientoProducto();
             }
-            
-            mu.TopLevel = false;
+
+            mp.TopLevel = false;
             this.panelPrincipal.Controls.Clear();
+            this.panelPrincipal.Controls.Add(mp);
+            mp.Show();
+        }
+
+        private void VentanaUsuarios()
+        {
+            MantenimientoUsuario mu = new MantenimientoUsuario();
+            mu.FormClosed += MantenimientoUsuario_FormClosed;
+
+
+            mu.TopLevel = false;
+            mp.Hide();
             this.panelPrincipal.Controls.Add(mu);
             mu.Show();
         }

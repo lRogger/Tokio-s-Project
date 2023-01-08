@@ -33,18 +33,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buscarUser = new System.Windows.Forms.TextBox();
             this.usersDGV = new System.Windows.Forms.DataGridView();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
-            this.separador = new System.Windows.Forms.Panel();
-            this.btnRefrescar = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
+            this.separador = new System.Windows.Forms.Panel();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +111,55 @@
             this.usersDGV.Size = new System.Drawing.Size(537, 250);
             this.usersDGV.TabIndex = 0;
             // 
+            // Id
+            // 
+            this.Id.Frozen = true;
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 50;
+            // 
+            // Cedula
+            // 
+            this.Cedula.Frozen = true;
+            this.Cedula.HeaderText = "Cedula";
+            this.Cedula.Name = "Cedula";
+            this.Cedula.ReadOnly = true;
+            this.Cedula.Width = 80;
+            // 
+            // Nombre
+            // 
+            this.Nombre.Frozen = true;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 105;
+            // 
+            // Correo
+            // 
+            this.Correo.Frozen = true;
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            this.Correo.Width = 180;
+            // 
+            // Edad
+            // 
+            this.Edad.Frozen = true;
+            this.Edad.HeaderText = "Edad";
+            this.Edad.Name = "Edad";
+            this.Edad.ReadOnly = true;
+            this.Edad.Width = 50;
+            // 
+            // Imagen
+            // 
+            this.Imagen.Frozen = true;
+            this.Imagen.HeaderText = "Imagen";
+            this.Imagen.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Imagen.Name = "Imagen";
+            this.Imagen.ReadOnly = true;
+            this.Imagen.Width = 55;
+            // 
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.White;
@@ -164,6 +213,7 @@
             this.btnCerrar.BorderColor = System.Drawing.Color.PapayaWhip;
             this.btnCerrar.BorderRadius = 10;
             this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -200,55 +250,6 @@
             this.btnRefrescar.UseVisualStyleBackColor = false;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
-            // Id
-            // 
-            this.Id.Frozen = true;
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 50;
-            // 
-            // Cedula
-            // 
-            this.Cedula.Frozen = true;
-            this.Cedula.HeaderText = "Cedula";
-            this.Cedula.Name = "Cedula";
-            this.Cedula.ReadOnly = true;
-            this.Cedula.Width = 80;
-            // 
-            // Nombre
-            // 
-            this.Nombre.Frozen = true;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 105;
-            // 
-            // Correo
-            // 
-            this.Correo.Frozen = true;
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 180;
-            // 
-            // Edad
-            // 
-            this.Edad.Frozen = true;
-            this.Edad.HeaderText = "Edad";
-            this.Edad.Name = "Edad";
-            this.Edad.ReadOnly = true;
-            this.Edad.Width = 50;
-            // 
-            // Imagen
-            // 
-            this.Imagen.Frozen = true;
-            this.Imagen.HeaderText = "Imagen";
-            this.Imagen.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Imagen.Name = "Imagen";
-            this.Imagen.ReadOnly = true;
-            this.Imagen.Width = 55;
-            // 
             // MantenimientoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -267,7 +268,6 @@
             this.Name = "MantenimientoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MantenimientoUsuario";
-            this.Load += new System.EventHandler(this.MantenimientoUsuario_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MantenimientoUsuario_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).EndInit();
             this.ResumeLayout(false);

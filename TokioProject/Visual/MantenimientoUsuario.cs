@@ -5,16 +5,17 @@ using Entidades;
 
 namespace Individual.Visual
 {
+    
+
     public partial class MantenimientoUsuario : Form
     {
 
         private DataBase db = new DataBase();
 
-
         public MantenimientoUsuario()
         {
             InitializeComponent();
-            cargarTabla();
+            CargarTabla();
             usersDGV.RowTemplate.Height = 55;
             usersDGV.RowHeadersVisible = false;
         }
@@ -35,6 +36,11 @@ namespace Individual.Visual
                     bool encontrado = false;
                     foreach (DataGridViewCell cell in row.Cells)
                     {
+                        if(cell.ColumnIndex == 1)
+                        {
+                            continue;
+                        }
+
                         if (cell.Value != null &&
                             (cell.Value.ToString()+"").ToLower().Contains(buscarUser.Text.ToLower()))
                         {
@@ -96,17 +102,17 @@ namespace Individual.Visual
 
                 if (nu.ShowDialog() != DialogResult.Abort)
                 {
-                    new Emergente("advetencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
-                    cargarTabla();
+                    new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
+                    CargarTabla();
                 }
                 else
                 {
-                    new Emergente("advetencia", "ERROR", "Operación no completada").ShowDialog();
+                    new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
                 }
             }
             else
             {
-                new Emergente("advetencia", "ERROR", "Debes seleccionar una persona").ShowDialog();
+                new Emergente("advertencia", "ERROR", "Debes seleccionar una persona").ShowDialog();
             }
 
 
@@ -126,7 +132,7 @@ namespace Individual.Visual
                 await Task.Run(()=> db.instruccionDB("Delete from Personas WHERE Cedula = " +
                         usersDGV.Rows[i].Cells["Cedula"].Value.ToString()));
 
-                cargarTabla();
+                CargarTabla();
             }
 
         }
@@ -137,42 +143,41 @@ namespace Individual.Visual
             NewUser nu = new NewUser();
             if (nu.ShowDialog() != DialogResult.Abort)
             {
-                new Emergente("advetencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
-                cargarTabla();
+                new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
+                CargarTabla();
 
             }
             else
             {
-                new Emergente("advetencia", "ERROR", "Operación no completada").ShowDialog();
+                new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
             }
         }
 
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
-            cargarTabla();
+            CargarTabla();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
 
-        private void MantenimientoUsuario_Load(object sender, EventArgs e)
-        {
-        }
-
-        private async void cargarTabla()
+        private async void CargarTabla()
         {
      
             btnRefrescar.Enabled = false;
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
+            btnCerrar.Enabled = false;
 
             await Task.Run(() => db.consultar("SELECT Id, Cedula, Nombre, Correo, Edad, Imagen from Personas WHERE Cedula != 0"));
             btnRefrescar.Enabled = true;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
+            btnCerrar.Enabled = true;
 
             DataSet ds = db.Ds;
             List<Persona> listaPersonas = new List<Persona>();
@@ -199,10 +204,12 @@ namespace Individual.Visual
 
             catch(Exception ex)
             {
-                new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
+                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
                     "intenta nuevamente! "+ ex).ShowDialog();
             }
 
         }
+
+
     }
 }
