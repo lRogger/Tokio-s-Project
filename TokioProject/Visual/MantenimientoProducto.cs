@@ -68,5 +68,10 @@ namespace GUIs.Visual
             }
 
         }
+
+        private void MantenimientoProducto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

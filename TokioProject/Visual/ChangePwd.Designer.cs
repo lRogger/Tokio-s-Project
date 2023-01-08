@@ -43,7 +43,7 @@
             // 
             this.tbPwdAnt.BackColor = System.Drawing.SystemColors.Window;
             this.tbPwdAnt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.tbPwdAnt.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbPwdAnt.BorderFocusColor = System.Drawing.Color.LightSteelBlue;
             this.tbPwdAnt.BorderRadius = 10;
             this.tbPwdAnt.BorderSize = 1;
             this.tbPwdAnt.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -67,7 +67,7 @@
             // 
             this.tbPwdNew.BackColor = System.Drawing.SystemColors.Window;
             this.tbPwdNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.tbPwdNew.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbPwdNew.BorderFocusColor = System.Drawing.Color.LightSteelBlue;
             this.tbPwdNew.BorderRadius = 10;
             this.tbPwdNew.BorderSize = 1;
             this.tbPwdNew.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -90,7 +90,7 @@
             // 
             this.tbPwdRep.BackColor = System.Drawing.SystemColors.Window;
             this.tbPwdRep.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.tbPwdRep.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbPwdRep.BorderFocusColor = System.Drawing.Color.LightSteelBlue;
             this.tbPwdRep.BorderRadius = 10;
             this.tbPwdRep.BorderSize = 1;
             this.tbPwdRep.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -161,7 +161,7 @@
             this.rjButton1.ForeColor = System.Drawing.Color.White;
             this.rjButton1.Location = new System.Drawing.Point(38, 263);
             this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(134, 36);
+            this.rjButton1.Size = new System.Drawing.Size(155, 36);
             this.rjButton1.TabIndex = 8;
             this.rjButton1.Text = "Cambiar ";
             this.rjButton1.TextColor = System.Drawing.Color.White;
@@ -172,21 +172,21 @@
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrar.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCerrar.BorderRadius = 7;
-            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCerrar.BorderRadius = 15;
+            this.btnCerrar.BorderSize = 2;
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnCerrar.FlatAppearance.BorderSize = 2;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnCerrar.Location = new System.Drawing.Point(354, -1);
+            this.btnCerrar.Font = new System.Drawing.Font("Britanica-Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCerrar.Location = new System.Drawing.Point(199, 263);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(38, 33);
+            this.btnCerrar.Size = new System.Drawing.Size(150, 36);
             this.btnCerrar.TabIndex = 12;
-            this.btnCerrar.Text = "X";
-            this.btnCerrar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCerrar.Text = "Cancelar";
+            this.btnCerrar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -196,7 +196,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(391, 342);
+            this.ClientSize = new System.Drawing.Size(391, 346);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.label4);

@@ -253,12 +253,14 @@
             this.editarUsuarioToolStripMenuItem.Name = "editarUsuarioToolStripMenuItem";
             this.editarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.editarUsuarioToolStripMenuItem.Text = "Editar Usuario";
+            this.editarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.editarUsuarioToolStripMenuItem_Click);
             // 
             // cambiarContraseñaToolStripMenuItem
             // 
             this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
             this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar Contraseña";
+            this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click_1);
             // 
             // FrmPrincipal
             // 

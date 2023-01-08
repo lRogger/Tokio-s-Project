@@ -33,14 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.usersDGV = new System.Windows.Forms.DataGridView();
-            this.buscarUser = new System.Windows.Forms.TextBox();
-            this.separador = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnRefrescar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +41,14 @@
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buscarUser = new System.Windows.Forms.TextBox();
+            this.separador = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnRefrescar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,15 +110,79 @@
             this.usersDGV.RowTemplate.Height = 25;
             this.usersDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.usersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDGV.Size = new System.Drawing.Size(540, 333);
+            this.usersDGV.Size = new System.Drawing.Size(540, 320);
             this.usersDGV.TabIndex = 11;
             this.usersDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDGV_CellContentClick);
+            // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 40;
+            // 
+            // Categoria
+            // 
+            this.Categoria.Frozen = true;
+            this.Categoria.HeaderText = "Categoría";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 70;
+            // 
+            // Talla
+            // 
+            this.Talla.Frozen = true;
+            this.Talla.HeaderText = "Talla";
+            this.Talla.Name = "Talla";
+            this.Talla.ReadOnly = true;
+            this.Talla.Width = 40;
+            // 
+            // Nombre
+            // 
+            this.Nombre.Frozen = true;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 70;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.Frozen = true;
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 120;
+            // 
+            // Color
+            // 
+            this.Color.Frozen = true;
+            this.Color.HeaderText = "Color";
+            this.Color.Name = "Color";
+            this.Color.ReadOnly = true;
+            this.Color.Width = 75;
+            // 
+            // Stock
+            // 
+            this.Stock.Frozen = true;
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 45;
+            // 
+            // Precio
+            // 
+            this.Precio.Frozen = true;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 80;
             // 
             // buscarUser
             // 
             this.buscarUser.BackColor = System.Drawing.Color.White;
             this.buscarUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.buscarUser.Location = new System.Drawing.Point(12, 100);
+            this.buscarUser.Location = new System.Drawing.Point(12, 97);
             this.buscarUser.Name = "buscarUser";
             this.buscarUser.PlaceholderText = " 🔎 Buscar...";
             this.buscarUser.Size = new System.Drawing.Size(300, 17);
@@ -142,7 +206,7 @@
             "M",
             "L",
             "XL"});
-            this.comboBox1.Location = new System.Drawing.Point(427, 96);
+            this.comboBox1.Location = new System.Drawing.Point(427, 91);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 19;
@@ -150,7 +214,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(383, 102);
+            this.label1.Location = new System.Drawing.Point(383, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 20;
@@ -217,70 +281,6 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             // 
-            // ID
-            // 
-            this.ID.Frozen = true;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 40;
-            // 
-            // Categoria
-            // 
-            this.Categoria.Frozen = true;
-            this.Categoria.HeaderText = "Categoría";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 70;
-            // 
-            // Talla
-            // 
-            this.Talla.Frozen = true;
-            this.Talla.HeaderText = "Talla";
-            this.Talla.Name = "Talla";
-            this.Talla.ReadOnly = true;
-            this.Talla.Width = 40;
-            // 
-            // Nombre
-            // 
-            this.Nombre.Frozen = true;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 70;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.Frozen = true;
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 120;
-            // 
-            // Color
-            // 
-            this.Color.Frozen = true;
-            this.Color.HeaderText = "Color";
-            this.Color.Name = "Color";
-            this.Color.ReadOnly = true;
-            this.Color.Width = 75;
-            // 
-            // Stock
-            // 
-            this.Stock.Frozen = true;
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 45;
-            // 
-            // Precio
-            // 
-            this.Precio.Frozen = true;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            this.Precio.Width = 80;
-            // 
             // MantenimientoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -300,6 +300,7 @@
             this.Name = "MantenimientoProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "MantenimientoProducto";
+            this.Load += new System.EventHandler(this.MantenimientoProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

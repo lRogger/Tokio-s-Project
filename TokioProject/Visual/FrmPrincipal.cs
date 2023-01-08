@@ -144,31 +144,7 @@ namespace Individual.Visual
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            NewUser nu = new NewUser();
-            nu.cedUser.Text = lg.ds.Tables[0].Rows[0]["Cedula"].ToString();
-            nu.cedUser.Enabled = false;
-
-            nu.nomUser.Text = lg.ds.Tables[0].Rows[0]["Nombre"].ToString();
-            nu.correoUser.Text = lg.ds.Tables[0].Rows[0]["Correo"].ToString();
-            nu.edadUser.Text = lg.ds.Tables[0].Rows[0]["Edad"].ToString();
-            nu.admUser.Checked = (lg.ds.Tables[0].Rows[0]["Admin"].ToString() == "True")
-                ? true : false;
-
-            nu.admUser.Enabled = false;
-
-            MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["Imagen"]);
-            Image img = Image.FromStream(ms);
-            nu.fotoUser.Image = img;
-
-            if (nu.ShowDialog() != DialogResult.Abort)
-            {
-                new Emergente("advertencia", "Datos cambiados", "Proceso exitoso, los cambios se aplicarán en la siguiente sesión").ShowDialog();
-
-            }
-            else
-            {
-                new Emergente("advertencia", "Error", "Operación no completada!");
-            }
+           
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
@@ -193,8 +169,7 @@ namespace Individual.Visual
 
         private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChangePwd changePW = new ChangePwd(lg.ds);
-            changePW.ShowDialog();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -250,6 +225,41 @@ namespace Individual.Visual
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             VentanaUsuarios();
+        }
+
+        private void editarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewUser nu = new NewUser();
+            nu.cedUser.Text = lg.ds.Tables[0].Rows[0]["Cedula"].ToString();
+            nu.cedUser.Enabled = false;
+
+            nu.nomUser.Text = lg.ds.Tables[0].Rows[0]["Nombre"].ToString();
+            nu.correoUser.Text = lg.ds.Tables[0].Rows[0]["Correo"].ToString();
+            nu.edadUser.Text = lg.ds.Tables[0].Rows[0]["Edad"].ToString();
+            nu.admUser.Checked = (lg.ds.Tables[0].Rows[0]["Admin"].ToString() == "True")
+                ? true : false;
+
+            nu.admUser.Enabled = false;
+
+            MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["Imagen"]);
+            Image img = Image.FromStream(ms);
+            nu.fotoUser.Image = img;
+
+            if (nu.ShowDialog() != DialogResult.Abort)
+            {
+                new Emergente("advertencia", "Datos cambiados", "Proceso exitoso, los cambios se aplicarán en la siguiente sesión").ShowDialog();
+
+            }
+            else
+            {
+                new Emergente("advertencia", "Error", "Operación no completada!");
+            }
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ChangePwd changePW = new ChangePwd(lg.ds);
+            changePW.ShowDialog();
         }
 
         private void VentanaUsuarios()
