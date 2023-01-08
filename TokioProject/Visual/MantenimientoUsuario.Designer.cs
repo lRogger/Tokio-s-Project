@@ -55,7 +55,7 @@
             this.buscarUser.Location = new System.Drawing.Point(12, 101);
             this.buscarUser.Name = "buscarUser";
             this.buscarUser.PlaceholderText = " 🔎 Buscar...";
-            this.buscarUser.Size = new System.Drawing.Size(537, 16);
+            this.buscarUser.Size = new System.Drawing.Size(537, 17);
             this.buscarUser.TabIndex = 1;
             this.buscarUser.TextChanged += new System.EventHandler(this.buscarUser_TextChanged);
             this.buscarUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buscarUser_KeyPress);
@@ -254,8 +254,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(560, 400);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(560, 470);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.usersDGV);
             this.Controls.Add(this.buscarUser);

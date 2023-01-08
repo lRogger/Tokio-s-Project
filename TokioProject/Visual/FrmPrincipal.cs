@@ -237,6 +237,11 @@ namespace Individual.Visual
             mp.Show();
         }
 
+        private void lblSesion_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void VentanaUsuarios()
         {
             MantenimientoUsuario mu = new MantenimientoUsuario();

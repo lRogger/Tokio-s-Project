@@ -45,7 +45,7 @@ public DataSet ds = new DataSet();
                             FrmPrincipal frmp = new FrmPrincipal(this);
                             if (ds.Tables[0].Rows[0]["Admin"] is true)
                             {
-                                frmp.adminMenu.Visible = true;
+                                //frmp.adminMenu.Visible = true;
                             }
                             frmp.Show();
                             this.Hide();
