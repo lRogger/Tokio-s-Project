@@ -35,11 +35,6 @@
             {
 
             }
-            else if (tipo == "espera")
-            {
-
-                flPanel.Visible = false;
-            }
 
         }
 

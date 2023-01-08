@@ -97,17 +97,17 @@ namespace Individual.Visual
 
                 if (nu.ShowDialog() != DialogResult.Abort)
                 {
-                    MessageBox.Show("Proceso exitoso!");
+                    new Emergente("advetencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
                     cargarTabla();
                 }
                 else
                 {
-                    MessageBox.Show("Operación no completada!");
+                    new Emergente("advetencia", "ERROR", "Operación no completada").ShowDialog();
                 }
             }
             else
             {
-                MessageBox.Show("Selecciona una persona!");
+                new Emergente("advetencia", "ERROR", "Debes seleccionar una persona").ShowDialog();
             }
 
 
@@ -117,11 +117,10 @@ namespace Individual.Visual
         private async void eliminar_Click(object sender, EventArgs e)
         {
 
-            string message = "Seguro? si elimina el registro no podrá recuperarlo";
-            string title = "ATENCIÓN ⚠️⚠️";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes)
+
+
+            DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️⚠️", "Seguro ? si elimina el registro no podrá recuperarlo").ShowDialog();
+            if (result == DialogResult.OK)
             {
                 int i = usersDGV.CurrentRow.Index;
 
@@ -130,13 +129,6 @@ namespace Individual.Visual
 
                 cargarTabla();
             }
-            else
-            {
-                // Do something  
-            }
-
-
-
 
         }
 
@@ -146,13 +138,13 @@ namespace Individual.Visual
             NewUser nu = new NewUser();
             if (nu.ShowDialog() != DialogResult.Abort)
             {
-                MessageBox.Show("Proceso exitoso!");
+                new Emergente("advetencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
                 cargarTabla();
 
             }
             else
             {
-                MessageBox.Show("Operación no completada!");
+                new Emergente("advetencia", "ERROR", "Operación no completada").ShowDialog();
             }
         }
 
@@ -175,8 +167,7 @@ namespace Individual.Visual
 
         private async void cargarTabla()
         {
-            
-            
+     
             btnRefrescar.Enabled = false;
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
@@ -185,26 +176,6 @@ namespace Individual.Visual
             btnRefrescar.Enabled = true;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
-
-            /* Bloque de código utilizando solo DATASET
-            DataSet ds = db.Ds;
-            try
-            {
-                usersDGV.DataSource = ds.Tables[0];
-                usersDGV.RowHeadersVisible = false;
-                DataGridViewImageColumn dgvImagen = (DataGridViewImageColumn)usersDGV.Columns[5];
-                dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                dgvImagen.DefaultCellStyle.NullValue = null;
-                
-                usersDGV.ReadOnly = true;
-
-            }
-            catch
-            {
-                new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
-                    "intenta nuevamente!");
-            }
-            */
 
             DataSet ds = db.Ds;
             List<Persona> listaPersonas = new List<Persona>();
@@ -232,7 +203,7 @@ namespace Individual.Visual
             catch(Exception ex)
             {
                 new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
-                    "intenta nuevamente! "+ ex);
+                    "intenta nuevamente! "+ ex).ShowDialog();
             }
 
         }
