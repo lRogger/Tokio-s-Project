@@ -47,7 +47,6 @@ namespace GUIs.Visual
                     p.Categoria = "" + fila["Categoria"].ToString();
                     p.Talla = "" + fila["Talla"].ToString();
                     p.Nombre = "" + fila["Nombre"].ToString();
-                    p.Descripcion = "" + fila["Descripcion"].ToString();
                     p.Color = "" + fila["Color"].ToString();
                     p.Stock = (int)fila["Stock"];
                     p.Precio = (double)fila["Precio"];
@@ -56,8 +55,8 @@ namespace GUIs.Visual
                 usersDGV.Rows.Clear();
                 foreach (Prenda prenda in listaPrendas)
                 {
-                    usersDGV.Rows.Add(prenda.Id, prenda.Categoria, prenda.Talla, prenda.Nombre
-                        , prenda.Descripcion, prenda.Color, prenda.Stock, prenda.Precio);
+                    usersDGV.Rows.Add(prenda.Id, prenda.Nombre, prenda.Categoria, prenda.Talla
+                        , prenda.Color, prenda.Stock, prenda.Precio);
                 }
             }
 
