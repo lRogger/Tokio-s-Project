@@ -42,7 +42,7 @@ namespace Datos
         public void consultar(string cmd)
         {
 
-            ds = new DataSet();
+            Ds = new DataSet();
 
             try
             {

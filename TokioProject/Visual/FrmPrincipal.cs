@@ -1,6 +1,5 @@
 ﻿using Datos;
-using Microsoft.VisualBasic.ApplicationServices;
-using System.Data;
+using GUIs.Visual;
 using TokiosProject.Visual;
 
 namespace Individual.Visual
@@ -11,13 +10,16 @@ namespace Individual.Visual
         private Login lg;
         private int posX = 0, posY = 0;
         MantenimientoUsuario mu;
+        MantenimientoProducto mp;
 
 
         public FrmPrincipal(Login lg)
         {
             InitializeComponent();
             this.lg = lg;
+            mp = new MantenimientoProducto();
             mu = new MantenimientoUsuario();
+            
 
         }
 
@@ -199,6 +201,22 @@ namespace Individual.Visual
 
         }
 
+        private void mantenimientoRopaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mp.IsDisposed)
+            {
+                mp = new MantenimientoProducto();
+            }
+            else
+            {
+                mp.TopLevel = false;
+                this.panelPrincipal.Controls.Clear();
+                this.panelPrincipal.Controls.Add(mp);
+                mp.Show();
+            }
+            
+        }
+
 
         //ABRIR VENTANA PARA CRUD PERSONAS
         private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -207,7 +225,9 @@ namespace Individual.Visual
             {
                 mu = new MantenimientoUsuario();
             }
+            
             mu.TopLevel = false;
+            this.panelPrincipal.Controls.Clear();
             this.panelPrincipal.Controls.Add(mu);
             mu.Show();
         }

@@ -106,6 +106,7 @@
             this.mantenimientoRopaToolStripMenuItem.Name = "mantenimientoRopaToolStripMenuItem";
             this.mantenimientoRopaToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.mantenimientoRopaToolStripMenuItem.Text = "Mantenimiento Ropa";
+            this.mantenimientoRopaToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoRopaToolStripMenuItem_Click);
             // 
             // cerrarSesion
             // 

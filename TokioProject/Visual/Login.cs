@@ -34,11 +34,9 @@ public DataSet ds = new DataSet();
                     tbUser.Enabled = false;
                     btnIniciar.Enabled = false;
 
-                    //Cursor.Current = Cursors.Hand;
                     await Task.Run(() => db.consultar("SELECT * FROM Personas WHERE Cedula = '" + tbUser.Texts.Trim() + "'"));
                     ds.Tables.Clear();
                     ds = db.Ds;
-                    //Cursor.Current = Cursors.Default;
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
@@ -78,6 +76,9 @@ public DataSet ds = new DataSet();
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
+                    tbpwd.Enabled = true;
+                    tbUser.Enabled = true;
+                    btnIniciar.Enabled = true;
                     tbpwd.Texts = "";
                     tbUser.Texts = "";
                 }
