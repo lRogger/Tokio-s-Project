@@ -1,8 +1,6 @@
 ﻿using Datos;
-using MySqlX.XDevAPI.Relational;
 using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
+
 
 
 namespace Individual.Visual
@@ -23,9 +21,6 @@ namespace Individual.Visual
 
         private void buscarUser_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-            
-
         }
 
         private void buscarUser_TextChanged(object sender, EventArgs e)
@@ -79,22 +74,22 @@ namespace Individual.Visual
             if (usersDGV.SelectedRows.Count > 0)
             {
                 int i = usersDGV.CurrentRow.Index;
-                await Task.Run(() => db.consultar("Select cedula, nombre, correo, edad, admin, imagen" +
-                    " FROM personas WHERE cedula = " + usersDGV.Rows[i].Cells["cedula"].Value.ToString()));
+                await Task.Run(() => db.consultar("Select Cedula, Nombre, Correo, Edad, Admin, Imagen" +
+                    " FROM Personas WHERE Cedula = " + usersDGV.Rows[i].Cells["Cedula"].Value.ToString()));
                 DataSet dsa = db.Ds;
 
 
                 NewUser nu = new NewUser();
-                nu.cedUser.Text = dsa.Tables[0].Rows[0]["cedula"].ToString();
+                nu.cedUser.Text = dsa.Tables[0].Rows[0]["Cedula"].ToString();
                 nu.cedUser.Enabled = false;
 
-                nu.nomUser.Text = dsa.Tables[0].Rows[0]["nombre"].ToString();
-                nu.correoUser.Text = dsa.Tables[0].Rows[0]["correo"].ToString();
-                nu.edadUser.Text = dsa.Tables[0].Rows[0]["edad"].ToString();
-                nu.admUser.Checked = (dsa.Tables[0].Rows[0]["admin"].ToString() == "True")
+                nu.nomUser.Text = dsa.Tables[0].Rows[0]["Nombre"].ToString();
+                nu.correoUser.Text = dsa.Tables[0].Rows[0]["Correo"].ToString();
+                nu.edadUser.Text = dsa.Tables[0].Rows[0]["Edad"].ToString();
+                nu.admUser.Checked = (dsa.Tables[0].Rows[0]["Admin"].ToString() == "True")
                     ? true : false;
 
-                MemoryStream ms = new MemoryStream((byte[])dsa.Tables[0].Rows[0]["imagen"]);
+                MemoryStream ms = new MemoryStream((byte[])dsa.Tables[0].Rows[0]["Imagen"]);
                 Image img = Image.FromStream(ms);
                 nu.fotoUser.Image = img;
 
@@ -128,8 +123,8 @@ namespace Individual.Visual
             {
                 int i = usersDGV.CurrentRow.Index;
 
-                await Task.Run(()=> db.instruccionDB("Delete from personas WHERE cedula = " +
-                        usersDGV.Rows[i].Cells["cedula"].Value.ToString()));
+                await Task.Run(()=> db.instruccionDB("Delete from Personas WHERE Cedula = " +
+                        usersDGV.Rows[i].Cells["Cedula"].Value.ToString()));
 
                 cargarTabla();
             }
@@ -181,7 +176,7 @@ namespace Individual.Visual
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
 
-            await Task.Run(() => db.consultar("SELECT id, cedula, nombre, correo, edad, imagen from personas WHERE cedula != 0"));
+            await Task.Run(() => db.consultar("SELECT Id, Cedula, Nombre, Correo, Edad, Imagen from Personas WHERE cedula != 0"));
             btnRefrescar.Enabled = true;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
@@ -194,12 +189,12 @@ namespace Individual.Visual
                 DataGridViewImageColumn dgvImagen = (DataGridViewImageColumn)usersDGV.Columns[5];
                 dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 dgvImagen.DefaultCellStyle.NullValue = null;
-                usersDGV.Columns["id"].Width = 50;
-                usersDGV.Columns["nombre"].Width = 105;
-                usersDGV.Columns["cedula"].Width = 80;
-                usersDGV.Columns["correo"].Width = 180;
-                usersDGV.Columns["edad"].Width = 50;
-                usersDGV.Columns["imagen"].Width = 55;
+                usersDGV.Columns["Id"].Width = 50;
+                usersDGV.Columns["Nombre"].Width = 105;
+                usersDGV.Columns["Cedula"].Width = 80;
+                usersDGV.Columns["Correo"].Width = 180;
+                usersDGV.Columns["Edad"].Width = 50;
+                usersDGV.Columns["Imagen"].Width = 55;
                 usersDGV.ReadOnly = true;
                 
 

@@ -146,18 +146,18 @@ namespace Individual.Visual
         {
 
             NewUser nu = new NewUser();
-            nu.cedUser.Text = lg.ds.Tables[0].Rows[0]["cedula"].ToString();
+            nu.cedUser.Text = lg.ds.Tables[0].Rows[0]["Cedula"].ToString();
             nu.cedUser.Enabled = false;
 
-            nu.nomUser.Text = lg.ds.Tables[0].Rows[0]["nombre"].ToString();
-            nu.correoUser.Text = lg.ds.Tables[0].Rows[0]["correo"].ToString();
-            nu.edadUser.Text = lg.ds.Tables[0].Rows[0]["edad"].ToString();
-            nu.admUser.Checked = (lg.ds.Tables[0].Rows[0]["admin"].ToString() == "True")
+            nu.nomUser.Text = lg.ds.Tables[0].Rows[0]["Nombre"].ToString();
+            nu.correoUser.Text = lg.ds.Tables[0].Rows[0]["Correo"].ToString();
+            nu.edadUser.Text = lg.ds.Tables[0].Rows[0]["Edad"].ToString();
+            nu.admUser.Checked = (lg.ds.Tables[0].Rows[0]["Admin"].ToString() == "True")
                 ? true : false;
 
             nu.admUser.Enabled = false;
 
-            MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["imagen"]);
+            MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["Imagen"]);
             Image img = Image.FromStream(ms);
             nu.fotoUser.Image = img;
 
@@ -176,7 +176,7 @@ namespace Individual.Visual
         {
             try
             {
-                MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["imagen"]);
+                MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["Imagen"]);
                 Image img = Image.FromStream(ms);
                 profileP.Image = img;
                 lblSesion.Text = "Sesión actual: " + lg.ds.Tables[0].Rows[0]["Nombre"].ToString();

@@ -137,7 +137,7 @@ namespace Individual.Visual
             else if (cedUser.Enabled)
             {
                 DataSet ds = new DataSet();
-                await Task.Run(() => db.consultar("SELECT cedula FROM personas WHERE cedula = " + cedUser.Text));
+                await Task.Run(() => db.consultar("SELECT Cedula FROM Personas WHERE Cedula = " + cedUser.Text));
                 ds = db.Ds;
                 if (ds.Tables.Count > 0)
                 {

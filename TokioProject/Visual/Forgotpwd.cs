@@ -32,8 +32,8 @@ namespace Individual
                 {
                     try
                     {
-                        db.instruccionDB("UPDATE personas SET password = '" +
-                            BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE cedula = '" +
+                        db.instruccionDB("UPDATE Personas SET Password = '" +
+                            BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE Cedula = '" +
                             cedulafpwd.Text.Trim() + "'");
                         MessageBox.Show("Contraseña cambiada con éxito!");
                     }
@@ -62,8 +62,8 @@ namespace Individual
             if (correofpwd.Text != "" && cedulafpwd.Text != "")
             {
                 ds.Tables.Clear();
-                await Task.Run(() => db.consultar("SELECT * FROM personas WHERE correo = '" +
-                correofpwd.Text.ToLower() + "' AND cedula = '" + cedulafpwd.Text + "'"));
+                await Task.Run(() => db.consultar("SELECT * FROM Personas WHERE Correo = '" +
+                correofpwd.Text.ToLower() + "' AND Cedula = '" + cedulafpwd.Text + "'"));
                 ds = db.Ds;
 
                 if (ds.Tables[0].Rows.Count > 0)

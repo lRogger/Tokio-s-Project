@@ -32,15 +32,15 @@ namespace TokiosProject.Visual
         {
             if(tbPwdAnt.Texts != "" && tbPwdNew.Texts != "" && tbPwdRep.Texts != "")
             {
-                if (BCrypt.Net.BCrypt.Verify(tbPwdAnt.Texts, dsCuenta.Tables[0].Rows[0]["password"].ToString()))
+                if (BCrypt.Net.BCrypt.Verify(tbPwdAnt.Texts, dsCuenta.Tables[0].Rows[0]["Password"].ToString()))
                 {
                     if(tbPwdNew.Texts == tbPwdRep.Texts)
                     {
                         DataBase db = new DataBase();
                         
-                        await Task.Run(() => db.instruccionDB("UPDATE personas SET password = '" +
+                        await Task.Run(() => db.instruccionDB("UPDATE Personas SET Password = '" +
                             BCrypt.Net.BCrypt.HashPassword(tbPwdNew.Texts.Trim())+
-                            "' WHERE cedula = '" + dsCuenta.Tables[0].Rows[0]["cedula"].ToString() + "'"));
+                            "' WHERE Cedula = '" + dsCuenta.Tables[0].Rows[0]["Cedula"].ToString() + "'"));
                         this.Close();
 
                         new Emergente("advertencia", "Hecho", "La contraseña se ha cambiado correctamente" +

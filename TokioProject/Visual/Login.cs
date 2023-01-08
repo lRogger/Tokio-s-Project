@@ -34,17 +34,17 @@ public DataSet ds = new DataSet();
                     btnIniciar.Enabled = false;
 
                     //Cursor.Current = Cursors.Hand;
-                    await Task.Run(() => db.consultar("SELECT * FROM personas WHERE cedula = '" + tbUser.Texts.Trim() + "'"));
+                    await Task.Run(() => db.consultar("SELECT * FROM Personas WHERE Cedula = '" + tbUser.Texts.Trim() + "'"));
                     ds.Tables.Clear();
                     ds = db.Ds;
                     //Cursor.Current = Cursors.Default;
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts.Trim(), ds.Tables[0].Rows[0]["password"].ToString()))
+                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts.Trim(), ds.Tables[0].Rows[0]["Password"].ToString()))
                         {
                             FrmPrincipal frmp = new FrmPrincipal(this);
-                            if (ds.Tables[0].Rows[0]["admin"] is true)
+                            if (ds.Tables[0].Rows[0]["Admin"] is true)
                             {
                                 frmp.adminMenu.Visible = true;
                             }
