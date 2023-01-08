@@ -16,7 +16,7 @@ public DataSet ds = new DataSet();
         public Login()
         {
             InitializeComponent();
-     
+
             panelMod1.BackColor = Color.FromArgb(110, Color.Black);
 
         }

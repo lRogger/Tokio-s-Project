@@ -1,7 +1,7 @@
 ﻿using Datos;
 using System.Data;
 using Entidades;
-using Microsoft.EntityFrameworkCore.Query.Internal;
+
 
 namespace Individual.Visual
 {
@@ -17,7 +17,6 @@ namespace Individual.Visual
             cargarTabla();
             usersDGV.RowTemplate.Height = 55;
             usersDGV.RowHeadersVisible = false;
-
         }
 
 
@@ -161,8 +160,6 @@ namespace Individual.Visual
 
         private void MantenimientoUsuario_Load(object sender, EventArgs e)
         {
-
-
         }
 
         private async void cargarTabla()
@@ -198,8 +195,8 @@ namespace Individual.Visual
                     usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
                         , persona.Edad, persona.Foto);
                 }
-
             }
+
             catch(Exception ex)
             {
                 new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
