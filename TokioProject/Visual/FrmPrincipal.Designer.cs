@@ -192,6 +192,7 @@
             this.btnProductos.TabIndex = 1;
             this.btnProductos.Text = "👕 Productos";
             this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click_1);
             // 
             // btnUsuarios
             // 
@@ -207,6 +208,8 @@
             this.btnUsuarios.TabIndex = 0;
             this.btnUsuarios.Text = "🙍‍♂️ Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = false;
+            this.btnUsuarios.Visible = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnConfig
             // 
@@ -295,13 +298,13 @@
         private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnProductos;
-        private Button btnUsuarios;
         private Button btnConfig;
         private FlowLayoutPanel flowLayoutPanel2;
         private Panel panel2;
         private CustomControls.RJControls.RJDropdownMenu menuConfig;
         private ToolStripMenuItem editarUsuarioToolStripMenuItem;
         private ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
+        public Button btnUsuarios;
     }
 }
 

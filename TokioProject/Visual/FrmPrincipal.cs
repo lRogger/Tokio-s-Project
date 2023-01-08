@@ -203,21 +203,6 @@ namespace Individual.Visual
         }
 
 
-        //Abrir ventana productos
-        private void mantenimientoRopaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            VentanaProductos();
-            
-        }
-
-
-        //ABRIR VENTANA PARA CRUD PERSONAS
-        private void mantenimientoPersonasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VentanaUsuarios();
-
-        }
 
         private void MantenimientoUsuario_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -255,6 +240,16 @@ namespace Individual.Visual
         private void button1_Click_1(object sender, EventArgs e)
         {
             menuConfig.Show(btnConfig,btnConfig.Width,0);
+        }
+
+        private void btnProductos_Click_1(object sender, EventArgs e)
+        {
+            VentanaProductos();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            VentanaUsuarios();
         }
 
         private void VentanaUsuarios()
