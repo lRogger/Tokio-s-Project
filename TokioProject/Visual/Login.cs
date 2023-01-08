@@ -19,6 +19,7 @@ public DataSet ds = new DataSet();
 
             panelMod1.BackColor = Color.FromArgb(110, Color.Black);
 
+
         }
 
         private async void ingresar()
