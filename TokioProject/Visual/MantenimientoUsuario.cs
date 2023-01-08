@@ -1,8 +1,7 @@
 ﻿using Datos;
 using System.Data;
 using Entidades;
-
-
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace Individual.Visual
 {
@@ -176,11 +175,13 @@ namespace Individual.Visual
 
         private async void cargarTabla()
         {
+            
+            
             btnRefrescar.Enabled = false;
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
 
-            await Task.Run(() => db.consultar("SELECT Id, Cedula, Nombre, Correo, Edad, Imagen from Personas WHERE cedula != 0"));
+            await Task.Run(() => db.consultar("SELECT Id, Cedula, Nombre, Correo, Edad, Imagen from Personas WHERE Cedula != 0"));
             btnRefrescar.Enabled = true;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
@@ -220,8 +221,8 @@ namespace Individual.Visual
                     p.Foto = (byte[])fila["Imagen"];
                     listaPersonas.Add(p);
                 }
-                
-                foreach(Persona persona in listaPersonas)
+                usersDGV.Rows.Clear();
+                foreach (Persona persona in listaPersonas)
                 {
                     usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
                         , persona.Edad, persona.Foto);
