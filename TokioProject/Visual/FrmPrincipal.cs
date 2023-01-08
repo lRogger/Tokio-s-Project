@@ -17,7 +17,7 @@ namespace Individual.Visual
             InitializeComponent();
             this.lg = lg;
             mp = new MantenimientoProducto();
-            
+            menuConfig.IsMainMenu= true;
         }
 
 
@@ -182,7 +182,7 @@ namespace Individual.Visual
                 MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["Imagen"]);
                 Image img = Image.FromStream(ms);
                 profileP.Image = img;
-                lblSesion.Text = "Sesión actual: " + lg.ds.Tables[0].Rows[0]["Nombre"].ToString();
+                lblSesion.Text = lg.ds.Tables[0].Rows[0]["Nombre"].ToString();
             }
             catch
             {
@@ -240,6 +240,21 @@ namespace Individual.Visual
         private void lblSesion_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            menuConfig.Show(btnConfig,btnConfig.Width,0);
         }
 
         private void VentanaUsuarios()
