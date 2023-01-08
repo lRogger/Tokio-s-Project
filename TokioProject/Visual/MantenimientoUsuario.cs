@@ -1,5 +1,6 @@
 ﻿using Datos;
 using System.Data;
+using Entidades;
 
 
 
@@ -16,7 +17,8 @@ namespace Individual.Visual
             InitializeComponent();
             cargarTabla();
             usersDGV.RowTemplate.Height = 55;
-            
+            usersDGV.RowHeadersVisible = false;
+
         }
 
 
@@ -168,7 +170,8 @@ namespace Individual.Visual
 
         private void MantenimientoUsuario_Load(object sender, EventArgs e)
         {
-          
+
+
         }
 
         private async void cargarTabla()
@@ -182,6 +185,7 @@ namespace Individual.Visual
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
 
+            /* Bloque de código utilizando solo DATASET
             DataSet ds = db.Ds;
             try
             {
@@ -190,12 +194,7 @@ namespace Individual.Visual
                 DataGridViewImageColumn dgvImagen = (DataGridViewImageColumn)usersDGV.Columns[5];
                 dgvImagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 dgvImagen.DefaultCellStyle.NullValue = null;
-                usersDGV.Columns["Id"].Width = 50;
-                usersDGV.Columns["Nombre"].Width = 105;
-                usersDGV.Columns["Cedula"].Width = 80;
-                usersDGV.Columns["Correo"].Width = 180;
-                usersDGV.Columns["Edad"].Width = 50;
-                usersDGV.Columns["Imagen"].Width = 55;
+                
                 usersDGV.ReadOnly = true;
 
             }
@@ -204,7 +203,36 @@ namespace Individual.Visual
                 new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
                     "intenta nuevamente!");
             }
-            
+            */
+
+            DataSet ds = db.Ds;
+            List<Persona> listaPersonas = new List<Persona>();
+            try
+            {
+                foreach (DataRow fila in ds.Tables[0].Rows)
+                {
+                    Persona p = new Persona();
+                    p.Id = (int)fila["Id"];
+                    p.Cedula = ""+fila["Cedula"].ToString();
+                    p.Nombre = "" + fila["Nombre"].ToString();
+                    p.Correo = ""+fila["Correo"].ToString();
+                    p.Edad = (int)fila["Edad"];
+                    p.Foto = (byte[])fila["Imagen"];
+                    listaPersonas.Add(p);
+                }
+                
+                foreach(Persona persona in listaPersonas)
+                {
+                    usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
+                        , persona.Edad, persona.Foto);
+                }
+
+            }
+            catch(Exception ex)
+            {
+                new Emergente("advetencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
+                    "intenta nuevamente! "+ ex);
+            }
 
         }
     }

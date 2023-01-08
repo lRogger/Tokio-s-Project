@@ -39,6 +39,12 @@
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             this.separador = new System.Windows.Forms.Panel();
             this.btnRefrescar = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +64,6 @@
             // 
             this.usersDGV.AllowUserToAddRows = false;
             this.usersDGV.AllowUserToDeleteRows = false;
-            this.usersDGV.AllowUserToOrderColumns = true;
             this.usersDGV.AllowUserToResizeColumns = false;
             this.usersDGV.AllowUserToResizeRows = false;
             this.usersDGV.BackgroundColor = System.Drawing.Color.White;
@@ -75,6 +80,13 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.usersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.usersDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.usersDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Cedula,
+            this.Nombre,
+            this.Correo,
+            this.Edad,
+            this.Imagen});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -89,6 +101,8 @@
             this.usersDGV.Location = new System.Drawing.Point(12, 123);
             this.usersDGV.MultiSelect = false;
             this.usersDGV.Name = "usersDGV";
+            this.usersDGV.ReadOnly = true;
+            this.usersDGV.RowHeadersWidth = 4;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.usersDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.usersDGV.RowTemplate.Height = 25;
@@ -186,6 +200,55 @@
             this.btnRefrescar.UseVisualStyleBackColor = false;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
+            // Id
+            // 
+            this.Id.Frozen = true;
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 50;
+            // 
+            // Cedula
+            // 
+            this.Cedula.Frozen = true;
+            this.Cedula.HeaderText = "Cedula";
+            this.Cedula.Name = "Cedula";
+            this.Cedula.ReadOnly = true;
+            this.Cedula.Width = 80;
+            // 
+            // Nombre
+            // 
+            this.Nombre.Frozen = true;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 105;
+            // 
+            // Correo
+            // 
+            this.Correo.Frozen = true;
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            this.Correo.Width = 180;
+            // 
+            // Edad
+            // 
+            this.Edad.Frozen = true;
+            this.Edad.HeaderText = "Edad";
+            this.Edad.Name = "Edad";
+            this.Edad.ReadOnly = true;
+            this.Edad.Width = 50;
+            // 
+            // Imagen
+            // 
+            this.Imagen.Frozen = true;
+            this.Imagen.HeaderText = "Imagen";
+            this.Imagen.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Imagen.Name = "Imagen";
+            this.Imagen.ReadOnly = true;
+            this.Imagen.Width = 55;
+            // 
             // MantenimientoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -221,5 +284,11 @@
         private ComponentesMod.RJButton btnCerrar;
         private Panel separador;
         private Button btnRefrescar;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Cedula;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Correo;
+        private DataGridViewTextBoxColumn Edad;
+        private DataGridViewImageColumn Imagen;
     }
 }
