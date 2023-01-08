@@ -21,7 +21,7 @@ namespace Datos
         {
             this.server = "db4free.net";
             this.user = "lrogger";
-            this.pass = "Rogger123";
+            this.pass = "Tokio123";
             this.db = "chichar";
             this.ds = new DataSet();
             strCon = "server=" + server +

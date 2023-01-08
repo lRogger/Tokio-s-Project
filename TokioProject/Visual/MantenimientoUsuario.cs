@@ -16,6 +16,7 @@ namespace Individual.Visual
             InitializeComponent();
             cargarTabla();
             usersDGV.RowTemplate.Height = 55;
+            
         }
 
 
@@ -196,7 +197,6 @@ namespace Individual.Visual
                 usersDGV.Columns["Edad"].Width = 50;
                 usersDGV.Columns["Imagen"].Width = 55;
                 usersDGV.ReadOnly = true;
-                
 
             }
             catch
