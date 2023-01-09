@@ -2,6 +2,7 @@
 using Datos;
 using Individual.Visual;
 using System.Data;
+using System.Windows.Forms;
 
 
 namespace GUIs.Visual
@@ -76,34 +77,41 @@ namespace GUIs.Visual
         private void FiltrarDGVProducto()
         {
             string talla = cbTalla.Text;
-            if (cbTalla.Text == "Todas")
+            if(cbTalla.Text == "Todas")
             {
                 talla = "";
             }
-            foreach (DataGridViewRow fila in productoDGV.Rows)
-            {
-                bool mostrarFila = false;
 
-                foreach (DataGridViewCell celda in fila.Cells)
+            foreach (DataGridViewRow row in productoDGV.Rows)
+            {
+                bool found = false;
+                for (int i = 0; i < row.Cells.Count; i++)
                 {
-                    if (celda.ColumnIndex == 3 && celda.Value.ToString() == cbTalla.SelectedValue.ToString())
+                    if (i != 4 && row.Cells[i].Value.ToString().ToLower().Contains(tbBuscarProducto.Text.ToLower()))
                     {
-                        mostrarFila = true;
-                        break;
-                    }
-                    else if ((""+celda.Value.ToString()).Contains(buscarProducto.Text))
-                    {
-                        mostrarFila = true;
+                        found = true;
                         break;
                     }
                 }
-                fila.Visible = mostrarFila;
+                if (!found || (!row.Cells[3].Value.ToString().ToLower().Equals(talla.ToLower()) && talla != ""))
+                {
+                    row.Visible = false;
+                }
             }
         }
 
         private void buscarProducto_TextChanged(object sender, EventArgs e)
         {
+            if (tbBuscarProducto.Text == "")
+            {
+                foreach (DataGridViewRow row in productoDGV.Rows)
+                {
+
+                    row.Visible = true;
+                }
+            }
             FiltrarDGVProducto();
+            
         }
 
         private void btnRefrescar_Click(object sender, EventArgs e)
@@ -123,6 +131,16 @@ namespace GUIs.Visual
 
                 CargarTabla();
             }
+        }
+
+        private void cbTalla_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in productoDGV.Rows)
+            {
+
+                row.Visible = true;
+            }
+            FiltrarDGVProducto();
         }
     }
 }

@@ -40,7 +40,7 @@
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buscarProducto = new System.Windows.Forms.TextBox();
+            this.tbBuscarProducto = new System.Windows.Forms.TextBox();
             this.separador = new System.Windows.Forms.Panel();
             this.cbTalla = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -168,16 +168,16 @@
             this.Precio.ReadOnly = true;
             this.Precio.Width = 80;
             // 
-            // buscarProducto
+            // tbBuscarProducto
             // 
-            this.buscarProducto.BackColor = System.Drawing.Color.White;
-            this.buscarProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.buscarProducto.Location = new System.Drawing.Point(12, 97);
-            this.buscarProducto.Name = "buscarProducto";
-            this.buscarProducto.PlaceholderText = " 🔎 Buscar...";
-            this.buscarProducto.Size = new System.Drawing.Size(350, 16);
-            this.buscarProducto.TabIndex = 12;
-            this.buscarProducto.TextChanged += new System.EventHandler(this.buscarProducto_TextChanged);
+            this.tbBuscarProducto.BackColor = System.Drawing.Color.White;
+            this.tbBuscarProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbBuscarProducto.Location = new System.Drawing.Point(12, 97);
+            this.tbBuscarProducto.Name = "tbBuscarProducto";
+            this.tbBuscarProducto.PlaceholderText = " 🔎 Buscar...";
+            this.tbBuscarProducto.Size = new System.Drawing.Size(350, 16);
+            this.tbBuscarProducto.TabIndex = 12;
+            this.tbBuscarProducto.TextChanged += new System.EventHandler(this.buscarProducto_TextChanged);
             // 
             // separador
             // 
@@ -201,6 +201,7 @@
             this.cbTalla.Name = "cbTalla";
             this.cbTalla.Size = new System.Drawing.Size(132, 23);
             this.cbTalla.TabIndex = 19;
+            this.cbTalla.SelectedIndexChanged += new System.EventHandler(this.cbTalla_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -289,7 +290,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbTalla);
             this.Controls.Add(this.productoDGV);
-            this.Controls.Add(this.buscarProducto);
+            this.Controls.Add(this.tbBuscarProducto);
             this.Controls.Add(this.separador);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MantenimientoProducto";
@@ -304,7 +305,7 @@
 
         #endregion
         public DataGridView productoDGV;
-        private TextBox buscarProducto;
+        private TextBox tbBuscarProducto;
         private Panel separador;
         private ComboBox cbTalla;
         private Label label1;
