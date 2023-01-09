@@ -38,12 +38,12 @@
             this.fotoUser = new System.Windows.Forms.PictureBox();
             this.btnEnviar = new Individual.Visual.ComponentesMod.RJButton();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fotoUser)).BeginInit();
             this.panelMod1.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +101,7 @@
             // 
             this.cedUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cedUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cedUser.Location = new System.Drawing.Point(215, 35);
+            this.cedUser.Location = new System.Drawing.Point(215, 34);
             this.cedUser.MaximumSize = new System.Drawing.Size(200, 25);
             this.cedUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.cedUser.Name = "cedUser";
@@ -118,9 +118,9 @@
             this.buscarFoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buscarFoto.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buscarFoto.ForeColor = System.Drawing.Color.White;
-            this.buscarFoto.Location = new System.Drawing.Point(38, 141);
+            this.buscarFoto.Location = new System.Drawing.Point(56, 141);
             this.buscarFoto.Name = "buscarFoto";
-            this.buscarFoto.Size = new System.Drawing.Size(79, 20);
+            this.buscarFoto.Size = new System.Drawing.Size(65, 18);
             this.buscarFoto.TabIndex = 1;
             this.buscarFoto.Text = "Subir Foto";
             this.buscarFoto.UseVisualStyleBackColor = false;
@@ -182,6 +182,50 @@
             this.panelMod1.TabIndex = 12;
             this.panelMod1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMod1_MouseMove);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(148, 143);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 19);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Edad:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(148, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 19);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Correo:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(148, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 19);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Nombre:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(148, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 19);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Cedula:";
+            // 
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
@@ -215,50 +259,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(239, 42);
             this.lblTitulo.TabIndex = 13;
             this.lblTitulo.Text = "Nuevo Usuario";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(148, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 19);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Cedula:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(148, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 19);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Nombre:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(148, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 19);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Correo:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(148, 140);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 19);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Edad:";
             // 
             // NewUser
             // 
