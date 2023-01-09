@@ -87,13 +87,15 @@ namespace GUIs.Visual
                 bool found = false;
                 for (int i = 0; i < row.Cells.Count; i++)
                 {
-                    if (i != 4 && row.Cells[i].Value.ToString().ToLower().Contains(tbBuscarProducto.Text.ToLower()))
+                    if (i != 4 && (""+row.Cells[i].Value.ToString()).ToLower()
+                        .Contains(tbBuscarProducto.Text.ToLower()))
                     {
                         found = true;
                         break;
                     }
                 }
-                if (!found || (!row.Cells[3].Value.ToString().ToLower().Equals(talla.ToLower()) && talla != ""))
+                if (!found || (!(""+row.Cells[3].Value.ToString()).ToLower()
+                    .Equals(talla.ToLower()) && talla != ""))
                 {
                     row.Visible = false;
                 }

@@ -47,6 +47,7 @@ namespace Individual
                             if (Ds.Tables[0].Rows[0]["Admin"] is true)
                             {
                                 frmp.btnUsuarios.Visible = true;
+                                frmp.lblAdmin.Visible = true;
                             }
                             frmp.Show();
                             this.Hide();
