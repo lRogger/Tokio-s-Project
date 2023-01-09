@@ -187,7 +187,7 @@ namespace GUIs.Visual
                 DataSet dsa = db.Ds;
 
                 NewProduct np = new NewProduct(Int32.Parse(""+dsa.Tables[0].Rows[0]["IDproducto"].ToString()));
-                
+                np.lblTitulo.Text = "Editar Producto";
                 np.tbNombreProd.Texts = ""+dsa.Tables[0].Rows[0]["Nombre"].ToString();
                 np.cbCateg.Text = dsa.Tables[0].Rows[0]["Categoria"].ToString();
                 np.cbTalla.Text = dsa.Tables[0].Rows[0]["Talla"].ToString(); 

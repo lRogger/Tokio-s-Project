@@ -364,8 +364,6 @@
         }
 
         #endregion
-
-        private Label lblTitulo;
         private Individual.Visual.ComponentesMod.PanelMod panelMod1;
         private Label label3;
         private Label label2;
@@ -383,5 +381,6 @@
         public ComboBox cbColor;
         public ComboBox cbTalla;
         public CustomControls.RJControls.RJTextBox tbStock;
+        public Label lblTitulo;
     }
 }
