@@ -62,8 +62,8 @@ namespace GUIs.Visual
 
             catch (Exception ex)
             {
-                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
-                    "intenta nuevamente! " + ex).ShowDialog();
+                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
+                    "Intenta nuevamente! " + ex).ShowDialog();
             }
 
         }
@@ -91,7 +91,7 @@ namespace GUIs.Visual
                         mostrarFila = true;
                         break;
                     }
-                    else if (celda.Value.ToString().Contains(buscarProducto.Text))
+                    else if ((""+celda.Value.ToString()).Contains(buscarProducto.Text))
                     {
                         mostrarFila = true;
                         break;

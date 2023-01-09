@@ -8,24 +8,39 @@ namespace Datos
         private string server, user, pass, db, strCon;
         private DataSet ds;
 
-        /*  PRIMER HOST IMPLEMENTADO, DETALLES
-         
-            string server = "us-east.connect.psdb.cloud";
-            string user = "u1deef4ok1sdaos254mh";
-            string pass = "pscale_pw_eYFZVgEnWtWE0R6fAkZHVhXPL3vCw9wxeJ9fOaJ3SDd";
-            string db = "chichar";
-            string strCon;
-        */
+        
 
         public DataBase()
         {
-            this.server = "db4free.net";
-            this.user = "lrogger";
-            this.pass = "Tokio123";
+
+            /* HOST GRATUITO, ALGO LENTO, MANTENIMIENTO
+             * 
+                this.server = "db4free.net";
+                this.user = "lrogger";
+                this.pass = "Tokio123";
+                this.db = "chichar";
+                
+            */
+
+            /*  PRIMER HOST IMPLEMENTADO, PROBLEMA PARA SUBIR IMAGENES EN DB,
+             *  GENERALMENTE SE UTILIZA UNA NUBE APARTE PERO PARA EFECTOS DE PRÁCTICA
+             *  DECIDIMOS ALMACENARLO EN UNA BD
+
+                this.server = "us-east.connect.psdb.cloud";
+                this.user = "u1deef4ok1sdaos254mh";
+                this.pass = "pscale_pw_eYFZVgEnWtWE0R6fAkZHVhXPL3vCw9wxeJ9fOaJ3SDd";
+                this.db = "chichar";
+             */
+
+            //  HOST LOCAL
+            this.server = "localhost";
+            this.user = "root";
+            this.pass = "";
             this.db = "chichar";
+             
             this.ds = new DataSet();
-            strCon = "server=" + server +
-                ";user id=" + user + ";password=" + pass + ";database=" + db + ";";
+            this.strCon = "server=" + server +
+                    ";user id=" + user + ";password=" + pass + ";database=" + db + ";";
         }
 
         public DataSet Ds { get => ds; set => ds = value; }

@@ -204,8 +204,8 @@ namespace Individual.Visual
 
             catch(Exception ex)
             {
-                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al cargar la tabla, " +
-                    "intenta nuevamente! "+ ex).ShowDialog();
+                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al cargar la base de datos\n " +
+                    "Intenta nuevamente! "+ ex).ShowDialog();
             }
 
         }

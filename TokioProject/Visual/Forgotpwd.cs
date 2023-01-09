@@ -66,18 +66,28 @@ namespace Individual
                 correofpwd.Text.ToLower() + "' AND Cedula = '" + cedulafpwd.Text + "'"));
                 ds = db.Ds;
 
-                if (ds.Tables[0].Rows.Count > 0)
+                try
                 {
-                    btnEnviar.Enabled = true;
-                    newpwd.Enabled = true;
-                    newpwd2.Enabled = true;
-                    new Emergente("advertencia", "Hecho", "Ahora puedes elegir tu nueva contraseña").ShowDialog();
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        btnEnviar.Enabled = true;
+                        newpwd.Enabled = true;
+                        newpwd2.Enabled = true;
+                        new Emergente("advertencia", "Hecho", "Ahora puedes elegir tu nueva contraseña").ShowDialog();
 
+                    }
+                    else
+                    {
+                        new Emergente("advertencia", "ERROR", "No hemos encontrado la cuenta").ShowDialog();
+                    }
                 }
-                else
+                catch
                 {
-                    new Emergente("advertencia", "ERROR", "No hemos encontrado la cuenta").ShowDialog();
+                    new Emergente("advertencia", "ERROR", "Problema al conectar con la base de datos\n" +
+                        "Intente nuevamente");
                 }
+
+                
             }
             else
             {

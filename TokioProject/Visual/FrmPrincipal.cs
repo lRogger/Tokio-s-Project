@@ -71,7 +71,7 @@ namespace Individual.Visual
             }
         }
 
-        private void MoverVentana()
+        private void MoverVentana(MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
             {
@@ -83,6 +83,7 @@ namespace Individual.Visual
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -95,12 +96,6 @@ namespace Individual.Visual
  
         }
 
-        //MÉTODO PARA EDITAR USUARIO
-        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-           
-        }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
@@ -110,10 +105,10 @@ namespace Individual.Visual
             mp.Show();
             try
             {
-                MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["Imagen"]);
+                MemoryStream ms = new MemoryStream((byte[])lg.Ds.Tables[0].Rows[0]["Imagen"]);
                 Image img = Image.FromStream(ms);
                 profileP.Image = img;
-                lblSesion.Text = lg.ds.Tables[0].Rows[0]["Nombre"].ToString();
+                lblSesion.Text = lg.Ds.Tables[0].Rows[0]["Nombre"].ToString();
             }
             catch
             {
@@ -185,18 +180,18 @@ namespace Individual.Visual
         private void editarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewUser nu = new NewUser();
-            nu.cedUser.Text = lg.ds.Tables[0].Rows[0]["Cedula"].ToString();
+            nu.cedUser.Text = lg.Ds.Tables[0].Rows[0]["Cedula"].ToString();
             nu.cedUser.Enabled = false;
 
-            nu.nomUser.Text = lg.ds.Tables[0].Rows[0]["Nombre"].ToString();
-            nu.correoUser.Text = lg.ds.Tables[0].Rows[0]["Correo"].ToString();
-            nu.edadUser.Text = lg.ds.Tables[0].Rows[0]["Edad"].ToString();
-            nu.admUser.Checked = (lg.ds.Tables[0].Rows[0]["Admin"].ToString() == "True")
+            nu.nomUser.Text = lg.Ds.Tables[0].Rows[0]["Nombre"].ToString();
+            nu.correoUser.Text = lg.Ds.Tables[0].Rows[0]["Correo"].ToString();
+            nu.edadUser.Text = lg.Ds.Tables[0].Rows[0]["Edad"].ToString();
+            nu.admUser.Checked = (lg.Ds.Tables[0].Rows[0]["Admin"].ToString() == "True")
                 ? true : false;
 
             nu.admUser.Enabled = false;
 
-            MemoryStream ms = new MemoryStream((byte[])lg.ds.Tables[0].Rows[0]["Imagen"]);
+            MemoryStream ms = new MemoryStream((byte[])lg.Ds.Tables[0].Rows[0]["Imagen"]);
             Image img = Image.FromStream(ms);
             nu.fotoUser.Image = img;
 
@@ -213,8 +208,43 @@ namespace Individual.Visual
 
         private void cambiarContraseñaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ChangePwd changePW = new ChangePwd(lg.ds);
+            ChangePwd changePW = new ChangePwd(lg.Ds);
             changePW.ShowDialog();
+        }
+
+        private void flowLayoutPanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            MoverVentana(e);
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            MoverVentana(e);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            MoverVentana(e);
+        }
+
+        private void flowLayoutPanel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            MoverVentana(e);
+        }
+
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            MoverVentana(e);
+        }
+
+        private void lblSesion_MouseMove(object sender, MouseEventArgs e)
+        {
+            MoverVentana(e);
         }
 
         private void VentanaUsuarios()

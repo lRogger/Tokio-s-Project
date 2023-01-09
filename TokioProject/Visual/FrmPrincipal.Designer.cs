@@ -96,6 +96,7 @@
             this.lblSesion.Text = "Nombre Completo";
             this.lblSesion.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.lblSesion.Click += new System.EventHandler(this.lblSesion_Click);
+            this.lblSesion.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblSesion_MouseMove);
             // 
             // panelPrincipal
             // 
@@ -126,6 +127,7 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(528, 60);
             this.flowLayoutPanel2.TabIndex = 0;
+            this.flowLayoutPanel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel2_MouseMove);
             // 
             // panel2
             // 
@@ -135,6 +137,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(293, 58);
             this.panel2.TabIndex = 1;
+            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             // 
             // panelMod1
             // 
@@ -163,6 +166,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(190, 468);
             this.flowLayoutPanel1.TabIndex = 5;
+            this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseMove);
             // 
             // pictureBox1
             // 
@@ -177,6 +181,7 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // btnProductos
             // 
@@ -235,6 +240,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(750, 551);
             this.panel1.TabIndex = 26;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // menuConfig
             // 

@@ -9,9 +9,10 @@ namespace Individual
     public partial class Login : Form
     {
         private int posX = 0, posY = 0;
-       
-public DataSet ds = new DataSet();
+        private DataSet ds = new DataSet();
         private DataBase db = new DataBase();
+
+        public DataSet Ds { get => ds; set => ds = value; }
 
         public Login()
         {
@@ -35,15 +36,15 @@ public DataSet ds = new DataSet();
                     btnIniciar.Enabled = false;
 
                     await Task.Run(() => db.consultar("SELECT * FROM Personas WHERE Cedula = '" + tbUser.Texts.Trim() + "'"));
-                    ds.Tables.Clear();
-                    ds = db.Ds;
+                    Ds.Tables.Clear();
+                    Ds = db.Ds;
 
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (Ds.Tables[0].Rows.Count > 0)
                     {
-                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts.Trim(), ds.Tables[0].Rows[0]["Password"].ToString()))
+                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts.Trim(), Ds.Tables[0].Rows[0]["Password"].ToString()))
                         {
                             FrmPrincipal frmp = new FrmPrincipal(this);
-                            if (ds.Tables[0].Rows[0]["Admin"] is true)
+                            if (Ds.Tables[0].Rows[0]["Admin"] is true)
                             {
                                 frmp.btnUsuarios.Visible = true;
                             }
