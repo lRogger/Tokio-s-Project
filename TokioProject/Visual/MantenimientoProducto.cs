@@ -73,56 +73,37 @@ namespace GUIs.Visual
 
         }
 
+        private void FiltrarDGVProducto()
+        {
+            string talla = cbTalla.Text;
+            if (cbTalla.Text == "Todas")
+            {
+                talla = "";
+            }
+            foreach (DataGridViewRow fila in productoDGV.Rows)
+            {
+                bool mostrarFila = false;
+
+                foreach (DataGridViewCell celda in fila.Cells)
+                {
+                    if (celda.ColumnIndex == 3 && celda.Value.ToString() == cbTalla.SelectedValue.ToString())
+                    {
+                        mostrarFila = true;
+                        break;
+                    }
+                    else if (celda.Value.ToString().Contains(buscarProducto.Text))
+                    {
+                        mostrarFila = true;
+                        break;
+                    }
+                }
+                fila.Visible = mostrarFila;
+            }
+        }
 
         private void buscarProducto_TextChanged(object sender, EventArgs e)
         {
-            string talla = cbTalla.Text;
-            if(cbTalla.Text == "Todas") {
-                talla = "";
-            }
-
-            if (buscarProducto.Text.Trim() != "")
-            {
-                productoDGV.CurrentCell = null;
-                foreach (DataGridViewRow row in productoDGV.Rows)
-                {
-                    bool encontrado = false;
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        if (cell.ColumnIndex == 1)
-                        {
-                            continue;
-                        }
-
-                        if (cell.Value != null &&
-                            (cell.Value.ToString() + "").ToLower().Contains(productoDGV.Text.ToLower()))
-                        {
-                            encontrado = true;
-                            break;
-                        }
-                    }
-
-                    if (encontrado && (talla == row.Cells[3].Value.ToString() || talla == ""))
-                    {
-                        row.Visible = true;
-                    }
-                    else
-                    {
-
-                        row.Visible = false;
-                    }
-                }
-            }
-            else
-            {
-                foreach (DataGridViewRow row in productoDGV.Rows)
-                {
-                    if (!row.Visible)
-                    {
-                        row.Visible = true;
-                    }
-                }
-            }
+            FiltrarDGVProducto();
         }
 
         private void btnRefrescar_Click(object sender, EventArgs e)
