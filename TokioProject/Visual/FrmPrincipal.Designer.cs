@@ -34,7 +34,7 @@
             this.profileP = new System.Windows.Forms.PictureBox();
             this.lblSesion = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblAdmin = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
@@ -107,16 +107,17 @@
             this.panelPrincipal.Size = new System.Drawing.Size(560, 470);
             this.panelPrincipal.TabIndex = 20;
             // 
-            // label1
+            // lblAdmin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(240, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Admin";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.lblAdmin.AutoSize = true;
+            this.lblAdmin.Font = new System.Drawing.Font("Britanica-Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAdmin.Location = new System.Drawing.Point(240, 35);
+            this.lblAdmin.Name = "lblAdmin";
+            this.lblAdmin.Size = new System.Drawing.Size(43, 16);
+            this.lblAdmin.TabIndex = 0;
+            this.lblAdmin.Text = "Admin";
+            this.lblAdmin.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.lblAdmin.Visible = false;
             // 
             // flowLayoutPanel2
             // 
@@ -132,7 +133,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.lblSesion);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lblAdmin);
             this.panel2.Location = new System.Drawing.Point(176, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(293, 58);
@@ -304,7 +305,6 @@
         private ComponentesMod.PanelMod panelMod1;
         private Panel panel1;
         private PictureBox pictureBox1;
-        private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnProductos;
         private Button btnConfig;
@@ -314,6 +314,7 @@
         private ToolStripMenuItem editarUsuarioToolStripMenuItem;
         private ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         public Button btnUsuarios;
+        public Label lblAdmin;
     }
 }
 

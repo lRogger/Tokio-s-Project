@@ -3,6 +3,7 @@ using LibreriaGrupal;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Entidades;
+using System.Windows.Forms;
 
 namespace Individual.Visual
 {
@@ -25,6 +26,7 @@ namespace Individual.Visual
         private void buscarFoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog abrirImagen = new OpenFileDialog();
+            abrirImagen.Filter = "JPG files (*.jpg)|*.jpg";
 
             if (abrirImagen.ShowDialog() == DialogResult.OK)
             {
