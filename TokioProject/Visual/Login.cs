@@ -75,7 +75,8 @@ public DataSet ds = new DataSet();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    new Emergente("advertencia", "ERROR", "Problema al " +
+                        "conectar con la base de datos\n"+ex.Message).ShowDialog();
                     tbpwd.Enabled = true;
                     tbUser.Enabled = true;
                     btnIniciar.Enabled = true;
