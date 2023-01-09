@@ -3,7 +3,6 @@ using LibreriaGrupal;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Entidades;
-using System.Windows.Forms;
 
 namespace Individual.Visual
 {

@@ -36,10 +36,6 @@ namespace Individual.Visual
                     bool encontrado = false;
                     foreach (DataGridViewCell cell in row.Cells)
                     {
-                        if(cell.ColumnIndex == 1)
-                        {
-                            continue;
-                        }
 
                         if (cell.Value != null &&
                             (cell.Value.ToString()+"").ToLower().Contains(buscarUser.Text.ToLower()))

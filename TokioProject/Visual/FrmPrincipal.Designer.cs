@@ -68,7 +68,7 @@
             this.cerrarSesion.Name = "cerrarSesion";
             this.cerrarSesion.Size = new System.Drawing.Size(190, 80);
             this.cerrarSesion.TabIndex = 4;
-            this.cerrarSesion.Text = "Cerrar Sesión 🚪";
+            this.cerrarSesion.Text = "← Cerrar Sesión";
             this.cerrarSesion.UseVisualStyleBackColor = false;
             this.cerrarSesion.Click += new System.EventHandler(this.cerrarSesion_Click);
             // 

@@ -1,25 +1,120 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Entidades;
+using Individual.Visual;
+using Datos;
+using MySqlX.XDevAPI.Relational;
 
 namespace GUIs.Visual
 {
     public partial class NewProduct : Form
     {
+        private DataBase db;
+        private int id;
+        int posY = 0, posX = 0;
+
         public NewProduct()
         {
             InitializeComponent();
+            db = new DataBase();
+            id = -1;
+        }
+
+        public NewProduct(int id)
+        {
+            InitializeComponent();
+            db = new DataBase();
+            this.id = id;
         }
 
         private void panelMod1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if(id == -1)
+            {
+                Enviar();
+
+            }else
+            {
+                Editar();
+            }
+            
+        }
+
+        private async void Editar()
+        {
+            if (tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
+            {
+
+                Prenda p = new Prenda();
+                p.Nombre = tbNombreProd.Texts;
+                p.Categoria = cbCateg.Text;
+                p.Talla = cbTalla.Text;
+                p.Descripcion = tbDescrip.Texts;
+                p.Color = cbColor.Text;
+                p.Stock = Int32.Parse(tbStock.Texts);
+                p.Precio = double.Parse(tbPrecio.Texts);
+
+                this.Hide();
+
+                await Task.Run(() => db.instruccionDB($"UPDATE `productos` SET " +
+                    $"`Nombre`='{p.Nombre}',`Categoria`='{p.Categoria}',`Talla`='{p.Talla}'," +
+                    $"`Descripcion`='{p.Descripcion}',`Color`='{p.Color}'," +
+                    $"`Stock`='{p.Stock}',`Precio`='{p.Precio}' WHERE IDproducto = {id}"));
+
+                this.Close();
+            }
+            else
+            {
+                new Emergente("advertencia", "ERROR", "Hay campos sin completar").ShowDialog();
+            }
+        }
+
+        private async void Enviar()
+        {
+            if(tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
+            {
+
+                Prenda p = new Prenda();
+                p.Nombre = tbNombreProd.Texts;
+                p.Categoria = cbCateg.Text;
+                p.Talla = cbTalla.Text;
+                p.Descripcion = tbDescrip.Texts;
+                p.Color = cbColor.Text;
+                p.Stock = Int32.Parse(tbStock.Texts);
+                p.Precio = double.Parse(tbPrecio.Texts);
+
+                this.Hide();
+                
+                
+
+                await Task.Run(() => db.instruccionDB($"INSERT INTO `productos`(`Nombre`, " +
+                    $"`Categoria`, `Talla`, `Descripcion`, `Color`, `Stock`, `Precio`) " +
+                    $"VALUES('{p.Nombre}', '{p.Categoria}', '{p.Talla}', '{p.Descripcion}', " +
+                    $"'{p.Color}', '{p.Stock}', '{p.Precio}')"));
+
+                this.Close();
+            }
+            else
+            {
+                new Emergente("advertencia", "ERROR", "Hay campos sin completar").ShowDialog();
+            }
+        }
+
+        private void NewProduct_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
         }
     }
 }

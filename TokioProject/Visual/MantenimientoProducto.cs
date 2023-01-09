@@ -33,12 +33,15 @@ namespace GUIs.Visual
 
             await Task.Run(() => db.consultar("SELECT IDproducto, Categoria, Talla, Nombre, Descripcion, Color" +
                 ", Stock, Precio from Productos"));
+
             btnRefrescar.Enabled = true;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
 
             DataSet ds = db.Ds;
+
             List<Prenda> listaPrendas = new List<Prenda>();
+
             try
             {
                 foreach (DataRow fila in ds.Tables[0].Rows)
@@ -84,20 +87,25 @@ namespace GUIs.Visual
 
             foreach (DataGridViewRow row in productoDGV.Rows)
             {
-                bool found = false;
+                bool prendaCoincide = false;
                 for (int i = 0; i < row.Cells.Count; i++)
                 {
                     if (i != 4 && (""+row.Cells[i].Value.ToString()).ToLower()
                         .Contains(tbBuscarProducto.Text.ToLower()))
                     {
-                        found = true;
+                        prendaCoincide = true;
                         break;
                     }
+                    
                 }
-                if (!found || (!(""+row.Cells[3].Value.ToString()).ToLower()
+                if (!prendaCoincide || (!(""+row.Cells[3].Value.ToString()).ToLower()
                     .Equals(talla.ToLower()) && talla != ""))
                 {
                     row.Visible = false;
+                }
+                else
+                {
+                    row.Visible = true;
                 }
             }
         }
@@ -123,7 +131,7 @@ namespace GUIs.Visual
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️⚠️", "Seguro ? si elimina el registro no podrá recuperarlo").ShowDialog();
+            DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", "Seguro ? si elimina el registro no podrá recuperarlo").ShowDialog();
             if (result == DialogResult.OK)
             {
                 int i = productoDGV.CurrentRow.Index;
@@ -137,12 +145,72 @@ namespace GUIs.Visual
 
         private void cbTalla_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in productoDGV.Rows)
+            if (tbBuscarProducto.Text == "")
             {
+                foreach (DataGridViewRow row in productoDGV.Rows)
+                {
 
-                row.Visible = true;
+                    row.Visible = true;
+                }
             }
             FiltrarDGVProducto();
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            NewProduct np = new NewProduct();
+
+            
+            if (np.ShowDialog() != DialogResult.Abort)
+            {
+                new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
+                CargarTabla();
+
+            }
+            else
+            {
+                new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
+            }
+            
+        }
+
+        private async void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (productoDGV.SelectedRows.Count > 0)
+            {
+                int i = productoDGV.CurrentRow.Index;
+
+                await Task.Run(() => db.consultar($"SELECT `IDproducto`, `Nombre`, " +
+                    $"`Categoria`, `Talla`, `Descripcion`, `Color`, `Stock`, `Precio`" +
+                    $" FROM `productos` WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                
+                DataSet dsa = db.Ds;
+
+                NewProduct np = new NewProduct(Int32.Parse(""+dsa.Tables[0].Rows[0]["IDproducto"].ToString()));
+                
+                np.tbNombreProd.Texts = ""+dsa.Tables[0].Rows[0]["Nombre"].ToString();
+                np.cbCateg.Text = dsa.Tables[0].Rows[0]["Categoria"].ToString();
+                np.cbTalla.Text = dsa.Tables[0].Rows[0]["Talla"].ToString(); 
+                np.tbDescrip.Texts = ""+dsa.Tables[0].Rows[0]["Descripcion"].ToString();
+                np.cbColor.Text = dsa.Tables[0].Rows[0]["Color"].ToString();
+                np.tbStock.Texts = ""+dsa.Tables[0].Rows[0]["Stock"].ToString();
+                np.tbPrecio.Texts = ""+dsa.Tables[0].Rows[0]["Precio"].ToString();
+
+
+                if (np.ShowDialog() != DialogResult.Abort)
+                {
+                    new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
+                    CargarTabla();
+                }
+                else
+                {
+                    new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
+                }
+            }
+            else
+            {
+                new Emergente("advertencia", "ERROR", "Debes seleccionar un producto").ShowDialog();
+            }
         }
     }
 }

@@ -30,6 +30,8 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
+            this.tbStock = new CustomControls.RJControls.RJTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbColor = new System.Windows.Forms.ComboBox();
             this.cbTalla = new System.Windows.Forms.ComboBox();
             this.tbDescrip = new CustomControls.RJControls.RJTextBox();
@@ -44,8 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new Individual.Visual.ComponentesMod.RJButton();
             this.btnCancelar = new Individual.Visual.ComponentesMod.RJButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             this.panelMod1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@
             // 
             this.panelMod1.BackColor = System.Drawing.Color.White;
             this.panelMod1.BorderRadius = 40;
-            this.panelMod1.Controls.Add(this.rjTextBox1);
+            this.panelMod1.Controls.Add(this.tbStock);
             this.panelMod1.Controls.Add(this.label1);
             this.panelMod1.Controls.Add(this.cbColor);
             this.panelMod1.Controls.Add(this.cbTalla);
@@ -88,10 +88,55 @@
             this.panelMod1.TabIndex = 1;
             this.panelMod1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMod1_Paint);
             // 
+            // tbStock
+            // 
+            this.tbStock.BackColor = System.Drawing.Color.White;
+            this.tbStock.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tbStock.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbStock.BorderRadius = 10;
+            this.tbStock.BorderSize = 1;
+            this.tbStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbStock.Location = new System.Drawing.Point(404, 27);
+            this.tbStock.Margin = new System.Windows.Forms.Padding(4);
+            this.tbStock.Multiline = false;
+            this.tbStock.Name = "tbStock";
+            this.tbStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbStock.PasswordChar = false;
+            this.tbStock.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbStock.PlaceholderText = "";
+            this.tbStock.Size = new System.Drawing.Size(59, 31);
+            this.tbStock.TabIndex = 13;
+            this.tbStock.Texts = "";
+            this.tbStock.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(354, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 19);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Stock:";
+            // 
             // cbColor
             // 
             this.cbColor.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbColor.FormattingEnabled = true;
+            this.cbColor.Items.AddRange(new object[] {
+            "Negro",
+            "Blanco",
+            "Azul",
+            "Amarillo",
+            "Rojo",
+            "Verde",
+            "Morado",
+            "Lila",
+            "Marron",
+            "Turquesa",
+            "Fucsia"});
             this.cbColor.Location = new System.Drawing.Point(367, 80);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(96, 23);
@@ -101,6 +146,11 @@
             // 
             this.cbTalla.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbTalla.FormattingEnabled = true;
+            this.cbTalla.Items.AddRange(new object[] {
+            "S",
+            "M",
+            "L",
+            "XL"});
             this.cbTalla.Location = new System.Drawing.Point(240, 80);
             this.cbTalla.Name = "cbTalla";
             this.cbTalla.Size = new System.Drawing.Size(67, 23);
@@ -165,6 +215,11 @@
             // 
             this.cbCateg.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbCateg.FormattingEnabled = true;
+            this.cbCateg.Items.AddRange(new object[] {
+            "Hombre",
+            "Mujer",
+            "Niño",
+            "Niña"});
             this.cbCateg.Location = new System.Drawing.Point(100, 80);
             this.cbCateg.Name = "cbCateg";
             this.cbCateg.Size = new System.Drawing.Size(88, 23);
@@ -265,6 +320,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextColor = System.Drawing.Color.White;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -273,6 +329,7 @@
             this.btnCancelar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.btnCancelar.BorderRadius = 15;
             this.btnCancelar.BorderSize = 2;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Britanica-Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -285,39 +342,6 @@
             this.btnCancelar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(354, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Stock:";
-            // 
-            // rjTextBox1
-            // 
-            this.rjTextBox1.BackColor = System.Drawing.Color.White;
-            this.rjTextBox1.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox1.BorderRadius = 10;
-            this.rjTextBox1.BorderSize = 1;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox1.Location = new System.Drawing.Point(404, 27);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.Size = new System.Drawing.Size(59, 31);
-            this.rjTextBox1.TabIndex = 13;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
-            // 
             // NewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -329,7 +353,9 @@
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewProduct";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.NewProduct_MouseMove);
             this.panelMod1.ResumeLayout(false);
             this.panelMod1.PerformLayout();
             this.ResumeLayout(false);
@@ -341,21 +367,21 @@
 
         private Label lblTitulo;
         private Individual.Visual.ComponentesMod.PanelMod panelMod1;
-        private CustomControls.RJControls.RJTextBox tbPrecio;
-        private CustomControls.RJControls.RJTextBox tbNombreProd;
         private Label label3;
         private Label label2;
         private Individual.Visual.ComponentesMod.RJButton btnGuardar;
         private Individual.Visual.ComponentesMod.RJButton btnCancelar;
-        private CustomControls.RJControls.RJTextBox tbDescrip;
         private Label label7;
         private Label label6;
         private Label label5;
-        private ComboBox cbCateg;
         private Label label4;
-        private ComboBox cbColor;
-        private ComboBox cbTalla;
-        private CustomControls.RJControls.RJTextBox rjTextBox1;
         private Label label1;
+        public CustomControls.RJControls.RJTextBox tbPrecio;
+        public CustomControls.RJControls.RJTextBox tbNombreProd;
+        public CustomControls.RJControls.RJTextBox tbDescrip;
+        public ComboBox cbCateg;
+        public ComboBox cbColor;
+        public ComboBox cbTalla;
+        public CustomControls.RJControls.RJTextBox tbStock;
     }
 }

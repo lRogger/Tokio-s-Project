@@ -19,7 +19,6 @@ namespace Datos
                 this.user = "lrogger";
                 this.pass = "Tokio123";
                 this.db = "chichar";
-                
             */
 
             /*  PRIMER HOST IMPLEMENTADO, PROBLEMA PARA SUBIR IMAGENES EN DB,
@@ -61,7 +60,6 @@ namespace Datos
 
             try
             {
-
                 MySqlConnection con = conectarDB();
                 MySqlDataAdapter dp = new MySqlDataAdapter(cmd, con);
                 dp.Fill(ds);
@@ -69,7 +67,7 @@ namespace Datos
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error:" + e);
+                Console.WriteLine("Error:" + e.Message);
             }
 
         }
