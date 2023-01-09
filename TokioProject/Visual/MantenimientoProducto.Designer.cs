@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.usersDGV = new System.Windows.Forms.DataGridView();
+            this.productoDGV = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,28 +40,28 @@
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buscarUser = new System.Windows.Forms.TextBox();
+            this.buscarProducto = new System.Windows.Forms.TextBox();
             this.separador = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTalla = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // usersDGV
+            // productoDGV
             // 
-            this.usersDGV.AllowUserToAddRows = false;
-            this.usersDGV.AllowUserToDeleteRows = false;
-            this.usersDGV.AllowUserToResizeColumns = false;
-            this.usersDGV.AllowUserToResizeRows = false;
-            this.usersDGV.BackgroundColor = System.Drawing.Color.White;
-            this.usersDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usersDGV.CausesValidation = false;
-            this.usersDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.usersDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.productoDGV.AllowUserToAddRows = false;
+            this.productoDGV.AllowUserToDeleteRows = false;
+            this.productoDGV.AllowUserToResizeColumns = false;
+            this.productoDGV.AllowUserToResizeRows = false;
+            this.productoDGV.BackgroundColor = System.Drawing.Color.White;
+            this.productoDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.productoDGV.CausesValidation = false;
+            this.productoDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.productoDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Britanica-Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -69,9 +69,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.usersDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productoDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.productoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productoDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Nombre,
             this.Categoria,
@@ -86,14 +86,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.usersDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.usersDGV.EnableHeadersVisualStyles = false;
-            this.usersDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.usersDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.usersDGV.Location = new System.Drawing.Point(11, 125);
-            this.usersDGV.MultiSelect = false;
-            this.usersDGV.Name = "usersDGV";
-            this.usersDGV.ReadOnly = true;
+            this.productoDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.productoDGV.EnableHeadersVisualStyles = false;
+            this.productoDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.productoDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.productoDGV.Location = new System.Drawing.Point(11, 125);
+            this.productoDGV.MultiSelect = false;
+            this.productoDGV.Name = "productoDGV";
+            this.productoDGV.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -101,16 +101,16 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usersDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.usersDGV.RowHeadersWidth = 4;
+            this.productoDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.productoDGV.RowHeadersWidth = 4;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.usersDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.usersDGV.RowTemplate.Height = 25;
-            this.usersDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.usersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDGV.Size = new System.Drawing.Size(540, 310);
-            this.usersDGV.TabIndex = 11;
-            this.usersDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDGV_CellContentClick);
+            this.productoDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.productoDGV.RowTemplate.Height = 25;
+            this.productoDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.productoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productoDGV.Size = new System.Drawing.Size(540, 310);
+            this.productoDGV.TabIndex = 11;
+            this.productoDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDGV_CellContentClick);
             // 
             // ID
             // 
@@ -168,15 +168,16 @@
             this.Precio.ReadOnly = true;
             this.Precio.Width = 80;
             // 
-            // buscarUser
+            // buscarProducto
             // 
-            this.buscarUser.BackColor = System.Drawing.Color.White;
-            this.buscarUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.buscarUser.Location = new System.Drawing.Point(12, 97);
-            this.buscarUser.Name = "buscarUser";
-            this.buscarUser.PlaceholderText = " 🔎 Buscar...";
-            this.buscarUser.Size = new System.Drawing.Size(350, 17);
-            this.buscarUser.TabIndex = 12;
+            this.buscarProducto.BackColor = System.Drawing.Color.White;
+            this.buscarProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.buscarProducto.Location = new System.Drawing.Point(12, 97);
+            this.buscarProducto.Name = "buscarProducto";
+            this.buscarProducto.PlaceholderText = " 🔎 Buscar...";
+            this.buscarProducto.Size = new System.Drawing.Size(350, 16);
+            this.buscarProducto.TabIndex = 12;
+            this.buscarProducto.TextChanged += new System.EventHandler(this.buscarProducto_TextChanged);
             // 
             // separador
             // 
@@ -186,20 +187,20 @@
             this.separador.Size = new System.Drawing.Size(537, 2);
             this.separador.TabIndex = 17;
             // 
-            // comboBox1
+            // cbTalla
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbTalla.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTalla.FormattingEnabled = true;
+            this.cbTalla.Items.AddRange(new object[] {
             "Todas",
             "S",
             "M",
             "L",
             "XL"});
-            this.comboBox1.Location = new System.Drawing.Point(416, 92);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(132, 23);
-            this.comboBox1.TabIndex = 19;
+            this.cbTalla.Location = new System.Drawing.Point(416, 92);
+            this.cbTalla.Name = "cbTalla";
+            this.cbTalla.Size = new System.Drawing.Size(132, 23);
+            this.cbTalla.TabIndex = 19;
             // 
             // label1
             // 
@@ -226,6 +227,7 @@
             this.btnRefrescar.TabIndex = 25;
             this.btnRefrescar.Text = "Actualizar";
             this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // btnEliminar
             // 
@@ -241,6 +243,7 @@
             this.btnEliminar.TabIndex = 23;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCrear
             // 
@@ -284,26 +287,26 @@
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.usersDGV);
-            this.Controls.Add(this.buscarUser);
+            this.Controls.Add(this.cbTalla);
+            this.Controls.Add(this.productoDGV);
+            this.Controls.Add(this.buscarProducto);
             this.Controls.Add(this.separador);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MantenimientoProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "MantenimientoProducto";
             this.Load += new System.EventHandler(this.MantenimientoProducto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        public DataGridView usersDGV;
-        private TextBox buscarUser;
+        public DataGridView productoDGV;
+        private TextBox buscarProducto;
         private Panel separador;
-        private ComboBox comboBox1;
+        private ComboBox cbTalla;
         private Label label1;
         private Button btnRefrescar;
         private Button btnEliminar;

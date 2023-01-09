@@ -13,9 +13,9 @@ namespace GUIs.Visual
         public MantenimientoProducto()
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
+            cbTalla.SelectedIndex = 0;
             CargarTabla();
-            usersDGV.RowHeadersVisible = false;
+            productoDGV.RowHeadersVisible = false;
         }
 
         private void usersDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,10 +52,10 @@ namespace GUIs.Visual
                     p.Precio = (double)fila["Precio"];
                     listaPrendas.Add(p);
                 }
-                usersDGV.Rows.Clear();
+                productoDGV.Rows.Clear();
                 foreach (Prenda prenda in listaPrendas)
                 {
-                    usersDGV.Rows.Add(prenda.Id, prenda.Nombre, prenda.Categoria, prenda.Talla
+                    productoDGV.Rows.Add(prenda.Id, prenda.Nombre, prenda.Categoria, prenda.Talla
                         , prenda.Color, prenda.Stock, prenda.Precio);
                 }
             }
@@ -71,6 +71,77 @@ namespace GUIs.Visual
         private void MantenimientoProducto_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void buscarProducto_TextChanged(object sender, EventArgs e)
+        {
+            string talla = cbTalla.Text;
+            if(cbTalla.Text == "Todas") {
+                talla = "";
+            }
+
+            if (buscarProducto.Text.Trim() != "")
+            {
+                productoDGV.CurrentCell = null;
+                foreach (DataGridViewRow row in productoDGV.Rows)
+                {
+                    bool encontrado = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.ColumnIndex == 1)
+                        {
+                            continue;
+                        }
+
+                        if (cell.Value != null &&
+                            (cell.Value.ToString() + "").ToLower().Contains(productoDGV.Text.ToLower()))
+                        {
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (encontrado && (talla == row.Cells[3].Value.ToString() || talla == ""))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+
+                        row.Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in productoDGV.Rows)
+                {
+                    if (!row.Visible)
+                    {
+                        row.Visible = true;
+                    }
+                }
+            }
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            CargarTabla();
+        }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️⚠️", "Seguro ? si elimina el registro no podrá recuperarlo").ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                int i = productoDGV.CurrentRow.Index;
+
+                await Task.Run(() => db.instruccionDB("Delete from Productos WHERE IDproducto = " +
+                        productoDGV.Rows[i].Cells["ID"].Value.ToString()));
+
+                CargarTabla();
+            }
         }
     }
 }
