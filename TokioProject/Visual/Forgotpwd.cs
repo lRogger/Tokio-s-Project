@@ -35,7 +35,7 @@ namespace Individual
                         db.instruccionDB("UPDATE Personas SET Password = '" +
                             BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE Cedula = '" +
                             cedulafpwd.Text.Trim() + "'");
-                        MessageBox.Show("Contraseña cambiada con éxito!");
+                        new Emergente("advertencia", "Hecho", "La contraseña se ha cambiado correctamente").ShowDialog();
                     }
                     catch (Exception ex)
                     {
@@ -45,7 +45,7 @@ namespace Individual
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas no coinciden!");
+                    new Emergente("advertencia", "ERROR", "Las contraseñas no coinciden!").ShowDialog();
                     newpwd.Text = "";
                     newpwd2.Text = "";
                 }
@@ -71,17 +71,17 @@ namespace Individual
                     btnEnviar.Enabled = true;
                     newpwd.Enabled = true;
                     newpwd2.Enabled = true;
-                    MessageBox.Show("Ingresa tu nueva contraseña");
+                    new Emergente("advertencia", "Hecho", "Ahora puedes elegir tu nueva contraseña").ShowDialog();
 
                 }
                 else
                 {
-                    MessageBox.Show("No se ha encontrado la cuenta");
+                    new Emergente("advertencia", "ERROR", "No hemos encontrado la cuenta").ShowDialog();
                 }
             }
             else
             {
-                new Emergente("advertencia", "Eror", "Campos vacios!").Show();
+                new Emergente("advertencia", "Error", "Campos vacios!").Show();
             }
 
 
