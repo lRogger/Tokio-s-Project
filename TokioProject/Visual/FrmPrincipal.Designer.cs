@@ -194,7 +194,8 @@
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(190, 80);
             this.btnProductos.TabIndex = 1;
-            this.btnProductos.Text = "👕 Productos";
+            this.btnProductos.Text = "   👕 Productos";
+            this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductos.UseVisualStyleBackColor = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click_1);
             // 
@@ -210,7 +211,8 @@
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(190, 80);
             this.btnUsuarios.TabIndex = 0;
-            this.btnUsuarios.Text = "🙍‍♂️ Usuarios";
+            this.btnUsuarios.Text = "   🙍‍♂️ Usuarios";
+            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsuarios.UseVisualStyleBackColor = false;
             this.btnUsuarios.Visible = false;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
@@ -227,7 +229,8 @@
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(190, 80);
             this.btnConfig.TabIndex = 2;
-            this.btnConfig.Text = "⚙ Configuración";
+            this.btnConfig.Text = "   ⚙ Configuración";
+            this.btnConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConfig.UseVisualStyleBackColor = false;
             this.btnConfig.Click += new System.EventHandler(this.button1_Click_1);
             // 

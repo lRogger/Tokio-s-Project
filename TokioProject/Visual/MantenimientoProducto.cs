@@ -11,7 +11,7 @@ namespace GUIs.Visual
     public partial class MantenimientoProducto : Form
     {
         private DataBase db = new DataBase();
-        private int posX = 0, posY = 0;
+        private List<Prenda> listaPrendas;
 
         public MantenimientoProducto()
         {
@@ -19,6 +19,7 @@ namespace GUIs.Visual
             cbTalla.SelectedIndex = 0;
             CargarTabla();
             productoDGV.RowHeadersVisible = false;
+            listaPrendas = new List<Prenda>();
         }
 
         private async void CargarTabla()
@@ -37,7 +38,7 @@ namespace GUIs.Visual
 
             DataSet ds = db.Ds;
 
-            List<Prenda> listaPrendas = new List<Prenda>();
+            listaPrendas = new List<Prenda>();
 
             try
             {
@@ -46,6 +47,7 @@ namespace GUIs.Visual
                     Prenda p = new Prenda();
                     p.Id = (int)fila["IDproducto"];
                     p.Categoria = "" + fila["Categoria"].ToString();
+                    p.Descripcion = "" + fila["Descripcion"].ToString();
                     p.Talla = "" + fila["Talla"].ToString();
                     p.Nombre = "" + fila["Nombre"].ToString();
                     p.Color = "" + fila["Color"].ToString();
@@ -223,16 +225,24 @@ namespace GUIs.Visual
 
         private void MantenimientoProducto_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left)
+
+        }
+
+        private void productoDGV_SelectionChanged(object sender, EventArgs e)
+        {
+            int i = productoDGV.CurrentRow.Index;
+            int id = (int)productoDGV.Rows[i].Cells["ID"].Value;
+            
+            foreach(Prenda p in listaPrendas)
             {
-                posX = e.X;
-                posY = e.Y;
+                if(p.Id == id)
+                {
+                    lblDescripcion.Text = p.Descripcion;
+                    break;
+                }
             }
-            else
-            {
-                Left = Left + (e.X - posX);
-                Top = Top + (e.Y - posY);
-            }
+
+            
         }
 
         private async void btnMenos_Click(object sender, EventArgs e)

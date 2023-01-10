@@ -50,6 +50,8 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.cbCantidad = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).BeginInit();
@@ -114,8 +116,9 @@
             this.productoDGV.RowTemplate.Height = 25;
             this.productoDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.productoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productoDGV.Size = new System.Drawing.Size(540, 295);
+            this.productoDGV.Size = new System.Drawing.Size(540, 277);
             this.productoDGV.TabIndex = 11;
+            this.productoDGV.SelectionChanged += new System.EventHandler(this.productoDGV_SelectionChanged);
             // 
             // ID
             // 
@@ -286,7 +289,7 @@
             // 
             // cbCantidad
             // 
-            this.cbCantidad.Location = new System.Drawing.Point(428, 6);
+            this.cbCantidad.Location = new System.Drawing.Point(428, 21);
             this.cbCantidad.Name = "cbCantidad";
             this.cbCantidad.Size = new System.Drawing.Size(45, 23);
             this.cbCantidad.TabIndex = 26;
@@ -294,13 +297,35 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblDescripcion);
             this.panel1.Controls.Add(this.btnMenos);
             this.panel1.Controls.Add(this.btnSuma);
             this.panel1.Controls.Add(this.cbCantidad);
-            this.panel1.Location = new System.Drawing.Point(12, 424);
+            this.panel1.Location = new System.Drawing.Point(12, 400);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(539, 37);
+            this.panel1.Size = new System.Drawing.Size(539, 61);
             this.panel1.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britanica-Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(6, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 19);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Descripción";
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblDescripcion.Location = new System.Drawing.Point(7, 24);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(372, 37);
+            this.lblDescripcion.TabIndex = 30;
             // 
             // btnMenos
             // 
@@ -316,7 +341,7 @@
             this.btnMenos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMenos.ForeColor = System.Drawing.Color.White;
             this.btnMenos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMenos.Location = new System.Drawing.Point(381, 2);
+            this.btnMenos.Location = new System.Drawing.Point(381, 17);
             this.btnMenos.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenos.Name = "btnMenos";
             this.btnMenos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -340,7 +365,7 @@
             this.btnSuma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSuma.ForeColor = System.Drawing.Color.White;
             this.btnSuma.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSuma.Location = new System.Drawing.Point(483, 2);
+            this.btnSuma.Location = new System.Drawing.Point(483, 17);
             this.btnSuma.Margin = new System.Windows.Forms.Padding(0);
             this.btnSuma.Name = "btnSuma";
             this.btnSuma.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -391,6 +416,12 @@
         private Button btnEliminar;
         private Button btnCrear;
         private Button btnEditar;
+        private NumericUpDown cbCantidad;
+        private Panel panel1;
+        private Individual.Visual.ComponentesMod.RJButton btnMenos;
+        private Individual.Visual.ComponentesMod.RJButton btnSuma;
+        private Label lblDescripcion;
+        private Label label2;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Categoria;
@@ -398,9 +429,5 @@
         private DataGridViewTextBoxColumn Color;
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn Precio;
-        private NumericUpDown cbCantidad;
-        private Panel panel1;
-        private Individual.Visual.ComponentesMod.RJButton btnMenos;
-        private Individual.Visual.ComponentesMod.RJButton btnSuma;
     }
 }
