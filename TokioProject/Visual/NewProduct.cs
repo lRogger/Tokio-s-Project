@@ -2,6 +2,7 @@
 using Individual.Visual;
 using Datos;
 using MySqlX.XDevAPI.Relational;
+using System.Globalization;
 
 namespace GUIs.Visual
 {
@@ -55,14 +56,17 @@ namespace GUIs.Visual
                 p.Descripcion = tbDescrip.Texts;
                 p.Color = cbColor.Text;
                 p.Stock = Int32.Parse(tbStock.Texts);
-                p.Precio = double.Parse(tbPrecio.Texts);
+                p.Precio = Double.Parse(tbPrecio.Texts);
+
+                //Esto se usa por problemas con double en mysql
+                string doubleArreglado = p.Precio.ToString("0.00", CultureInfo.InvariantCulture);
 
                 this.Hide();
 
                 await Task.Run(() => db.instruccionDB($"UPDATE `productos` SET " +
                     $"`Nombre`='{p.Nombre}',`Categoria`='{p.Categoria}',`Talla`='{p.Talla}'," +
                     $"`Descripcion`='{p.Descripcion}',`Color`='{p.Color}'," +
-                    $"`Stock`='{p.Stock}',`Precio`='{p.Precio}' WHERE IDproducto = {id}"));
+                    $"`Stock`={p.Stock},`Precio`='{doubleArreglado}' WHERE IDproducto = {id}"));
 
                 this.Close();
             }

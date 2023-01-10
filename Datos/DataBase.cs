@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
 
+
 namespace Datos
 {
     public class DataBase
@@ -68,6 +69,7 @@ namespace Datos
             catch (Exception e)
             {
                 Console.WriteLine("Error:" + e.Message);
+                
             }
 
         }
