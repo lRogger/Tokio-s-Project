@@ -14,13 +14,13 @@ namespace Datos
         public DataBase()
         {
 
-            /* HOST GRATUITO, ALGO LENTO, MANTENIMIENTO
-             * 
+             //HOST GRATUITO, ALGO LENTO, MANTENIMIENTO
+              
                 this.server = "db4free.net";
                 this.user = "lrogger";
                 this.pass = "Tokio123";
                 this.db = "chichar";
-            */
+            
 
             /*  PRIMER HOST IMPLEMENTADO, PROBLEMA PARA SUBIR IMAGENES EN DB,
              *  GENERALMENTE SE UTILIZA UNA NUBE APARTE PERO PARA EFECTOS DE PRÁCTICA
@@ -33,10 +33,10 @@ namespace Datos
              */
 
             //  HOST LOCAL
-            this.server = "localhost";
+            /*this.server = "localhost";
             this.user = "root";
             this.pass = "";
-            this.db = "chichar";
+            this.db = "chichar";*/
              
             this.ds = new DataSet();
             this.strCon = "server=" + server +
