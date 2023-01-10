@@ -93,22 +93,6 @@ namespace Individual
             }
         }
 
-        private void pwd_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-
-        }
-
-        private void user_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
-        private void btnIniciar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Forgotpwd fg = new Forgotpwd();
@@ -134,31 +118,6 @@ namespace Individual
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void user_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pwd_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Login_MouseMove(object sender, MouseEventArgs e)
@@ -189,11 +148,6 @@ namespace Individual
             }
         }
 
-        private void tbUser__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void tbUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilidades u = new Utilidades();
@@ -217,10 +171,7 @@ namespace Individual
             ingresar();
         }
 
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            
-        }
+
 
     }
 }

@@ -55,10 +55,9 @@
             this.buscarUser.Location = new System.Drawing.Point(12, 99);
             this.buscarUser.Name = "buscarUser";
             this.buscarUser.PlaceholderText = " 🔎 Buscar...";
-            this.buscarUser.Size = new System.Drawing.Size(537, 17);
+            this.buscarUser.Size = new System.Drawing.Size(537, 16);
             this.buscarUser.TabIndex = 1;
             this.buscarUser.TextChanged += new System.EventHandler(this.buscarUser_TextChanged);
-            this.buscarUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buscarUser_KeyPress);
             // 
             // usersDGV
             // 

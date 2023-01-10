@@ -59,7 +59,6 @@
             this.admUser.TabIndex = 6;
             this.admUser.Text = "Admin";
             this.admUser.UseVisualStyleBackColor = false;
-            this.admUser.CheckedChanged += new System.EventHandler(this.admUser_CheckedChanged);
             // 
             // edadUser
             // 
@@ -71,7 +70,6 @@
             this.edadUser.Name = "edadUser";
             this.edadUser.Size = new System.Drawing.Size(190, 27);
             this.edadUser.TabIndex = 5;
-            this.edadUser.TextChanged += new System.EventHandler(this.edadUser_TextChanged);
             this.edadUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edadUser_KeyPress);
             // 
             // correoUser
@@ -83,7 +81,6 @@
             this.correoUser.Name = "correoUser";
             this.correoUser.Size = new System.Drawing.Size(190, 27);
             this.correoUser.TabIndex = 4;
-            this.correoUser.TextChanged += new System.EventHandler(this.correoUser_TextChanged);
             // 
             // nomUser
             // 
@@ -95,7 +92,6 @@
             this.nomUser.Name = "nomUser";
             this.nomUser.Size = new System.Drawing.Size(190, 27);
             this.nomUser.TabIndex = 3;
-            this.nomUser.TextChanged += new System.EventHandler(this.nomUser_TextChanged);
             this.nomUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nomUser_KeyPress);
             // 
             // cedUser
@@ -109,7 +105,6 @@
             this.cedUser.Name = "cedUser";
             this.cedUser.Size = new System.Drawing.Size(122, 27);
             this.cedUser.TabIndex = 2;
-            this.cedUser.TextChanged += new System.EventHandler(this.cedUser_TextChanged);
             this.cedUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cedUser_KeyPress);
             // 
             // buscarFoto
@@ -248,7 +243,6 @@
             this.btnCerrar.Text = "Cancelar";
             this.btnCerrar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lblTitulo
             // 

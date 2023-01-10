@@ -21,30 +21,6 @@ namespace Individual.Visual
         }
 
 
-
-
-
-
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
-        }
-
         private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (Form childForm in MdiChildren)
@@ -86,16 +62,6 @@ namespace Individual.Visual
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
- 
-        }
-
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
@@ -117,17 +83,6 @@ namespace Individual.Visual
             }
         }
 
-        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void MantenimientoUsuario_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -147,20 +102,6 @@ namespace Individual.Visual
             mp.Show();
         }
 
-        private void lblSesion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnProductos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -222,10 +163,6 @@ namespace Individual.Visual
             MoverVentana(e);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

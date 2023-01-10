@@ -34,22 +34,6 @@ namespace Individual.Visual
             }
         }
 
-        private void panelMod1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Cerrar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
 
         private async void enviar()
         {
@@ -83,7 +67,7 @@ namespace Individual.Visual
             }
             else
             {
-                MessageBox.Show("Campos Vacios!");
+                new Emergente("advertencia", "ERROR", "Hay campos vacíos");
             }
         }
 
@@ -104,30 +88,6 @@ namespace Individual.Visual
 
         }
 
-        private void edadUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void correoUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nomUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cedUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cerrar_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private async void btnEnviar_Click(object sender, EventArgs e)
         {
@@ -179,15 +139,6 @@ namespace Individual.Visual
             this.Close();
         }
 
-        private void admUser_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void panelMod1_MouseMove(object sender, MouseEventArgs e)
         {

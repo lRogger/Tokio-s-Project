@@ -18,7 +18,9 @@ namespace GUIs.Visual
             InitializeComponent();
             db = new DataBase();
             id = -1;
-            
+            cbCateg.SelectedIndex = 0;
+            cbColor.SelectedIndex = 0;
+            cbTalla.SelectedIndex = 0;
         }
 
         public NewProduct(int id)
@@ -26,11 +28,9 @@ namespace GUIs.Visual
             InitializeComponent();
             db = new DataBase();
             this.id = id;
-        }
-
-        private void panelMod1_Paint(object sender, PaintEventArgs e)
-        {
-
+            cbCateg.SelectedIndex = 0;
+            cbColor.SelectedIndex = 0;
+            cbTalla.SelectedIndex = 0;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace GUIs.Visual
 
                 this.Hide();
 
-                await Task.Run(() => db.instruccionDB($"UPDATE `productos` SET " +
+                await Task.Run(() => db.instruccionDB($"UPDATE `Productos` SET " +
                     $"`Nombre`='{p.Nombre}',`Categoria`='{p.Categoria}',`Talla`='{p.Talla}'," +
                     $"`Descripcion`='{p.Descripcion}',`Color`='{p.Color}'," +
                     $"`Stock`={p.Stock},`Precio`='{doubleArreglado}' WHERE IDproducto = {id}"));
@@ -96,7 +96,7 @@ namespace GUIs.Visual
                 
                 
 
-                await Task.Run(() => db.instruccionDB($"INSERT INTO `productos`(`Nombre`, " +
+                await Task.Run(() => db.instruccionDB($"INSERT INTO `Productos`(`Nombre`, " +
                     $"`Categoria`, `Talla`, `Descripcion`, `Color`, `Stock`, `Precio`) " +
                     $"VALUES('{p.Nombre}', '{p.Categoria}', '{p.Talla}', '{p.Descripcion}', " +
                     $"'{p.Color}', '{p.Stock}', '{p.Precio}')"));

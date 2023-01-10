@@ -168,7 +168,6 @@
             this.tbUser.TabIndex = 6;
             this.tbUser.Texts = "";
             this.tbUser.UnderlinedStyle = false;
-            this.tbUser._TextChanged += new System.EventHandler(this.tbUser__TextChanged);
             this.tbUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUser_KeyPress);
             // 
             // Login

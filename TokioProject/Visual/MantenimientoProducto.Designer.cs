@@ -48,12 +48,12 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.cbCantidad = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             this.btnMenos = new Individual.Visual.ComponentesMod.RJButton();
+            this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCantidad)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,7 +116,6 @@
             this.productoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productoDGV.Size = new System.Drawing.Size(540, 295);
             this.productoDGV.TabIndex = 11;
-            this.productoDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDGV_CellContentClick);
             // 
             // ID
             // 
@@ -181,7 +180,7 @@
             this.tbBuscarProducto.Location = new System.Drawing.Point(12, 97);
             this.tbBuscarProducto.Name = "tbBuscarProducto";
             this.tbBuscarProducto.PlaceholderText = " 🔎 Buscar...";
-            this.tbBuscarProducto.Size = new System.Drawing.Size(350, 17);
+            this.tbBuscarProducto.Size = new System.Drawing.Size(350, 16);
             this.tbBuscarProducto.TabIndex = 12;
             this.tbBuscarProducto.TextChanged += new System.EventHandler(this.buscarProducto_TextChanged);
             // 
@@ -285,47 +284,23 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // numericUpDown1
+            // cbCantidad
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(428, 6);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(45, 24);
-            this.numericUpDown1.TabIndex = 26;
+            this.cbCantidad.Location = new System.Drawing.Point(428, 6);
+            this.cbCantidad.Name = "cbCantidad";
+            this.cbCantidad.Size = new System.Drawing.Size(45, 23);
+            this.cbCantidad.TabIndex = 26;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.panel1.Controls.Add(this.btnMenos);
             this.panel1.Controls.Add(this.btnSuma);
-            this.panel1.Controls.Add(this.numericUpDown1);
+            this.panel1.Controls.Add(this.cbCantidad);
             this.panel1.Location = new System.Drawing.Point(12, 424);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 37);
             this.panel1.TabIndex = 27;
-            // 
-            // btnSuma
-            // 
-            this.btnSuma.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSuma.AutoSize = true;
-            this.btnSuma.BackColor = System.Drawing.Color.Transparent;
-            this.btnSuma.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnSuma.BorderColor = System.Drawing.Color.White;
-            this.btnSuma.BorderRadius = 0;
-            this.btnSuma.BorderSize = 0;
-            this.btnSuma.FlatAppearance.BorderSize = 0;
-            this.btnSuma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSuma.ForeColor = System.Drawing.Color.White;
-            this.btnSuma.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSuma.Location = new System.Drawing.Point(476, 2);
-            this.btnSuma.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSuma.Name = "btnSuma";
-            this.btnSuma.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSuma.Size = new System.Drawing.Size(43, 31);
-            this.btnSuma.TabIndex = 28;
-            this.btnSuma.Text = "➕";
-            this.btnSuma.TextColor = System.Drawing.Color.White;
-            this.btnSuma.UseVisualStyleBackColor = false;
             // 
             // btnMenos
             // 
@@ -341,7 +316,7 @@
             this.btnMenos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMenos.ForeColor = System.Drawing.Color.White;
             this.btnMenos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMenos.Location = new System.Drawing.Point(382, 2);
+            this.btnMenos.Location = new System.Drawing.Point(381, 2);
             this.btnMenos.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenos.Name = "btnMenos";
             this.btnMenos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -350,6 +325,31 @@
             this.btnMenos.Text = "➖";
             this.btnMenos.TextColor = System.Drawing.Color.White;
             this.btnMenos.UseVisualStyleBackColor = false;
+            this.btnMenos.Click += new System.EventHandler(this.btnMenos_Click);
+            // 
+            // btnSuma
+            // 
+            this.btnSuma.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSuma.BackColor = System.Drawing.Color.Transparent;
+            this.btnSuma.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnSuma.BorderColor = System.Drawing.Color.White;
+            this.btnSuma.BorderRadius = 0;
+            this.btnSuma.BorderSize = 0;
+            this.btnSuma.FlatAppearance.BorderSize = 0;
+            this.btnSuma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSuma.ForeColor = System.Drawing.Color.White;
+            this.btnSuma.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSuma.Location = new System.Drawing.Point(483, 2);
+            this.btnSuma.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSuma.Name = "btnSuma";
+            this.btnSuma.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSuma.Size = new System.Drawing.Size(32, 31);
+            this.btnSuma.TabIndex = 28;
+            this.btnSuma.Text = "➕";
+            this.btnSuma.TextColor = System.Drawing.Color.White;
+            this.btnSuma.UseVisualStyleBackColor = false;
+            this.btnSuma.Click += new System.EventHandler(this.btnSuma_Click);
             // 
             // MantenimientoProducto
             // 
@@ -371,9 +371,9 @@
             this.Name = "MantenimientoProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "MantenimientoProducto";
-            this.Load += new System.EventHandler(this.MantenimientoProducto_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MantenimientoProducto_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCantidad)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -398,7 +398,7 @@
         private DataGridViewTextBoxColumn Color;
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn Precio;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown cbCantidad;
         private Panel panel1;
         private Individual.Visual.ComponentesMod.RJButton btnMenos;
         private Individual.Visual.ComponentesMod.RJButton btnSuma;

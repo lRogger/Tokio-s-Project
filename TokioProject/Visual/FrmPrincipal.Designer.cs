@@ -95,7 +95,6 @@
             this.lblSesion.TabIndex = 10;
             this.lblSesion.Text = "Nombre Completo";
             this.lblSesion.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.lblSesion.Click += new System.EventHandler(this.lblSesion_Click);
             this.lblSesion.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblSesion_MouseMove);
             // 
             // panelPrincipal
@@ -181,7 +180,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(190, 80);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // btnProductos
@@ -241,7 +239,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(750, 551);
             this.panel1.TabIndex = 26;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // menuConfig

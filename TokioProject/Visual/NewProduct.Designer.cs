@@ -86,7 +86,6 @@
             this.panelMod1.Name = "panelMod1";
             this.panelMod1.Size = new System.Drawing.Size(500, 280);
             this.panelMod1.TabIndex = 1;
-            this.panelMod1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMod1_Paint);
             // 
             // tbStock
             // 
@@ -124,6 +123,7 @@
             // 
             // cbColor
             // 
+            this.cbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbColor.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbColor.FormattingEnabled = true;
             this.cbColor.Items.AddRange(new object[] {
@@ -145,6 +145,7 @@
             // 
             // cbTalla
             // 
+            this.cbTalla.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTalla.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbTalla.FormattingEnabled = true;
             this.cbTalla.Items.AddRange(new object[] {
@@ -214,6 +215,7 @@
             // 
             // cbCateg
             // 
+            this.cbCateg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCateg.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbCateg.FormattingEnabled = true;
             this.cbCateg.Items.AddRange(new object[] {

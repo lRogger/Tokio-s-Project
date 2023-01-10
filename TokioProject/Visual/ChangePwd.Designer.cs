@@ -60,8 +60,6 @@
             this.tbPwdAnt.TabIndex = 0;
             this.tbPwdAnt.Texts = "";
             this.tbPwdAnt.UnderlinedStyle = false;
-            this.tbPwdAnt._TextChanged += new System.EventHandler(this.tbPwdAnt__TextChanged);
-            this.tbPwdAnt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPwdAnt_KeyPress);
             // 
             // tbPwdNew
             // 
@@ -84,7 +82,6 @@
             this.tbPwdNew.TabIndex = 1;
             this.tbPwdNew.Texts = "";
             this.tbPwdNew.UnderlinedStyle = false;
-            this.tbPwdNew.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPwdAnt_KeyPress);
             // 
             // tbPwdRep
             // 
@@ -107,7 +104,6 @@
             this.tbPwdRep.TabIndex = 2;
             this.tbPwdRep.Texts = "";
             this.tbPwdRep.UnderlinedStyle = false;
-            this.tbPwdRep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPwdAnt_KeyPress);
             // 
             // label1
             // 

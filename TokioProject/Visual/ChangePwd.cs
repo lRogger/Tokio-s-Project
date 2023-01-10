@@ -18,16 +18,6 @@ namespace TokiosProject.Visual
             dsCuenta = ds;
         }
 
-        private void tbPwdAnt__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbPwdAnt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
         private async void rjButton1_Click(object sender, EventArgs e)
         {
             if(tbPwdAnt.Texts != "" && tbPwdNew.Texts != "" && tbPwdRep.Texts != "")

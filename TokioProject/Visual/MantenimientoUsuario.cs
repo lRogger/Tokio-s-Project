@@ -11,6 +11,7 @@ namespace Individual.Visual
     {
 
         private DataBase db = new DataBase();
+        private int posX = 0, posY = 0;
 
         public MantenimientoUsuario()
         {
@@ -20,10 +21,6 @@ namespace Individual.Visual
             usersDGV.RowHeadersVisible = false;
         }
 
-
-        private void buscarUser_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        }
 
         private void buscarUser_TextChanged(object sender, EventArgs e)
         {
@@ -70,6 +67,16 @@ namespace Individual.Visual
 
         private void MantenimientoUsuario_MouseMove(object sender, MouseEventArgs e)
         {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
         }
 
         private async void editar_Click(object sender, EventArgs e)

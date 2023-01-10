@@ -31,7 +31,7 @@
                 btnCancel.Hide();
 
             }
-            else if (tipo == "si/no")
+            else if (tipo == "si / no")
             {
 
             }

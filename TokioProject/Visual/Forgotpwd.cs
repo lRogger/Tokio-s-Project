@@ -39,7 +39,8 @@ namespace Individual
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString());
+
+                        new Emergente("advertencia", "ERROR", "Error: "+ex.Message);
                     }
                     this.Close();
                 }
