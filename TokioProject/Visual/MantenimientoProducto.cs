@@ -213,11 +213,13 @@ namespace GUIs.Visual
             int i = productoDGV.CurrentRow.Index;
             DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea agregar {cbCantidad.Value}" +
                 $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
+
             if (result == DialogResult.OK)
             {
                 await Task.Run(() => db.instruccionDB($"UPDATE `Productos` SET " +
                     $"`Stock`={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value)+cbCantidad.Value} " +
                     $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+
                 cbCantidad.Value = 0;
                 CargarTabla();
             }
@@ -232,12 +234,17 @@ namespace GUIs.Visual
         {
             int i = productoDGV.CurrentRow.Index;
             int id = (int)productoDGV.Rows[i].Cells["ID"].Value;
-            
+            if(lblDesc.Visible == false)
+            {
+                lblDesc.Visible = true;
+            }
+
             foreach(Prenda p in listaPrendas)
             {
                 if(p.Id == id)
                 {
                     lblDescripcion.Text = p.Descripcion;
+                    
                     break;
                 }
             }
