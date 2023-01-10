@@ -92,7 +92,7 @@
             // 
             this.tbStock.BackColor = System.Drawing.Color.White;
             this.tbStock.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tbStock.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbStock.BorderFocusColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbStock.BorderRadius = 10;
             this.tbStock.BorderSize = 1;
             this.tbStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -160,7 +160,7 @@
             // 
             this.tbDescrip.BackColor = System.Drawing.Color.White;
             this.tbDescrip.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tbDescrip.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbDescrip.BorderFocusColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbDescrip.BorderRadius = 10;
             this.tbDescrip.BorderSize = 1;
             this.tbDescrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -240,7 +240,7 @@
             // 
             this.tbPrecio.BackColor = System.Drawing.Color.White;
             this.tbPrecio.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tbPrecio.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbPrecio.BorderFocusColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbPrecio.BorderRadius = 10;
             this.tbPrecio.BorderSize = 1;
             this.tbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -262,7 +262,7 @@
             // 
             this.tbNombreProd.BackColor = System.Drawing.Color.White;
             this.tbNombreProd.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tbNombreProd.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbNombreProd.BorderFocusColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbNombreProd.BorderRadius = 10;
             this.tbNombreProd.BorderSize = 1;
             this.tbNombreProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
