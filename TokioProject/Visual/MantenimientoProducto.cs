@@ -4,7 +4,7 @@ using Individual.Visual;
 using System.Data;
 using System.Windows.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
+using GUIs.Properties;
 
 namespace GUIs.Visual
 {
@@ -28,9 +28,9 @@ namespace GUIs.Visual
             btnRefrescar.Enabled = false;
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
-
             await Task.Run(() => db.consultar("SELECT IDproducto, Categoria, Talla, Nombre, Descripcion, Color" +
                 ", Stock, Precio from Productos"));
+            
 
             btnRefrescar.Enabled = true;
             btnEditar.Enabled = true;
@@ -68,7 +68,7 @@ namespace GUIs.Visual
                 new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
                     "Intenta nuevamente! " + ex).ShowDialog();
             }
-
+            
         }
 
         private void FiltrarDGVProducto()
@@ -218,7 +218,7 @@ namespace GUIs.Visual
                 await Task.Run(() => db.instruccionDB($"UPDATE `Productos` SET " +
                     $"`Stock`={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value)+cbCantidad.Value} " +
                     $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
-
+                cbCantidad.Value = 0;
                 CargarTabla();
             }
         }

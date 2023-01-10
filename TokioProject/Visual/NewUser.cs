@@ -102,13 +102,22 @@ namespace Individual.Visual
                     if(correoUser.Text.IndexOf('@')>-1 && correoUser.Text.IndexOf('.') > -1)
                     {
                         DataSet ds = new DataSet();
-                        await Task.Run(() => db.consultar("SELECT Cedula FROM Personas WHERE Cedula = " + cedUser.Text));
+                        await Task.Run(() => db.consultar($"SELECT Cedula, Correo FROM Personas WHERE Cedula = '{cedUser.Text}'" +
+                            $" OR Correo = '{correoUser.Text}'" ));
                         ds = db.Ds;
                         if (ds.Tables.Count > 0)
                         {
                             if (ds.Tables[0].Rows.Count > 0)
                             {
-                                new Emergente("advertencia", "ERROR", "La cédula ya se encuentra registrada").ShowDialog();
+                                if (ds.Tables[0].Rows[0]["Correo"].ToString() == correoUser.Text)
+                                {
+                                    new Emergente("advertencia", "ERROR", "El correo ya se encuentra registrado").ShowDialog();
+                                }
+                                if (ds.Tables[0].Rows[0]["Cedula"].ToString() == cedUser.Text)
+                                {
+                                    new Emergente("advertencia", "ERROR", "La cédula ya se encuentra registrada").ShowDialog();
+                                }
+                                
                             }
                             else
                             {
