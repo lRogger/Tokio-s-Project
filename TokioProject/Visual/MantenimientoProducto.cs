@@ -90,7 +90,7 @@ namespace GUIs.Visual
                 bool prendaCoincide = false;
                 for (int i = 0; i < row.Cells.Count; i++)
                 {
-                    if (i != 4 && (""+row.Cells[i].Value.ToString()).ToLower()
+                    if (i != 3 && (""+row.Cells[i].Value.ToString()).ToLower()
                         .Contains(tbBuscarProducto.Text.ToLower()))
                     {
                         prendaCoincide = true;
