@@ -109,6 +109,7 @@
             this.tbStock.TabIndex = 13;
             this.tbStock.Texts = "";
             this.tbStock.UnderlinedStyle = false;
+            this.tbStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbStock_KeyPress);
             // 
             // label1
             // 
@@ -257,6 +258,7 @@
             this.tbPrecio.TabIndex = 3;
             this.tbPrecio.Texts = "";
             this.tbPrecio.UnderlinedStyle = false;
+            this.tbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecio_KeyPress);
             // 
             // tbNombreProd
             // 
@@ -279,6 +281,7 @@
             this.tbNombreProd.TabIndex = 2;
             this.tbNombreProd.Texts = "";
             this.tbNombreProd.UnderlinedStyle = false;
+            this.tbNombreProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNombreProd_KeyPress);
             // 
             // label3
             // 

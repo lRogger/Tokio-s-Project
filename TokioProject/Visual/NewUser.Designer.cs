@@ -96,6 +96,7 @@
             this.nomUser.Size = new System.Drawing.Size(190, 27);
             this.nomUser.TabIndex = 3;
             this.nomUser.TextChanged += new System.EventHandler(this.nomUser_TextChanged);
+            this.nomUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nomUser_KeyPress);
             // 
             // cedUser
             // 
@@ -103,6 +104,7 @@
             this.cedUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cedUser.Location = new System.Drawing.Point(215, 34);
             this.cedUser.MaximumSize = new System.Drawing.Size(200, 25);
+            this.cedUser.MaxLength = 10;
             this.cedUser.MinimumSize = new System.Drawing.Size(0, 27);
             this.cedUser.Name = "cedUser";
             this.cedUser.Size = new System.Drawing.Size(122, 27);

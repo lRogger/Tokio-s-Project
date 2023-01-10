@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
 using System.IO.Enumeration;
+using System.Reflection;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Principal;
 
@@ -24,12 +25,19 @@ namespace LibreriaGrupal
                     break;
 
                 case "letras":
-                    if(!char.IsLetter(e) && !char.IsControl(e))
+                    if(!char.IsLetter(e) && !char.IsControl(e) && (!char.IsSeparator(e)))
                     {
                         return true;
                     }
                     break;
-                    
+
+                case "decimal":
+                    if (!char.IsControl(e) && !char.IsDigit(e) && (e != ','))
+                    {
+                        return true;
+                    }
+                    break;
+
             }
             return false;
         }

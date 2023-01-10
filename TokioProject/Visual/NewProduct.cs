@@ -3,6 +3,7 @@ using Individual.Visual;
 using Datos;
 using MySqlX.XDevAPI.Relational;
 using System.Globalization;
+using LibreriaGrupal;
 
 namespace GUIs.Visual
 {
@@ -17,6 +18,7 @@ namespace GUIs.Visual
             InitializeComponent();
             db = new DataBase();
             id = -1;
+            
         }
 
         public NewProduct(int id)
@@ -105,6 +107,39 @@ namespace GUIs.Visual
             {
                 new Emergente("advertencia", "ERROR", "Hay campos sin completar").ShowDialog();
             }
+        }
+
+        private void tbStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilidades u = new Utilidades();
+            e.Handled = u.validar((char)e.KeyChar, "numero");
+
+            if (tbStock.Texts.Length > 3 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilidades u = new Utilidades();
+            e.Handled = u.validar((char)e.KeyChar, "decimal");
+
+            if ((e.KeyChar == ',') && (tbPrecio.Texts.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+            if (tbPrecio.Texts.Length > 10 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void tbNombreProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilidades u = new Utilidades();
+            e.Handled = u.validar((char)e.KeyChar, "letras");
         }
 
         private void NewProduct_MouseMove(object sender, MouseEventArgs e)

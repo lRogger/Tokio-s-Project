@@ -137,24 +137,40 @@ namespace Individual.Visual
             }
             else if (cedUser.Enabled)
             {
-                DataSet ds = new DataSet();
-                await Task.Run(() => db.consultar("SELECT Cedula FROM Personas WHERE Cedula = " + cedUser.Text));
-                ds = db.Ds;
-                if (ds.Tables.Count > 0)
+                if(cedUser.Text.Length == 10)
                 {
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if(correoUser.Text.IndexOf('@')>-1 && correoUser.Text.IndexOf('.') > -1)
                     {
-                        MessageBox.Show("Cedula ya se encuentra registrada");
+                        DataSet ds = new DataSet();
+                        await Task.Run(() => db.consultar("SELECT Cedula FROM Personas WHERE Cedula = " + cedUser.Text));
+                        ds = db.Ds;
+                        if (ds.Tables.Count > 0)
+                        {
+                            if (ds.Tables[0].Rows.Count > 0)
+                            {
+                                new Emergente("advertencia", "ERROR", "La cédula ya se encuentra registrada").ShowDialog();
+                            }
+                            else
+                            {
+                                enviar();
+                            }
+                        }
+                        else
+                        {
+                            enviar();
+                        }
                     }
                     else
                     {
-                        enviar();
+                        new Emergente("advertencia", "ERROR", "Formato incorrecto en correo").ShowDialog();
                     }
+                    
                 }
                 else
                 {
-                    enviar();
+                    new Emergente("advertencia","ERROR","Formato incorrecto en cédula").ShowDialog();
                 }
+                
             }
         }
 
@@ -199,6 +215,13 @@ namespace Individual.Visual
             Utilidades u = new Utilidades();
 
             e.Handled = u.validar((char)e.KeyChar, "numero");
+        }
+
+        private void nomUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilidades u = new Utilidades();
+
+            e.Handled = u.validar((char)e.KeyChar, "letras");
         }
 
         private void NewUser_Load(object sender, EventArgs e)

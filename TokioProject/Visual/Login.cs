@@ -198,6 +198,10 @@ namespace Individual
         {
             Utilidades u = new Utilidades();
             e.Handled = u.validar((char)e.KeyChar, "numero");
+            if (tbUser.Texts.Length >= 10 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void rjTextBox1_KeyPress(object sender, KeyPressEventArgs e)
