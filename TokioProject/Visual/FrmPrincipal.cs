@@ -135,9 +135,13 @@ namespace Individual.Visual
 
             nu.admUser.Enabled = false;
 
-            MemoryStream ms = new MemoryStream((byte[])lg.Ds.Tables[0].Rows[0]["Imagen"]);
-            Image img = Image.FromStream(ms);
-            nu.fotoUser.Image = img;
+            if(lg.Ds.Tables[0].Rows[0]["Imagen"].ToString() == null )
+            {
+                MemoryStream ms = new MemoryStream((byte[])lg.Ds.Tables[0].Rows[0]["Imagen"]);
+                Image img = Image.FromStream(ms);
+                nu.fotoUser.Image = img;
+            }
+              
 
             if (nu.ShowDialog() != DialogResult.Abort)
             {

@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Datos
 {
@@ -16,7 +17,9 @@ namespace Datos
             //SE CAMBIÓ MYSQL POR SQL SERVER
             this.server = "serverogger.database.windows.net";
             this.user = "lRogger";
-            this.pass = "Rogger123";
+            Debug.WriteLine("HOLA" + Environment.GetEnvironmentVariable("DB_PASS") );
+            this.pass = Environment.GetEnvironmentVariable("DB_PASS")!;
+            
             this.db = "poe";
              
             this.ds = new DataSet();

@@ -60,7 +60,7 @@ namespace GUIs.Visual
                 p.Stock = Int32.Parse(tbStock.Texts);
                 p.Precio = Double.Parse(tbPrecio.Texts);
 
-                //Esto se usa por problemas con double en mysql
+                //Esto se usa por problemas con double en sql
                 string doubleArreglado = p.Precio.ToString("0.00", CultureInfo.InvariantCulture);
 
                 this.Hide();
@@ -68,7 +68,7 @@ namespace GUIs.Visual
                 await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
                     $"Nombre='{p.Nombre}',Categoria='{p.Categoria}',Talla='{p.Talla}'," +
                     $"Descripcion='{p.Descripcion}',Color='{p.Color}'," +
-                    $"Stock={p.Stock},Precio='{doubleArreglado}' WHERE IDproducto = '{id}'"));
+                    $"Stock={p.Stock},Precio={doubleArreglado} WHERE IDproducto = '{id}'"));
 
                 this.Close();
             }
@@ -90,7 +90,10 @@ namespace GUIs.Visual
                 p.Descripcion = tbDescrip.Texts;
                 p.Color = cbColor.Text;
                 p.Stock = Int32.Parse(tbStock.Texts);
-                p.Precio = double.Parse(tbPrecio.Texts);
+                p.Precio = Double.Parse(tbPrecio.Texts);
+
+                //Esto se usa por problemas con double en sql
+                string doubleArreglado = p.Precio.ToString("0.00", CultureInfo.InvariantCulture);
 
                 this.Hide();
                 
@@ -99,7 +102,7 @@ namespace GUIs.Visual
                 await Task.Run(() => db.instruccionDB($"INSERT INTO Productos(Nombre, " +
                     $"Categoria, Talla, Descripcion, Color, Stock, Precio) " +
                     $"VALUES('{p.Nombre}', '{p.Categoria}', '{p.Talla}', '{p.Descripcion}', " +
-                    $"'{p.Color}', '{p.Stock}', '{p.Precio}')"));
+                    $"'{p.Color}', '{p.Stock}', {doubleArreglado})"));
 
                 this.Close();
             }

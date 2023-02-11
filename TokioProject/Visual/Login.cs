@@ -44,7 +44,6 @@ namespace Individual
                     if (Ds.Tables[0].Rows.Count > 0)
                     {
 
-                        Debug.WriteLine(Ds.Tables[0].Rows[0]["Nombre"].ToString()+"hola");
                         if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts, Ds.Tables[0].Rows[0]["Password"].ToString()))
                         {
                             FrmPrincipal frmp = new FrmPrincipal(this);
