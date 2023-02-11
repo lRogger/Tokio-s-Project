@@ -167,7 +167,7 @@ namespace Individual.Visual
             btnEliminar.Enabled = false;
             btnCerrar.Enabled = false;
 
-            await Task.Run(() => db.consultar("SELECT Id, Cedula, Nombre, Correo, Edad, Imagen from Personas WHERE Cedula != 0"));
+            await Task.Run(() => db.consultar("SELECT Id, Cedula, Nombre, Correo, Edad, Imagen FROM Personas WHERE Cedula != '0'"));
             btnRefrescar.Enabled = true;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;

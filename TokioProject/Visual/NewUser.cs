@@ -3,6 +3,7 @@ using LibreriaGrupal;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Entidades;
+using System.Data.SqlClient;
 
 namespace Individual.Visual
 {
@@ -49,17 +50,17 @@ namespace Individual.Visual
                 Persona p = new Persona(nomUser.Text, cedUser.Text, correoUser.Text,
                     Int32.Parse(edadUser.Text), admin, aByte);
 
-                MySqlConnection con = db.conectarDB();
+                SqlConnection con = db.conectarDB();
 
-                MySqlCommand comando = new MySqlCommand("actualizaUsuario", con);
+                SqlCommand comando = new SqlCommand("actualizaUsuario", con);
                 comando.CommandType = CommandType.StoredProcedure;
 
-                comando.Parameters.Add(new MySqlParameter("_cedula", p.Cedula));
-                comando.Parameters.Add(new MySqlParameter("_nombre", p.Nombre));
-                comando.Parameters.Add(new MySqlParameter("_correo", p.Correo.ToLower()));
-                comando.Parameters.Add(new MySqlParameter("_edad", p.Edad));
-                comando.Parameters.Add(new MySqlParameter("_admin", p.Admin));
-                comando.Parameters.Add(new MySqlParameter("_imagen", p.Foto));
+                comando.Parameters.Add(new SqlParameter("@cedula", p.Cedula));
+                comando.Parameters.Add(new SqlParameter("@nombre", p.Nombre));
+                comando.Parameters.Add(new SqlParameter("@correo", p.Correo.ToLower()));
+                comando.Parameters.Add(new SqlParameter("@edad", p.Edad));
+                comando.Parameters.Add(new SqlParameter("@admin", p.Admin));
+                comando.Parameters.Add(new SqlParameter("@imagen", p.Foto));
                 this.Hide();
                 await Task.Run(() => comando.ExecuteNonQuery());
                 con.Close();

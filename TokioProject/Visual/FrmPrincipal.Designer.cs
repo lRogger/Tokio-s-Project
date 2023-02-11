@@ -75,6 +75,8 @@
             // profileP
             // 
             this.profileP.BackColor = System.Drawing.Color.DimGray;
+            this.profileP.ErrorImage = null;
+            this.profileP.Image = ((System.Drawing.Image)(resources.GetObject("profileP.Image")));
             this.profileP.Location = new System.Drawing.Point(475, 3);
             this.profileP.Name = "profileP";
             this.profileP.Size = new System.Drawing.Size(50, 50);

@@ -3,6 +3,7 @@ using Datos;
 using Individual.Visual;
 using LibreriaGrupal;
 using System.Data;
+using System.Diagnostics;
 
 namespace Individual
 {
@@ -18,6 +19,7 @@ namespace Individual
         {
             InitializeComponent();
 
+            //Opacidad
             panelMod1.BackColor = Color.FromArgb(110, Color.Black);
 
 
@@ -41,7 +43,9 @@ namespace Individual
 
                     if (Ds.Tables[0].Rows.Count > 0)
                     {
-                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts.Trim(), Ds.Tables[0].Rows[0]["Password"].ToString()))
+
+                        Debug.WriteLine(Ds.Tables[0].Rows[0]["Nombre"].ToString()+"hola");
+                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts, Ds.Tables[0].Rows[0]["Password"].ToString()))
                         {
                             FrmPrincipal frmp = new FrmPrincipal(this);
                             if (Ds.Tables[0].Rows[0]["Admin"] is true)
@@ -108,44 +112,17 @@ namespace Individual
 
         private void splitContainer1_Panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left)
-            {
-                posX = e.X;
-                posY = e.Y;
-            }
-            else
-            {
-                Left = Left + (e.X - posX);
-                Top = Top + (e.Y - posY);
-            }
+            MoverVentana(e);
         }
 
         private void Login_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left)
-            {
-                posX = e.X;
-                posY = e.Y;
-            }
-            else
-            {
-                Left = Left + (e.X - posX);
-                Top = Top + (e.Y - posY);
-            }
+            MoverVentana(e);
         }
 
         private void panelMod1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left)
-            {
-                posX = e.X;
-                posY = e.Y;
-            }
-            else
-            {
-                Left = Left + (e.X - posX);
-                Top = Top + (e.Y - posY);
-            }
+            MoverVentana(e);
         }
 
         private void tbUser_KeyPress(object sender, KeyPressEventArgs e)
@@ -171,7 +148,19 @@ namespace Individual
             ingresar();
         }
 
-
+        private void MoverVentana(MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                posX = e.X;
+                posY = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - posX);
+                Top = Top + (e.Y - posY);
+            }
+        }
 
     }
 }

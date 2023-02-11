@@ -1,5 +1,6 @@
 ﻿using Datos;
 using GUIs.Visual;
+using System.Diagnostics;
 using TokiosProject.Visual;
 
 namespace Individual.Visual
@@ -69,16 +70,18 @@ namespace Individual.Visual
             mp.TopLevel = false;
             this.panelPrincipal.Controls.Add(mp);
             mp.Show();
+            lblSesion.Text = lg.Ds.Tables[0].Rows[0]["Nombre"].ToString();
             try
             {
                 MemoryStream ms = new MemoryStream((byte[])lg.Ds.Tables[0].Rows[0]["Imagen"]);
                 Image img = Image.FromStream(ms);
                 profileP.Image = img;
-                lblSesion.Text = lg.Ds.Tables[0].Rows[0]["Nombre"].ToString();
+                
             }
             catch
             {
-                profileP.ImageLocation = "../../../../data/Img/defaultAvatar.png";
+                
+                //profileP.ImageLocation = "../../../Data/Img/defaultAvatar.png";
                 
             }
         }

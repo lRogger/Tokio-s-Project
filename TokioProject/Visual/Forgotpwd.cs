@@ -2,6 +2,7 @@
 using Individual.Visual;
 using LibreriaGrupal;
 using System.Data;
+using System.Diagnostics;
 
 namespace Individual
 {
@@ -32,9 +33,11 @@ namespace Individual
                 {
                     try
                     {
-                        db.instruccionDB("UPDATE Personas SET Password = '" +
-                            BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim()) + "' WHERE Cedula = '" +
+                        string pwd = BCrypt.Net.BCrypt.HashPassword(newpwd.Text.Trim());
+                        db.instruccionDB("UPDATE Personas SET Password = '" + pwd
+                             + "' WHERE Cedula = '" +
                             cedulafpwd.Text.Trim() + "'");
+                        Debug.WriteLine(pwd);
                         new Emergente("advertencia", "Hecho", "La contraseña se ha cambiado correctamente").ShowDialog();
                     }
                     catch (Exception ex)

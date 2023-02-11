@@ -1,6 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System.Data;
-
+﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace Datos
 {
@@ -14,29 +13,11 @@ namespace Datos
         public DataBase()
         {
 
-             //HOST GRATUITO, ALGO LENTO, MANTENIMIENTO
-              
-                this.server = "db4free.net";
-                this.user = "lrogger";
-                this.pass = "Tokio123";
-                this.db = "chichar";
-            
-
-            /*  PRIMER HOST IMPLEMENTADO, PROBLEMA PARA SUBIR IMAGENES EN DB,
-             *  GENERALMENTE SE UTILIZA UNA NUBE APARTE PERO PARA EFECTOS DE PRÁCTICA
-             *  DECIDIMOS ALMACENARLO EN UNA BD
-
-                this.server = "us-east.connect.psdb.cloud";
-                this.user = "u1deef4ok1sdaos254mh";
-                this.pass = "pscale_pw_eYFZVgEnWtWE0R6fAkZHVhXPL3vCw9wxeJ9fOaJ3SDd";
-                this.db = "chichar";
-             */
-
-            //  HOST LOCAL
-            /*this.server = "localhost";
-            this.user = "root";
-            this.pass = "";
-            this.db = "chichar";*/
+            //SE CAMBIÓ MYSQL POR SQL SERVER
+            this.server = "serverogger.database.windows.net";
+            this.user = "lRogger";
+            this.pass = "Rogger123";
+            this.db = "poe";
              
             this.ds = new DataSet();
             this.strCon = "server=" + server +
@@ -45,10 +26,10 @@ namespace Datos
 
         public DataSet Ds { get => ds; set => ds = value; }
 
-        public MySqlConnection conectarDB()
+        public SqlConnection conectarDB()
         {
 
-            MySqlConnection con = new MySqlConnection();
+            SqlConnection con = new SqlConnection();
             con.ConnectionString = strCon;
             con.Open();
             return con;
@@ -61,8 +42,8 @@ namespace Datos
 
             try
             {
-                MySqlConnection con = conectarDB();
-                MySqlDataAdapter dp = new MySqlDataAdapter(cmd, con);
+                SqlConnection con = conectarDB();
+                SqlDataAdapter dp = new SqlDataAdapter(cmd, con);
                 dp.Fill(ds);
                 con.Close();
             }
@@ -76,8 +57,8 @@ namespace Datos
 
         public void instruccionDB(string cmd)
         {
-            MySqlConnection con = conectarDB();
-            MySqlCommand comando = new MySqlCommand(cmd, con);
+            SqlConnection con = conectarDB();
+            SqlCommand comando = new SqlCommand(cmd, con);
 
             try
             {

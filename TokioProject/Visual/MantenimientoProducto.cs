@@ -130,8 +130,8 @@ namespace GUIs.Visual
             {
                 int i = productoDGV.CurrentRow.Index;
 
-                await Task.Run(() => db.instruccionDB("Delete from Productos WHERE IDproducto = " +
-                        productoDGV.Rows[i].Cells["ID"].Value.ToString()));
+                await Task.Run(() => db.instruccionDB("Delete from Productos WHERE IDproducto = '" +
+                        productoDGV.Rows[i].Cells["ID"].Value.ToString() + "'"));
 
                 CargarTabla();
             }
@@ -174,9 +174,9 @@ namespace GUIs.Visual
             {
                 int i = productoDGV.CurrentRow.Index;
 
-                await Task.Run(() => db.consultar($"SELECT `IDproducto`, `Nombre`, " +
-                    $"`Categoria`, `Talla`, `Descripcion`, `Color`, `Stock`, `Precio`" +
-                    $" FROM `Productos` WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                await Task.Run(() => db.consultar($"SELECT IDproducto, Nombre, " +
+                    $"Categoria, Talla, Descripcion, Color, Stock, Precio" +
+                    $" FROM Productos WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
                 
                 DataSet dsa = db.Ds;
 
@@ -216,8 +216,8 @@ namespace GUIs.Visual
 
             if (result == DialogResult.OK)
             {
-                await Task.Run(() => db.instruccionDB($"UPDATE `Productos` SET " +
-                    $"`Stock`={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value)+cbCantidad.Value} " +
+                await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
+                    $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value)+cbCantidad.Value} " +
                     $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
 
                 cbCantidad.Value = 0;
@@ -262,8 +262,8 @@ namespace GUIs.Visual
                 $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    await Task.Run(() => db.instruccionDB($"UPDATE `Productos` SET " +
-                        $"`Stock`={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value} " +
+                    await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
+                        $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value} " +
                         $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
 
                     CargarTabla();
@@ -274,7 +274,7 @@ namespace GUIs.Visual
                 $" eliminará {productoDGV.Rows[i].Cells["Nombre"].Value}, desea continuar?").ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    await Task.Run(() => db.instruccionDB($"DELETE FROM `Productos` " +
+                    await Task.Run(() => db.instruccionDB($"DELETE FROM Productos " +
                         $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
 
                     CargarTabla();

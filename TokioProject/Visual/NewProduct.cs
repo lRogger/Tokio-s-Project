@@ -65,10 +65,10 @@ namespace GUIs.Visual
 
                 this.Hide();
 
-                await Task.Run(() => db.instruccionDB($"UPDATE `Productos` SET " +
-                    $"`Nombre`='{p.Nombre}',`Categoria`='{p.Categoria}',`Talla`='{p.Talla}'," +
-                    $"`Descripcion`='{p.Descripcion}',`Color`='{p.Color}'," +
-                    $"`Stock`={p.Stock},`Precio`='{doubleArreglado}' WHERE IDproducto = {id}"));
+                await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
+                    $"Nombre='{p.Nombre}',Categoria='{p.Categoria}',Talla='{p.Talla}'," +
+                    $"Descripcion='{p.Descripcion}',Color='{p.Color}'," +
+                    $"Stock={p.Stock},Precio='{doubleArreglado}' WHERE IDproducto = '{id}'"));
 
                 this.Close();
             }
@@ -96,8 +96,8 @@ namespace GUIs.Visual
                 
                 
 
-                await Task.Run(() => db.instruccionDB($"INSERT INTO `Productos`(`Nombre`, " +
-                    $"`Categoria`, `Talla`, `Descripcion`, `Color`, `Stock`, `Precio`) " +
+                await Task.Run(() => db.instruccionDB($"INSERT INTO Productos(Nombre, " +
+                    $"Categoria, Talla, Descripcion, Color, Stock, Precio) " +
                     $"VALUES('{p.Nombre}', '{p.Categoria}', '{p.Talla}', '{p.Descripcion}', " +
                     $"'{p.Color}', '{p.Stock}', '{p.Precio}')"));
 
