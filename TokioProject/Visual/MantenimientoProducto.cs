@@ -210,19 +210,27 @@ namespace GUIs.Visual
 
         private async void btnSuma_Click(object sender, EventArgs e)
         {
-            int i = productoDGV.CurrentRow.Index;
-            DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea agregar {cbCantidad.Value}" +
-                $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
-
-            if (result == DialogResult.OK)
+            if(productoDGV.CurrentRow != null)
             {
-                await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
-                    $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value)+cbCantidad.Value} " +
-                    $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                int i = productoDGV.CurrentRow.Index;
+                DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea agregar {cbCantidad.Value}" +
+                    $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
 
-                cbCantidad.Value = 0;
-                CargarTabla();
+                if (result == DialogResult.OK)
+                {
+                    await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
+                        $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) + cbCantidad.Value} " +
+                        $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+
+                    cbCantidad.Value = 0;
+                    CargarTabla();
+                }
             }
+            else
+            {
+                new Emergente("advertencia", "ERROR", "No hay una fila seleccionada").ShowDialog();
+            }
+            
         }
 
         private void MantenimientoProducto_MouseMove(object sender, MouseEventArgs e)
@@ -232,57 +240,68 @@ namespace GUIs.Visual
 
         private void productoDGV_SelectionChanged(object sender, EventArgs e)
         {
-            int i = productoDGV.CurrentRow.Index;
-            int id = (int)productoDGV.Rows[i].Cells["ID"].Value;
-            if(lblDesc.Visible == false)
+            if (productoDGV.CurrentRow != null)
             {
-                lblDesc.Visible = true;
-            }
-
-            foreach(Prenda p in listaPrendas)
-            {
-                if(p.Id == id)
+                int i = productoDGV.CurrentRow.Index;
+                int id = (int)productoDGV.Rows[i].Cells["ID"].Value;
+                if (lblDesc.Visible == false)
                 {
-                    lblDescripcion.Text = p.Descripcion;
-                    
-                    break;
+                    lblDesc.Visible = true;
                 }
-            }
 
-            
+                foreach (Prenda p in listaPrendas)
+                {
+                    if (p.Id == id)
+                    {
+                        lblDescripcion.Text = p.Descripcion;
+
+                        break;
+                    }
+                }
+            }    
         }
 
         private async void btnMenos_Click(object sender, EventArgs e)
         {
-            int i = productoDGV.CurrentRow.Index;
-
-            if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) > 0)
+            if(productoDGV.CurrentRow != null)
             {
-                DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea restar {cbCantidad.Value}" +
-                $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
-                if (result == DialogResult.OK)
+                int i = productoDGV.CurrentRow.Index;
+
+                if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) > 0)
                 {
-                    await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
-                        $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value} " +
-                        $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                    DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea restar {cbCantidad.Value}" +
+                    $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
+                            $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value} " +
+                            $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
 
-                    CargarTabla();
+                        CargarTabla();
+                    }
                 }
-            }else if((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) == 0)
-            {
-                DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Al restar {cbCantidad.Value}" +
-                $" eliminará {productoDGV.Rows[i].Cells["Nombre"].Value}, desea continuar?").ShowDialog();
-                if (result == DialogResult.OK)
+                else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) == 0)
                 {
-                    await Task.Run(() => db.instruccionDB($"DELETE FROM Productos " +
-                        $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                    DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Al restar {cbCantidad.Value}" +
+                    $" eliminará {productoDGV.Rows[i].Cells["Nombre"].Value}, desea continuar?").ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        await Task.Run(() => db.instruccionDB($"DELETE FROM Productos " +
+                            $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
 
-                    CargarTabla();
+                        CargarTabla();
+                    }
                 }
-            }else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value ) < 0)
-            {
-                new Emergente("advertencia", "ERROR", "No hay tanto stock!").ShowDialog();
+                else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) < 0)
+                {
+                    new Emergente("advertencia", "ERROR", "No hay tanto stock!").ShowDialog();
+                }
             }
+            else
+            {
+                new Emergente("advertencia", "ERROR", "No hay una fila seleccionada").ShowDialog();
+            }
+            
             
             
         }
