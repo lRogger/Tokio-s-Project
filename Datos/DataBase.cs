@@ -17,8 +17,7 @@ namespace Datos
             //SE CAMBIÓ MYSQL POR SQL SERVER
             this.server = "serverogger.database.windows.net";
             this.user = "lRogger";
-            Debug.WriteLine("HOLA" + Environment.GetEnvironmentVariable("DB_PASS") );
-            this.pass = Environment.GetEnvironmentVariable("DB_PASS")!;
+            this.pass = "Rogger123";
             
             this.db = "poe";
              
