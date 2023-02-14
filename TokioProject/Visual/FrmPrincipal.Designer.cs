@@ -38,11 +38,11 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnProductos = new System.Windows.Forms.Button();
-            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnConfig = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnProductos = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuConfig = new CustomControls.RJControls.RJDropdownMenu(this.components);
             this.editarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +51,7 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelMod1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuConfig.SuspendLayout();
@@ -60,13 +60,14 @@
             // cerrarSesion
             // 
             this.cerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.cerrarSesion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cerrarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(20)))), ((int)(((byte)(100)))));
             this.cerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cerrarSesion.Font = new System.Drawing.Font("Britanica-Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.cerrarSesion.Location = new System.Drawing.Point(0, 471);
+            this.cerrarSesion.Location = new System.Drawing.Point(3, 457);
             this.cerrarSesion.Name = "cerrarSesion";
-            this.cerrarSesion.Size = new System.Drawing.Size(190, 80);
+            this.cerrarSesion.Size = new System.Drawing.Size(184, 91);
             this.cerrarSesion.TabIndex = 4;
             this.cerrarSesion.Text = "← Cerrar Sesión";
             this.cerrarSesion.UseVisualStyleBackColor = false;
@@ -145,8 +146,7 @@
             // 
             this.panelMod1.BackColor = System.Drawing.Color.White;
             this.panelMod1.BorderRadius = 0;
-            this.panelMod1.Controls.Add(this.flowLayoutPanel1);
-            this.panelMod1.Controls.Add(this.cerrarSesion);
+            this.panelMod1.Controls.Add(this.tableLayoutPanel1);
             this.panelMod1.ForeColor = System.Drawing.Color.Black;
             this.panelMod1.GradientAngle = 90F;
             this.panelMod1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
@@ -156,62 +156,59 @@
             this.panelMod1.Size = new System.Drawing.Size(190, 551);
             this.panelMod1.TabIndex = 24;
             // 
-            // flowLayoutPanel1
+            // tableLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.btnProductos);
-            this.flowLayoutPanel1.Controls.Add(this.btnUsuarios);
-            this.flowLayoutPanel1.Controls.Add(this.btnConfig);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(190, 468);
-            this.flowLayoutPanel1.TabIndex = 5;
-            this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel1_MouseMove);
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btnConfig, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cerrarSesion, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnUsuarios, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnProductos, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(190, 551);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // pictureBox1
+            // btnConfig
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(190, 80);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            // 
-            // btnProductos
-            // 
-            this.btnProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(20)))), ((int)(((byte)(100)))));
-            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductos.Font = new System.Drawing.Font("Britanica-Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnProductos.ForeColor = System.Drawing.Color.White;
-            this.btnProductos.Location = new System.Drawing.Point(0, 80);
-            this.btnProductos.Margin = new System.Windows.Forms.Padding(0);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(190, 80);
-            this.btnProductos.TabIndex = 1;
-            this.btnProductos.Text = "   👕 Productos";
-            this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.UseVisualStyleBackColor = false;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click_1);
+            this.btnConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnConfig.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(20)))), ((int)(((byte)(100)))));
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfig.Font = new System.Drawing.Font("Britanica-Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConfig.ForeColor = System.Drawing.Color.White;
+            this.btnConfig.Location = new System.Drawing.Point(0, 273);
+            this.btnConfig.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(190, 83);
+            this.btnConfig.TabIndex = 2;
+            this.btnConfig.Text = "   ⚙ Configuración";
+            this.btnConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfig.UseVisualStyleBackColor = false;
+            this.btnConfig.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnUsuarios
             // 
             this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnUsuarios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(20)))), ((int)(((byte)(100)))));
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuarios.Font = new System.Drawing.Font("Britanica-Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnUsuarios.Location = new System.Drawing.Point(0, 160);
-            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(0);
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 180);
+            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(190, 80);
+            this.btnUsuarios.Size = new System.Drawing.Size(190, 83);
             this.btnUsuarios.TabIndex = 0;
             this.btnUsuarios.Text = "   🙍‍♂️ Usuarios";
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -219,22 +216,38 @@
             this.btnUsuarios.Visible = false;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
-            // btnConfig
+            // btnProductos
             // 
-            this.btnConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnConfig.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(20)))), ((int)(((byte)(100)))));
-            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfig.Font = new System.Drawing.Font("Britanica-Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConfig.ForeColor = System.Drawing.Color.White;
-            this.btnConfig.Location = new System.Drawing.Point(0, 240);
-            this.btnConfig.Margin = new System.Windows.Forms.Padding(0);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(190, 80);
-            this.btnConfig.TabIndex = 2;
-            this.btnConfig.Text = "   ⚙ Configuración";
-            this.btnConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfig.UseVisualStyleBackColor = false;
-            this.btnConfig.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(20)))), ((int)(((byte)(100)))));
+            this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductos.Font = new System.Drawing.Font("Britanica-Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnProductos.ForeColor = System.Drawing.Color.White;
+            this.btnProductos.Location = new System.Drawing.Point(0, 87);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(190, 83);
+            this.btnProductos.TabIndex = 1;
+            this.btnProductos.Text = "   👕 Productos";
+            this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(190, 82);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // panel1
             // 
@@ -292,7 +305,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelMod1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.menuConfig.ResumeLayout(false);
@@ -307,7 +320,6 @@
         private ComponentesMod.PanelMod panelMod1;
         private Panel panel1;
         private PictureBox pictureBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Button btnProductos;
         private Button btnConfig;
         private FlowLayoutPanel flowLayoutPanel2;
@@ -317,6 +329,7 @@
         private ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
         public Button btnUsuarios;
         public Label lblAdmin;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }
 

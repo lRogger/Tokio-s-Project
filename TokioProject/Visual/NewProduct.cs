@@ -98,11 +98,14 @@ namespace GUIs.Visual
                 this.Hide();
                 
                 
-
+                //INSERCIÓN DE PRODUCTO
                 await Task.Run(() => db.instruccionDB($"INSERT INTO Productos(Nombre, " +
                     $"Categoria, Talla, Descripcion, Color, Stock, Precio) " +
                     $"VALUES('{p.Nombre}', '{p.Categoria}', '{p.Talla}', '{p.Descripcion}', " +
                     $"'{p.Color}', '{p.Stock}', {doubleArreglado})"));
+
+                //INSERCIÓN DEL HISTORIAL
+                await Task.Run(() => db.instruccionDB($"INSERT INTO Registros()"));
 
                 this.Close();
             }
