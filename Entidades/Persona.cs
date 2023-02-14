@@ -9,6 +9,7 @@
         private int edad;
         private bool admin;
         private byte[] foto;
+        private string password;
 
         public Persona()
         {
@@ -38,5 +39,6 @@
         public int Edad { get => edad; set => edad = value; }
         public bool Admin { get => admin; set => admin = value; }
         public byte[] Foto { get => foto; set => foto = value; }
+        public string Password { get => password; set => password = value; }
     }
 }

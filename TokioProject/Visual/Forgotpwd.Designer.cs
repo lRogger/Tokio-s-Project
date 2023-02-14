@@ -111,6 +111,7 @@
             this.newpwd2.PasswordChar = '●';
             this.newpwd2.Size = new System.Drawing.Size(238, 23);
             this.newpwd2.TabIndex = 9;
+            this.newpwd2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.newpwd2_KeyPress);
             // 
             // btnCerrar
             // 

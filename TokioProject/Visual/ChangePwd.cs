@@ -1,4 +1,5 @@
 ﻿using Datos;
+using Entidades;
 using Individual.Visual;
 using System.Data;
 
@@ -8,21 +9,21 @@ namespace TokiosProject.Visual
 
     public partial class ChangePwd : Form
     {
-        private DataSet dsCuenta;
         private int posX = 0, posY = 0;
+        private Persona sesion;
         
 
-        public ChangePwd(DataSet ds)
+        public ChangePwd(Persona sesion)
         {
             InitializeComponent();
-            dsCuenta = ds;
+            this.sesion = sesion;
         }
 
         private async void rjButton1_Click(object sender, EventArgs e)
         {
             if(tbPwdAnt.Texts != "" && tbPwdNew.Texts != "" && tbPwdRep.Texts != "")
             {
-                if (BCrypt.Net.BCrypt.Verify(tbPwdAnt.Texts, dsCuenta.Tables[0].Rows[0]["Password"].ToString()))
+                if (BCrypt.Net.BCrypt.Verify(tbPwdAnt.Texts, sesion.Password))
                 {
                     if(tbPwdNew.Texts == tbPwdRep.Texts)
                     {
@@ -30,7 +31,7 @@ namespace TokiosProject.Visual
                         
                         await Task.Run(() => db.instruccionDB("UPDATE Personas SET Password = '" +
                             BCrypt.Net.BCrypt.HashPassword(tbPwdNew.Texts.Trim())+
-                            "' WHERE Cedula = '" + dsCuenta.Tables[0].Rows[0]["Cedula"].ToString() + "'"));
+                            "' WHERE Cedula = '" + sesion.Cedula + "'"));
                         this.Close();
 
                         new Emergente("advertencia", "Hecho", "La contraseña se ha cambiado correctamente" +

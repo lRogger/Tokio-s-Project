@@ -4,6 +4,9 @@ using Individual.Visual;
 using LibreriaGrupal;
 using System.Data;
 using System.Diagnostics;
+using Microsoft.VisualBasic.Logging;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using CustomControls.RJControls;
 
 namespace Individual
 {
@@ -21,6 +24,7 @@ namespace Individual
 
             //Opacidad
             panelMod1.BackColor = Color.FromArgb(110, Color.Black);
+            
 
 
         }
@@ -43,19 +47,35 @@ namespace Individual
 
                     if (Ds.Tables[0].Rows.Count > 0)
                     {
-
-                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts, Ds.Tables[0].Rows[0]["Password"].ToString()))
+                        Persona sesion = new Persona();
+                        sesion.Id = (int)Ds.Tables[0].Rows[0]["Id"];
+                        sesion.Cedula = (string)Ds.Tables[0].Rows[0]["Cedula"];
+                        sesion.Nombre = (string)Ds.Tables[0].Rows[0]["Nombre"];
+                        sesion.Correo = (string)Ds.Tables[0].Rows[0]["Correo"];
+                        sesion.Admin = (bool)Ds.Tables[0].Rows[0]["Admin"];
+                        sesion.Foto = (byte[])Ds.Tables[0].Rows[0]["Imagen"];
+                        sesion.Password = (string)Ds.Tables[0].Rows[0]["Password"];
+                        if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts, sesion.Password))
                         {
-                            FrmPrincipal frmp = new FrmPrincipal(this);
-                            if (Ds.Tables[0].Rows[0]["Admin"] is true)
+                            
+
+                            FrmPrincipal frmp = new FrmPrincipal(sesion);
+                            if (sesion.Admin)
                             {
                                 frmp.btnUsuarios.Visible = true;
                                 frmp.lblAdmin.Visible = true;
                             }
                             frmp.Show();
                             this.Hide();
+                            frmp.FormClosed += (s, args) =>
+                            {
+                                tbpwd.Enabled = true;
+                                tbUser.Enabled = true;
+                                btnIniciar.Enabled = true;
+                                this.Show();
+                            };
                             tbpwd.Texts = "";
-                            tbUser.Texts = "";
+                            //tbUser.Texts = "";
 
                         }
                         else
@@ -128,7 +148,7 @@ namespace Individual
         {
             Utilidades u = new Utilidades();
             e.Handled = u.validar((char)e.KeyChar, "numero");
-            if (tbUser.Texts.Length >= 10 && !char.IsControl(e.KeyChar))
+            if (tbUser.Texts.Length >= 10 && !char.IsControl(e.KeyChar) && e.KeyChar != (char)Keys.Enter)
             {
                 e.Handled = true;
             }
@@ -136,8 +156,10 @@ namespace Individual
 
         private void rjTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
             if ((e.KeyChar == Convert.ToChar(Keys.Enter)))
             {
+                e.Handled = true;
                 ingresar();
             }
         }

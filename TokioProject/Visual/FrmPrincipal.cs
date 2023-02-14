@@ -15,19 +15,12 @@ namespace Individual.Visual
         private Persona sesion;
 
 
-        public FrmPrincipal(Login lg)
+        public FrmPrincipal(Persona sesion)
         {
             InitializeComponent();
-            this.lg = lg;
+            this.sesion = sesion;
             mp = new MantenimientoProducto();
             menuConfig.IsMainMenu= true;
-            sesion = new Persona();
-            sesion.Id = (int)lg.Ds.Tables[0].Rows[0]["Id"];
-            sesion.Cedula = (string)lg.Ds.Tables[0].Rows[0]["Cedula"];
-            sesion.Nombre = (string)lg.Ds.Tables[0].Rows[0]["Nombre"];
-            sesion.Correo = (string)lg.Ds.Tables[0].Rows[0]["Correo"];
-            sesion.Admin = (bool)lg.Ds.Tables[0].Rows[0]["Admin"];
-            sesion.Foto = (byte[])lg.Ds.Tables[0].Rows[0]["Imagen"];
 
         }
 
@@ -48,12 +41,7 @@ namespace Individual.Visual
             string titulo = "Cerrar Sesión";
             DialogResult result = new Emergente("si/no", titulo, mensaje).ShowDialog();
             if (result == DialogResult.OK)
-            {
-               
-                lg.Show();
-                lg.tbpwd.Enabled = true;
-                lg.tbUser.Enabled = true;
-                lg.btnIniciar.Enabled = true;
+            {                
                 this.Close();
 
             }
@@ -130,6 +118,7 @@ namespace Individual.Visual
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             VentanaUsuarios();
+            
         }
 
         private void editarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -167,7 +156,7 @@ namespace Individual.Visual
 
         private void cambiarContraseñaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ChangePwd changePW = new ChangePwd(lg.Ds);
+            ChangePwd changePW = new ChangePwd(sesion);
             changePW.ShowDialog();
         }
 
