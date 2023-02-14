@@ -1,4 +1,5 @@
 ﻿using Datos;
+using Entidades;
 using GUIs.Visual;
 using System.Diagnostics;
 using TokiosProject.Visual;
@@ -11,6 +12,7 @@ namespace Individual.Visual
         private Login lg;
         private int posX = 0, posY = 0;
         MantenimientoProducto mp;
+        private Persona sesion;
 
 
         public FrmPrincipal(Login lg)
@@ -19,6 +21,14 @@ namespace Individual.Visual
             this.lg = lg;
             mp = new MantenimientoProducto();
             menuConfig.IsMainMenu= true;
+            sesion = new Persona();
+            sesion.Id = (int)lg.Ds.Tables[0].Rows[0]["Id"];
+            sesion.Cedula = (string)lg.Ds.Tables[0].Rows[0]["Cedula"];
+            sesion.Nombre = (string)lg.Ds.Tables[0].Rows[0]["Nombre"];
+            sesion.Correo = (string)lg.Ds.Tables[0].Rows[0]["Correo"];
+            sesion.Admin = (bool)lg.Ds.Tables[0].Rows[0]["Admin"];
+            sesion.Foto = (byte[])lg.Ds.Tables[0].Rows[0]["Imagen"];
+
         }
 
 
@@ -39,6 +49,7 @@ namespace Individual.Visual
             DialogResult result = new Emergente("si/no", titulo, mensaje).ShowDialog();
             if (result == DialogResult.OK)
             {
+               
                 lg.Show();
                 lg.tbpwd.Enabled = true;
                 lg.tbUser.Enabled = true;
@@ -70,10 +81,10 @@ namespace Individual.Visual
             mp.TopLevel = false;
             this.panelPrincipal.Controls.Add(mp);
             mp.Show();
-            lblSesion.Text = lg.Ds.Tables[0].Rows[0]["Nombre"].ToString();
+            lblSesion.Text = sesion.Nombre;
             try
             {
-                MemoryStream ms = new MemoryStream((byte[])lg.Ds.Tables[0].Rows[0]["Imagen"]);
+                MemoryStream ms = new MemoryStream(sesion.Foto);
                 Image img = Image.FromStream(ms);
                 profileP.Image = img;
                 
@@ -124,20 +135,20 @@ namespace Individual.Visual
         private void editarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewUser nu = new NewUser();
-            nu.cedUser.Text = lg.Ds.Tables[0].Rows[0]["Cedula"].ToString();
+            nu.cedUser.Text = sesion.Cedula;
             nu.cedUser.Enabled = false;
 
-            nu.nomUser.Text = lg.Ds.Tables[0].Rows[0]["Nombre"].ToString();
-            nu.correoUser.Text = lg.Ds.Tables[0].Rows[0]["Correo"].ToString();
-            nu.edadUser.Text = lg.Ds.Tables[0].Rows[0]["Edad"].ToString();
-            nu.admUser.Checked = (lg.Ds.Tables[0].Rows[0]["Admin"].ToString() == "True")
-                ? true : false;
+            nu.nomUser.Text = sesion.Nombre;
+            nu.correoUser.Text = sesion.Correo;
+            nu.edadUser.Text = sesion.Edad.ToString();
+            nu.admUser.Checked = sesion.Admin;
+               
 
             nu.admUser.Enabled = false;
 
-            if(lg.Ds.Tables[0].Rows[0]["Imagen"].ToString() == null )
+            if(sesion.Foto != null )
             {
-                MemoryStream ms = new MemoryStream((byte[])lg.Ds.Tables[0].Rows[0]["Imagen"]);
+                MemoryStream ms = new MemoryStream(sesion.Foto);
                 Image img = Image.FromStream(ms);
                 nu.fotoUser.Image = img;
             }
@@ -189,6 +200,11 @@ namespace Individual.Visual
         private void lblSesion_MouseMove(object sender, MouseEventArgs e)
         {
             MoverVentana(e);
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void VentanaUsuarios()
