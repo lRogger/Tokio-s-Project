@@ -54,6 +54,8 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbInhabilitados = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCantidad)).BeginInit();
             this.panel1.SuspendLayout();
@@ -98,7 +100,7 @@
             this.productoDGV.EnableHeadersVisualStyles = false;
             this.productoDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.productoDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.productoDGV.Location = new System.Drawing.Point(11, 125);
+            this.productoDGV.Location = new System.Drawing.Point(11, 115);
             this.productoDGV.MultiSelect = false;
             this.productoDGV.Name = "productoDGV";
             this.productoDGV.ReadOnly = true;
@@ -116,7 +118,7 @@
             this.productoDGV.RowTemplate.Height = 25;
             this.productoDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.productoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productoDGV.Size = new System.Drawing.Size(540, 277);
+            this.productoDGV.Size = new System.Drawing.Size(540, 286);
             this.productoDGV.TabIndex = 11;
             this.productoDGV.SelectionChanged += new System.EventHandler(this.productoDGV_SelectionChanged);
             // 
@@ -180,17 +182,17 @@
             // 
             this.tbBuscarProducto.BackColor = System.Drawing.Color.White;
             this.tbBuscarProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbBuscarProducto.Location = new System.Drawing.Point(12, 97);
+            this.tbBuscarProducto.Location = new System.Drawing.Point(12, 83);
             this.tbBuscarProducto.Name = "tbBuscarProducto";
             this.tbBuscarProducto.PlaceholderText = " 🔎 Buscar...";
-            this.tbBuscarProducto.Size = new System.Drawing.Size(359, 16);
+            this.tbBuscarProducto.Size = new System.Drawing.Size(272, 17);
             this.tbBuscarProducto.TabIndex = 12;
             this.tbBuscarProducto.TextChanged += new System.EventHandler(this.buscarProducto_TextChanged);
             // 
             // separador
             // 
             this.separador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.separador.Location = new System.Drawing.Point(12, 76);
+            this.separador.Location = new System.Drawing.Point(12, 65);
             this.separador.Name = "separador";
             this.separador.Size = new System.Drawing.Size(537, 2);
             this.separador.TabIndex = 17;
@@ -205,9 +207,9 @@
             "M",
             "L",
             "XL"});
-            this.cbTalla.Location = new System.Drawing.Point(440, 94);
+            this.cbTalla.Location = new System.Drawing.Point(460, 80);
             this.cbTalla.Name = "cbTalla";
-            this.cbTalla.Size = new System.Drawing.Size(111, 23);
+            this.cbTalla.Size = new System.Drawing.Size(91, 23);
             this.cbTalla.TabIndex = 19;
             this.cbTalla.SelectedIndexChanged += new System.EventHandler(this.cbTalla_SelectedIndexChanged);
             // 
@@ -216,7 +218,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(393, 99);
+            this.label1.Location = new System.Drawing.Point(416, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 20;
@@ -232,7 +234,7 @@
             this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefrescar.Font = new System.Drawing.Font("Arial", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRefrescar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnRefrescar.Location = new System.Drawing.Point(393, 16);
+            this.btnRefrescar.Location = new System.Drawing.Point(506, 11);
             this.btnRefrescar.Margin = new System.Windows.Forms.Padding(0);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(60, 48);
@@ -243,50 +245,56 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.AllowDrop = true;
             this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
             this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Britanica-Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnEliminar.Location = new System.Drawing.Point(182, 19);
+            this.btnEliminar.Font = new System.Drawing.Font("Britanica-Heavy", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnEliminar.Location = new System.Drawing.Point(155, 14);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(87, 43);
+            this.btnEliminar.Size = new System.Drawing.Size(116, 43);
             this.btnEliminar.TabIndex = 23;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Inhabilitar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCrear
             // 
+            this.btnCrear.AllowDrop = true;
             this.btnCrear.BackColor = System.Drawing.Color.Transparent;
             this.btnCrear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
             this.btnCrear.FlatAppearance.BorderSize = 0;
             this.btnCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrear.Font = new System.Drawing.Font("Britanica-Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCrear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnCrear.Location = new System.Drawing.Point(14, 19);
+            this.btnCrear.Font = new System.Drawing.Font("Britanica-Heavy", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCrear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnCrear.Location = new System.Drawing.Point(9, 14);
             this.btnCrear.Margin = new System.Windows.Forms.Padding(0);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(76, 43);
+            this.btnCrear.Size = new System.Drawing.Size(67, 43);
             this.btnCrear.TabIndex = 22;
             this.btnCrear.Text = "Crear";
+            this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCrear.UseVisualStyleBackColor = false;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnEditar
             // 
+            this.btnEditar.AllowDrop = true;
             this.btnEditar.BackColor = System.Drawing.Color.Transparent;
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Britanica-Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnEditar.Location = new System.Drawing.Point(94, 19);
+            this.btnEditar.Font = new System.Drawing.Font("Britanica-Heavy", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnEditar.Location = new System.Drawing.Point(80, 14);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(82, 43);
+            this.btnEditar.Size = new System.Drawing.Size(71, 43);
             this.btnEditar.TabIndex = 21;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -294,7 +302,7 @@
             // 
             this.cbCantidad.Location = new System.Drawing.Point(428, 21);
             this.cbCantidad.Name = "cbCantidad";
-            this.cbCantidad.Size = new System.Drawing.Size(45, 23);
+            this.cbCantidad.Size = new System.Drawing.Size(45, 24);
             this.cbCantidad.TabIndex = 26;
             // 
             // panel1
@@ -380,12 +388,41 @@
             this.btnSuma.UseVisualStyleBackColor = false;
             this.btnSuma.Click += new System.EventHandler(this.btnSuma_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(440, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.TabIndex = 28;
+            // 
+            // cbInhabilitados
+            // 
+            this.cbInhabilitados.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbInhabilitados.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cbInhabilitados.FlatAppearance.CheckedBackColor = System.Drawing.Color.Indigo;
+            this.cbInhabilitados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbInhabilitados.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbInhabilitados.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cbInhabilitados.Location = new System.Drawing.Point(311, 80);
+            this.cbInhabilitados.Name = "cbInhabilitados";
+            this.cbInhabilitados.Size = new System.Drawing.Size(98, 23);
+            this.cbInhabilitados.TabIndex = 29;
+            this.cbInhabilitados.Text = "Inhabilitados";
+            this.cbInhabilitados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbInhabilitados.UseVisualStyleBackColor = true;
+            // 
             // MantenimientoProducto
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(560, 470);
+            this.Controls.Add(this.cbInhabilitados);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btnEliminar);
@@ -418,7 +455,6 @@
         private Label label1;
         private Button btnRefrescar;
         private Button btnEliminar;
-        private Button btnCrear;
         private Button btnEditar;
         private NumericUpDown cbCantidad;
         private Panel panel1;
@@ -433,5 +469,8 @@
         private DataGridViewTextBoxColumn Color;
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn Precio;
+        private Label label2;
+        public CheckBox cbInhabilitados;
+        public Button btnCrear;
     }
 }
