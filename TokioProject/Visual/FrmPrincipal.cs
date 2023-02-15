@@ -9,10 +9,12 @@ namespace Individual.Visual
     public partial class FrmPrincipal : Form
     {
         private DataBase db = new DataBase();
-        private Login lg;
+       // private Login lg;
         private int posX = 0, posY = 0;
         MantenimientoProducto mp;
         private Persona sesion;
+        MantenimientoUsuario mu = new MantenimientoUsuario();
+        RegistroHistorial rh = new RegistroHistorial();
 
 
         public FrmPrincipal(Persona sesion)
@@ -89,6 +91,11 @@ namespace Individual.Visual
         private void MantenimientoUsuario_FormClosed(object sender, FormClosedEventArgs e)
         {
             mp.Show();
+        }
+
+        private void RegistroHistorial_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            rh.Show();
         }
 
         private void VentanaProductos()
@@ -195,14 +202,29 @@ namespace Individual.Visual
         {
 
         }
+        private void VentanaRegistros()
+        {
+            rh.FormClosed += RegistroHistorial_FormClosed;
+
+            rh.TopLevel = false;
+            mu.Hide();
+            mp.Hide();
+            this.panelPrincipal.Controls.Add(rh);
+            rh.Show();
+        }
+
+        private void btnRegistros_Click(object sender, EventArgs e)
+        {
+            VentanaRegistros();
+        }
 
         private void VentanaUsuarios()
-        {
-            MantenimientoUsuario mu = new MantenimientoUsuario();
+        {   
             mu.FormClosed += MantenimientoUsuario_FormClosed;
 
 
             mu.TopLevel = false;
+            rh.Hide();
             mp.Hide();
             this.panelPrincipal.Controls.Add(mu);
             mu.Show();
