@@ -9,7 +9,6 @@ namespace Datos
         private string server, user, pass, db, strCon;
         private DataSet ds;
 
-        
 
         public DataBase()
         {

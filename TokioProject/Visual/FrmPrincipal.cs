@@ -205,7 +205,6 @@ namespace Individual.Visual
         private void VentanaRegistros()
         {
             rh.FormClosed += RegistroHistorial_FormClosed;
-
             rh.TopLevel = false;
             mu.Hide();
             mp.Hide();
@@ -221,8 +220,6 @@ namespace Individual.Visual
         private void VentanaUsuarios()
         {   
             mu.FormClosed += MantenimientoUsuario_FormClosed;
-
-
             mu.TopLevel = false;
             rh.Hide();
             mp.Hide();

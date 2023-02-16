@@ -48,7 +48,7 @@ namespace Individual.Visual
                 byte[] aByte = ms.GetBuffer();
 
                 Persona p = new Persona(nomUser.Text, cedUser.Text, correoUser.Text,
-                    Int32.Parse(edadUser.Text), admin, aByte);
+                    Int32.Parse(edadUser.Text), admin, aByte, "");
 
                 SqlConnection con = db.conectarDB();
 

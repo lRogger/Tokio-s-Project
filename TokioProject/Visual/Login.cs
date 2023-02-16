@@ -57,13 +57,13 @@ namespace Individual
                         sesion.Password = (string)Ds.Tables[0].Rows[0]["Password"];
                         if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts, sesion.Password))
                         {
-                            
 
                             FrmPrincipal frmp = new FrmPrincipal(sesion);
                             if (sesion.Admin)
                             {
                                 frmp.btnUsuarios.Visible = true;
                                 frmp.lblAdmin.Visible = true;
+                                frmp.btnRegistros.Visible = true;
                             }
                             frmp.Show();
                             this.Hide();

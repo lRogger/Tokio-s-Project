@@ -16,14 +16,16 @@
             this.nombre = "";
             this.cedula = "";
             this.correo = "";
+            this.password = "";
             this.edad = 0;
             this.admin = false;
             this.foto = new byte[0];
         }
 
         public Persona(string nombre, string cedula, string correo,
-            int edad, bool admin, byte[] foto)
+            int edad, bool admin, byte[] foto, string password)
         {
+            this.password = password;
             this.nombre = nombre;
             this.cedula = cedula;
             this.correo = correo;

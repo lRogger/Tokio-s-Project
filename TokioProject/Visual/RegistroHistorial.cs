@@ -21,5 +21,10 @@ namespace GUIs.Visual
         {
             this.Close();
         }
+
+        private void dateTimePicker1_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress= true;
+        }
     }
 }
