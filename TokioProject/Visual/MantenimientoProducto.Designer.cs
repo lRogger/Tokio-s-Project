@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.productoDGV = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbInhabilitados = new System.Windows.Forms.CheckBox();
+            this.cbInactivo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCantidad)).BeginInit();
             this.panel1.SuspendLayout();
@@ -72,14 +72,14 @@
             this.productoDGV.CausesValidation = false;
             this.productoDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.productoDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Britanica-Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productoDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Britanica-Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productoDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.productoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productoDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -89,14 +89,14 @@
             this.Color,
             this.Stock,
             this.Precio});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productoDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productoDGV.DefaultCellStyle = dataGridViewCellStyle6;
             this.productoDGV.EnableHeadersVisualStyles = false;
             this.productoDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.productoDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -104,17 +104,17 @@
             this.productoDGV.MultiSelect = false;
             this.productoDGV.Name = "productoDGV";
             this.productoDGV.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productoDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productoDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.productoDGV.RowHeadersWidth = 4;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.productoDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.productoDGV.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.productoDGV.RowTemplate.Height = 25;
             this.productoDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.productoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -185,7 +185,7 @@
             this.tbBuscarProducto.Location = new System.Drawing.Point(12, 83);
             this.tbBuscarProducto.Name = "tbBuscarProducto";
             this.tbBuscarProducto.PlaceholderText = " 🔎 Buscar...";
-            this.tbBuscarProducto.Size = new System.Drawing.Size(272, 17);
+            this.tbBuscarProducto.Size = new System.Drawing.Size(272, 16);
             this.tbBuscarProducto.TabIndex = 12;
             this.tbBuscarProducto.TextChanged += new System.EventHandler(this.buscarProducto_TextChanged);
             // 
@@ -302,7 +302,7 @@
             // 
             this.cbCantidad.Location = new System.Drawing.Point(428, 21);
             this.cbCantidad.Name = "cbCantidad";
-            this.cbCantidad.Size = new System.Drawing.Size(45, 24);
+            this.cbCantidad.Size = new System.Drawing.Size(45, 23);
             this.cbCantidad.TabIndex = 26;
             // 
             // panel1
@@ -398,21 +398,21 @@
             this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 28;
             // 
-            // cbInhabilitados
+            // cbInactivo
             // 
-            this.cbInhabilitados.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbInhabilitados.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.cbInhabilitados.FlatAppearance.CheckedBackColor = System.Drawing.Color.Indigo;
-            this.cbInhabilitados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbInhabilitados.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbInhabilitados.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.cbInhabilitados.Location = new System.Drawing.Point(311, 80);
-            this.cbInhabilitados.Name = "cbInhabilitados";
-            this.cbInhabilitados.Size = new System.Drawing.Size(98, 23);
-            this.cbInhabilitados.TabIndex = 29;
-            this.cbInhabilitados.Text = "Inhabilitados";
-            this.cbInhabilitados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbInhabilitados.UseVisualStyleBackColor = true;
+            this.cbInactivo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbInactivo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cbInactivo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Indigo;
+            this.cbInactivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbInactivo.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbInactivo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cbInactivo.Location = new System.Drawing.Point(311, 80);
+            this.cbInactivo.Name = "cbInactivo";
+            this.cbInactivo.Size = new System.Drawing.Size(98, 23);
+            this.cbInactivo.TabIndex = 29;
+            this.cbInactivo.Text = "Inactivos";
+            this.cbInactivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbInactivo.UseVisualStyleBackColor = true;
             // 
             // MantenimientoProducto
             // 
@@ -421,7 +421,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(560, 470);
-            this.Controls.Add(this.cbInhabilitados);
+            this.Controls.Add(this.cbInactivo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRefrescar);
@@ -470,7 +470,7 @@
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn Precio;
         private Label label2;
-        public CheckBox cbInhabilitados;
+        public CheckBox cbInactivo;
         public Button btnCrear;
     }
 }

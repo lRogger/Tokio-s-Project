@@ -20,10 +20,9 @@ namespace Datos
             this.pass = "Rogger123";
             
             this.db = "poe";
-             
+            this.strCon = $"server={server}; user id={user}; password={pass}; database={db};";
+
             this.ds = new DataSet();
-            this.strCon = "server=" + server +
-                    ";user id=" + user + ";password=" + pass + ";database=" + db + ";";
         }
 
         public DataSet Ds { get => ds; set => ds = value; }

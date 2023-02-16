@@ -18,6 +18,7 @@ namespace Entidades
         private string color;
         private int stock;
         private double precio;
+        private bool activo;
 
         
 
@@ -53,5 +54,6 @@ namespace Entidades
         public string Color { get => color; set => color = value; }
         public int Stock { get => stock; set => stock = value; }
         public double Precio { get => precio; set => precio = value; }
+        public bool Activo { get => activo; set => activo = value; }
     }
 }

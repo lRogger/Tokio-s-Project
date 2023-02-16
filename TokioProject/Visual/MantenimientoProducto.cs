@@ -2,9 +2,7 @@
 using Datos;
 using Individual.Visual;
 using System.Data;
-using System.Windows.Forms;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using GUIs.Properties;
+using System.Drawing;
 
 namespace GUIs.Visual
 {
@@ -29,7 +27,7 @@ namespace GUIs.Visual
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
             await Task.Run(() => db.consultar("SELECT IDproducto, Categoria, Talla, Nombre, Descripcion, Color" +
-                ", Stock, Precio from Productos"));
+                ", Stock, Precio, Activo from Productos"));
             
 
             btnRefrescar.Enabled = true;
@@ -53,13 +51,24 @@ namespace GUIs.Visual
                     p.Color = "" + fila["Color"].ToString();
                     p.Stock = (int)fila["Stock"];
                     p.Precio = (double)fila["Precio"];
+                    p.Activo = (bool)fila["Activo"];
                     listaPrendas.Add(p);
                 }
                 productoDGV.Rows.Clear();
-                foreach (Prenda prenda in listaPrendas)
+
+                for(int i=0; i<listaPrendas.Count; i++)
                 {
-                    productoDGV.Rows.Add(prenda.Id, prenda.Nombre, prenda.Categoria, prenda.Talla
-                        , prenda.Color, prenda.Stock, prenda.Precio);
+                    productoDGV.Rows.Add(listaPrendas[i].Id, listaPrendas[i].Nombre, listaPrendas[i].Categoria,
+                        listaPrendas[i].Talla, listaPrendas[i].Color, listaPrendas[i].Stock,
+                        listaPrendas[i].Precio);
+                    if (!listaPrendas[i].Activo && !cbInactivo.Checked)
+                    {
+                        
+                        productoDGV.Rows[i].Visible = false;
+                        productoDGV.Rows[i].ReadOnly = true;
+
+                    }
+
                 }
             }
 
