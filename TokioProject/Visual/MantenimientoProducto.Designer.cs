@@ -192,7 +192,7 @@
             // separador
             // 
             this.separador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.separador.Location = new System.Drawing.Point(12, 65);
+            this.separador.Location = new System.Drawing.Point(12, 64);
             this.separador.Name = "separador";
             this.separador.Size = new System.Drawing.Size(537, 2);
             this.separador.TabIndex = 17;
