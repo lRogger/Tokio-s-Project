@@ -58,8 +58,7 @@ namespace GUIs.Visual
                 for (int i = listaRegistros.Count-1; i >= 0; i--)
                 {
                     registrosDGV.Rows.Add(listaRegistros[i].Id, listaRegistros[i].Fecha.ToString("d"),
-                        listaRegistros[i].Usuario.Nombre, listaRegistros[i].Producto.Nombre,
-                        listaRegistros[i].Descripcion, listaRegistros[i].Cantidad);
+                        listaRegistros[i].Usuario.Nombre, listaRegistros[i].Producto.Nombre, listaRegistros[i].Cantidad);
 
                 }
             }

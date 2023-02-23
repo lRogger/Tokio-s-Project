@@ -40,11 +40,16 @@
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Encargado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buscarUser = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.panelDescripcionRegistro = new System.Windows.Forms.Panel();
+            this.lblDescripcionRegistro = new System.Windows.Forms.Label();
+            this.btnMenos = new Individual.Visual.ComponentesMod.RJButton();
+            this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).BeginInit();
+            this.panelDescripcionRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -129,11 +134,10 @@
             this.Fecha,
             this.Encargado,
             this.Producto,
-            this.Descripcion,
             this.Cantidad});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -152,7 +156,7 @@
             this.registrosDGV.RowTemplate.Height = 25;
             this.registrosDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.registrosDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.registrosDGV.Size = new System.Drawing.Size(537, 353);
+            this.registrosDGV.Size = new System.Drawing.Size(537, 295);
             this.registrosDGV.TabIndex = 21;
             // 
             // Id
@@ -169,7 +173,7 @@
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 80;
+            this.Fecha.Width = 90;
             // 
             // Encargado
             // 
@@ -177,7 +181,7 @@
             this.Encargado.HeaderText = "Encargado";
             this.Encargado.Name = "Encargado";
             this.Encargado.ReadOnly = true;
-            this.Encargado.Width = 105;
+            this.Encargado.Width = 125;
             // 
             // Producto
             // 
@@ -187,14 +191,6 @@
             this.Producto.ReadOnly = true;
             this.Producto.Width = 180;
             // 
-            // Descripcion
-            // 
-            this.Descripcion.Frozen = true;
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 50;
-            // 
             // Cantidad
             // 
             this.Cantidad.Frozen = true;
@@ -203,7 +199,7 @@
             this.Cantidad.ReadOnly = true;
             this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Cantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Cantidad.Width = 55;
+            this.Cantidad.Width = 95;
             // 
             // buscarUser
             // 
@@ -227,24 +223,107 @@
             this.dateTimePicker1.TabIndex = 23;
             this.dateTimePicker1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyDown);
             // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Britanica-Heavy", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDesc.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblDesc.Location = new System.Drawing.Point(3, 13);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(50, 39);
+            this.lblDesc.TabIndex = 31;
+            this.lblDesc.Text = "📄";
+            this.lblDesc.Visible = false;
+            // 
+            // panelDescripcionRegistro
+            // 
+            this.panelDescripcionRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.panelDescripcionRegistro.Controls.Add(this.lblDesc);
+            this.panelDescripcionRegistro.Controls.Add(this.lblDescripcionRegistro);
+            this.panelDescripcionRegistro.Controls.Add(this.btnMenos);
+            this.panelDescripcionRegistro.Controls.Add(this.btnSuma);
+            this.panelDescripcionRegistro.Location = new System.Drawing.Point(12, 397);
+            this.panelDescripcionRegistro.Name = "panelDescripcionRegistro";
+            this.panelDescripcionRegistro.Size = new System.Drawing.Size(539, 61);
+            this.panelDescripcionRegistro.TabIndex = 28;
+            // 
+            // lblDescripcionRegistro
+            // 
+            this.lblDescripcionRegistro.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDescripcionRegistro.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblDescripcionRegistro.Location = new System.Drawing.Point(59, 0);
+            this.lblDescripcionRegistro.Name = "lblDescripcionRegistro";
+            this.lblDescripcionRegistro.Size = new System.Drawing.Size(477, 61);
+            this.lblDescripcionRegistro.TabIndex = 30;
+            // 
+            // btnMenos
+            // 
+            this.btnMenos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMenos.AutoSize = true;
+            this.btnMenos.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenos.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMenos.BorderColor = System.Drawing.Color.White;
+            this.btnMenos.BorderRadius = 0;
+            this.btnMenos.BorderSize = 0;
+            this.btnMenos.FlatAppearance.BorderSize = 0;
+            this.btnMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMenos.ForeColor = System.Drawing.Color.White;
+            this.btnMenos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMenos.Location = new System.Drawing.Point(550, -3);
+            this.btnMenos.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMenos.Name = "btnMenos";
+            this.btnMenos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnMenos.Size = new System.Drawing.Size(43, 31);
+            this.btnMenos.TabIndex = 29;
+            this.btnMenos.Text = "➖";
+            this.btnMenos.TextColor = System.Drawing.Color.White;
+            this.btnMenos.UseVisualStyleBackColor = false;
+            // 
+            // btnSuma
+            // 
+            this.btnSuma.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSuma.BackColor = System.Drawing.Color.Transparent;
+            this.btnSuma.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnSuma.BorderColor = System.Drawing.Color.White;
+            this.btnSuma.BorderRadius = 0;
+            this.btnSuma.BorderSize = 0;
+            this.btnSuma.FlatAppearance.BorderSize = 0;
+            this.btnSuma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSuma.ForeColor = System.Drawing.Color.White;
+            this.btnSuma.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSuma.Location = new System.Drawing.Point(652, -3);
+            this.btnSuma.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSuma.Name = "btnSuma";
+            this.btnSuma.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSuma.Size = new System.Drawing.Size(32, 31);
+            this.btnSuma.TabIndex = 28;
+            this.btnSuma.Text = "➕";
+            this.btnSuma.TextColor = System.Drawing.Color.White;
+            this.btnSuma.UseVisualStyleBackColor = false;
+            // 
             // RegistroHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 470);
+            this.Controls.Add(this.panelDescripcionRegistro);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.buscarUser);
-            this.Controls.Add(this.registrosDGV);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.separador);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.registrosDGV);
             this.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegistroHistorial";
             this.Text = "RegistroHistorial";
             ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).EndInit();
+            this.panelDescripcionRegistro.ResumeLayout(false);
+            this.panelDescripcionRegistro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,11 +338,15 @@
         public DataGridView registrosDGV;
         private TextBox buscarUser;
         private DateTimePicker dateTimePicker1;
+        private Label lblDesc;
+        private Panel panelDescripcionRegistro;
+        private Label lblDescripcionRegistro;
+        private Individual.Visual.ComponentesMod.RJButton btnMenos;
+        private Individual.Visual.ComponentesMod.RJButton btnSuma;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Encargado;
         private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn Descripcion;
         private DataGridViewTextBoxColumn Cantidad;
     }
 }
