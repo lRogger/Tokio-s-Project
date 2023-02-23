@@ -101,5 +101,10 @@ namespace Datos
                     $"Stock={p.Stock},Precio={doubleArreglado} WHERE IDproducto = '{id}'");
         }
 
+        public void ActualizarStock(int stock, int id)
+        {
+            new DataBase().instruccionDB($"UPDATE Productos SET Stock={stock} WHERE IDproducto = {id}");
+        }
+
     }
 }

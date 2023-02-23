@@ -193,7 +193,7 @@ namespace GUIs.Visual
             }
         }
 
-        private void btnSuma_Click(object sender, EventArgs e)
+        private async void btnSuma_Click(object sender, EventArgs e)
         {
             if(productoDGV.CurrentRow != null)
             {
@@ -203,10 +203,27 @@ namespace GUIs.Visual
 
                 if (result == DialogResult.OK)
                 {
-                    db.instruccionDB($"UPDATE Productos SET " +
-                        $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) + cbCantidad.Value} " +
-                        $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}");
+                    int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value + (int)cbCantidad.Value);
+                    int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
+                    new DBProducto().ActualizarStock(stock,IDproducto);
+                    
+                    
 
+                    //SECCION DONDE SE CREA EL REGISTRO
+                    var parent = this.ParentForm as FrmPrincipal;
+                    Persona usuario = parent!.Sesion;
+
+                    var productos = await new DBProducto().LeerProducto(IDproducto);
+
+                    Registros registro = new Registros();
+                    registro.Fecha = DateTime.Now;
+                    registro.Usuario = parent.Sesion;
+                    registro.Producto = productos[0];
+                    registro.Descripcion = "Stock alterado";
+                    registro.Cantidad = (int)cbCantidad.Value;
+                    new DBRegistros().CrearRegistro(registro);
+
+                    //-------------------------------------------------------------------
                     cbCantidad.Value = 0;
                     CargarTabla();
                 }
@@ -215,7 +232,6 @@ namespace GUIs.Visual
             {
                 new Emergente("advertencia", "ERROR", "No hay una fila seleccionada").ShowDialog();
             }
-            
         }
 
         private void MantenimientoProducto_MouseMove(object sender, MouseEventArgs e)
@@ -246,7 +262,7 @@ namespace GUIs.Visual
             }    
         }
 
-        private void btnMenos_Click(object sender, EventArgs e)
+        private async void btnMenos_Click(object sender, EventArgs e)
         {
             if(productoDGV.CurrentRow != null)
             {
@@ -258,10 +274,27 @@ namespace GUIs.Visual
                     $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
                     if (result == DialogResult.OK)
                     {
-                        db.instruccionDB($"UPDATE Productos SET " +
-                            $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value} " +
-                            $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}");
 
+                        int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
+                        int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
+                        new DBProducto().ActualizarStock(stock, IDproducto);
+
+                        //SECCION DONDE SE CREA EL REGISTRO
+                        var parent = this.ParentForm as FrmPrincipal;
+                        Persona usuario = parent!.Sesion;
+
+                        var productos = await new DBProducto().LeerProducto(IDproducto);
+
+                        Registros registro = new Registros();
+                        registro.Fecha = DateTime.Now;
+                        registro.Usuario = parent.Sesion;
+                        registro.Producto = productos[0];
+                        registro.Descripcion = "Stock alterado";
+                        registro.Cantidad = (int)cbCantidad.Value*-1;
+                        new DBRegistros().CrearRegistro(registro);
+
+                        //-------------------------------------------------------------------
+                        cbCantidad.Value = 0;
                         CargarTabla();
                     }
                 }
@@ -271,9 +304,27 @@ namespace GUIs.Visual
                     $" inactivará {productoDGV.Rows[i].Cells["Nombre"].Value}, desea continuar?").ShowDialog();
                     if (result == DialogResult.OK)
                     {
+                        int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
+
                         db.instruccionDB($"UPDATE Productos SET " +
                             $"Activo= 0 WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}");
 
+                        //SECCION DONDE SE CREA EL REGISTRO
+                        var parent = this.ParentForm as FrmPrincipal;
+                        Persona usuario = parent!.Sesion;
+
+                        var productos = await new DBProducto().LeerProducto(IDproducto);
+
+                        Registros registro = new Registros();
+                        registro.Fecha = DateTime.Now;
+                        registro.Usuario = parent.Sesion;
+                        registro.Producto = productos[0];
+                        registro.Descripcion = "Stock alterado";
+                        registro.Cantidad = (int)cbCantidad.Value * -1;
+                        new DBRegistros().CrearRegistro(registro);
+
+                        //-------------------------------------------------------------------
+                        cbCantidad.Value = 0;
                         CargarTabla();
                     }
                 }
@@ -286,9 +337,6 @@ namespace GUIs.Visual
             {
                 new Emergente("advertencia", "ERROR", "No hay una fila seleccionada").ShowDialog();
             }
-            
-            
-            
         }
     }
 }

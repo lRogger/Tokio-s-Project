@@ -79,5 +79,7 @@ namespace Datos
             db.SpDB("actualizaUsuario", parametros);
             
         }
+
+       
     }
 }

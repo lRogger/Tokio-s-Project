@@ -8,14 +8,13 @@ namespace Individual.Visual
 {
     public partial class FrmPrincipal : Form
     {
-        private DataBase db = new DataBase();
-       // private Login lg;
         private int posX = 0, posY = 0;
         MantenimientoProducto mp;
         private Persona sesion;
         MantenimientoUsuario mu = new MantenimientoUsuario();
         RegistroHistorial rh = new RegistroHistorial();
 
+        public Persona Sesion { get => sesion; set => sesion = value; }
 
         public FrmPrincipal(Persona sesion)
         {
@@ -67,14 +66,11 @@ namespace Individual.Visual
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            mp = new MantenimientoProducto();
-            mp.TopLevel = false;
-            this.panelPrincipal.Controls.Add(mp);
-            mp.Show();
-            lblSesion.Text = sesion.Nombre;
+            VentanaProductos();
+            lblSesion.Text = Sesion.Nombre;
             try
             {
-                MemoryStream ms = new MemoryStream(sesion.Foto);
+                MemoryStream ms = new MemoryStream(Sesion.Foto);
                 Image img = Image.FromStream(ms);
                 profileP.Image = img;
                 
@@ -90,12 +86,12 @@ namespace Individual.Visual
 
         private void MantenimientoUsuario_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mp.Show();
+            VentanaProductos();
         }
 
         private void RegistroHistorial_FormClosed(object sender, FormClosedEventArgs e)
         {
-            rh.Show();
+            VentanaProductos();
         }
 
         private void VentanaProductos()
@@ -131,20 +127,20 @@ namespace Individual.Visual
         private void editarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewUser nu = new NewUser();
-            nu.cedUser.Text = sesion.Cedula;
+            nu.cedUser.Text = Sesion.Cedula;
             nu.cedUser.Enabled = false;
 
-            nu.nomUser.Text = sesion.Nombre;
-            nu.correoUser.Text = sesion.Correo;
-            nu.edadUser.Text = sesion.Edad.ToString();
-            nu.admUser.Checked = sesion.Admin;
+            nu.nomUser.Text = Sesion.Nombre;
+            nu.correoUser.Text = Sesion.Correo;
+            nu.edadUser.Text = Sesion.Edad.ToString();
+            nu.admUser.Checked = Sesion.Admin;
                
 
             nu.admUser.Enabled = false;
 
-            if(sesion.Foto != null )
+            if(Sesion.Foto != null )
             {
-                MemoryStream ms = new MemoryStream(sesion.Foto);
+                MemoryStream ms = new MemoryStream(Sesion.Foto);
                 Image img = Image.FromStream(ms);
                 nu.fotoUser.Image = img;
             }
@@ -163,7 +159,7 @@ namespace Individual.Visual
 
         private void cambiarContraseñaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ChangePwd changePW = new ChangePwd(sesion);
+            ChangePwd changePW = new ChangePwd(Sesion);
             changePW.ShowDialog();
         }
 
@@ -204,11 +200,17 @@ namespace Individual.Visual
         }
         private void VentanaRegistros()
         {
+            if (rh.IsDisposed)
+            {
+                rh = new RegistroHistorial();
+            }
+
             rh.FormClosed += RegistroHistorial_FormClosed;
             rh.TopLevel = false;
             mu.Hide();
             mp.Hide();
             this.panelPrincipal.Controls.Add(rh);
+            
             rh.Show();
         }
 
@@ -218,12 +220,18 @@ namespace Individual.Visual
         }
 
         private void VentanaUsuarios()
-        {   
+        {
+            if (mu.IsDisposed)
+            {
+                mu = new MantenimientoUsuario();
+            }
+
             mu.FormClosed += MantenimientoUsuario_FormClosed;
             mu.TopLevel = false;
             rh.Hide();
             mp.Hide();
             this.panelPrincipal.Controls.Add(mu);
+            
             mu.Show();
         }
 

@@ -61,8 +61,8 @@ namespace Datos
 
         public void CrearRegistro(Registros registro)
         {
-            new DataBase().instruccionDB($"INSERT INTO Registros (Fecha, IdUsuario, Descripcion, " +
-                $"Cantidad, IdProducto) VALUES ({registro.Fecha},{registro.Usuario.Id}," +
+            new DataBase().instruccionDB($"INSERT INTO Registros (IdUsuario, Descripcion, " +
+                $"Cantidad, IdProducto) VALUES ({registro.Usuario.Id}," +
                 $"'{registro.Descripcion}',{registro.Cantidad},{registro.Producto.Id})");
         }
     }

@@ -22,6 +22,7 @@ namespace GUIs.Visual
         {
             InitializeComponent();
             listaRegistros= new List<Registros>();
+            CargarTabla();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -54,9 +55,9 @@ namespace GUIs.Visual
 
                 registrosDGV.Rows.Clear();
 
-                for (int i = 0; i < listaRegistros.Count; i++)
+                for (int i = listaRegistros.Count-1; i >= 0; i--)
                 {
-                    registrosDGV.Rows.Add(listaRegistros[i].Id, listaRegistros[i].Fecha,
+                    registrosDGV.Rows.Add(listaRegistros[i].Id, listaRegistros[i].Fecha.ToString("d"),
                         listaRegistros[i].Usuario.Nombre, listaRegistros[i].Producto.Nombre,
                         listaRegistros[i].Descripcion, listaRegistros[i].Cantidad);
 
