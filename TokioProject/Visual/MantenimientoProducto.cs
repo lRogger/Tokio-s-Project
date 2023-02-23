@@ -22,38 +22,19 @@ namespace GUIs.Visual
 
         private async void CargarTabla()
         {
-
-            btnRefrescar.Enabled = false;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
-            await Task.Run(() => db.consultar("SELECT IDproducto, Categoria, Talla, Nombre, Descripcion, Color" +
-                ", Stock, Precio, Activo from Productos"));
-            
-
-            btnRefrescar.Enabled = true;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
-
-            DataSet ds = db.Ds;
-
-            listaPrendas = new List<Prenda>();
-
             try
             {
-                foreach (DataRow fila in ds.Tables[0].Rows)
-                {
-                    Prenda p = new Prenda();
-                    p.Id = (int)fila["IDproducto"];
-                    p.Categoria = "" + fila["Categoria"].ToString();
-                    p.Descripcion = "" + fila["Descripcion"].ToString();
-                    p.Talla = "" + fila["Talla"].ToString();
-                    p.Nombre = "" + fila["Nombre"].ToString();
-                    p.Color = "" + fila["Color"].ToString();
-                    p.Stock = (int)fila["Stock"];
-                    p.Precio = (double)fila["Precio"];
-                    p.Activo = (bool)fila["Activo"];
-                    listaPrendas.Add(p);
-                }
+                btnRefrescar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+
+                listaPrendas = await new DBProducto().LeerProducto();
+
+                btnRefrescar.Enabled = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+
+            
                 productoDGV.Rows.Clear();
 
                 for(int i=0; i<listaPrendas.Count; i++)
@@ -75,7 +56,7 @@ namespace GUIs.Visual
             catch (Exception ex)
             {
                 new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
-                    "Intenta nuevamente! " + ex).ShowDialog();
+                     ex.Message).ShowDialog();
             }
             
         }
@@ -132,15 +113,14 @@ namespace GUIs.Visual
             CargarTabla();
         }
 
-        private async void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", "Seguro ? si elimina el registro no podrá recuperarlo").ShowDialog();
+            DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", "Seguro que desea inhabilitar producto?").ShowDialog();
             if (result == DialogResult.OK)
             {
                 int i = productoDGV.CurrentRow.Index;
 
-                await Task.Run(() => db.instruccionDB("Delete from Productos WHERE IDproducto = '" +
-                        productoDGV.Rows[i].Cells["ID"].Value.ToString() + "'"));
+                new DBProducto().InhabilitarProducto((int)productoDGV.Rows[i].Cells["ID"].Value);
 
                 CargarTabla();
             }
@@ -183,22 +163,18 @@ namespace GUIs.Visual
             {
                 int i = productoDGV.CurrentRow.Index;
 
-                await Task.Run(() => db.consultar($"SELECT IDproducto, Nombre, " +
-                    $"Categoria, Talla, Descripcion, Color, Stock, Precio" +
-                    $" FROM Productos WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                var productos = await new DBProducto().LeerProducto((int)productoDGV.Rows[i].Cells["ID"].Value);
+                Prenda p = productos[0];
                 
-                DataSet dsa = db.Ds;
-
-                
-                NewProduct np = new NewProduct(Int32.Parse(""+dsa.Tables[0].Rows[0]["IDproducto"].ToString()));
+                NewProduct np = new NewProduct(p.Id);
                 np.lblTitulo.Text = "Editar Producto";
-                np.tbNombreProd.Texts = ""+dsa.Tables[0].Rows[0]["Nombre"].ToString();
-                np.cbCateg.Text = dsa.Tables[0].Rows[0]["Categoria"].ToString();
-                np.cbTalla.Text = dsa.Tables[0].Rows[0]["Talla"].ToString(); 
-                np.tbDescrip.Texts = ""+dsa.Tables[0].Rows[0]["Descripcion"].ToString();
-                np.cbColor.Text = dsa.Tables[0].Rows[0]["Color"].ToString();
-                np.tbStock.Texts = ""+dsa.Tables[0].Rows[0]["Stock"].ToString();
-                np.tbPrecio.Texts = ""+dsa.Tables[0].Rows[0]["Precio"].ToString();
+                np.tbNombreProd.Texts = p.Nombre;
+                np.cbCateg.Text = p.Categoria;
+                np.cbTalla.Text = p.Talla; 
+                np.tbDescrip.Texts = p.Descripcion;
+                np.cbColor.Text = p.Color;
+                np.tbStock.Texts = p.Stock.ToString();
+                np.tbPrecio.Texts = p.Precio.ToString();
 
 
                 if (np.ShowDialog() != DialogResult.Abort)
@@ -217,7 +193,7 @@ namespace GUIs.Visual
             }
         }
 
-        private async void btnSuma_Click(object sender, EventArgs e)
+        private void btnSuma_Click(object sender, EventArgs e)
         {
             if(productoDGV.CurrentRow != null)
             {
@@ -227,9 +203,9 @@ namespace GUIs.Visual
 
                 if (result == DialogResult.OK)
                 {
-                    await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
+                    db.instruccionDB($"UPDATE Productos SET " +
                         $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) + cbCantidad.Value} " +
-                        $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                        $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}");
 
                     cbCantidad.Value = 0;
                     CargarTabla();
@@ -270,7 +246,7 @@ namespace GUIs.Visual
             }    
         }
 
-        private async void btnMenos_Click(object sender, EventArgs e)
+        private void btnMenos_Click(object sender, EventArgs e)
         {
             if(productoDGV.CurrentRow != null)
             {
@@ -282,9 +258,9 @@ namespace GUIs.Visual
                     $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
                     if (result == DialogResult.OK)
                     {
-                        await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
+                        db.instruccionDB($"UPDATE Productos SET " +
                             $"Stock={Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value} " +
-                            $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                            $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}");
 
                         CargarTabla();
                     }
@@ -292,11 +268,11 @@ namespace GUIs.Visual
                 else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) == 0)
                 {
                     DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Al restar {cbCantidad.Value}" +
-                    $" eliminará {productoDGV.Rows[i].Cells["Nombre"].Value}, desea continuar?").ShowDialog();
+                    $" inactivará {productoDGV.Rows[i].Cells["Nombre"].Value}, desea continuar?").ShowDialog();
                     if (result == DialogResult.OK)
                     {
-                        await Task.Run(() => db.instruccionDB($"DELETE FROM Productos " +
-                            $"WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}"));
+                        db.instruccionDB($"UPDATE Productos SET " +
+                            $"Activo= 0 WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}");
 
                         CargarTabla();
                     }

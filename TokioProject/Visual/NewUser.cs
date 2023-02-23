@@ -36,7 +36,7 @@ namespace Individual.Visual
         }
 
 
-        private async void enviar()
+        private void Enviar()
         {
             if (cedUser.Text.Trim() != "" && nomUser.Text.Trim() != ""
                 && correoUser.Text.Trim().ToLower() != "" && edadUser.Text.Trim() != "")
@@ -50,20 +50,9 @@ namespace Individual.Visual
                 Persona p = new Persona(nomUser.Text, cedUser.Text, correoUser.Text,
                     Int32.Parse(edadUser.Text), admin, aByte, "");
 
-                SqlConnection con = db.conectarDB();
-
-                SqlCommand comando = new SqlCommand("actualizaUsuario", con);
-                comando.CommandType = CommandType.StoredProcedure;
-
-                comando.Parameters.Add(new SqlParameter("@cedula", p.Cedula));
-                comando.Parameters.Add(new SqlParameter("@nombre", p.Nombre));
-                comando.Parameters.Add(new SqlParameter("@correo", p.Correo.ToLower()));
-                comando.Parameters.Add(new SqlParameter("@edad", p.Edad));
-                comando.Parameters.Add(new SqlParameter("@admin", p.Admin));
-                comando.Parameters.Add(new SqlParameter("@imagen", p.Foto));
                 this.Hide();
-                await Task.Run(() => comando.ExecuteNonQuery());
-                con.Close();
+
+                new DBPersona().ActualizaUsuario(p);
                 this.Close();
             }
             else
@@ -94,7 +83,7 @@ namespace Individual.Visual
         {
             if (!cedUser.Enabled)
             {
-                enviar();
+                Enviar();
             }
             else if (cedUser.Enabled)
             {
@@ -122,12 +111,12 @@ namespace Individual.Visual
                             }
                             else
                             {
-                                enviar();
+                                Enviar();
                             }
                         }
                         else
                         {
-                            enviar();
+                            Enviar();
                         }
                     }
                     else

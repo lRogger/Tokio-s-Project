@@ -46,7 +46,7 @@ namespace GUIs.Visual
             
         }
 
-        private async void Editar()
+        private void Editar()
         {
             if (tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
             {
@@ -60,15 +60,11 @@ namespace GUIs.Visual
                 p.Stock = Int32.Parse(tbStock.Texts);
                 p.Precio = Double.Parse(tbPrecio.Texts);
 
-                //Esto se usa por problemas con double en sql
-                string doubleArreglado = p.Precio.ToString("0.00", CultureInfo.InvariantCulture);
+                
 
                 this.Hide();
 
-                await Task.Run(() => db.instruccionDB($"UPDATE Productos SET " +
-                    $"Nombre='{p.Nombre}',Categoria='{p.Categoria}',Talla='{p.Talla}'," +
-                    $"Descripcion='{p.Descripcion}',Color='{p.Color}'," +
-                    $"Stock={p.Stock},Precio={doubleArreglado} WHERE IDproducto = '{id}'"));
+                new DBProducto().EditarProducto(p, id);
 
                 this.Close();
             }
@@ -92,17 +88,10 @@ namespace GUIs.Visual
                 p.Stock = Int32.Parse(tbStock.Texts);
                 p.Precio = Double.Parse(tbPrecio.Texts);
 
-                //Esto se usa por problemas con double en sql
-                string doubleArreglado = p.Precio.ToString("0.00", CultureInfo.InvariantCulture);
-
                 this.Hide();
-                
-                
+
                 //INSERCIÓN DE PRODUCTO
-                await Task.Run(() => db.instruccionDB($"INSERT INTO Productos(Nombre, " +
-                    $"Categoria, Talla, Descripcion, Color, Stock, Precio) " +
-                    $"VALUES('{p.Nombre}', '{p.Categoria}', '{p.Talla}', '{p.Descripcion}', " +
-                    $"'{p.Color}', '{p.Stock}', {doubleArreglado})"));
+                new DBProducto().CrearProducto(p);
 
                 //INSERCIÓN DEL HISTORIAL
                 await Task.Run(() => db.instruccionDB($"INSERT INTO Registros()"));

@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.separador = new System.Windows.Forms.Panel();
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             this.btnRefrescar = new System.Windows.Forms.Button();
-            this.usersDGV = new System.Windows.Forms.DataGridView();
+            this.registrosDGV = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Encargado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buscarUser = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -102,57 +102,58 @@
             this.btnRefrescar.TabIndex = 20;
             this.btnRefrescar.Text = "🔄";
             this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
-            // usersDGV
+            // registrosDGV
             // 
-            this.usersDGV.AllowUserToAddRows = false;
-            this.usersDGV.AllowUserToDeleteRows = false;
-            this.usersDGV.AllowUserToResizeColumns = false;
-            this.usersDGV.AllowUserToResizeRows = false;
-            this.usersDGV.BackgroundColor = System.Drawing.Color.White;
-            this.usersDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usersDGV.CausesValidation = false;
-            this.usersDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.usersDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usersDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.usersDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.registrosDGV.AllowUserToAddRows = false;
+            this.registrosDGV.AllowUserToDeleteRows = false;
+            this.registrosDGV.AllowUserToResizeColumns = false;
+            this.registrosDGV.AllowUserToResizeRows = false;
+            this.registrosDGV.BackgroundColor = System.Drawing.Color.White;
+            this.registrosDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.registrosDGV.CausesValidation = false;
+            this.registrosDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.registrosDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.registrosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.registrosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.registrosDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.Cedula,
-            this.Nombre,
-            this.Correo,
-            this.Edad,
-            this.Imagen});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.usersDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.usersDGV.EnableHeadersVisualStyles = false;
-            this.usersDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.usersDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.usersDGV.Location = new System.Drawing.Point(12, 104);
-            this.usersDGV.MultiSelect = false;
-            this.usersDGV.Name = "usersDGV";
-            this.usersDGV.ReadOnly = true;
-            this.usersDGV.RowHeadersWidth = 4;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.usersDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.usersDGV.RowTemplate.Height = 25;
-            this.usersDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.usersDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDGV.Size = new System.Drawing.Size(537, 353);
-            this.usersDGV.TabIndex = 21;
+            this.Fecha,
+            this.Encargado,
+            this.Producto,
+            this.Descripcion,
+            this.Cantidad});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.registrosDGV.DefaultCellStyle = dataGridViewCellStyle5;
+            this.registrosDGV.EnableHeadersVisualStyles = false;
+            this.registrosDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.registrosDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.registrosDGV.Location = new System.Drawing.Point(12, 104);
+            this.registrosDGV.MultiSelect = false;
+            this.registrosDGV.Name = "registrosDGV";
+            this.registrosDGV.ReadOnly = true;
+            this.registrosDGV.RowHeadersWidth = 4;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.registrosDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.registrosDGV.RowTemplate.Height = 25;
+            this.registrosDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.registrosDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.registrosDGV.Size = new System.Drawing.Size(537, 353);
+            this.registrosDGV.TabIndex = 21;
             // 
             // Id
             // 
@@ -162,46 +163,47 @@
             this.Id.ReadOnly = true;
             this.Id.Width = 50;
             // 
-            // Cedula
+            // Fecha
             // 
-            this.Cedula.Frozen = true;
-            this.Cedula.HeaderText = "Cedula";
-            this.Cedula.Name = "Cedula";
-            this.Cedula.ReadOnly = true;
-            this.Cedula.Width = 80;
+            this.Fecha.Frozen = true;
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 80;
             // 
-            // Nombre
+            // Encargado
             // 
-            this.Nombre.Frozen = true;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 105;
+            this.Encargado.Frozen = true;
+            this.Encargado.HeaderText = "Encargado";
+            this.Encargado.Name = "Encargado";
+            this.Encargado.ReadOnly = true;
+            this.Encargado.Width = 105;
             // 
-            // Correo
+            // Producto
             // 
-            this.Correo.Frozen = true;
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 180;
+            this.Producto.Frozen = true;
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 180;
             // 
-            // Edad
+            // Descripcion
             // 
-            this.Edad.Frozen = true;
-            this.Edad.HeaderText = "Edad";
-            this.Edad.Name = "Edad";
-            this.Edad.ReadOnly = true;
-            this.Edad.Width = 50;
+            this.Descripcion.Frozen = true;
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 50;
             // 
-            // Imagen
+            // Cantidad
             // 
-            this.Imagen.Frozen = true;
-            this.Imagen.HeaderText = "Imagen";
-            this.Imagen.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Imagen.Name = "Imagen";
-            this.Imagen.ReadOnly = true;
-            this.Imagen.Width = 55;
+            this.Cantidad.Frozen = true;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Cantidad.Width = 55;
             // 
             // buscarUser
             // 
@@ -232,7 +234,7 @@
             this.ClientSize = new System.Drawing.Size(560, 470);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.buscarUser);
-            this.Controls.Add(this.usersDGV);
+            this.Controls.Add(this.registrosDGV);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.separador);
@@ -242,7 +244,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegistroHistorial";
             this.Text = "RegistroHistorial";
-            ((System.ComponentModel.ISupportInitialize)(this.usersDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,14 +256,14 @@
         private Panel separador;
         private Individual.Visual.ComponentesMod.RJButton btnCerrar;
         private Button btnRefrescar;
-        public DataGridView usersDGV;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn Cedula;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Correo;
-        private DataGridViewTextBoxColumn Edad;
-        private DataGridViewImageColumn Imagen;
+        public DataGridView registrosDGV;
         private TextBox buscarUser;
         private DateTimePicker dateTimePicker1;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Fecha;
+        private DataGridViewTextBoxColumn Encargado;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn Descripcion;
+        private DataGridViewTextBoxColumn Cantidad;
     }
 }

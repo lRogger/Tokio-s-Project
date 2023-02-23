@@ -13,10 +13,6 @@ namespace Individual
     public partial class Login : Form
     {
         private int posX = 0, posY = 0;
-        private DataSet ds = new DataSet();
-        private DataBase db = new DataBase();
-
-        public DataSet Ds { get => ds; set => ds = value; }
 
         public Login()
         {
@@ -40,21 +36,14 @@ namespace Individual
                     tbpwd.Enabled = false;
                     tbUser.Enabled = false;
                     btnIniciar.Enabled = false;
+                    
+                    List<Persona> personas = await new DBPersona().LeerPersona(tbUser.Texts);
+                    
 
-                    await Task.Run(() => db.consultar("SELECT * FROM Personas WHERE Cedula = '" + tbUser.Texts.Trim() + "'"));
-                    Ds.Tables.Clear();
-                    Ds = db.Ds;
-
-                    if (Ds.Tables[0].Rows.Count > 0)
+                    if (personas.Count > 0)
                     {
-                        Persona sesion = new Persona();
-                        sesion.Id = (int)Ds.Tables[0].Rows[0]["Id"];
-                        sesion.Cedula = (string)Ds.Tables[0].Rows[0]["Cedula"];
-                        sesion.Nombre = (string)Ds.Tables[0].Rows[0]["Nombre"];
-                        sesion.Correo = (string)Ds.Tables[0].Rows[0]["Correo"];
-                        sesion.Admin = (bool)Ds.Tables[0].Rows[0]["Admin"];
-                        sesion.Foto = (byte[])Ds.Tables[0].Rows[0]["Imagen"];
-                        sesion.Password = (string)Ds.Tables[0].Rows[0]["Password"];
+
+                        Persona sesion = personas[0];
                         if (BCrypt.Net.BCrypt.Verify(tbpwd.Texts, sesion.Password))
                         {
 

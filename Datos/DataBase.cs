@@ -1,6 +1,8 @@
-﻿using System.Data;
+﻿using Entidades;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Datos
 {
@@ -55,14 +57,14 @@ namespace Datos
 
         }
 
-        public void instruccionDB(string cmd)
+        public async void instruccionDB(string cmd)
         {
             SqlConnection con = conectarDB();
             SqlCommand comando = new SqlCommand(cmd, con);
 
             try
             {
-                comando.ExecuteNonQuery();
+                await comando.ExecuteNonQueryAsync();
             }
             catch (Exception e)
             {
@@ -71,6 +73,36 @@ namespace Datos
 
             con.Close();
         }
+
+        public async void SpDB(string sp, List<SqlParameter> parametros)
+        {
+
+            SqlConnection con = conectarDB();
+
+            SqlCommand comando = new SqlCommand(sp, con);
+            comando.CommandType = CommandType.StoredProcedure;
+
+            foreach(SqlParameter p in parametros)
+            {
+                comando.Parameters.Add(p);
+            }
+            await comando.ExecuteNonQueryAsync();
+            con.Close();
+        }
+
+        public async Task<SqlDataReader> SpConsulta(string sp)
+        {
+            SqlConnection con = conectarDB();
+
+            SqlCommand comando = new SqlCommand(sp, con);
+            comando.CommandType = CommandType.StoredProcedure;
+
+            SqlDataReader reader = await comando.ExecuteReaderAsync();
+
+            return reader;
+
+        }
+
 
     }
 }

@@ -75,22 +75,21 @@ namespace Individual.Visual
             if (usersDGV.SelectedRows.Count > 0)
             {
                 int i = usersDGV.CurrentRow.Index;
-                await Task.Run(() => db.consultar("Select Cedula, Nombre, Correo, Edad, Admin, Imagen" +
-                    " FROM Personas WHERE Cedula = " + usersDGV.Rows[i].Cells["Cedula"].Value.ToString()));
-                DataSet dsa = db.Ds;
 
 
+                var personas = await new DBPersona().LeerPersona((string)usersDGV.Rows[i].Cells["Cedula"].Value);
+                Persona p = personas[0];
+                
                 NewUser nu = new NewUser();
-                nu.cedUser.Text = dsa.Tables[0].Rows[0]["Cedula"].ToString();
+                nu.cedUser.Text = p.Cedula;
                 nu.cedUser.Enabled = false;
 
-                nu.nomUser.Text = dsa.Tables[0].Rows[0]["Nombre"].ToString();
-                nu.correoUser.Text = dsa.Tables[0].Rows[0]["Correo"].ToString();
-                nu.edadUser.Text = dsa.Tables[0].Rows[0]["Edad"].ToString();
-                nu.admUser.Checked = (dsa.Tables[0].Rows[0]["Admin"].ToString() == "True")
-                    ? true : false;
+                nu.nomUser.Text = p.Nombre;
+                nu.correoUser.Text = p.Correo;
+                nu.edadUser.Text = p.Edad.ToString();
+                nu.admUser.Checked = p.Admin;
 
-                MemoryStream ms = new MemoryStream((byte[])dsa.Tables[0].Rows[0]["Imagen"]);
+                MemoryStream ms = new MemoryStream(p.Foto);
                 Image img = Image.FromStream(ms);
                 nu.fotoUser.Image = img;
 
@@ -113,7 +112,7 @@ namespace Individual.Visual
         }
 
 
-        private async void eliminar_Click(object sender, EventArgs e)
+        private void eliminar_Click(object sender, EventArgs e)
         {
 
 
@@ -123,8 +122,8 @@ namespace Individual.Visual
             {
                 int i = usersDGV.CurrentRow.Index;
 
-                await Task.Run(()=> db.instruccionDB("Delete from Personas WHERE Cedula = " +
-                        usersDGV.Rows[i].Cells["Cedula"].Value.ToString()));
+                string ced = (string)usersDGV.Rows[i].Cells["Cedula"].Value;
+                new DBPersona().BorrarPersona(ced);
 
                 CargarTabla();
             }
@@ -161,45 +160,37 @@ namespace Individual.Visual
 
         private async void CargarTabla()
         {
-     
-            btnRefrescar.Enabled = false;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
-            btnCerrar.Enabled = false;
 
-            await Task.Run(() => db.consultar("SELECT Id, Cedula, Nombre, Correo, Edad, Imagen FROM Personas WHERE Cedula != '0'"));
-            btnRefrescar.Enabled = true;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btnCerrar.Enabled = true;
-
-            DataSet ds = db.Ds;
-            List<Persona> listaPersonas = new List<Persona>();
             try
             {
-                foreach (DataRow fila in ds.Tables[0].Rows)
-                {
-                    Persona p = new Persona();
-                    p.Id = (int)fila["Id"];
-                    p.Cedula = ""+fila["Cedula"].ToString();
-                    p.Nombre = "" + fila["Nombre"].ToString();
-                    p.Correo = ""+fila["Correo"].ToString();
-                    p.Edad = (int)fila["Edad"];
-                    p.Foto = (byte[])fila["Imagen"];
-                    listaPersonas.Add(p);
-                }
+                btnRefrescar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+                btnCerrar.Enabled = false;
+
+                List<Persona> listaPersonas = await new DBPersona().LeerPersona();
+
+                btnRefrescar.Enabled = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btnCerrar.Enabled = true;
+            
                 usersDGV.Rows.Clear();
                 foreach (Persona persona in listaPersonas)
                 {
-                    usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
+                    if(persona.Cedula != "0")
+                    {
+                        usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
                         , persona.Edad, persona.Foto);
+                    }
                 }
+
             }
 
             catch(Exception ex)
             {
                 new Emergente("advertencia", "ERROR", "Ha ocurrido un error al cargar la base de datos\n " +
-                    "Intenta nuevamente! "+ ex).ShowDialog();
+                     ex.Message).ShowDialog();
             }
 
         }
