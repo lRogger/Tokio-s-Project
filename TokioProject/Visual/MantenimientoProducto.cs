@@ -142,8 +142,8 @@ namespace GUIs.Visual
         private void btnCrear_Click(object sender, EventArgs e)
         {
             NewProduct np = new NewProduct();
+            np.Owner = this.ParentForm;
 
-            
             if (np.ShowDialog() != DialogResult.Abort)
             {
                 new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
@@ -175,7 +175,7 @@ namespace GUIs.Visual
                 np.cbColor.Text = p.Color;
                 np.tbStock.Texts = p.Stock.ToString();
                 np.tbPrecio.Texts = p.Precio.ToString();
-
+                np.Owner = this.ParentForm;
 
                 if (np.ShowDialog() != DialogResult.Abort)
                 {
@@ -219,7 +219,7 @@ namespace GUIs.Visual
                     registro.Fecha = DateTime.Now;
                     registro.Usuario = parent.Sesion;
                     registro.Producto = productos[0];
-                    registro.Descripcion = "Stock alterado";
+                    registro.Descripcion = "Cambios Realizados:\nStock alterado";
                     registro.Cantidad = (int)cbCantidad.Value;
                     new DBRegistros().CrearRegistro(registro);
 
@@ -289,7 +289,7 @@ namespace GUIs.Visual
                         registro.Fecha = DateTime.Now;
                         registro.Usuario = parent.Sesion;
                         registro.Producto = productos[0];
-                        registro.Descripcion = "Stock alterado";
+                        registro.Descripcion = "Cambios Realizados:\nStock alterado";
                         registro.Cantidad = (int)cbCantidad.Value*-1;
                         new DBRegistros().CrearRegistro(registro);
 
@@ -319,7 +319,7 @@ namespace GUIs.Visual
                         registro.Fecha = DateTime.Now;
                         registro.Usuario = parent.Sesion;
                         registro.Producto = productos[0];
-                        registro.Descripcion = "Stock alterado";
+                        registro.Descripcion = "Cambios Realizados:\nStock Alterado\nProducto inactivado por falta de stock";
                         registro.Cantidad = (int)cbCantidad.Value * -1;
                         new DBRegistros().CrearRegistro(registro);
 

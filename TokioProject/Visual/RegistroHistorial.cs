@@ -61,12 +61,35 @@ namespace GUIs.Visual
                         listaRegistros[i].Usuario.Nombre, listaRegistros[i].Producto.Nombre, listaRegistros[i].Cantidad);
 
                 }
+                
             }
 
             catch (Exception ex)
             {
                 new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
                      ex.Message).ShowDialog();
+            }
+        }
+
+        private void registrosDGV_SelectionChanged(object sender, EventArgs e)
+        {
+            if (registrosDGV.CurrentRow != null)
+            {
+                int i = registrosDGV.CurrentRow.Index;
+                int id = (int)registrosDGV.Rows[i].Cells["ID"].Value;
+
+                if (!lblDesc.Visible)
+                {
+                    lblDesc.Visible = true;
+                }
+                foreach (Registros r in listaRegistros)
+                {
+                    if (r.Id == id)
+                    {
+                        lblDescripcionRegistro.Text = r.Descripcion;
+                        break;
+                    }
+                }
             }
         }
     }

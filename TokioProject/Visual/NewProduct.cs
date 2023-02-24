@@ -4,6 +4,7 @@ using Datos;
 using MySqlX.XDevAPI.Relational;
 using System.Globalization;
 using LibreriaGrupal;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace GUIs.Visual
 {
@@ -46,25 +47,53 @@ namespace GUIs.Visual
             
         }
 
-        private void Editar()
+        private async void Editar()
         {
             if (tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
             {
 
-                Prenda p = new Prenda();
-                p.Nombre = tbNombreProd.Texts;
-                p.Categoria = cbCateg.Text;
-                p.Talla = cbTalla.Text;
-                p.Descripcion = tbDescrip.Texts;
-                p.Color = cbColor.Text;
-                p.Stock = Int32.Parse(tbStock.Texts);
-                p.Precio = Double.Parse(tbPrecio.Texts);
+                Prenda productoNuevo = new Prenda();
+                productoNuevo.Nombre = tbNombreProd.Texts;
+                productoNuevo.Categoria = cbCateg.Text;
+                productoNuevo.Talla = cbTalla.Text;
+                productoNuevo.Descripcion = tbDescrip.Texts;
+                productoNuevo.Color = cbColor.Text;
+                productoNuevo.Stock = Int32.Parse(tbStock.Texts);
+                productoNuevo.Precio = Double.Parse(tbPrecio.Texts);
+                productoNuevo.Id = id;
 
-                
+                var productos = await new DBProducto().LeerProducto(id);
+                Prenda productoAnterior = productos[0];
+
 
                 this.Hide();
 
-                new DBProducto().EditarProducto(p, id);
+                //UPDATE DEL PRODUCTO
+                new DBProducto().EditarProducto(productoNuevo, id);
+
+                //SECCION PARA CREAR EL REGISTRO
+                var owner = this.Owner as FrmPrincipal;
+
+                Registros registro = new Registros();
+                registro.Fecha = DateTime.Now;
+                registro.Usuario = owner!.Sesion;
+                registro.Producto = productoNuevo;
+                registro.Descripcion = "Se ha modificado el producto:\n";
+
+                foreach (var propiedad in typeof(Prenda).GetProperties())
+                {
+                    object valorAnterior = propiedad.GetValue(productoAnterior)!;
+                    object valorNuevo = propiedad.GetValue(productoNuevo)!;
+
+                    if (!Equals(valorAnterior, valorNuevo))
+                    {
+                        registro.Descripcion += $"{propiedad.Name}: {valorAnterior} => {valorNuevo}\n";
+                    }
+                }
+                registro.Cantidad = 0;
+                new DBRegistros().CrearRegistro(registro);
+
+                //-------------------------------------------------------------------
 
                 this.Close();
             }
@@ -78,7 +107,6 @@ namespace GUIs.Visual
         {
             if(tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
             {
-
                 Prenda p = new Prenda();
                 p.Nombre = tbNombreProd.Texts;
                 p.Categoria = cbCateg.Text;
@@ -91,10 +119,23 @@ namespace GUIs.Visual
                 this.Hide();
 
                 //INSERCIÓN DE PRODUCTO
-                new DBProducto().CrearProducto(p);
+                p.Id = await new DBProducto().CrearProducto(p);
 
-                //INSERCIÓN DEL HISTORIAL
-                await Task.Run(() => db.instruccionDB($"INSERT INTO Registros()"));
+                //SECCION DONDE SE CREA EL REGISTRO
+                var owner = this.Owner as FrmPrincipal;
+
+                Registros registro = new Registros();
+                registro.Fecha = DateTime.Now;
+                registro.Usuario = owner!.Sesion;
+                registro.Producto = p;
+                registro.Descripcion = "\nSe ha creado un nuevo producto";
+                registro.Cantidad = 0;
+                new DBRegistros().CrearRegistro(registro);
+                //-------------------------------------------------------------------
+
+                
+
+                
 
                 this.Close();
             }

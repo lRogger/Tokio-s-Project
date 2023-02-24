@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Datos
 {
@@ -79,15 +80,38 @@ namespace Datos
             return prendas;
         }
 
-        public void CrearProducto(Prenda p)
+        public async Task<int> CrearProducto(Prenda p)
         {
             //Esto se usa por problemas con double en sql
             string doubleArreglado = p.Precio.ToString("0.00", CultureInfo.InvariantCulture);
 
-            new DataBase().instruccionDB($"INSERT INTO Productos(Nombre, " +
-                    $"Categoria, Talla, Descripcion, Color, Stock, Precio) " +
-                    $"VALUES('{p.Nombre}', '{p.Categoria}', '{p.Talla}', '{p.Descripcion}', " +
-                    $"'{p.Color}', '{p.Stock}', {doubleArreglado})");
+            DataBase db = new DataBase();
+            int idProducto;
+            using (SqlConnection con = db.conectarDB())
+            {
+                using (SqlCommand command = new SqlCommand("InsertarProducto", con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@Nombre", p.Nombre);
+                    command.Parameters.AddWithValue("@Categoria", p.Categoria);
+                    command.Parameters.AddWithValue("@Talla", p.Talla);
+                    command.Parameters.AddWithValue("@Descripcion", p.Descripcion);
+                    command.Parameters.AddWithValue("@Color", p.Color);
+                    command.Parameters.AddWithValue("@Stock", p.Stock);
+                    command.Parameters.AddWithValue("@Precio", doubleArreglado);
+
+                    SqlParameter outputIdParam = new SqlParameter("@IdProducto", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    command.Parameters.Add(outputIdParam);
+                    await command.ExecuteNonQueryAsync();
+
+                    idProducto = Convert.ToInt32(outputIdParam.Value);
+                }
+            }
+            return idProducto;
         }
 
         public void EditarProducto(Prenda p, int id)
