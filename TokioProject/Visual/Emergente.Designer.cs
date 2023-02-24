@@ -40,6 +40,7 @@
             // 
             // flPanel
             // 
+            this.flPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.flPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.flPanel.Controls.Add(this.btnOk);
@@ -93,6 +94,9 @@
             // 
             // lblTexto
             // 
+            this.lblTexto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTexto.Location = new System.Drawing.Point(12, 34);
             this.lblTexto.Name = "lblTexto";
             this.lblTexto.Size = new System.Drawing.Size(228, 62);
@@ -102,6 +106,7 @@
             // 
             // panelMod1
             // 
+            this.panelMod1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelMod1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
             this.panelMod1.BorderRadius = 0;
             this.panelMod1.Controls.Add(this.lblTitulo);
