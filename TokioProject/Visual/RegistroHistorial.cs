@@ -14,9 +14,9 @@ using System.Windows.Forms;
 namespace GUIs.Visual
 {
     public partial class RegistroHistorial : Form
-    {
-
+    {     
         private List<Registros> listaRegistros;
+        DescripcionRegistro dr = new DescripcionRegistro();
 
         public RegistroHistorial()
         {
@@ -91,6 +91,21 @@ namespace GUIs.Visual
                     }
                 }
             }
+        }
+
+        private void VentanaDescripcionRegistro()
+        {
+            if (dr.IsDisposed)
+            {
+                dr = new DescripcionRegistro();
+            }
+            //dr.TopLevel = false;
+            dr.Show();
+        }
+
+        private void btnDescripcion_Click(object sender, EventArgs e)
+        {
+            VentanaDescripcionRegistro();
         }
     }
 }
