@@ -44,13 +44,7 @@
             this.buscarUser = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnDescripcion = new Individual.Visual.ComponentesMod.RJButton();
-            this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
-            this.btnMenos = new Individual.Visual.ComponentesMod.RJButton();
-            this.lblDesc = new System.Windows.Forms.Label();
-            this.panelDescripcionRegistro = new System.Windows.Forms.Panel();
-            this.lblDescripcionRegistro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).BeginInit();
-            this.panelDescripcionRegistro.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -157,7 +151,7 @@
             this.registrosDGV.RowTemplate.Height = 25;
             this.registrosDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.registrosDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.registrosDGV.Size = new System.Drawing.Size(537, 295);
+            this.registrosDGV.Size = new System.Drawing.Size(537, 339);
             this.registrosDGV.TabIndex = 21;
             this.registrosDGV.SelectionChanged += new System.EventHandler(this.registrosDGV_SelectionChanged);
             // 
@@ -246,93 +240,12 @@
             this.btnDescripcion.UseVisualStyleBackColor = false;
             this.btnDescripcion.Click += new System.EventHandler(this.btnDescripcion_Click);
             // 
-            // btnSuma
-            // 
-            this.btnSuma.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSuma.BackColor = System.Drawing.Color.Transparent;
-            this.btnSuma.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnSuma.BorderColor = System.Drawing.Color.White;
-            this.btnSuma.BorderRadius = 0;
-            this.btnSuma.BorderSize = 0;
-            this.btnSuma.FlatAppearance.BorderSize = 0;
-            this.btnSuma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSuma.ForeColor = System.Drawing.Color.White;
-            this.btnSuma.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSuma.Location = new System.Drawing.Point(652, -3);
-            this.btnSuma.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSuma.Name = "btnSuma";
-            this.btnSuma.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSuma.Size = new System.Drawing.Size(32, 31);
-            this.btnSuma.TabIndex = 28;
-            this.btnSuma.Text = "➕";
-            this.btnSuma.TextColor = System.Drawing.Color.White;
-            this.btnSuma.UseVisualStyleBackColor = false;
-            // 
-            // btnMenos
-            // 
-            this.btnMenos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMenos.AutoSize = true;
-            this.btnMenos.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenos.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMenos.BorderColor = System.Drawing.Color.White;
-            this.btnMenos.BorderRadius = 0;
-            this.btnMenos.BorderSize = 0;
-            this.btnMenos.FlatAppearance.BorderSize = 0;
-            this.btnMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnMenos.ForeColor = System.Drawing.Color.White;
-            this.btnMenos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMenos.Location = new System.Drawing.Point(550, -3);
-            this.btnMenos.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMenos.Name = "btnMenos";
-            this.btnMenos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnMenos.Size = new System.Drawing.Size(43, 31);
-            this.btnMenos.TabIndex = 29;
-            this.btnMenos.Text = "➖";
-            this.btnMenos.TextColor = System.Drawing.Color.White;
-            this.btnMenos.UseVisualStyleBackColor = false;
-            // 
-            // lblDesc
-            // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Font = new System.Drawing.Font("Britanica-Heavy", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDesc.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblDesc.Location = new System.Drawing.Point(3, 13);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(50, 39);
-            this.lblDesc.TabIndex = 31;
-            this.lblDesc.Text = "📄";
-            this.lblDesc.Visible = false;
-            // 
-            // panelDescripcionRegistro
-            // 
-            this.panelDescripcionRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.panelDescripcionRegistro.Controls.Add(this.lblDesc);
-            this.panelDescripcionRegistro.Controls.Add(this.lblDescripcionRegistro);
-            this.panelDescripcionRegistro.Controls.Add(this.btnMenos);
-            this.panelDescripcionRegistro.Controls.Add(this.btnSuma);
-            this.panelDescripcionRegistro.Location = new System.Drawing.Point(12, 397);
-            this.panelDescripcionRegistro.Name = "panelDescripcionRegistro";
-            this.panelDescripcionRegistro.Size = new System.Drawing.Size(539, 61);
-            this.panelDescripcionRegistro.TabIndex = 28;
-            // 
-            // lblDescripcionRegistro
-            // 
-            this.lblDescripcionRegistro.Font = new System.Drawing.Font("Britanica-Bold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDescripcionRegistro.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblDescripcionRegistro.Location = new System.Drawing.Point(59, 0);
-            this.lblDescripcionRegistro.Name = "lblDescripcionRegistro";
-            this.lblDescripcionRegistro.Size = new System.Drawing.Size(477, 61);
-            this.lblDescripcionRegistro.TabIndex = 30;
-            // 
             // RegistroHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 470);
             this.Controls.Add(this.btnDescripcion);
-            this.Controls.Add(this.panelDescripcionRegistro);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.buscarUser);
             this.Controls.Add(this.btnRefrescar);
@@ -346,8 +259,6 @@
             this.Name = "RegistroHistorial";
             this.Text = "RegistroHistorial";
             ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).EndInit();
-            this.panelDescripcionRegistro.ResumeLayout(false);
-            this.panelDescripcionRegistro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,10 +279,5 @@
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Cantidad;
         private Individual.Visual.ComponentesMod.RJButton btnDescripcion;
-        private Individual.Visual.ComponentesMod.RJButton btnSuma;
-        private Individual.Visual.ComponentesMod.RJButton btnMenos;
-        private Label lblDesc;
-        private Panel panelDescripcionRegistro;
-        private Label lblDescripcionRegistro;
     }
 }

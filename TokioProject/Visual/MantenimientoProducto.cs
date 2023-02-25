@@ -33,8 +33,8 @@ namespace GUIs.Visual
                 btnRefrescar.Enabled = true;
                 btnEditar.Enabled = true;
                 btnEliminar.Enabled = true;
-
-            
+                tbBuscarProducto.Text = "";
+                
                 productoDGV.Rows.Clear();
 
                 for(int i=0; i<listaPrendas.Count; i++)
@@ -46,8 +46,11 @@ namespace GUIs.Visual
                     {
                         
                         productoDGV.Rows[i].Visible = false;
-                        productoDGV.Rows[i].ReadOnly = true;
 
+                    }
+                    if (!listaPrendas[i].Activo) 
+                    {
+                        productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242,231,243);
                     }
 
                 }
@@ -203,11 +206,16 @@ namespace GUIs.Visual
 
                 if (result == DialogResult.OK)
                 {
+                    string inactivo = "";
                     int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value + (int)cbCantidad.Value);
                     int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
                     new DBProducto().ActualizarStock(stock,IDproducto);
-                    
-                    
+                    if(Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) == 0 && cbCantidad.Value > 0)
+                    {
+                        db.instruccionDB($"UPDATE Productos SET " +
+                            $"Activo=1 WHERE IDproducto = {IDproducto}");
+                        inactivo = "Se ha activado el producto por ingreso de stock\n";
+                    }
 
                     //SECCION DONDE SE CREA EL REGISTRO
                     var parent = this.ParentForm as FrmPrincipal;
@@ -219,7 +227,7 @@ namespace GUIs.Visual
                     registro.Fecha = DateTime.Now;
                     registro.Usuario = parent.Sesion;
                     registro.Producto = productos[0];
-                    registro.Descripcion = "Cambios Realizados:\nStock alterado";
+                    registro.Descripcion = inactivo+"Cambios Realizados:\nStock alterado";
                     registro.Cantidad = (int)cbCantidad.Value;
                     new DBRegistros().CrearRegistro(registro);
 
@@ -278,6 +286,7 @@ namespace GUIs.Visual
                         int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
                         int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
                         new DBProducto().ActualizarStock(stock, IDproducto);
+                        
 
                         //SECCION DONDE SE CREA EL REGISTRO
                         var parent = this.ParentForm as FrmPrincipal;
@@ -305,9 +314,10 @@ namespace GUIs.Visual
                     if (result == DialogResult.OK)
                     {
                         int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
-
+                        int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
+                        new DBProducto().ActualizarStock(stock, IDproducto);
                         db.instruccionDB($"UPDATE Productos SET " +
-                            $"Activo= 0 WHERE IDproducto = {productoDGV.Rows[i].Cells["ID"].Value}");
+                            $"Activo= 0 WHERE IDproducto = {IDproducto}");
 
                         //SECCION DONDE SE CREA EL REGISTRO
                         var parent = this.ParentForm as FrmPrincipal;
@@ -337,6 +347,11 @@ namespace GUIs.Visual
             {
                 new Emergente("advertencia", "ERROR", "No hay una fila seleccionada").ShowDialog();
             }
+        }
+
+        private void cbInactivo_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarTabla();
         }
     }
 }

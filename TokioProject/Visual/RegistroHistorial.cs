@@ -16,7 +16,6 @@ namespace GUIs.Visual
     public partial class RegistroHistorial : Form
     {     
         private List<Registros> listaRegistros;
-        DescripcionRegistro dr = new DescripcionRegistro();
 
         public RegistroHistorial()
         {
@@ -73,33 +72,24 @@ namespace GUIs.Visual
 
         private void registrosDGV_SelectionChanged(object sender, EventArgs e)
         {
-            if (registrosDGV.CurrentRow != null)
-            {
-                int i = registrosDGV.CurrentRow.Index;
-                int id = (int)registrosDGV.Rows[i].Cells["ID"].Value;
-
-                if (!lblDesc.Visible)
-                {
-                    lblDesc.Visible = true;
-                }
-                foreach (Registros r in listaRegistros)
-                {
-                    if (r.Id == id)
-                    {
-                        lblDescripcionRegistro.Text = r.Descripcion;
-                        break;
-                    }
-                }
-            }
+            
         }
 
         private void VentanaDescripcionRegistro()
         {
-            if (dr.IsDisposed)
+            if (registrosDGV.SelectedRows.Count > 0)
             {
-                dr = new DescripcionRegistro();
+                int i = registrosDGV.CurrentRow.Index;
+
+                foreach(Registros r in listaRegistros)
+                {
+                    if(r.Id == (int)registrosDGV.Rows[i].Cells["ID"].Value){
+                        DescripcionRegistro dr = new DescripcionRegistro();
+                        dr.lblDescripcionRegistro.Text = r.Descripcion;
+                        dr.ShowDialog();
+                    }
+                }
             }
-            dr.Show();
         }
 
         private void btnDescripcion_Click(object sender, EventArgs e)

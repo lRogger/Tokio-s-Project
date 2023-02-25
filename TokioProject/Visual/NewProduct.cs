@@ -64,9 +64,15 @@ namespace GUIs.Visual
 
                 var productos = await new DBProducto().LeerProducto(id);
                 Prenda productoAnterior = productos[0];
+                if (productoNuevo.Stock==0)
+                {
+                    productoNuevo.Activo = false;
+                }
+                else
+                {
+                    productoNuevo.Activo = true;
+                }
 
-
-                this.Hide();
 
                 //UPDATE DEL PRODUCTO
                 new DBProducto().EditarProducto(productoNuevo, id);
@@ -78,7 +84,16 @@ namespace GUIs.Visual
                 registro.Fecha = DateTime.Now;
                 registro.Usuario = owner!.Sesion;
                 registro.Producto = productoNuevo;
-                registro.Descripcion = "Se ha modificado el producto:\n";
+                if (productoNuevo.Stock == 0)
+                {
+                    registro.Descripcion = "Se ha inactivado el producto por falta de stock\nSe ha modificado el producto:\n";
+                }else if(productoAnterior.Stock == 0 && productoNuevo.Stock>0)  {
+                    registro.Descripcion = "Se ha activado el producto por ingreso de stock\nSe ha modificado el producto:\n";
+                }
+                else
+                {
+                    registro.Descripcion = "Se ha modificado el producto:\n";
+                }
 
                 foreach (var propiedad in typeof(Prenda).GetProperties())
                 {
@@ -90,7 +105,7 @@ namespace GUIs.Visual
                         registro.Descripcion += $"{propiedad.Name}: {valorAnterior} => {valorNuevo}\n";
                     }
                 }
-                registro.Cantidad = 0;
+                registro.Cantidad = productoNuevo.Stock - productoAnterior.Stock;
                 new DBRegistros().CrearRegistro(registro);
 
                 //-------------------------------------------------------------------

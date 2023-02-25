@@ -44,6 +44,7 @@ namespace Entidades
             this.color = "";
             this.stock = 0;
             this.precio = 0;
+            this.activo = true;
         }
 
         public int Id { get => id; set => id = value; }

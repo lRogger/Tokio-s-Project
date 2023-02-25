@@ -119,10 +119,11 @@ namespace Datos
             //Esto se usa por problemas con double en sql
             string doubleArreglado = p.Precio.ToString("0.00", CultureInfo.InvariantCulture);
 
+            int activo = (p.Activo) ? 1 : 0;
             new DataBase().instruccionDB($"UPDATE Productos SET " +
                     $"Nombre='{p.Nombre}',Categoria='{p.Categoria}',Talla='{p.Talla}'," +
                     $"Descripcion='{p.Descripcion}',Color='{p.Color}'," +
-                    $"Stock={p.Stock},Precio={doubleArreglado} WHERE IDproducto = '{id}'");
+                    $"Stock={p.Stock},Precio={doubleArreglado}, Activo={activo} WHERE IDproducto = '{id}'");
         }
 
         public void ActualizarStock(int stock, int id)

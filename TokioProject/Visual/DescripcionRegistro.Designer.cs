@@ -30,12 +30,12 @@
         {
             this.lblDesc = new System.Windows.Forms.Label();
             this.panelDescripcionRegistro = new System.Windows.Forms.Panel();
-            this.lblDescripcionRegistro = new System.Windows.Forms.Label();
             this.btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
+            this.lblDescripcionRegistro = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panelDescripcionRegistro.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,6 @@
             this.lblDesc.Size = new System.Drawing.Size(224, 39);
             this.lblDesc.TabIndex = 31;
             this.lblDesc.Text = "📄 Descripción";
-            this.lblDesc.Visible = false;
             // 
             // panelDescripcionRegistro
             // 
@@ -63,15 +62,6 @@
             this.panelDescripcionRegistro.Name = "panelDescripcionRegistro";
             this.panelDescripcionRegistro.Size = new System.Drawing.Size(446, 255);
             this.panelDescripcionRegistro.TabIndex = 29;
-            // 
-            // lblDescripcionRegistro
-            // 
-            this.lblDescripcionRegistro.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDescripcionRegistro.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcionRegistro.Location = new System.Drawing.Point(22, 29);
-            this.lblDescripcionRegistro.Name = "lblDescripcionRegistro";
-            this.lblDescripcionRegistro.Size = new System.Drawing.Size(393, 191);
-            this.lblDescripcionRegistro.TabIndex = 30;
             // 
             // btnMenos
             // 
@@ -120,6 +110,15 @@
             this.btnSuma.TextColor = System.Drawing.Color.White;
             this.btnSuma.UseVisualStyleBackColor = false;
             // 
+            // lblDescripcionRegistro
+            // 
+            this.lblDescripcionRegistro.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDescripcionRegistro.ForeColor = System.Drawing.Color.White;
+            this.lblDescripcionRegistro.Location = new System.Drawing.Point(22, 29);
+            this.lblDescripcionRegistro.Name = "lblDescripcionRegistro";
+            this.lblDescripcionRegistro.Size = new System.Drawing.Size(393, 191);
+            this.lblDescripcionRegistro.TabIndex = 30;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
@@ -130,15 +129,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(446, 72);
             this.panel1.TabIndex = 30;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 72);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(446, 3);
-            this.panel2.TabIndex = 31;
             // 
             // btnCerrar
             // 
@@ -160,6 +150,15 @@
             this.btnCerrar.TextColor = System.Drawing.Color.White;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 72);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(446, 3);
+            this.panel2.TabIndex = 31;
             // 
             // DescripcionRegistro
             // 
@@ -186,11 +185,11 @@
 
         private Label lblDesc;
         private Panel panelDescripcionRegistro;
-        private Label lblDescripcionRegistro;
         private Individual.Visual.ComponentesMod.RJButton btnMenos;
         private Individual.Visual.ComponentesMod.RJButton btnSuma;
         private Panel panel1;
         private Panel panel2;
         private Individual.Visual.ComponentesMod.RJButton btnCerrar;
+        public Label lblDescripcionRegistro;
     }
 }
