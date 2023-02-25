@@ -99,7 +99,6 @@ namespace GUIs.Visual
             {
                 dr = new DescripcionRegistro();
             }
-            //dr.TopLevel = false;
             dr.Show();
         }
 
