@@ -41,7 +41,7 @@ namespace GUIs.Visual
                 {
                     productoDGV.Rows.Add(listaPrendas[i].Id, listaPrendas[i].Nombre, listaPrendas[i].Categoria,
                         listaPrendas[i].Talla, listaPrendas[i].Color, listaPrendas[i].Stock,
-                        listaPrendas[i].Precio);
+                        listaPrendas[i].Precio, listaPrendas[i].Activo);
                     if (!listaPrendas[i].Activo && !cbInactivo.Checked)
                     {
                         
@@ -77,16 +77,17 @@ namespace GUIs.Visual
                 bool prendaCoincide = false;
                 for (int i = 0; i < row.Cells.Count; i++)
                 {
-                    if (i != 3 && (""+row.Cells[i].Value.ToString()).ToLower()
+                    if (i != 3 && i!=7 && (""+row.Cells[i].Value.ToString()).ToLower()
                         .Contains(tbBuscarProducto.Text.ToLower()))
                     {
+                        
                         prendaCoincide = true;
                         break;
                     }
                     
                 }
                 if (!prendaCoincide || (!(""+row.Cells[3].Value.ToString()).ToLower()
-                    .Equals(talla.ToLower()) && talla != ""))
+                    .Equals(talla.ToLower()) && talla != "") || (!(bool)row.Cells[7].Value && !cbInactivo.Checked))
                 {
                     row.Visible = false;
                 }
@@ -214,7 +215,7 @@ namespace GUIs.Visual
                     {
                         db.instruccionDB($"UPDATE Productos SET " +
                             $"Activo=1 WHERE IDproducto = {IDproducto}");
-                        inactivo = "Se ha activado el producto por ingreso de stock\n";
+                        inactivo = "•Se ha activado el producto por ingreso de stock\n";
                     }
 
                     //SECCION DONDE SE CREA EL REGISTRO
@@ -227,7 +228,7 @@ namespace GUIs.Visual
                     registro.Fecha = DateTime.Now;
                     registro.Usuario = parent.Sesion;
                     registro.Producto = productos[0];
-                    registro.Descripcion = inactivo+"Cambios Realizados:\nStock alterado";
+                    registro.Descripcion = inactivo+ "➢Cambios Realizados:\n·Stock alterado";
                     registro.Cantidad = (int)cbCantidad.Value;
                     new DBRegistros().CrearRegistro(registro);
 
@@ -298,7 +299,7 @@ namespace GUIs.Visual
                         registro.Fecha = DateTime.Now;
                         registro.Usuario = parent.Sesion;
                         registro.Producto = productos[0];
-                        registro.Descripcion = "Cambios Realizados:\nStock alterado";
+                        registro.Descripcion = "•Cambios Realizados:\n  -Stock alterado";
                         registro.Cantidad = (int)cbCantidad.Value*-1;
                         new DBRegistros().CrearRegistro(registro);
 
@@ -329,7 +330,7 @@ namespace GUIs.Visual
                         registro.Fecha = DateTime.Now;
                         registro.Usuario = parent.Sesion;
                         registro.Producto = productos[0];
-                        registro.Descripcion = "Cambios Realizados:\nStock Alterado\nProducto inactivado por falta de stock";
+                        registro.Descripcion = "•Cambios Realizados:\n  -Stock Alterado\n -Producto inactivado por falta de stock";
                         registro.Cantidad = (int)cbCantidad.Value * -1;
                         new DBRegistros().CrearRegistro(registro);
 

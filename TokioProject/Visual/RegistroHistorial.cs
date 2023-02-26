@@ -96,5 +96,46 @@ namespace GUIs.Visual
         {
             VentanaDescripcionRegistro();
         }
+
+        private void buscarUser_TextChanged(object sender, EventArgs e)
+        {
+            if (tbBuscarRegistro.Text.Trim() != "")
+            {
+                registrosDGV.CurrentCell = null;
+                foreach (DataGridViewRow row in registrosDGV.Rows)
+                {
+                    bool encontrado = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value != null &&
+                            (cell.Value.ToString() + "").ToLower().Contains(tbBuscarRegistro.Text.ToLower()))
+                        {
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (encontrado)
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+
+                        row.Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in registrosDGV.Rows)
+                {
+                    if (!row.Visible)
+                    {
+                        row.Visible = true;
+                    }
+                }
+            }
+        }
     }
 }

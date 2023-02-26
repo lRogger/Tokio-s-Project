@@ -33,13 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.productoDGV = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBuscarProducto = new System.Windows.Forms.TextBox();
             this.separador = new System.Windows.Forms.Panel();
             this.cbTalla = new System.Windows.Forms.ComboBox();
@@ -56,6 +49,14 @@
             this.btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cbInactivo = new System.Windows.Forms.CheckBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCantidad)).BeginInit();
             this.panel1.SuspendLayout();
@@ -88,7 +89,8 @@
             this.Talla,
             this.Color,
             this.Stock,
-            this.Precio});
+            this.Precio,
+            this.Activo});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -121,62 +123,6 @@
             this.productoDGV.Size = new System.Drawing.Size(540, 286);
             this.productoDGV.TabIndex = 11;
             this.productoDGV.SelectionChanged += new System.EventHandler(this.productoDGV_SelectionChanged);
-            // 
-            // ID
-            // 
-            this.ID.Frozen = true;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 40;
-            // 
-            // Nombre
-            // 
-            this.Nombre.Frozen = true;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 190;
-            // 
-            // Categoria
-            // 
-            this.Categoria.Frozen = true;
-            this.Categoria.HeaderText = "Categoría";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 70;
-            // 
-            // Talla
-            // 
-            this.Talla.Frozen = true;
-            this.Talla.HeaderText = "Talla";
-            this.Talla.Name = "Talla";
-            this.Talla.ReadOnly = true;
-            this.Talla.Width = 40;
-            // 
-            // Color
-            // 
-            this.Color.Frozen = true;
-            this.Color.HeaderText = "Color";
-            this.Color.Name = "Color";
-            this.Color.ReadOnly = true;
-            this.Color.Width = 75;
-            // 
-            // Stock
-            // 
-            this.Stock.Frozen = true;
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 45;
-            // 
-            // Precio
-            // 
-            this.Precio.Frozen = true;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            this.Precio.Width = 80;
             // 
             // tbBuscarProducto
             // 
@@ -415,6 +361,70 @@
             this.cbInactivo.UseVisualStyleBackColor = true;
             this.cbInactivo.CheckedChanged += new System.EventHandler(this.cbInactivo_CheckedChanged);
             // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 40;
+            // 
+            // Nombre
+            // 
+            this.Nombre.Frozen = true;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 190;
+            // 
+            // Categoria
+            // 
+            this.Categoria.Frozen = true;
+            this.Categoria.HeaderText = "Categoría";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 70;
+            // 
+            // Talla
+            // 
+            this.Talla.Frozen = true;
+            this.Talla.HeaderText = "Talla";
+            this.Talla.Name = "Talla";
+            this.Talla.ReadOnly = true;
+            this.Talla.Width = 40;
+            // 
+            // Color
+            // 
+            this.Color.Frozen = true;
+            this.Color.HeaderText = "Color";
+            this.Color.Name = "Color";
+            this.Color.ReadOnly = true;
+            this.Color.Width = 75;
+            // 
+            // Stock
+            // 
+            this.Stock.Frozen = true;
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 45;
+            // 
+            // Precio
+            // 
+            this.Precio.Frozen = true;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 80;
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "";
+            this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
+            this.Activo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Activo.Visible = false;
+            // 
             // MantenimientoProducto
             // 
             this.AllowDrop = true;
@@ -463,6 +473,9 @@
         private Individual.Visual.ComponentesMod.RJButton btnSuma;
         private Label lblDescripcion;
         private Label lblDesc;
+        private Label label2;
+        public CheckBox cbInactivo;
+        public Button btnCrear;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Categoria;
@@ -470,8 +483,6 @@
         private DataGridViewTextBoxColumn Color;
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn Precio;
-        private Label label2;
-        public CheckBox cbInactivo;
-        public Button btnCrear;
+        private DataGridViewTextBoxColumn Activo;
     }
 }

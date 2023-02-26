@@ -104,7 +104,11 @@ namespace Individual.Visual
             mp.TopLevel = false;
             this.panelPrincipal.Controls.Clear();
             this.panelPrincipal.Controls.Add(mp);
-            mp.Show();
+            if (!mp.IsDisposed)
+            {
+                mp.Show();
+            }
+            
         }
 
 

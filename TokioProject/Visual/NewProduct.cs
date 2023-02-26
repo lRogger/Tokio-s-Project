@@ -86,13 +86,13 @@ namespace GUIs.Visual
                 registro.Producto = productoNuevo;
                 if (productoNuevo.Stock == 0)
                 {
-                    registro.Descripcion = "Se ha inactivado el producto por falta de stock\nSe ha modificado el producto:\n";
+                    registro.Descripcion = "•Se ha inactivado el producto por falta de stock\n•Se ha modificado el producto:\n";
                 }else if(productoAnterior.Stock == 0 && productoNuevo.Stock>0)  {
-                    registro.Descripcion = "Se ha activado el producto por ingreso de stock\nSe ha modificado el producto:\n";
+                    registro.Descripcion = "•Se ha activado el producto por ingreso de stock\n•Se ha modificado el producto:\n";
                 }
                 else
                 {
-                    registro.Descripcion = "Se ha modificado el producto:\n";
+                    registro.Descripcion = "•Se ha modificado el producto:\n";
                 }
 
                 foreach (var propiedad in typeof(Prenda).GetProperties())
@@ -102,7 +102,7 @@ namespace GUIs.Visual
 
                     if (!Equals(valorAnterior, valorNuevo))
                     {
-                        registro.Descripcion += $"{propiedad.Name}: {valorAnterior} => {valorNuevo}\n";
+                        registro.Descripcion += $"  -{propiedad.Name}: {valorAnterior} => {valorNuevo}\n";
                     }
                 }
                 registro.Cantidad = productoNuevo.Stock - productoAnterior.Stock;
@@ -143,7 +143,7 @@ namespace GUIs.Visual
                 registro.Fecha = DateTime.Now;
                 registro.Usuario = owner!.Sesion;
                 registro.Producto = p;
-                registro.Descripcion = "\nSe ha creado un nuevo producto";
+                registro.Descripcion = "•Se ha creado un nuevo producto";
                 registro.Cantidad = 0;
                 new DBRegistros().CrearRegistro(registro);
                 //-------------------------------------------------------------------

@@ -41,8 +41,7 @@
             this.Encargado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buscarUser = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tbBuscarRegistro = new System.Windows.Forms.TextBox();
             this.btnDescripcion = new Individual.Visual.ComponentesMod.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +144,9 @@
             this.registrosDGV.MultiSelect = false;
             this.registrosDGV.Name = "registrosDGV";
             this.registrosDGV.ReadOnly = true;
+            this.registrosDGV.RowHeadersVisible = false;
             this.registrosDGV.RowHeadersWidth = 4;
+            this.registrosDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.registrosDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.registrosDGV.RowTemplate.Height = 25;
@@ -197,27 +198,17 @@
             this.Cantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Cantidad.Width = 95;
             // 
-            // buscarUser
+            // tbBuscarRegistro
             // 
-            this.buscarUser.BackColor = System.Drawing.Color.White;
-            this.buscarUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.buscarUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buscarUser.Location = new System.Drawing.Point(11, 81);
-            this.buscarUser.Name = "buscarUser";
-            this.buscarUser.PlaceholderText = " 🔎 Buscar...";
-            this.buscarUser.Size = new System.Drawing.Size(229, 22);
-            this.buscarUser.TabIndex = 22;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(254, 79);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(174, 27);
-            this.dateTimePicker1.TabIndex = 23;
-            this.dateTimePicker1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyDown);
+            this.tbBuscarRegistro.BackColor = System.Drawing.Color.White;
+            this.tbBuscarRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbBuscarRegistro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBuscarRegistro.Location = new System.Drawing.Point(11, 81);
+            this.tbBuscarRegistro.Name = "tbBuscarRegistro";
+            this.tbBuscarRegistro.PlaceholderText = " 🔎 Buscar...";
+            this.tbBuscarRegistro.Size = new System.Drawing.Size(423, 22);
+            this.tbBuscarRegistro.TabIndex = 22;
+            this.tbBuscarRegistro.TextChanged += new System.EventHandler(this.buscarUser_TextChanged);
             // 
             // btnDescripcion
             // 
@@ -246,8 +237,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 470);
             this.Controls.Add(this.btnDescripcion);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.buscarUser);
+            this.Controls.Add(this.tbBuscarRegistro);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.separador);
@@ -271,8 +261,7 @@
         private Individual.Visual.ComponentesMod.RJButton btnCerrar;
         private Button btnRefrescar;
         public DataGridView registrosDGV;
-        private TextBox buscarUser;
-        private DateTimePicker dateTimePicker1;
+        private TextBox tbBuscarRegistro;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Encargado;
