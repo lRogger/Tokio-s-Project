@@ -46,6 +46,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelDescripcionRegistro.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +65,7 @@
             // panelDescripcionRegistro
             // 
             this.panelDescripcionRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
+            this.panelDescripcionRegistro.Controls.Add(this.label2);
             this.panelDescripcionRegistro.Controls.Add(this.lblCantidad);
             this.panelDescripcionRegistro.Controls.Add(this.label9);
             this.panelDescripcionRegistro.Controls.Add(this.lblProducto);
@@ -80,7 +82,7 @@
             this.panelDescripcionRegistro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDescripcionRegistro.Location = new System.Drawing.Point(0, 69);
             this.panelDescripcionRegistro.Name = "panelDescripcionRegistro";
-            this.panelDescripcionRegistro.Size = new System.Drawing.Size(446, 194);
+            this.panelDescripcionRegistro.Size = new System.Drawing.Size(446, 223);
             this.panelDescripcionRegistro.TabIndex = 29;
             this.panelDescripcionRegistro.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDescripcionRegistro_Paint);
             // 
@@ -202,7 +204,7 @@
             this.btnMenos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMenos.ForeColor = System.Drawing.Color.White;
             this.btnMenos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMenos.Location = new System.Drawing.Point(673, 44);
+            this.btnMenos.Location = new System.Drawing.Point(673, 58);
             this.btnMenos.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenos.Name = "btnMenos";
             this.btnMenos.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -225,7 +227,7 @@
             this.btnSuma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSuma.ForeColor = System.Drawing.Color.White;
             this.btnSuma.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSuma.Location = new System.Drawing.Point(775, 44);
+            this.btnSuma.Location = new System.Drawing.Point(775, 58);
             this.btnSuma.Margin = new System.Windows.Forms.Padding(0);
             this.btnSuma.Name = "btnSuma";
             this.btnSuma.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -287,11 +289,22 @@
             this.panel2.Size = new System.Drawing.Size(446, 3);
             this.panel2.TabIndex = 31;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britanica-Heavy", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(29, 172);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 22);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "CAMBIOS:";
+            // 
             // DescripcionRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 263);
+            this.ClientSize = new System.Drawing.Size(446, 292);
             this.ControlBox = false;
             this.Controls.Add(this.panelDescripcionRegistro);
             this.Controls.Add(this.panel2);
@@ -328,5 +341,6 @@
         private Label label9;
         public Label lblProducto;
         private Label label7;
+        private Label label2;
     }
 }
