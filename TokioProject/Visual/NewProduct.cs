@@ -143,7 +143,7 @@ namespace GUIs.Visual
                 registro.Fecha = DateTime.Now;
                 registro.Usuario = owner!.Sesion;
                 registro.Producto = p;
-                registro.Descripcion = "•Se ha creado un nuevo producto";
+                registro.Descripcion = "•Se ha creado este producto";
                 registro.Cantidad = 0;
                 new DBRegistros().CrearRegistro(registro);
                 //-------------------------------------------------------------------

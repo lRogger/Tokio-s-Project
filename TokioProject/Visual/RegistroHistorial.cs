@@ -84,8 +84,7 @@ namespace GUIs.Visual
                 foreach(Registros r in listaRegistros)
                 {
                     if(r.Id == (int)registrosDGV.Rows[i].Cells["ID"].Value){
-                        DescripcionRegistro dr = new DescripcionRegistro();
-                        dr.lblDescripcionRegistro.Text = r.Descripcion;
+                        DescripcionRegistro dr = new DescripcionRegistro(r);
                         dr.ShowDialog();
                     }
                 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace GUIs.Visual
 {
     public partial class DescripcionRegistro : Form
     {
-        public DescripcionRegistro()
+        public DescripcionRegistro(Registros r)
         {
             InitializeComponent();
+            lblDescripcionRegistro.Text = r.Descripcion;
+            lblIdentificacion.Text = r.Id.ToString();
+            lblDia.Text = r.Fecha.ToString("D");
+            lblEncargado.Text = r.Usuario.Nombre.ToString();
+            lblProducto.Text = r.Producto.Nombre.ToString();
+            lblCantidad.Text = r.Cantidad.ToString();
+            this.Height += lblDescripcionRegistro.Height;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

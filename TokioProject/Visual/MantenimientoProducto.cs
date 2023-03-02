@@ -228,7 +228,7 @@ namespace GUIs.Visual
                     registro.Fecha = DateTime.Now;
                     registro.Usuario = parent.Sesion;
                     registro.Producto = productos[0];
-                    registro.Descripcion = inactivo+ "➢Cambios Realizados:\n·Stock alterado";
+                    registro.Descripcion = inactivo+ "•Cambios Realizados:\n    -Stock alterado";
                     registro.Cantidad = (int)cbCantidad.Value;
                     new DBRegistros().CrearRegistro(registro);
 
@@ -330,7 +330,7 @@ namespace GUIs.Visual
                         registro.Fecha = DateTime.Now;
                         registro.Usuario = parent.Sesion;
                         registro.Producto = productos[0];
-                        registro.Descripcion = "•Cambios Realizados:\n  -Stock Alterado\n -Producto inactivado por falta de stock";
+                        registro.Descripcion = "•Cambios Realizados:\n  -Stock Alterado\n   -Producto inactivado por falta de stock";
                         registro.Cantidad = (int)cbCantidad.Value * -1;
                         new DBRegistros().CrearRegistro(registro);
 
