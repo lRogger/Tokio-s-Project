@@ -202,40 +202,45 @@ namespace GUIs.Visual
             if(productoDGV.CurrentRow != null)
             {
                 int i = productoDGV.CurrentRow.Index;
-                DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea agregar {cbCantidad.Value}" +
+                if (cbCantidad.Value > 0)
+                {
+                    DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea agregar {cbCantidad.Value}" +
                     $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
 
-                if (result == DialogResult.OK)
-                {
-                    string inactivo = "";
-                    int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value + (int)cbCantidad.Value);
-                    int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
-                    new DBProducto().ActualizarStock(stock,IDproducto);
-                    if(Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) == 0 && cbCantidad.Value > 0)
+                    if (result == DialogResult.OK)
                     {
-                        db.instruccionDB($"UPDATE Productos SET " +
-                            $"Activo=1 WHERE IDproducto = {IDproducto}");
-                        inactivo = "•Se ha activado el producto por ingreso de stock\n";
+                        string inactivo = "";
+                        int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value + (int)cbCantidad.Value);
+                        int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
+                        new DBProducto().ActualizarStock(stock, IDproducto);
+                        if (Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) == 0 && cbCantidad.Value > 0)
+                        {
+                            db.instruccionDB($"UPDATE Productos SET " +
+                                $"Activo=1 WHERE IDproducto = {IDproducto}");
+                            inactivo = "•Se ha activado el producto por ingreso de stock\n";
+                        }
+
+                        //SECCION DONDE SE CREA EL REGISTRO
+                        var parent = this.ParentForm as FrmPrincipal;
+                        Persona usuario = parent!.Sesion;
+
+                        var productos = await new DBProducto().LeerProducto(IDproducto);
+
+                        Registros registro = new Registros();
+                        registro.Fecha = DateTime.Now;
+                        registro.Usuario = parent.Sesion;
+                        registro.Producto = productos[0];
+                        registro.Descripcion = inactivo + "•Cambios Realizados:\n    -Stock alterado";
+                        registro.Cantidad = (int)cbCantidad.Value;
+                        new DBRegistros().CrearRegistro(registro);
+
+                        //-------------------------------------------------------------------
+                        cbCantidad.Value = 0;
+                        CargarTabla();
                     }
-
-                    //SECCION DONDE SE CREA EL REGISTRO
-                    var parent = this.ParentForm as FrmPrincipal;
-                    Persona usuario = parent!.Sesion;
-
-                    var productos = await new DBProducto().LeerProducto(IDproducto);
-
-                    Registros registro = new Registros();
-                    registro.Fecha = DateTime.Now;
-                    registro.Usuario = parent.Sesion;
-                    registro.Producto = productos[0];
-                    registro.Descripcion = inactivo+ "•Cambios Realizados:\n    -Stock alterado";
-                    registro.Cantidad = (int)cbCantidad.Value;
-                    new DBRegistros().CrearRegistro(registro);
-
-                    //-------------------------------------------------------------------
-                    cbCantidad.Value = 0;
-                    CargarTabla();
                 }
+
+                
             }
             else
             {
@@ -277,72 +282,76 @@ namespace GUIs.Visual
             {
                 int i = productoDGV.CurrentRow.Index;
 
-                if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) > 0)
+                if(cbCantidad.Value > 0)
                 {
-                    DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea restar {cbCantidad.Value}" +
-                    $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
-                    if (result == DialogResult.OK)
+                    if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) > 0)
                     {
+                        DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Desea restar {cbCantidad.Value}" +
+                        $" a {productoDGV.Rows[i].Cells["Nombre"].Value}?").ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
 
-                        int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
-                        int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
-                        new DBProducto().ActualizarStock(stock, IDproducto);
-                        
+                            int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
+                            int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
+                            new DBProducto().ActualizarStock(stock, IDproducto);
 
-                        //SECCION DONDE SE CREA EL REGISTRO
-                        var parent = this.ParentForm as FrmPrincipal;
-                        Persona usuario = parent!.Sesion;
 
-                        var productos = await new DBProducto().LeerProducto(IDproducto);
+                            //SECCION DONDE SE CREA EL REGISTRO
+                            var parent = this.ParentForm as FrmPrincipal;
+                            Persona usuario = parent!.Sesion;
 
-                        Registros registro = new Registros();
-                        registro.Fecha = DateTime.Now;
-                        registro.Usuario = parent.Sesion;
-                        registro.Producto = productos[0];
-                        registro.Descripcion = "•Cambios Realizados:\n  -Stock alterado";
-                        registro.Cantidad = (int)cbCantidad.Value*-1;
-                        new DBRegistros().CrearRegistro(registro);
+                            var productos = await new DBProducto().LeerProducto(IDproducto);
 
-                        //-------------------------------------------------------------------
-                        cbCantidad.Value = 0;
-                        CargarTabla();
+                            Registros registro = new Registros();
+                            registro.Fecha = DateTime.Now;
+                            registro.Usuario = parent.Sesion;
+                            registro.Producto = productos[0];
+                            registro.Descripcion = "•Cambios Realizados:\n  -Stock alterado";
+                            registro.Cantidad = (int)cbCantidad.Value * -1;
+                            new DBRegistros().CrearRegistro(registro);
+
+                            //-------------------------------------------------------------------
+                            cbCantidad.Value = 0;
+                            CargarTabla();
+                        }
+                    }
+                    else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) == 0)
+                    {
+                        DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Al restar {cbCantidad.Value}" +
+                        $" inactivará {productoDGV.Rows[i].Cells["Nombre"].Value}, desea continuar?").ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
+                            int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
+                            new DBProducto().ActualizarStock(stock, IDproducto);
+                            db.instruccionDB($"UPDATE Productos SET " +
+                                $"Activo= 0 WHERE IDproducto = {IDproducto}");
+
+                            //SECCION DONDE SE CREA EL REGISTRO
+                            var parent = this.ParentForm as FrmPrincipal;
+                            Persona usuario = parent!.Sesion;
+
+                            var productos = await new DBProducto().LeerProducto(IDproducto);
+
+                            Registros registro = new Registros();
+                            registro.Fecha = DateTime.Now;
+                            registro.Usuario = parent.Sesion;
+                            registro.Producto = productos[0];
+                            registro.Descripcion = "•Cambios Realizados:\n  -Stock Alterado\n   -Producto inactivado por falta de stock";
+                            registro.Cantidad = (int)cbCantidad.Value * -1;
+                            new DBRegistros().CrearRegistro(registro);
+
+                            //-------------------------------------------------------------------
+                            cbCantidad.Value = 0;
+                            CargarTabla();
+                        }
+                    }
+                    else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) < 0)
+                    {
+                        new Emergente("advertencia", "ERROR", "No hay tanto stock!").ShowDialog();
                     }
                 }
-                else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) == 0)
-                {
-                    DialogResult result = new Emergente("si / no", "ATENCIÓN ⚠️", $"Al restar {cbCantidad.Value}" +
-                    $" inactivará {productoDGV.Rows[i].Cells["Nombre"].Value}, desea continuar?").ShowDialog();
-                    if (result == DialogResult.OK)
-                    {
-                        int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
-                        int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
-                        new DBProducto().ActualizarStock(stock, IDproducto);
-                        db.instruccionDB($"UPDATE Productos SET " +
-                            $"Activo= 0 WHERE IDproducto = {IDproducto}");
-
-                        //SECCION DONDE SE CREA EL REGISTRO
-                        var parent = this.ParentForm as FrmPrincipal;
-                        Persona usuario = parent!.Sesion;
-
-                        var productos = await new DBProducto().LeerProducto(IDproducto);
-
-                        Registros registro = new Registros();
-                        registro.Fecha = DateTime.Now;
-                        registro.Usuario = parent.Sesion;
-                        registro.Producto = productos[0];
-                        registro.Descripcion = "•Cambios Realizados:\n  -Stock Alterado\n   -Producto inactivado por falta de stock";
-                        registro.Cantidad = (int)cbCantidad.Value * -1;
-                        new DBRegistros().CrearRegistro(registro);
-
-                        //-------------------------------------------------------------------
-                        cbCantidad.Value = 0;
-                        CargarTabla();
-                    }
-                }
-                else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) < 0)
-                {
-                    new Emergente("advertencia", "ERROR", "No hay tanto stock!").ShowDialog();
-                }
+                
             }
             else
             {
