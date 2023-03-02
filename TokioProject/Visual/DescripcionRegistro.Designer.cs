@@ -88,7 +88,7 @@
             // 
             this.lblCantidad.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCantidad.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad.Location = new System.Drawing.Point(120, 117);
+            this.lblCantidad.Location = new System.Drawing.Point(118, 122);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(298, 29);
             this.lblCantidad.TabIndex = 42;
@@ -110,7 +110,7 @@
             // 
             this.lblProducto.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblProducto.ForeColor = System.Drawing.Color.White;
-            this.lblProducto.Location = new System.Drawing.Point(120, 83);
+            this.lblProducto.Location = new System.Drawing.Point(118, 87);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(298, 29);
             this.lblProducto.TabIndex = 40;
@@ -132,7 +132,7 @@
             // 
             this.lblEncargado.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEncargado.ForeColor = System.Drawing.Color.White;
-            this.lblEncargado.Location = new System.Drawing.Point(133, 50);
+            this.lblEncargado.Location = new System.Drawing.Point(132, 54);
             this.lblEncargado.Name = "lblEncargado";
             this.lblEncargado.Size = new System.Drawing.Size(285, 29);
             this.lblEncargado.TabIndex = 38;
@@ -152,7 +152,7 @@
             // 
             this.lblDia.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDia.ForeColor = System.Drawing.Color.White;
-            this.lblDia.Location = new System.Drawing.Point(202, 19);
+            this.lblDia.Location = new System.Drawing.Point(196, 22);
             this.lblDia.Name = "lblDia";
             this.lblDia.Size = new System.Drawing.Size(216, 29);
             this.lblDia.TabIndex = 36;
@@ -172,7 +172,7 @@
             // 
             this.lblIdentificacion.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblIdentificacion.ForeColor = System.Drawing.Color.White;
-            this.lblIdentificacion.Location = new System.Drawing.Point(67, 16);
+            this.lblIdentificacion.Location = new System.Drawing.Point(65, 23);
             this.lblIdentificacion.Name = "lblIdentificacion";
             this.lblIdentificacion.Size = new System.Drawing.Size(56, 29);
             this.lblIdentificacion.TabIndex = 34;
@@ -182,7 +182,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Britanica-Heavy", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(29, 19);
+            this.label1.Location = new System.Drawing.Point(29, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 22);
             this.label1.TabIndex = 32;
