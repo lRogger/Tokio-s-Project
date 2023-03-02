@@ -36,25 +36,25 @@
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.registrosDGV = new System.Windows.Forms.DataGridView();
+            this.tbBuscarRegistro = new System.Windows.Forms.TextBox();
+            this.btnDescripcion = new Individual.Visual.ComponentesMod.RJButton();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Encargado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbBuscarRegistro = new System.Windows.Forms.TextBox();
-            this.btnDescripcion = new Individual.Visual.ComponentesMod.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britanica-Heavy", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Britanica-Heavy", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
             this.label1.Location = new System.Drawing.Point(7, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 39);
+            this.label1.Size = new System.Drawing.Size(155, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Historial";
             // 
@@ -95,7 +95,7 @@
             this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefrescar.Font = new System.Drawing.Font("Britanica-Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRefrescar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnRefrescar.Location = new System.Drawing.Point(399, 11);
+            this.btnRefrescar.Location = new System.Drawing.Point(398, 10);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(50, 48);
             this.btnRefrescar.TabIndex = 20;
@@ -140,7 +140,7 @@
             this.registrosDGV.EnableHeadersVisualStyles = false;
             this.registrosDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.registrosDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.registrosDGV.Location = new System.Drawing.Point(12, 119);
+            this.registrosDGV.Location = new System.Drawing.Point(12, 111);
             this.registrosDGV.MultiSelect = false;
             this.registrosDGV.Name = "registrosDGV";
             this.registrosDGV.ReadOnly = true;
@@ -152,9 +152,42 @@
             this.registrosDGV.RowTemplate.Height = 25;
             this.registrosDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.registrosDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.registrosDGV.Size = new System.Drawing.Size(537, 339);
+            this.registrosDGV.Size = new System.Drawing.Size(537, 305);
             this.registrosDGV.TabIndex = 21;
             this.registrosDGV.SelectionChanged += new System.EventHandler(this.registrosDGV_SelectionChanged);
+            // 
+            // tbBuscarRegistro
+            // 
+            this.tbBuscarRegistro.BackColor = System.Drawing.Color.White;
+            this.tbBuscarRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbBuscarRegistro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBuscarRegistro.Location = new System.Drawing.Point(11, 78);
+            this.tbBuscarRegistro.Name = "tbBuscarRegistro";
+            this.tbBuscarRegistro.PlaceholderText = " 🔎 Buscar...";
+            this.tbBuscarRegistro.Size = new System.Drawing.Size(537, 22);
+            this.tbBuscarRegistro.TabIndex = 22;
+            this.tbBuscarRegistro.TextChanged += new System.EventHandler(this.buscarUser_TextChanged);
+            // 
+            // btnDescripcion
+            // 
+            this.btnDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnDescripcion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
+            this.btnDescripcion.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDescripcion.BorderRadius = 10;
+            this.btnDescripcion.BorderSize = 0;
+            this.btnDescripcion.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnDescripcion.FlatAppearance.BorderSize = 0;
+            this.btnDescripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDescripcion.ForeColor = System.Drawing.Color.White;
+            this.btnDescripcion.Location = new System.Drawing.Point(423, 426);
+            this.btnDescripcion.Name = "btnDescripcion";
+            this.btnDescripcion.Size = new System.Drawing.Size(125, 30);
+            this.btnDescripcion.TabIndex = 29;
+            this.btnDescripcion.Text = "Ver Detalles";
+            this.btnDescripcion.TextColor = System.Drawing.Color.White;
+            this.btnDescripcion.UseVisualStyleBackColor = false;
+            this.btnDescripcion.Click += new System.EventHandler(this.btnDescripcion_Click);
             // 
             // Id
             // 
@@ -196,40 +229,7 @@
             this.Cantidad.ReadOnly = true;
             this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Cantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Cantidad.Width = 95;
-            // 
-            // tbBuscarRegistro
-            // 
-            this.tbBuscarRegistro.BackColor = System.Drawing.Color.White;
-            this.tbBuscarRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbBuscarRegistro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscarRegistro.Location = new System.Drawing.Point(11, 81);
-            this.tbBuscarRegistro.Name = "tbBuscarRegistro";
-            this.tbBuscarRegistro.PlaceholderText = " 🔎 Buscar...";
-            this.tbBuscarRegistro.Size = new System.Drawing.Size(423, 22);
-            this.tbBuscarRegistro.TabIndex = 22;
-            this.tbBuscarRegistro.TextChanged += new System.EventHandler(this.buscarUser_TextChanged);
-            // 
-            // btnDescripcion
-            // 
-            this.btnDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnDescripcion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnDescripcion.BorderColor = System.Drawing.Color.Transparent;
-            this.btnDescripcion.BorderRadius = 10;
-            this.btnDescripcion.BorderSize = 0;
-            this.btnDescripcion.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnDescripcion.FlatAppearance.BorderSize = 0;
-            this.btnDescripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDescripcion.ForeColor = System.Drawing.Color.White;
-            this.btnDescripcion.Location = new System.Drawing.Point(440, 77);
-            this.btnDescripcion.Name = "btnDescripcion";
-            this.btnDescripcion.Size = new System.Drawing.Size(108, 30);
-            this.btnDescripcion.TabIndex = 29;
-            this.btnDescripcion.Text = "Ver Detalles";
-            this.btnDescripcion.TextColor = System.Drawing.Color.White;
-            this.btnDescripcion.UseVisualStyleBackColor = false;
-            this.btnDescripcion.Click += new System.EventHandler(this.btnDescripcion_Click);
+            this.Cantidad.Width = 85;
             // 
             // RegistroHistorial
             // 
@@ -262,11 +262,11 @@
         private Button btnRefrescar;
         public DataGridView registrosDGV;
         private TextBox tbBuscarRegistro;
+        private Individual.Visual.ComponentesMod.RJButton btnDescripcion;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Encargado;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Cantidad;
-        private Individual.Visual.ComponentesMod.RJButton btnDescripcion;
     }
 }
