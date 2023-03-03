@@ -50,7 +50,8 @@ namespace GUIs.Visual
                     }
                     if (!listaPrendas[i].Activo) 
                     {
-                        productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242,231,243);
+                        //productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242,231,243);
+                        productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
                     }
 
                 }
