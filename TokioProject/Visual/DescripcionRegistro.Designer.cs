@@ -30,6 +30,7 @@
         {
             this.lblDesc = new System.Windows.Forms.Label();
             this.panelDescripcionRegistro = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelDescripcionRegistro.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,17 @@
             this.panelDescripcionRegistro.Size = new System.Drawing.Size(446, 223);
             this.panelDescripcionRegistro.TabIndex = 29;
             this.panelDescripcionRegistro.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDescripcionRegistro_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britanica-Heavy", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.Window;
+            this.label2.Location = new System.Drawing.Point(29, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 22);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "CAMBIOS:";
             // 
             // lblCantidad
             // 
@@ -242,7 +253,7 @@
             this.lblDescripcionRegistro.AutoSize = true;
             this.lblDescripcionRegistro.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDescripcionRegistro.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcionRegistro.Location = new System.Drawing.Point(29, 150);
+            this.lblDescripcionRegistro.Location = new System.Drawing.Point(30, 181);
             this.lblDescripcionRegistro.MaximumSize = new System.Drawing.Size(390, 0);
             this.lblDescripcionRegistro.Name = "lblDescripcionRegistro";
             this.lblDescripcionRegistro.Size = new System.Drawing.Size(0, 19);
@@ -288,17 +299,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(446, 3);
             this.panel2.TabIndex = 31;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Britanica-Heavy", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(29, 172);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 22);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "CAMBIOS:";
             // 
             // DescripcionRegistro
             // 
