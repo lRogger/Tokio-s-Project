@@ -140,7 +140,7 @@ namespace GUIs.Visual
                 registro.Usuario = owner!.Sesion;
                 registro.Producto = p;
                 registro.Descripcion = "•Se ha creado este producto";
-                registro.Cantidad = 0;
+                registro.Cantidad = p.Stock;
                 new DBRegistros().CrearRegistro(registro);
                 //-------------------------------------------------------------------
 
