@@ -204,12 +204,12 @@ namespace Individual.Visual
         }
         private void VentanaRegistros()
         {
-            RegistroHistorial rh = new RegistroHistorial();
+            //RegistroHistorial rh = new RegistroHistorial();
 
             rh.FormClosed += RegistroHistorial_FormClosed;
             rh.TopLevel = false;
-            mu.Hide();
             mp.Hide();
+            mu.Hide();
             this.panelPrincipal.Controls.Add(rh);
             
             rh.Show();
