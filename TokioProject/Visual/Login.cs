@@ -2,11 +2,8 @@
 using Datos;
 using Individual.Visual;
 using LibreriaGrupal;
-using System.Data;
-using System.Diagnostics;
-using Microsoft.VisualBasic.Logging;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using CustomControls.RJControls;
+using Individual.Visual.ComponentesMod;
+using System.ComponentModel.Design;
 
 namespace Individual
 {
@@ -17,12 +14,8 @@ namespace Individual
         public Login()
         {
             InitializeComponent();
-
             //Opacidad
             panelMod1.BackColor = Color.FromArgb(110, Color.Black);
-            
-
-
         }
 
         private async void ingresar()
@@ -64,8 +57,6 @@ namespace Individual
                                 this.Show();
                             };
                             tbpwd.Texts = "";
-                            //tbUser.Texts = "";
-
                         }
                         else
                         {
@@ -89,8 +80,7 @@ namespace Individual
                 }
                 catch (Exception ex)
                 {
-                    new Emergente("advertencia", "ERROR", "Problema al conectar la base de datos \n"
-                        +ex.Message).ShowDialog();
+                    new Emergente("advertencia", "ERROR", "Problema al conectar la base de datos \n"+ ex.Message).ShowDialog();
                     tbpwd.Enabled = true;
                     tbUser.Enabled = true;
                     btnIniciar.Enabled = true;
@@ -108,11 +98,24 @@ namespace Individual
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Forgotpwd fg = new Forgotpwd();
-            fg.ShowDialog();
+            LoadFormInPanel(fg,panelMod1,ref activeForm);     
         }
-
-
-
+        Form activeForm = null;
+        void LoadFormInPanel(Form form, PanelMod panel, ref Form activeform)
+        {
+            if(activeform != null)
+            {
+                activeform.Close();
+            }
+            activeform = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panel.Controls.Add(form);
+            panel.Tag = form;
+            form.BringToFront();
+            form.Show();
+        }
         private void cerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -171,6 +174,5 @@ namespace Individual
                 Top = Top + (e.Y - posY);
             }
         }
-
     }
 }

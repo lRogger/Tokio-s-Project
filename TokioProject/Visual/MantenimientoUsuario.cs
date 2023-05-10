@@ -1,7 +1,7 @@
 ﻿using Datos;
 using System.Data;
 using Entidades;
-
+using GUIs.Properties;
 
 namespace Individual.Visual
 {
@@ -88,20 +88,19 @@ namespace Individual.Visual
                 nu.correoUser.Text = p.Correo;
                 nu.edadUser.Text = p.Edad.ToString();
                 nu.admUser.Checked = p.Admin;
-
-                MemoryStream ms = new MemoryStream(p.Foto);
-                Image img = Image.FromStream(ms);
-                nu.fotoUser.Image = img;
+                nu.fotoUser.Image = (p.Foto != null) 
+                    ? Image.FromStream(new MemoryStream(p.Foto)) 
+                    : nu.fotoUser.Image = Resources.defaultAvatar;
 
                 if (nu.ShowDialog() != DialogResult.Abort)
                 {
                     new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
                     CargarTabla();
                 }
-                else
-                {
-                    new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
-                }
+                //else
+                //{
+                //    new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
+                //}
             }
             else
             {
@@ -140,10 +139,10 @@ namespace Individual.Visual
                 CargarTabla();
 
             }
-            else
-            {
-                new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
-            }
+            //else
+            //{
+            //    new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
+            //}
         }
 
 
@@ -154,13 +153,11 @@ namespace Individual.Visual
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-
             this.Close();
         }
 
         private async void CargarTabla()
         {
-
             try
             {
                 btnRefrescar.Enabled = false;
@@ -174,27 +171,30 @@ namespace Individual.Visual
                 btnEditar.Enabled = true;
                 btnEliminar.Enabled = true;
                 btnCerrar.Enabled = true;
-            
+          
                 usersDGV.Rows.Clear();
                 foreach (Persona persona in listaPersonas)
                 {
                     if(persona.Cedula != "0")
                     {
+                        if(persona.Foto == null)
+                        {
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                Resources.defaultAvatar.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                                persona.Foto = ms.ToArray();
+                            }
+                        }
                         usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
                         , persona.Edad, persona.Foto);
                     }
                 }
-
             }
-
             catch(Exception ex)
             {
                 new Emergente("advertencia", "ERROR", "Ha ocurrido un error al cargar la base de datos\n " +
                      ex.Message).ShowDialog();
             }
-
         }
-
-
     }
 }

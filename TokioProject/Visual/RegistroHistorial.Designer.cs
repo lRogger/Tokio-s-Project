@@ -28,230 +28,224 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
-            this.separador = new System.Windows.Forms.Panel();
-            this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
-            this.btnRefrescar = new System.Windows.Forms.Button();
-            this.registrosDGV = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Encargado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbBuscarRegistro = new System.Windows.Forms.TextBox();
-            this.btnDescripcion = new Individual.Visual.ComponentesMod.RJButton();
-            ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).BeginInit();
-            this.SuspendLayout();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            label1 = new Label();
+            separador = new Panel();
+            btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
+            btnRefrescar = new Button();
+            registrosDGV = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            Fecha = new DataGridViewTextBoxColumn();
+            Encargado = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            tbBuscarRegistro = new TextBox();
+            btnDescripcion = new Individual.Visual.ComponentesMod.RJButton();
+            ((System.ComponentModel.ISupportInitialize)registrosDGV).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britanica-Heavy", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.label1.Location = new System.Drawing.Point(7, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 45);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Historial";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(118, 27, 141);
+            label1.Location = new Point(7, 11);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(152, 42);
+            label1.TabIndex = 0;
+            label1.Text = "Historial";
             // 
             // separador
             // 
-            this.separador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.separador.Location = new System.Drawing.Point(11, 65);
-            this.separador.Name = "separador";
-            this.separador.Size = new System.Drawing.Size(537, 2);
-            this.separador.TabIndex = 18;
+            separador.BackColor = Color.FromArgb(70, 15, 75);
+            separador.Location = new Point(11, 65);
+            separador.Name = "separador";
+            separador.Size = new Size(537, 2);
+            separador.TabIndex = 18;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnCerrar.BorderColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BorderRadius = 10;
-            this.btnCerrar.BorderSize = 0;
-            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(451, 17);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(97, 33);
-            this.btnCerrar.TabIndex = 19;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.TextColor = System.Drawing.Color.White;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            btnCerrar.BackColor = Color.FromArgb(70, 15, 75);
+            btnCerrar.BackgroundColor = Color.FromArgb(70, 15, 75);
+            btnCerrar.BorderColor = Color.Transparent;
+            btnCerrar.BorderRadius = 10;
+            btnCerrar.BorderSize = 0;
+            btnCerrar.DialogResult = DialogResult.Cancel;
+            btnCerrar.FlatAppearance.BorderSize = 0;
+            btnCerrar.FlatStyle = FlatStyle.Flat;
+            btnCerrar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrar.ForeColor = Color.White;
+            btnCerrar.Location = new Point(451, 17);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(97, 33);
+            btnCerrar.TabIndex = 19;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.TextColor = Color.White;
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // btnRefrescar
             // 
-            this.btnRefrescar.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefrescar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnRefrescar.FlatAppearance.BorderSize = 0;
-            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefrescar.Font = new System.Drawing.Font("Britanica-Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRefrescar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnRefrescar.Location = new System.Drawing.Point(398, 10);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(50, 48);
-            this.btnRefrescar.TabIndex = 20;
-            this.btnRefrescar.Text = "🔄";
-            this.btnRefrescar.UseVisualStyleBackColor = false;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            btnRefrescar.BackColor = Color.Transparent;
+            btnRefrescar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnRefrescar.FlatAppearance.BorderSize = 0;
+            btnRefrescar.FlatStyle = FlatStyle.Flat;
+            btnRefrescar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
+            btnRefrescar.Location = new Point(398, 10);
+            btnRefrescar.Name = "btnRefrescar";
+            btnRefrescar.Size = new Size(50, 48);
+            btnRefrescar.TabIndex = 20;
+            btnRefrescar.Text = "🔄";
+            btnRefrescar.UseVisualStyleBackColor = false;
+            btnRefrescar.Click += btnRefrescar_Click;
             // 
             // registrosDGV
             // 
-            this.registrosDGV.AllowUserToAddRows = false;
-            this.registrosDGV.AllowUserToDeleteRows = false;
-            this.registrosDGV.AllowUserToResizeColumns = false;
-            this.registrosDGV.AllowUserToResizeRows = false;
-            this.registrosDGV.BackgroundColor = System.Drawing.Color.White;
-            this.registrosDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.registrosDGV.CausesValidation = false;
-            this.registrosDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.registrosDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registrosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.registrosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.registrosDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Fecha,
-            this.Encargado,
-            this.Producto,
-            this.Cantidad});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Britanica-Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.registrosDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.registrosDGV.EnableHeadersVisualStyles = false;
-            this.registrosDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.registrosDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.registrosDGV.Location = new System.Drawing.Point(12, 111);
-            this.registrosDGV.MultiSelect = false;
-            this.registrosDGV.Name = "registrosDGV";
-            this.registrosDGV.ReadOnly = true;
-            this.registrosDGV.RowHeadersVisible = false;
-            this.registrosDGV.RowHeadersWidth = 4;
-            this.registrosDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.registrosDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.registrosDGV.RowTemplate.Height = 25;
-            this.registrosDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.registrosDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.registrosDGV.Size = new System.Drawing.Size(537, 305);
-            this.registrosDGV.TabIndex = 21;
-            this.registrosDGV.SelectionChanged += new System.EventHandler(this.registrosDGV_SelectionChanged);
+            registrosDGV.AllowUserToAddRows = false;
+            registrosDGV.AllowUserToDeleteRows = false;
+            registrosDGV.AllowUserToResizeColumns = false;
+            registrosDGV.AllowUserToResizeRows = false;
+            registrosDGV.BackgroundColor = Color.White;
+            registrosDGV.BorderStyle = BorderStyle.None;
+            registrosDGV.CausesValidation = false;
+            registrosDGV.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            registrosDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            registrosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            registrosDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            registrosDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Fecha, Encargado, Producto, Cantidad });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            registrosDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            registrosDGV.EnableHeadersVisualStyles = false;
+            registrosDGV.GridColor = Color.FromArgb(64, 64, 64);
+            registrosDGV.ImeMode = ImeMode.NoControl;
+            registrosDGV.Location = new Point(12, 111);
+            registrosDGV.MultiSelect = false;
+            registrosDGV.Name = "registrosDGV";
+            registrosDGV.ReadOnly = true;
+            registrosDGV.RowHeadersVisible = false;
+            registrosDGV.RowHeadersWidth = 4;
+            registrosDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 51, 102);
+            registrosDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            registrosDGV.RowTemplate.Height = 25;
+            registrosDGV.ScrollBars = ScrollBars.Vertical;
+            registrosDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            registrosDGV.Size = new Size(537, 305);
+            registrosDGV.TabIndex = 21;
+            registrosDGV.SelectionChanged += registrosDGV_SelectionChanged;
             // 
             // Id
             // 
-            this.Id.Frozen = true;
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 50;
+            Id.Frozen = true;
+            Id.HeaderText = "ID";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Width = 50;
             // 
             // Fecha
             // 
-            this.Fecha.Frozen = true;
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 90;
+            Fecha.Frozen = true;
+            Fecha.HeaderText = "Fecha";
+            Fecha.Name = "Fecha";
+            Fecha.ReadOnly = true;
+            Fecha.Width = 90;
             // 
             // Encargado
             // 
-            this.Encargado.Frozen = true;
-            this.Encargado.HeaderText = "Encargado";
-            this.Encargado.Name = "Encargado";
-            this.Encargado.ReadOnly = true;
-            this.Encargado.Width = 125;
+            Encargado.Frozen = true;
+            Encargado.HeaderText = "Encargado";
+            Encargado.Name = "Encargado";
+            Encargado.ReadOnly = true;
+            Encargado.Width = 125;
             // 
             // Producto
             // 
-            this.Producto.Frozen = true;
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 180;
+            Producto.Frozen = true;
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            Producto.Width = 180;
             // 
             // Cantidad
             // 
-            this.Cantidad.Frozen = true;
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Cantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Cantidad.Width = 85;
+            Cantidad.Frozen = true;
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            Cantidad.Resizable = DataGridViewTriState.True;
+            Cantidad.SortMode = DataGridViewColumnSortMode.NotSortable;
+            Cantidad.Width = 85;
             // 
             // tbBuscarRegistro
             // 
-            this.tbBuscarRegistro.BackColor = System.Drawing.Color.White;
-            this.tbBuscarRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbBuscarRegistro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscarRegistro.Location = new System.Drawing.Point(11, 78);
-            this.tbBuscarRegistro.Name = "tbBuscarRegistro";
-            this.tbBuscarRegistro.PlaceholderText = " 🔎 Buscar...";
-            this.tbBuscarRegistro.Size = new System.Drawing.Size(537, 22);
-            this.tbBuscarRegistro.TabIndex = 22;
-            this.tbBuscarRegistro.TextChanged += new System.EventHandler(this.buscarUser_TextChanged);
+            tbBuscarRegistro.BackColor = Color.White;
+            tbBuscarRegistro.BorderStyle = BorderStyle.None;
+            tbBuscarRegistro.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tbBuscarRegistro.Location = new Point(11, 78);
+            tbBuscarRegistro.Name = "tbBuscarRegistro";
+            tbBuscarRegistro.PlaceholderText = " 🔎 Buscar...";
+            tbBuscarRegistro.Size = new Size(537, 22);
+            tbBuscarRegistro.TabIndex = 22;
+            tbBuscarRegistro.TextChanged += buscarUser_TextChanged;
             // 
             // btnDescripcion
             // 
-            this.btnDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnDescripcion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnDescripcion.BorderColor = System.Drawing.Color.Transparent;
-            this.btnDescripcion.BorderRadius = 10;
-            this.btnDescripcion.BorderSize = 0;
-            this.btnDescripcion.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnDescripcion.FlatAppearance.BorderSize = 0;
-            this.btnDescripcion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDescripcion.ForeColor = System.Drawing.Color.White;
-            this.btnDescripcion.Location = new System.Drawing.Point(423, 426);
-            this.btnDescripcion.Name = "btnDescripcion";
-            this.btnDescripcion.Size = new System.Drawing.Size(125, 30);
-            this.btnDescripcion.TabIndex = 29;
-            this.btnDescripcion.Text = "Ver Detalles";
-            this.btnDescripcion.TextColor = System.Drawing.Color.White;
-            this.btnDescripcion.UseVisualStyleBackColor = false;
-            this.btnDescripcion.Click += new System.EventHandler(this.btnDescripcion_Click);
+            btnDescripcion.BackColor = Color.FromArgb(128, 27, 141);
+            btnDescripcion.BackgroundColor = Color.FromArgb(128, 27, 141);
+            btnDescripcion.BorderColor = Color.Transparent;
+            btnDescripcion.BorderRadius = 10;
+            btnDescripcion.BorderSize = 0;
+            btnDescripcion.DialogResult = DialogResult.Cancel;
+            btnDescripcion.FlatAppearance.BorderSize = 0;
+            btnDescripcion.FlatStyle = FlatStyle.Flat;
+            btnDescripcion.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDescripcion.ForeColor = Color.White;
+            btnDescripcion.Location = new Point(423, 428);
+            btnDescripcion.Name = "btnDescripcion";
+            btnDescripcion.Size = new Size(125, 30);
+            btnDescripcion.TabIndex = 29;
+            btnDescripcion.Text = "Ver Detalles";
+            btnDescripcion.TextColor = Color.White;
+            btnDescripcion.UseVisualStyleBackColor = false;
+            btnDescripcion.Click += btnDescripcion_Click;
             // 
             // RegistroHistorial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 470);
-            this.Controls.Add(this.btnDescripcion);
-            this.Controls.Add(this.tbBuscarRegistro);
-            this.Controls.Add(this.btnRefrescar);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.separador);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.registrosDGV);
-            this.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "RegistroHistorial";
-            this.Text = "RegistroHistorial";
-            ((System.ComponentModel.ISupportInitialize)(this.registrosDGV)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(560, 470);
+            Controls.Add(btnDescripcion);
+            Controls.Add(tbBuscarRegistro);
+            Controls.Add(btnRefrescar);
+            Controls.Add(btnCerrar);
+            Controls.Add(separador);
+            Controls.Add(label1);
+            Controls.Add(registrosDGV);
+            Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
+            Name = "RegistroHistorial";
+            Text = "RegistroHistorial";
+            ((System.ComponentModel.ISupportInitialize)registrosDGV).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

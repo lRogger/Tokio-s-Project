@@ -4,24 +4,25 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using Entidades;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using GUIs.Properties;
 
 namespace Individual.Visual
 {
-
     public partial class NewUser : Form
     {
-
-
         private DataBase db = new DataBase();
+        private byte[] imageData;
         int posY = 0, posX = 0;
-
 
         public NewUser()
         {
             InitializeComponent();
-            
-        }
+            buscarFoto.Text =
+                (this.fotoUser.Image == Resources.defaultAvatar)
+                ? "Cambiar Foto" : "Añadir Foto";
 
+        }
 
         private void buscarFoto_Click(object sender, EventArgs e)
         {
@@ -30,11 +31,12 @@ namespace Individual.Visual
 
             if (abrirImagen.ShowDialog() == DialogResult.OK)
             {
-                fotoUser.ImageLocation = abrirImagen.FileName;
-                fotoUser.SizeMode = PictureBoxSizeMode.StretchImage;
+                string path = abrirImagen.FileName;
+
+                fotoUser.Image = Image.FromFile(path);
+                imageData = File.ReadAllBytes(path);
             }
         }
-
 
         private void Enviar()
         {
@@ -43,12 +45,8 @@ namespace Individual.Visual
             {
                 bool admin = admUser.Checked;
 
-                MemoryStream ms = new MemoryStream();
-                fotoUser.Image.Save(ms, fotoUser.Image.RawFormat);
-                byte[] aByte = ms.GetBuffer();
-
                 Persona p = new Persona(nomUser.Text, cedUser.Text, correoUser.Text,
-                    Int32.Parse(edadUser.Text), admin, aByte, "");
+                    Int32.Parse(edadUser.Text), admin, imageData, "");
 
                 this.Hide();
 
@@ -60,7 +58,6 @@ namespace Individual.Visual
                 new Emergente("advertencia", "ERROR", "Hay campos vacíos");
             }
         }
-
 
         private void NewUser_MouseMove(object sender, MouseEventArgs e)
         {
@@ -78,7 +75,6 @@ namespace Individual.Visual
 
         }
 
-
         private async void btnEnviar_Click(object sender, EventArgs e)
         {
             if (!cedUser.Enabled)
@@ -87,13 +83,13 @@ namespace Individual.Visual
             }
             else if (cedUser.Enabled)
             {
-                if(cedUser.Text.Length == 10)
+                if (cedUser.Text.Length == 10)
                 {
-                    if(correoUser.Text.IndexOf('@')>-1 && correoUser.Text.IndexOf('.') > -1)
+                    if (correoUser.Text.IndexOf('@') > -1 && correoUser.Text.IndexOf('.') > -1)
                     {
                         DataSet ds = new DataSet();
                         await Task.Run(() => db.consultar($"SELECT Cedula, Correo FROM Personas WHERE Cedula = '{cedUser.Text}'" +
-                            $" OR Correo = '{correoUser.Text}'" ));
+                            $" OR Correo = '{correoUser.Text}'"));
                         ds = db.Ds;
                         if (ds.Tables.Count > 0)
                         {
@@ -107,7 +103,7 @@ namespace Individual.Visual
                                 {
                                     new Emergente("advertencia", "ERROR", "La cédula ya se encuentra registrada").ShowDialog();
                                 }
-                                
+
                             }
                             else
                             {
@@ -123,13 +119,13 @@ namespace Individual.Visual
                     {
                         new Emergente("advertencia", "ERROR", "Formato incorrecto en correo").ShowDialog();
                     }
-                    
+
                 }
                 else
                 {
-                    new Emergente("advertencia","ERROR","Formato incorrecto en cédula").ShowDialog();
+                    new Emergente("advertencia", "ERROR", "Formato incorrecto en cédula").ShowDialog();
                 }
-                
+
             }
         }
 
@@ -180,10 +176,7 @@ namespace Individual.Visual
             {
                 lblTitulo.Text = "Editar Usuario";
             }
-
+            fotoUser.Image = Resources.defaultAvatar;
         }
-
-
-
     }
 }

@@ -11,7 +11,7 @@ namespace Datos
         public async Task<List<Registros>> LeerRegistros()
         {
             DataBase db = new DataBase();
-            SqlDataReader reader = await db.SpConsulta("ObtenerRegistrosCompleto");
+            SqlDataReader reader = await db.storeProcedureConsulta("ObtenerRegistrosCompleto");
             var listaRegistros = new List<Registros>();
 
             while (reader.Read())
@@ -28,7 +28,7 @@ namespace Datos
                 usuario.Edad = reader.GetInt32(6);
                 usuario.Password = reader.GetString(7);
                 usuario.Admin = reader.GetBoolean(8);
-                usuario.Foto = reader.GetSqlBinary(9).Value;
+                usuario.Foto = !reader.IsDBNull(9) ? reader.GetSqlBinary(9).Value : null;
                 registro.Usuario = usuario;
 
                 Prenda producto = new Prenda();
@@ -48,7 +48,7 @@ namespace Datos
 
                 listaRegistros.Add(registro);
             }
-
+            reader.Close();
             return listaRegistros;
         }
 

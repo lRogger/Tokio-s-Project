@@ -14,13 +14,13 @@ using System.Windows.Forms;
 namespace GUIs.Visual
 {
     public partial class RegistroHistorial : Form
-    {     
+    {
         private List<Registros> listaRegistros;
 
         public RegistroHistorial()
         {
             InitializeComponent();
-            listaRegistros= new List<Registros>();
+            listaRegistros = new List<Registros>();
             CargarTabla();
         }
 
@@ -31,7 +31,7 @@ namespace GUIs.Visual
 
         private void dateTimePicker1_KeyDown(object sender, KeyEventArgs e)
         {
-            e.SuppressKeyPress= true;
+            e.SuppressKeyPress = true;
         }
 
         private void btnRefrescar_Click(object sender, EventArgs e)
@@ -45,34 +45,28 @@ namespace GUIs.Visual
             {
                 btnRefrescar.Enabled = false;
 
-
                 listaRegistros = await new DBRegistros().LeerRegistros();
-
                 btnRefrescar.Enabled = true;
-
-
 
                 registrosDGV.Rows.Clear();
 
-                for (int i = listaRegistros.Count-1; i >= 0; i--)
+                for (int i = listaRegistros.Count - 1; i >= 0; i--)
                 {
                     registrosDGV.Rows.Add(listaRegistros[i].Id, listaRegistros[i].Fecha.ToString("d"),
                         listaRegistros[i].Usuario.Nombre, listaRegistros[i].Producto.Nombre, listaRegistros[i].Cantidad);
 
                 }
-                
             }
-
             catch (Exception ex)
             {
-                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
-                     ex.Message).ShowDialog();
+                MessageBox.Show("mensaje" + ex);
+                //new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " + ex.Message).ShowDialog();
             }
         }
 
         private void registrosDGV_SelectionChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void VentanaDescripcionRegistro()
@@ -81,9 +75,10 @@ namespace GUIs.Visual
             {
                 int i = registrosDGV.CurrentRow.Index;
 
-                foreach(Registros r in listaRegistros)
+                foreach (Registros r in listaRegistros)
                 {
-                    if(r.Id == (int)registrosDGV.Rows[i].Cells["ID"].Value){
+                    if (r.Id == (int)registrosDGV.Rows[i].Cells["ID"].Value)
+                    {
                         DescripcionRegistro dr = new DescripcionRegistro(r);
                         dr.ShowDialog();
                     }

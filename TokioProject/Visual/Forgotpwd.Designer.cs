@@ -28,202 +28,200 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.correofpwd = new System.Windows.Forms.TextBox();
-            this.cedulafpwd = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.newpwd = new System.Windows.Forms.TextBox();
-            this.newpwd2 = new System.Windows.Forms.TextBox();
-            this.btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnEnviar = new Individual.Visual.ComponentesMod.RJButton();
-            this.btnValidar = new Individual.Visual.ComponentesMod.RJButton();
-            this.SuspendLayout();
+            label1 = new Label();
+            label2 = new Label();
+            correofpwd = new TextBox();
+            cedulafpwd = new TextBox();
+            label3 = new Label();
+            label4 = new Label();
+            newpwd = new TextBox();
+            newpwd2 = new TextBox();
+            btnCerrar = new Visual.ComponentesMod.RJButton();
+            label5 = new Label();
+            label6 = new Label();
+            btnEnviar = new Visual.ComponentesMod.RJButton();
+            btnValidar = new Visual.ComponentesMod.RJButton();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ingresa tu Correo:";
+            label1.AutoSize = true;
+            label1.Location = new Point(39, 80);
+            label1.Name = "label1";
+            label1.Size = new Size(101, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Ingresa tu Correo:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Ingresa tu cédula:";
+            label2.AutoSize = true;
+            label2.Location = new Point(39, 124);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Ingresa tu cédula:";
             // 
             // correofpwd
             // 
-            this.correofpwd.Location = new System.Drawing.Point(27, 92);
-            this.correofpwd.Name = "correofpwd";
-            this.correofpwd.Size = new System.Drawing.Size(238, 23);
-            this.correofpwd.TabIndex = 2;
+            correofpwd.Location = new Point(39, 98);
+            correofpwd.Name = "correofpwd";
+            correofpwd.Size = new Size(238, 23);
+            correofpwd.TabIndex = 2;
             // 
             // cedulafpwd
             // 
-            this.cedulafpwd.Location = new System.Drawing.Point(27, 137);
-            this.cedulafpwd.Name = "cedulafpwd";
-            this.cedulafpwd.Size = new System.Drawing.Size(157, 23);
-            this.cedulafpwd.TabIndex = 3;
-            this.cedulafpwd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cedulafpwd_KeyPress);
+            cedulafpwd.Location = new Point(39, 143);
+            cedulafpwd.Name = "cedulafpwd";
+            cedulafpwd.Size = new Size(157, 23);
+            cedulafpwd.TabIndex = 3;
+            cedulafpwd.KeyPress += cedulafpwd_KeyPress;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 224);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Nueva contraseña:";
+            label3.AutoSize = true;
+            label3.Location = new Point(39, 230);
+            label3.Name = "label3";
+            label3.Size = new Size(105, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Nueva contraseña:";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 269);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Repetir contraseña";
+            label4.AutoSize = true;
+            label4.Location = new Point(39, 275);
+            label4.Name = "label4";
+            label4.Size = new Size(105, 15);
+            label4.TabIndex = 6;
+            label4.Text = "Repetir contraseña";
             // 
             // newpwd
             // 
-            this.newpwd.Enabled = false;
-            this.newpwd.Location = new System.Drawing.Point(27, 242);
-            this.newpwd.Name = "newpwd";
-            this.newpwd.PasswordChar = '●';
-            this.newpwd.Size = new System.Drawing.Size(238, 23);
-            this.newpwd.TabIndex = 8;
+            newpwd.Enabled = false;
+            newpwd.Location = new Point(39, 248);
+            newpwd.Name = "newpwd";
+            newpwd.PasswordChar = '●';
+            newpwd.Size = new Size(238, 23);
+            newpwd.TabIndex = 8;
             // 
             // newpwd2
             // 
-            this.newpwd2.Enabled = false;
-            this.newpwd2.Location = new System.Drawing.Point(27, 287);
-            this.newpwd2.Name = "newpwd2";
-            this.newpwd2.PasswordChar = '●';
-            this.newpwd2.Size = new System.Drawing.Size(238, 23);
-            this.newpwd2.TabIndex = 9;
-            this.newpwd2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.newpwd2_KeyPress);
+            newpwd2.Enabled = false;
+            newpwd2.Location = new Point(39, 293);
+            newpwd2.Name = "newpwd2";
+            newpwd2.PasswordChar = '●';
+            newpwd2.Size = new Size(238, 23);
+            newpwd2.TabIndex = 9;
+            newpwd2.KeyPress += newpwd2_KeyPress;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCerrar.BorderRadius = 7;
-            this.btnCerrar.BorderSize = 0;
-            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnCerrar.Location = new System.Drawing.Point(264, -1);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(38, 33);
-            this.btnCerrar.TabIndex = 11;
-            this.btnCerrar.Text = "X";
-            this.btnCerrar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            btnCerrar.BackColor = Color.Transparent;
+            btnCerrar.BackgroundColor = Color.Transparent;
+            btnCerrar.BorderColor = Color.WhiteSmoke;
+            btnCerrar.BorderRadius = 7;
+            btnCerrar.BorderSize = 0;
+            btnCerrar.DialogResult = DialogResult.Abort;
+            btnCerrar.FlatAppearance.BorderColor = Color.WhiteSmoke;
+            btnCerrar.FlatAppearance.BorderSize = 0;
+            btnCerrar.FlatStyle = FlatStyle.Flat;
+            btnCerrar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrar.ForeColor = Color.FromArgb(168, 27, 141);
+            btnCerrar.Location = new Point(271, 12);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(38, 33);
+            btnCerrar.TabIndex = 11;
+            btnCerrar.Text = "X";
+            btnCerrar.TextColor = Color.FromArgb(168, 27, 141);
+            btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.label5.Location = new System.Drawing.Point(27, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(180, 25);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Verifique sus datos";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.FromArgb(128, 27, 141);
+            label5.Location = new Point(39, 50);
+            label5.Name = "label5";
+            label5.Size = new Size(180, 25);
+            label5.TabIndex = 12;
+            label5.Text = "Verifique sus datos";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.label6.Location = new System.Drawing.Point(27, 193);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 25);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Actualice su contraseña";
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.FromArgb(128, 27, 141);
+            label6.Location = new Point(39, 199);
+            label6.Name = "label6";
+            label6.Size = new Size(220, 25);
+            label6.TabIndex = 13;
+            label6.Text = "Actualice su contraseña";
             // 
             // btnEnviar
             // 
-            this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnEnviar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnEnviar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEnviar.BorderRadius = 17;
-            this.btnEnviar.BorderSize = 0;
-            this.btnEnviar.Enabled = false;
-            this.btnEnviar.FlatAppearance.BorderSize = 0;
-            this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnviar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEnviar.ForeColor = System.Drawing.Color.White;
-            this.btnEnviar.Location = new System.Drawing.Point(27, 333);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(238, 32);
-            this.btnEnviar.TabIndex = 14;
-            this.btnEnviar.Text = "Cambiar";
-            this.btnEnviar.TextColor = System.Drawing.Color.White;
-            this.btnEnviar.UseVisualStyleBackColor = false;
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            btnEnviar.BackColor = Color.FromArgb(128, 27, 141);
+            btnEnviar.BackgroundColor = Color.FromArgb(128, 27, 141);
+            btnEnviar.BorderColor = Color.PaleVioletRed;
+            btnEnviar.BorderRadius = 17;
+            btnEnviar.BorderSize = 0;
+            btnEnviar.Enabled = false;
+            btnEnviar.FlatAppearance.BorderSize = 0;
+            btnEnviar.FlatStyle = FlatStyle.Flat;
+            btnEnviar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEnviar.ForeColor = Color.White;
+            btnEnviar.Location = new Point(39, 339);
+            btnEnviar.Name = "btnEnviar";
+            btnEnviar.Size = new Size(238, 32);
+            btnEnviar.TabIndex = 14;
+            btnEnviar.Text = "Cambiar";
+            btnEnviar.TextColor = Color.White;
+            btnEnviar.UseVisualStyleBackColor = false;
+            btnEnviar.Click += btnEnviar_Click;
             // 
             // btnValidar
             // 
-            this.btnValidar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnValidar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.btnValidar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnValidar.BorderRadius = 12;
-            this.btnValidar.BorderSize = 0;
-            this.btnValidar.FlatAppearance.BorderSize = 0;
-            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnValidar.ForeColor = System.Drawing.Color.White;
-            this.btnValidar.Location = new System.Drawing.Point(190, 137);
-            this.btnValidar.Name = "btnValidar";
-            this.btnValidar.Size = new System.Drawing.Size(75, 24);
-            this.btnValidar.TabIndex = 15;
-            this.btnValidar.Text = "Validar";
-            this.btnValidar.TextColor = System.Drawing.Color.White;
-            this.btnValidar.UseVisualStyleBackColor = false;
-            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
+            btnValidar.BackColor = Color.FromArgb(128, 27, 141);
+            btnValidar.BackgroundColor = Color.FromArgb(128, 27, 141);
+            btnValidar.BorderColor = Color.PaleVioletRed;
+            btnValidar.BorderRadius = 12;
+            btnValidar.BorderSize = 0;
+            btnValidar.FlatAppearance.BorderSize = 0;
+            btnValidar.FlatStyle = FlatStyle.Flat;
+            btnValidar.ForeColor = Color.White;
+            btnValidar.Location = new Point(202, 143);
+            btnValidar.Name = "btnValidar";
+            btnValidar.Size = new Size(75, 24);
+            btnValidar.TabIndex = 15;
+            btnValidar.Text = "Validar";
+            btnValidar.TextColor = Color.White;
+            btnValidar.UseVisualStyleBackColor = false;
+            btnValidar.Click += btnValidar_Click;
             // 
             // Forgotpwd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(302, 418);
-            this.Controls.Add(this.btnValidar);
-            this.Controls.Add(this.btnEnviar);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.newpwd2);
-            this.Controls.Add(this.newpwd);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.cedulafpwd);
-            this.Controls.Add(this.correofpwd);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Forgotpwd";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Forgotpwd";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Forgotpwd_MouseMove);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(321, 433);
+            Controls.Add(btnValidar);
+            Controls.Add(btnEnviar);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(btnCerrar);
+            Controls.Add(newpwd2);
+            Controls.Add(newpwd);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(cedulafpwd);
+            Controls.Add(correofpwd);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Forgotpwd";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Forgotpwd";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

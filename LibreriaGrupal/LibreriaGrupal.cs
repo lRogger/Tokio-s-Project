@@ -10,9 +10,6 @@ namespace LibreriaGrupal
 
     public class Utilidades
     {
-
-
-
         public bool validar(char e, string tipo)
         {
             switch (tipo)
@@ -41,7 +38,6 @@ namespace LibreriaGrupal
             }
             return false;
         }
-
     }
 
 

@@ -1,27 +1,18 @@
-﻿using Entidades;
+﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Datos
 {
     public class DataBase
     {
-        private string server, user, pass, db, strCon;
+        private string strCon;
         private DataSet ds;
 
 
         public DataBase()
         {
-
-            //SE CAMBIÓ MYSQL POR SQL SERVER
-            this.server = "tokio.database.windows.net";
-            this.user = "tokio";
-            this.pass = "semestre6!";
-            this.db = "TOKIO_PROYECTO";
-
-            this.strCon = $"Data Source={server};Initial Catalog={db};Persist Security Info=True;User ID={user};Password={pass};";
+            this.strCon = ConfigurationManager.ConnectionStrings["conexionsql"].ConnectionString;
 
             this.ds = new DataSet();
         }
@@ -30,7 +21,6 @@ namespace Datos
 
         public SqlConnection conectarDB()
         {
-
             SqlConnection con = new SqlConnection();
             con.ConnectionString = strCon;
             con.Open();
@@ -39,71 +29,73 @@ namespace Datos
 
         public void consultar(string cmd)
         {
-
-            Ds = new DataSet();
-
             try
             {
-                SqlConnection con = conectarDB();
-                SqlDataAdapter dp = new SqlDataAdapter(cmd, con);
-                dp.Fill(ds);
-                con.Close();
+                using (SqlConnection con = conectarDB())
+                {
+                    SqlDataAdapter dp = new SqlDataAdapter(cmd, con);
+                    dp.Fill(ds);
+                }    
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error:" + e.Message);
-                
+                throw new Exception("Error:" + e.Message);            
             }
-
         }
 
         public async void instruccionDB(string cmd)
         {
-            SqlConnection con = conectarDB();
-            SqlCommand comando = new SqlCommand(cmd, con);
-
             try
             {
-                await comando.ExecuteNonQueryAsync();
+                using (SqlConnection con = conectarDB())
+                {
+                    SqlCommand comando = new SqlCommand(cmd, con);
+                    await comando.ExecuteNonQueryAsync();
+                }
             }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
 
+        public async void storeProcedureDB(string sp, List<SqlParameter> parametros)
+        {
+            try
+            {
+                using (SqlConnection con = conectarDB())
+                {
+                    SqlCommand comando = new SqlCommand(sp, con);
+                    comando.CommandType = CommandType.StoredProcedure;
+                    if(parametros != null && parametros.Count > 0)
+                    {
+                        comando.Parameters.AddRange(parametros.ToArray());
+                    }
+                    await comando.ExecuteNonQueryAsync();
+                }
+            }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw new Exception(e.Message);
             }
-
-            con.Close();
         }
 
-        public async void SpDB(string sp, List<SqlParameter> parametros)
+        public async Task<SqlDataReader> storeProcedureConsulta(string sp)
         {
-
-            SqlConnection con = conectarDB();
-
-            SqlCommand comando = new SqlCommand(sp, con);
-            comando.CommandType = CommandType.StoredProcedure;
-
-            foreach(SqlParameter p in parametros)
+            try
             {
-                comando.Parameters.Add(p);
+                SqlConnection con = conectarDB();
+                using (SqlCommand comando = new SqlCommand(sp, con))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader reader = await comando.ExecuteReaderAsync();
+                    return reader;
+                }                
             }
-            await comando.ExecuteNonQueryAsync();
-            con.Close();
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
-
-        public async Task<SqlDataReader> SpConsulta(string sp)
-        {
-            SqlConnection con = conectarDB();
-
-            SqlCommand comando = new SqlCommand(sp, con);
-            comando.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader reader = await comando.ExecuteReaderAsync();
-
-            return reader;
-
-        }
-
-
     }
 }

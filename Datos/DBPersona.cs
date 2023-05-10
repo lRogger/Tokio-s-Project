@@ -28,7 +28,7 @@ namespace Datos
                 p.Nombre = "" + fila["Nombre"].ToString();
                 p.Correo = "" + fila["Correo"].ToString();
                 p.Edad = (int)fila["Edad"];
-                p.Foto = (byte[])fila["Imagen"];
+                p.Foto = (fila["Imagen"] != DBNull.Value) ? (byte[])fila["Imagen"] : null;
                 p.Password = (string)fila["Password"];
                 p.Admin = (bool)fila["Admin"];
                 personas.Add(p);
@@ -47,11 +47,11 @@ namespace Datos
             {
                 Persona p = new Persona();
                 p.Id = (int)fila["Id"];
-                p.Cedula = "" + fila["Cedula"].ToString();
-                p.Nombre = "" + fila["Nombre"].ToString();
-                p.Correo = "" + fila["Correo"].ToString();
+                p.Cedula = (string)fila["Cedula"];
+                p.Nombre = (string)fila["Nombre"];
+                p.Correo = (string)fila["Correo"];
                 p.Edad = (int)fila["Edad"];
-                p.Foto = (byte[])fila["Imagen"];
+                p.Foto = (fila["Imagen"] != DBNull.Value) ? (byte[])fila["Imagen"] : null;
                 p.Password = (string)fila["Password"];
                 p.Admin = (bool)fila["Admin"];
                 personas.Add(p);
@@ -69,10 +69,8 @@ namespace Datos
             parametros.Add(new SqlParameter("@edad", p.Edad));
             parametros.Add(new SqlParameter("@admin", p.Admin));
             parametros.Add(new SqlParameter("@imagen", p.Foto));
-            db.SpDB("actualizaUsuario", parametros);
-            
-        }
 
-       
+            db.storeProcedureDB("actualizaUsuario", parametros); 
+        }    
     }
 }

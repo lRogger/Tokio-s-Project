@@ -10,7 +10,6 @@ namespace Individual
     {
         private DataSet ds = new DataSet();
         private DataBase db = new DataBase();
-        private int posX = 0, posY = 0;
 
         public Forgotpwd()
         {
@@ -66,7 +65,6 @@ namespace Individual
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             CambiarPass();
-
         }
 
         private async void Validar()
@@ -88,8 +86,6 @@ namespace Individual
                         correofpwd.Enabled = false;
                         cedulafpwd.Enabled = false;
                         new Emergente("advertencia", "Hecho", "Ahora puedes elegir tu nueva contraseña").ShowDialog();
-
-
                     }
                     else
                     {
@@ -101,8 +97,6 @@ namespace Individual
                     new Emergente("advertencia", "ERROR", "Problema al conectar con la base de datos\n" +
                         "Intente nuevamente");
                 }
-
-
             }
             else
             {
@@ -112,9 +106,7 @@ namespace Individual
 
         private void btnValidar_Click(object sender, EventArgs e)
         {
-
             Validar();
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -128,20 +120,6 @@ namespace Individual
             {
                 e.Handled = true;
                 CambiarPass();
-            }
-        }
-
-        private void Forgotpwd_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left)
-            {
-                posX = e.X;
-                posY = e.Y;
-            }
-            else
-            {
-                Left = Left + (e.X - posX);
-                Top = Top + (e.Y - posY);
             }
         }
     }
