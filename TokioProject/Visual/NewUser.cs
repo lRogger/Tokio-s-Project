@@ -18,10 +18,7 @@ namespace Individual.Visual
         public NewUser()
         {
             InitializeComponent();
-            buscarFoto.Text =
-                (this.fotoUser.Image == Resources.defaultAvatar)
-                ? "Cambiar Foto" : "Añadir Foto";
-
+            fotoUser.Image = Resources.defaultAvatar;
         }
 
         private void buscarFoto_Click(object sender, EventArgs e)
@@ -176,7 +173,6 @@ namespace Individual.Visual
             {
                 lblTitulo.Text = "Editar Usuario";
             }
-            fotoUser.Image = Resources.defaultAvatar;
         }
     }
 }

@@ -118,7 +118,7 @@
             buscarFoto.Name = "buscarFoto";
             buscarFoto.Size = new Size(100, 25);
             buscarFoto.TabIndex = 1;
-            buscarFoto.Text = "Añadir Foto";
+            buscarFoto.Text = "Subir Foto";
             buscarFoto.UseVisualStyleBackColor = false;
             buscarFoto.Click += buscarFoto_Click;
             // 
