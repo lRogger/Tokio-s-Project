@@ -19,9 +19,9 @@ namespace Datos
             this.server = "tokio.database.windows.net";
             this.user = "tokio";
             this.pass = "semestre6!";
-            
-            this.db = "poe";
-            this.strCon = $"server={server}; user id={user}; password={pass}; database={db};";
+            this.db = "TOKIO_PROYECTO";
+
+            this.strCon = $"Data Source={server};Initial Catalog={db};Persist Security Info=True;User ID={user};Password={pass};";
 
             this.ds = new DataSet();
         }
