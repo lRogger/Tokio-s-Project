@@ -16,9 +16,9 @@ namespace Datos
         {
 
             //SE CAMBIÓ MYSQL POR SQL SERVER
-            this.server = "serverogger.database.windows.net";
-            this.user = "lRogger";
-            this.pass = "Rogger123";
+            this.server = "tokio.database.windows.net";
+            this.user = "tokio";
+            this.pass = "semestre6!";
             
             this.db = "poe";
             this.strCon = $"server={server}; user id={user}; password={pass}; database={db};";
