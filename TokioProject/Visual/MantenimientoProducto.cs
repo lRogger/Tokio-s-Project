@@ -172,7 +172,7 @@ namespace GUIs.Visual
                 Prenda p = productos[0];
                 
                 NewProduct np = new NewProduct(p.Id);
-                np.lblTitulo.Text = "Editar Producto";
+                np.lblTitulo.Text = "Editar Materia";
                 np.tbNombreProd.Texts = p.Nombre;
                 np.cbCateg.Text = p.Categoria;
                 np.cbTalla.Text = p.Talla; 
