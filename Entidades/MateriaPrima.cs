@@ -6,7 +6,7 @@
         private string nombre;
         private Proveedor proveedor;
         private int stock;
-        private decimal precio;
+        private double precio;
         private DateTime fechaCompra;
 
         public MateriaPrima()
@@ -19,7 +19,7 @@
             this.fechaCompra = DateTime.Now;
         }
 
-        public MateriaPrima(int id, string nombre, Proveedor proveedor, int stock, decimal precio, DateTime fechaCompra)
+        public MateriaPrima(int id, string nombre, Proveedor proveedor, int stock, double precio, DateTime fechaCompra)
         {
             Id = id;
             Nombre = nombre;
@@ -33,7 +33,7 @@
         public string Nombre { get => nombre; set => nombre = value; }
         public Proveedor Proveedor { get => proveedor; set => proveedor = value; }
         public int Stock { get => stock; set => stock = value; }
-        public decimal Precio { get => precio; set => precio = value; }
+        public double Precio { get => precio; set => precio = value; }
         public DateTime FechaCompra { get => fechaCompra; set => fechaCompra = value; }
     }
 }

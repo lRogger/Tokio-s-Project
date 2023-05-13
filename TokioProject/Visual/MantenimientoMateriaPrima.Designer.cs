@@ -33,12 +33,17 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             materiaPrimaDGV = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            proveedor = new DataGridViewTextBoxColumn();
+            stock = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            fecha_compra = new DataGridViewTextBoxColumn();
             tbBuscarProducto = new TextBox();
             separador = new Panel();
             cbProveedor = new ComboBox();
             label1 = new Label();
             btnRefrescar = new Button();
-            btnEliminar = new Button();
             btnCrear = new Button();
             btnEditar = new Button();
             cbCantidad = new NumericUpDown();
@@ -48,14 +53,6 @@
             btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             label2 = new Label();
-            cbInactivo = new CheckBox();
-            ID = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Proveedor = new DataGridViewTextBoxColumn();
-            Stock = new DataGridViewTextBoxColumn();
-            PrecioUnitario = new DataGridViewTextBoxColumn();
-            UltimaCompra = new DataGridViewTextBoxColumn();
-            Activo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)materiaPrimaDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbCantidad).BeginInit();
             panel1.SuspendLayout();
@@ -81,7 +78,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             materiaPrimaDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             materiaPrimaDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            materiaPrimaDGV.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Proveedor, Stock, PrecioUnitario, UltimaCompra, Activo });
+            materiaPrimaDGV.Columns.AddRange(new DataGridViewColumn[] { id, nombre, proveedor, stock, precio, fecha_compra });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -113,8 +110,43 @@
             materiaPrimaDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             materiaPrimaDGV.Size = new Size(540, 286);
             materiaPrimaDGV.TabIndex = 11;
-            materiaPrimaDGV.CellContentClick += materiaPrimaDGV_CellContentClick;
-            materiaPrimaDGV.SelectionChanged += materiaPrimaDGV_SelectionChanged;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Width = 50;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "Nombre";
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            // 
+            // proveedor
+            // 
+            proveedor.HeaderText = "Proveedor";
+            proveedor.Name = "proveedor";
+            proveedor.ReadOnly = true;
+            // 
+            // stock
+            // 
+            stock.HeaderText = "Stock";
+            stock.Name = "stock";
+            stock.ReadOnly = true;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio Unitario";
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            // 
+            // fecha_compra
+            // 
+            fecha_compra.HeaderText = "Ultima Compra";
+            fecha_compra.Name = "fecha_compra";
+            fecha_compra.ReadOnly = true;
             // 
             // tbBuscarProducto
             // 
@@ -125,7 +157,6 @@
             tbBuscarProducto.PlaceholderText = " 🔎 Buscar...";
             tbBuscarProducto.Size = new Size(272, 16);
             tbBuscarProducto.TabIndex = 12;
-            tbBuscarProducto.TextChanged += buscarProducto_TextChanged;
             // 
             // separador
             // 
@@ -140,18 +171,17 @@
             cbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProveedor.FormattingEnabled = true;
             cbProveedor.Items.AddRange(new object[] { "Todas", "S", "M", "L", "XL" });
-            cbProveedor.Location = new Point(446, 80);
+            cbProveedor.Location = new Point(384, 80);
             cbProveedor.Name = "cbProveedor";
-            cbProveedor.Size = new Size(105, 23);
+            cbProveedor.Size = new Size(155, 23);
             cbProveedor.TabIndex = 19;
-            cbProveedor.SelectedIndexChanged += cbTalla_SelectedIndexChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(370, 83);
+            label1.Location = new Point(304, 83);
             label1.Name = "label1";
             label1.Size = new Size(74, 16);
             label1.TabIndex = 20;
@@ -176,24 +206,6 @@
             btnRefrescar.UseVisualStyleBackColor = false;
             btnRefrescar.Click += btnRefrescar_Click;
             // 
-            // btnEliminar
-            // 
-            btnEliminar.AllowDrop = true;
-            btnEliminar.BackColor = Color.Transparent;
-            btnEliminar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEliminar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEliminar.Location = new Point(155, 14);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(116, 43);
-            btnEliminar.TabIndex = 23;
-            btnEliminar.Text = "Inhabilitar";
-            btnEliminar.TextAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.UseVisualStyleBackColor = false;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
             // btnCrear
             // 
             btnCrear.AllowDrop = true;
@@ -211,7 +223,6 @@
             btnCrear.Text = "Crear";
             btnCrear.TextAlign = ContentAlignment.MiddleLeft;
             btnCrear.UseVisualStyleBackColor = false;
-            btnCrear.Click += btnCrear_Click;
             // 
             // btnEditar
             // 
@@ -229,7 +240,6 @@
             btnEditar.Text = "Editar";
             btnEditar.TextAlign = ContentAlignment.MiddleLeft;
             btnEditar.UseVisualStyleBackColor = false;
-            btnEditar.Click += btnEditar_Click;
             // 
             // cbCantidad
             // 
@@ -295,7 +305,6 @@
             btnMenos.Text = "➖";
             btnMenos.TextColor = Color.White;
             btnMenos.UseVisualStyleBackColor = false;
-            btnMenos.Click += btnMenos_Click;
             // 
             // btnSuma
             // 
@@ -319,7 +328,6 @@
             btnSuma.Text = "➕";
             btnSuma.TextColor = Color.White;
             btnSuma.UseVisualStyleBackColor = false;
-            btnSuma.Click += btnSuma_Click;
             // 
             // label2
             // 
@@ -331,79 +339,6 @@
             label2.Size = new Size(0, 16);
             label2.TabIndex = 28;
             // 
-            // cbInactivo
-            // 
-            cbInactivo.CheckAlign = ContentAlignment.MiddleRight;
-            cbInactivo.Cursor = Cursors.IBeam;
-            cbInactivo.FlatAppearance.CheckedBackColor = Color.Indigo;
-            cbInactivo.FlatStyle = FlatStyle.Flat;
-            cbInactivo.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-            cbInactivo.ForeColor = SystemColors.ControlDarkDark;
-            cbInactivo.Location = new Point(281, 80);
-            cbInactivo.Name = "cbInactivo";
-            cbInactivo.Size = new Size(83, 23);
-            cbInactivo.TabIndex = 29;
-            cbInactivo.Text = "Inactivos";
-            cbInactivo.TextAlign = ContentAlignment.MiddleRight;
-            cbInactivo.UseVisualStyleBackColor = true;
-            cbInactivo.CheckedChanged += cbInactivo_CheckedChanged;
-            // 
-            // ID
-            // 
-            ID.Frozen = true;
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Width = 40;
-            // 
-            // Nombre
-            // 
-            Nombre.Frozen = true;
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            Nombre.Width = 140;
-            // 
-            // Proveedor
-            // 
-            Proveedor.Frozen = true;
-            Proveedor.HeaderText = "Proveedor";
-            Proveedor.Name = "Proveedor";
-            Proveedor.ReadOnly = true;
-            Proveedor.Width = 140;
-            // 
-            // Stock
-            // 
-            Stock.Frozen = true;
-            Stock.HeaderText = "Stock";
-            Stock.Name = "Stock";
-            Stock.ReadOnly = true;
-            Stock.Width = 45;
-            // 
-            // PrecioUnitario
-            // 
-            PrecioUnitario.Frozen = true;
-            PrecioUnitario.HeaderText = "Precio Unitario";
-            PrecioUnitario.Name = "PrecioUnitario";
-            PrecioUnitario.ReadOnly = true;
-            PrecioUnitario.Width = 80;
-            // 
-            // UltimaCompra
-            // 
-            UltimaCompra.Frozen = true;
-            UltimaCompra.HeaderText = "Última Compra";
-            UltimaCompra.Name = "UltimaCompra";
-            UltimaCompra.ReadOnly = true;
-            UltimaCompra.Width = 80;
-            // 
-            // Activo
-            // 
-            Activo.HeaderText = "";
-            Activo.Name = "Activo";
-            Activo.ReadOnly = true;
-            Activo.Resizable = DataGridViewTriState.False;
-            Activo.Visible = false;
-            // 
             // MantenimientoMateriaPrima
             // 
             AllowDrop = true;
@@ -411,23 +346,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
             ClientSize = new Size(560, 470);
-            Controls.Add(cbInactivo);
+            Controls.Add(materiaPrimaDGV);
             Controls.Add(label2);
             Controls.Add(panel1);
             Controls.Add(btnRefrescar);
-            Controls.Add(btnEliminar);
             Controls.Add(btnCrear);
             Controls.Add(btnEditar);
             Controls.Add(label1);
             Controls.Add(cbProveedor);
-            Controls.Add(materiaPrimaDGV);
             Controls.Add(tbBuscarProducto);
             Controls.Add(separador);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MantenimientoMateriaPrima";
             StartPosition = FormStartPosition.WindowsDefaultBounds;
             Text = "MantenimientoProducto";
-            MouseMove += MantenimientoProducto_MouseMove;
+            Load += MantenimientoMateriaPrima_Load;
             ((System.ComponentModel.ISupportInitialize)materiaPrimaDGV).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbCantidad).EndInit();
             panel1.ResumeLayout(false);
@@ -443,7 +376,6 @@
         private ComboBox cbProveedor;
         private Label label1;
         private Button btnRefrescar;
-        private Button btnEliminar;
         private Button btnEditar;
         private NumericUpDown cbCantidad;
         private Panel panel1;
@@ -452,14 +384,12 @@
         private Label lblDescripcion;
         private Label lblDesc;
         private Label label2;
-        public CheckBox cbInactivo;
         public Button btnCrear;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Proveedor;
-        private DataGridViewTextBoxColumn Stock;
-        private DataGridViewTextBoxColumn PrecioUnitario;
-        private DataGridViewTextBoxColumn UltimaCompra;
-        private DataGridViewTextBoxColumn Activo;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn proveedor;
+        private DataGridViewTextBoxColumn stock;
+        private DataGridViewTextBoxColumn precio;
+        private DataGridViewTextBoxColumn fecha_compra;
     }
 }

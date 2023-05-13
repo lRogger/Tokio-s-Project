@@ -225,7 +225,8 @@ namespace Individual.Visual
 
         private void btnRegistros_Click(object sender, EventArgs e)
         {
-            VentanaRegistros();
+            Form form = new MantenimientoMateriaPrima();
+            form.Show();
         }
 
         private void VentanaUsuarios()
