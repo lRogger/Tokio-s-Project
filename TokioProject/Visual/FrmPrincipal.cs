@@ -21,7 +21,7 @@ namespace Individual.Visual
             InitializeComponent();
             this.sesion = sesion;
             mp = new MantenimientoProducto();
-            menuConfig.IsMainMenu= true;
+            menuConfig.IsMainMenu = true;
 
         }
 
@@ -42,7 +42,7 @@ namespace Individual.Visual
             string titulo = "Cerrar Sesión";
             DialogResult result = new Emergente("si/no", titulo, mensaje).ShowDialog();
             if (result == DialogResult.OK)
-            {                
+            {
                 this.Close();
 
             }
@@ -60,7 +60,7 @@ namespace Individual.Visual
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
-            
+
         }
 
 
@@ -73,13 +73,13 @@ namespace Individual.Visual
                 MemoryStream ms = new MemoryStream(Sesion.Foto);
                 Image img = Image.FromStream(ms);
                 profileP.Image = img;
-                
+
             }
             catch
             {
-                
+
                 //profileP.ImageLocation = "../../../Data/Img/defaultAvatar.png";
-                
+
             }
         }
 
@@ -111,18 +111,18 @@ namespace Individual.Visual
                     mp.Show();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-            
-            
+
+
         }
 
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            menuConfig.Show(btnConfig,btnConfig.Width,0);
+            menuConfig.Show(btnConfig, btnConfig.Width, 0);
         }
 
         private void btnProductos_Click_1(object sender, EventArgs e)
@@ -133,7 +133,7 @@ namespace Individual.Visual
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             VentanaUsuarios();
-            
+
         }
 
         private void editarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,17 +146,17 @@ namespace Individual.Visual
             nu.correoUser.Text = Sesion.Correo;
             nu.edadUser.Text = Sesion.Edad.ToString();
             nu.admUser.Checked = Sesion.Admin;
-               
+
 
             nu.admUser.Enabled = false;
 
-            if(Sesion.Foto != null )
+            if (Sesion.Foto != null)
             {
                 MemoryStream ms = new MemoryStream(Sesion.Foto);
                 Image img = Image.FromStream(ms);
                 nu.fotoUser.Image = img;
             }
-              
+
 
             if (nu.ShowDialog() != DialogResult.Abort)
             {
@@ -219,7 +219,7 @@ namespace Individual.Visual
             mp.Hide();
             mu.Hide();
             this.panelPrincipal.Controls.Add(rh);
-            
+
             rh.Show();
         }
 
@@ -240,7 +240,7 @@ namespace Individual.Visual
             rh.Hide();
             mp.Hide();
             this.panelPrincipal.Controls.Add(mu);
-            
+
             mu.Show();
         }
 
