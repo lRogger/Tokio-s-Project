@@ -213,7 +213,10 @@ namespace Individual.Visual
         private void VentanaRegistros()
         {
             //RegistroHistorial rh = new RegistroHistorial();
-
+            if (rh.IsDisposed)
+            {
+                rh = new RegistroHistorial();
+            }
             rh.FormClosed += RegistroHistorial_FormClosed;
             rh.TopLevel = false;
             mp.Hide();
