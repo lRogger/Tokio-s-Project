@@ -9,10 +9,8 @@ namespace Individual.Visual
     public partial class FrmPrincipal : Form
     {
         private int posX = 0, posY = 0;
-        MantenimientoProducto mp;
         private Persona sesion;
-        MantenimientoUsuario mu = new MantenimientoUsuario();
-        RegistroHistorial rh = new RegistroHistorial();
+        Form activeForm = null;
 
         public Persona Sesion { get => sesion; set => sesion = value; }
 
@@ -20,22 +18,69 @@ namespace Individual.Visual
         {
             InitializeComponent();
             this.sesion = sesion;
-            mp = new MantenimientoProducto();
             menuConfig.IsMainMenu = true;
-
         }
-
-
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            foreach (Form childForm in MdiChildren)
+            LoadFormInPanel(new MantenimientoProducto(), panelPrincipal, ref activeForm);
+            lblSesion.Text = Sesion.Nombre;
+            try
             {
-
-                childForm.Close();
-
+                MemoryStream ms = new MemoryStream(Sesion.Foto);
+                Image img = Image.FromStream(ms);
+                profileP.Image = img;
+            }
+            catch
+            {
+                //profileP.ImageLocation = "../../../Data/Img/defaultAvatar.png";
             }
         }
 
+        //Método para cargar forms en el panel principal
+        public static void LoadFormInPanel(Form form, Panel panel, ref Form activeForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panel.Controls.Add(form);
+            panel.Tag = form;
+            form.BringToFront();
+            form.Show();
+        }
+        //Eventos click de cada menu
+        private void btnConfig_Click_1(object sender, EventArgs e)
+        {
+            menuConfig.Show(btnConfig, btnConfig.Width, 0);
+        }
+        private void btnRegistros_Click(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new RegistroHistorial(), panelPrincipal, ref activeForm);
+        }
+        private void btnCommodities_Click(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new MantenimientoMateriaPrima(), panelPrincipal, ref activeForm);
+        }
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new MantenimientoProveedor(), panelPrincipal, ref activeForm);
+        }
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new MantenimientoProducto(), panelPrincipal, ref activeForm);
+        }
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new MantenimientoUsuario(), panelPrincipal, ref activeForm);
+        }
+        private void btnBalance_Click(object sender, EventArgs e)
+        {
+            LoadFormInPanel(new Balance(), panelPrincipal, ref activeForm);
+        }
         private void cerrarSesion_Click(object sender, EventArgs e)
         {
             string mensaje = "Está seguro que desea cerrar la sesión actual?";
@@ -47,7 +92,22 @@ namespace Individual.Visual
 
             }
         }
+        //-----------------------------------------------------------------------------------
+        private void cambiarContraseñaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ChangePwd changePW = new ChangePwd(Sesion);
+            changePW.ShowDialog();
+        }
 
+        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form childForm in MdiChildren)
+            {
+
+                childForm.Close();
+
+            }
+        }
         private void MoverVentana(MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
@@ -62,80 +122,6 @@ namespace Individual.Visual
             }
 
         }
-
-
-        private void FrmPrincipal_Load(object sender, EventArgs e)
-        {
-            VentanaProductos();
-            lblSesion.Text = Sesion.Nombre;
-            try
-            {
-                MemoryStream ms = new MemoryStream(Sesion.Foto);
-                Image img = Image.FromStream(ms);
-                profileP.Image = img;
-
-            }
-            catch
-            {
-
-                //profileP.ImageLocation = "../../../Data/Img/defaultAvatar.png";
-
-            }
-        }
-
-
-        private void MantenimientoUsuario_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            VentanaProductos();
-        }
-
-        private void RegistroHistorial_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            VentanaProductos();
-        }
-
-        private void VentanaProductos()
-        {
-            if (mp.IsDisposed)
-            {
-                mp = new MantenimientoProducto();
-            }
-
-            mp.TopLevel = false;
-            this.panelPrincipal.Controls.Clear();
-            this.panelPrincipal.Controls.Add(mp);
-            try
-            {
-                if (!mp.IsDisposed)
-                {
-                    mp.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-
-
-        }
-
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            menuConfig.Show(btnConfig, btnConfig.Width, 0);
-        }
-
-        private void btnProductos_Click_1(object sender, EventArgs e)
-        {
-            VentanaProductos();
-        }
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            VentanaUsuarios();
-
-        }
-
         private void editarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewUser nu = new NewUser();
@@ -147,7 +133,6 @@ namespace Individual.Visual
             nu.edadUser.Text = Sesion.Edad.ToString();
             nu.admUser.Checked = Sesion.Admin;
 
-
             nu.admUser.Enabled = false;
 
             if (Sesion.Foto != null)
@@ -156,8 +141,6 @@ namespace Individual.Visual
                 Image img = Image.FromStream(ms);
                 nu.fotoUser.Image = img;
             }
-
-
             if (nu.ShowDialog() != DialogResult.Abort)
             {
                 new Emergente("advertencia", "Datos cambiados", "Proceso exitoso, los cambios se aplicarán en la siguiente sesión").ShowDialog();
@@ -169,79 +152,29 @@ namespace Individual.Visual
             }
         }
 
-        private void cambiarContraseñaToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            ChangePwd changePW = new ChangePwd(Sesion);
-            changePW.ShowDialog();
-        }
-
         private void flowLayoutPanel1_MouseMove(object sender, MouseEventArgs e)
         {
             MoverVentana(e);
         }
-
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             MoverVentana(e);
         }
-
-
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             MoverVentana(e);
         }
-
         private void flowLayoutPanel2_MouseMove(object sender, MouseEventArgs e)
         {
             MoverVentana(e);
         }
-
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
             MoverVentana(e);
         }
-
         private void lblSesion_MouseMove(object sender, MouseEventArgs e)
         {
             MoverVentana(e);
-        }
-
-        private void btnConfig_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void VentanaRegistros()
-        {
-            //RegistroHistorial rh = new RegistroHistorial();
-
-            rh.FormClosed += RegistroHistorial_FormClosed;
-            rh.TopLevel = false;
-            mp.Hide();
-            mu.Hide();
-            this.panelPrincipal.Controls.Add(rh);
-
-            rh.Show();
-        }
-
-        private void btnRegistros_Click(object sender, EventArgs e)
-        {
-            VentanaRegistros();
-        }
-
-        private void VentanaUsuarios()
-        {
-            if (mu.IsDisposed)
-            {
-                mu = new MantenimientoUsuario();
-            }
-
-            mu.FormClosed += MantenimientoUsuario_FormClosed;
-            mu.TopLevel = false;
-            rh.Hide();
-            mp.Hide();
-            this.panelPrincipal.Controls.Add(mu);
-
-            mu.Show();
         }
 
     }

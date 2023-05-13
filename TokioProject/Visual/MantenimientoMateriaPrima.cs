@@ -35,7 +35,7 @@ namespace GUIs.Visual
             }
             catch (Exception ex)
             {
-                new Emergente("advertencia", "ERROR DE EXCEPCIÓN",ex.Message).ShowDialog();
+                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
             }
         }
 
@@ -47,6 +47,21 @@ namespace GUIs.Visual
         private async void MantenimientoMateriaPrima_Load(object sender, EventArgs e)
         {
             await CargarTabla();
+        }
+
+        private async void btnCrear_Click(object sender, EventArgs e)
+        {
+            Form crear = new NewMateriaPrima();
+            if (crear.ShowDialog() != DialogResult.Abort)
+            {
+                new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
+                await CargarTabla();
+
+            }
+            else
+            {
+                new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
+            }
         }
     }
 }

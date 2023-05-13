@@ -90,7 +90,7 @@
             materiaPrimaDGV.EnableHeadersVisualStyles = false;
             materiaPrimaDGV.GridColor = Color.FromArgb(64, 64, 64);
             materiaPrimaDGV.ImeMode = ImeMode.NoControl;
-            materiaPrimaDGV.Location = new Point(8, 116);
+            materiaPrimaDGV.Location = new Point(94, 187);
             materiaPrimaDGV.MultiSelect = false;
             materiaPrimaDGV.Name = "materiaPrimaDGV";
             materiaPrimaDGV.ReadOnly = true;
@@ -152,7 +152,7 @@
             // 
             tbBuscarProducto.BackColor = Color.White;
             tbBuscarProducto.BorderStyle = BorderStyle.None;
-            tbBuscarProducto.Location = new Point(12, 83);
+            tbBuscarProducto.Location = new Point(98, 154);
             tbBuscarProducto.Name = "tbBuscarProducto";
             tbBuscarProducto.PlaceholderText = " 🔎 Buscar...";
             tbBuscarProducto.Size = new Size(272, 16);
@@ -161,7 +161,7 @@
             // separador
             // 
             separador.BackColor = Color.FromArgb(70, 15, 75);
-            separador.Location = new Point(12, 64);
+            separador.Location = new Point(98, 135);
             separador.Name = "separador";
             separador.Size = new Size(537, 2);
             separador.TabIndex = 17;
@@ -171,7 +171,7 @@
             cbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProveedor.FormattingEnabled = true;
             cbProveedor.Items.AddRange(new object[] { "Todas", "S", "M", "L", "XL" });
-            cbProveedor.Location = new Point(384, 80);
+            cbProveedor.Location = new Point(470, 151);
             cbProveedor.Name = "cbProveedor";
             cbProveedor.Size = new Size(155, 23);
             cbProveedor.TabIndex = 19;
@@ -181,7 +181,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(304, 83);
+            label1.Location = new Point(390, 154);
             label1.Name = "label1";
             label1.Size = new Size(74, 16);
             label1.TabIndex = 20;
@@ -197,7 +197,7 @@
             btnRefrescar.FlatStyle = FlatStyle.Flat;
             btnRefrescar.Font = new Font("Arial", 24.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.Location = new Point(506, 11);
+            btnRefrescar.Location = new Point(592, 82);
             btnRefrescar.Margin = new Padding(0);
             btnRefrescar.Name = "btnRefrescar";
             btnRefrescar.Size = new Size(60, 48);
@@ -215,7 +215,7 @@
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
-            btnCrear.Location = new Point(9, 14);
+            btnCrear.Location = new Point(95, 85);
             btnCrear.Margin = new Padding(0);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(67, 43);
@@ -223,6 +223,7 @@
             btnCrear.Text = "Crear";
             btnCrear.TextAlign = ContentAlignment.MiddleLeft;
             btnCrear.UseVisualStyleBackColor = false;
+            btnCrear.Click += btnCrear_Click;
             // 
             // btnEditar
             // 
@@ -233,7 +234,7 @@
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEditar.Location = new Point(80, 14);
+            btnEditar.Location = new Point(166, 85);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(71, 43);
             btnEditar.TabIndex = 21;
@@ -256,7 +257,7 @@
             panel1.Controls.Add(btnMenos);
             panel1.Controls.Add(btnSuma);
             panel1.Controls.Add(cbCantidad);
-            panel1.Location = new Point(12, 400);
+            panel1.Location = new Point(98, 471);
             panel1.Name = "panel1";
             panel1.Size = new Size(539, 61);
             panel1.TabIndex = 27;
@@ -334,7 +335,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(440, 92);
+            label2.Location = new Point(526, 163);
             label2.Name = "label2";
             label2.Size = new Size(0, 16);
             label2.TabIndex = 28;
@@ -345,7 +346,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(560, 470);
+            ClientSize = new Size(744, 650);
             Controls.Add(materiaPrimaDGV);
             Controls.Add(label2);
             Controls.Add(panel1);
