@@ -1,4 +1,4 @@
-﻿using Entidades;
+using Entidades;
 using Datos;
 using Individual.Visual;
 using System.Data;
@@ -10,6 +10,7 @@ namespace GUIs.Visual
     {
         private DataBase db = new DataBase();
         private List<Prenda> listaPrendas;
+        
 
         public MantenimientoProducto()
         {
@@ -25,6 +26,38 @@ namespace GUIs.Visual
             try
             {
                 btnRefrescar.Enabled = false;
+
+
+                listaPrendas = await new DBProducto().LeerProductos();
+
+                btnRefrescar.Enabled = true;
+
+
+
+                productoDGV.Rows.Clear();
+
+                for (int i = listaPrendas.Count - 1; i >= 0; i--)
+                {
+                    productoDGV.Rows.Add(listaPrendas[i].Id, listaPrendas[i].Nombre,
+                        listaPrendas[i].Categoria, listaPrendas[i].Talla, listaPrendas[i].Color, listaPrendas[i].Stock, listaPrendas[i].Precio);
+
+                }
+
+            }
+            
+            catch (Exception ex)
+            {
+                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
+                     ex.Message).ShowDialog();
+            }
+        }
+
+        /* DESCONTINUADO -
+        private async void CargarTabla()
+        {
+            try
+            {
+                btnRefrescar.Enabled = false;
                 btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
 
@@ -34,21 +67,21 @@ namespace GUIs.Visual
                 btnEditar.Enabled = true;
                 btnEliminar.Enabled = true;
                 tbBuscarProducto.Text = "";
-
+                
                 productoDGV.Rows.Clear();
 
-                for (int i = 0; i < listaPrendas.Count; i++)
+                for(int i=0; i<listaPrendas.Count; i++)
                 {
                     productoDGV.Rows.Add(listaPrendas[i].Id, listaPrendas[i].Nombre, listaPrendas[i].Categoria,
                         listaPrendas[i].Talla, listaPrendas[i].Color, listaPrendas[i].Stock,
                         listaPrendas[i].Precio, listaPrendas[i].Activo);
                     if (!listaPrendas[i].Activo && !cbInactivo.Checked)
                     {
-
+                        
                         productoDGV.Rows[i].Visible = false;
 
                     }
-                    if (!listaPrendas[i].Activo)
+                    if (!listaPrendas[i].Activo) 
                     {
                         //productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242,231,243);
                         productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
@@ -62,13 +95,13 @@ namespace GUIs.Visual
                 new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
                      ex.Message).ShowDialog();
             }
-
-        }
+            
+        }*/
 
         private void FiltrarDGVProducto()
         {
             string talla = cbTalla.Text;
-            if (cbTalla.Text == "Todas")
+            if(cbTalla.Text == "Todas")
             {
                 talla = "";
             }
@@ -78,16 +111,16 @@ namespace GUIs.Visual
                 bool prendaCoincide = false;
                 for (int i = 0; i < row.Cells.Count; i++)
                 {
-                    if (i != 3 && i != 7 && ("" + row.Cells[i].Value.ToString()).ToLower()
+                    if (i != 3 && i!=7 && (""+row.Cells[i].Value.ToString()).ToLower()
                         .Contains(tbBuscarProducto.Text.ToLower()))
                     {
-
+                        
                         prendaCoincide = true;
                         break;
                     }
-
+                    
                 }
-                if (!prendaCoincide || (!("" + row.Cells[3].Value.ToString()).ToLower()
+                if (!prendaCoincide || (!(""+row.Cells[3].Value.ToString()).ToLower()
                     .Equals(talla.ToLower()) && talla != "") || (!(bool)row.Cells[7].Value && !cbInactivo.Checked))
                 {
                     row.Visible = false;
@@ -110,7 +143,7 @@ namespace GUIs.Visual
                 }
             }
             FiltrarDGVProducto();
-
+            
         }
 
         private void btnRefrescar_Click(object sender, EventArgs e)
@@ -159,7 +192,7 @@ namespace GUIs.Visual
             {
                 new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
             }
-
+            
         }
 
         private async void btnEditar_Click(object sender, EventArgs e)
@@ -170,12 +203,12 @@ namespace GUIs.Visual
 
                 var productos = await new DBProducto().LeerProducto((int)productoDGV.Rows[i].Cells["ID"].Value);
                 Prenda p = productos[0];
-
+                
                 NewProduct np = new NewProduct(p.Id);
-                np.lblTitulo.Text = "Editar Materia";
+                np.lblTitulo.Text = "Editar Producto";
                 np.tbNombreProd.Texts = p.Nombre;
                 np.cbCateg.Text = p.Categoria;
-                np.cbTalla.Text = p.Talla;
+                np.cbTalla.Text = p.Talla; 
                 np.tbDescrip.Texts = p.Descripcion;
                 np.cbColor.Text = p.Color;
                 np.tbStock.Texts = p.Stock.ToString();
@@ -200,7 +233,7 @@ namespace GUIs.Visual
 
         private async void btnSuma_Click(object sender, EventArgs e)
         {
-            if (productoDGV.CurrentRow != null)
+            if(productoDGV.CurrentRow != null)
             {
                 int i = productoDGV.CurrentRow.Index;
                 if (cbCantidad.Value > 0)
@@ -241,7 +274,7 @@ namespace GUIs.Visual
                     }
                 }
 
-
+                
             }
             else
             {
@@ -274,16 +307,16 @@ namespace GUIs.Visual
                         break;
                     }
                 }
-            }
+            }    
         }
 
         private async void btnMenos_Click(object sender, EventArgs e)
         {
-            if (productoDGV.CurrentRow != null)
+            if(productoDGV.CurrentRow != null)
             {
                 int i = productoDGV.CurrentRow.Index;
 
-                if (cbCantidad.Value > 0)
+                if(cbCantidad.Value > 0)
                 {
                     if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) > 0)
                     {
@@ -352,7 +385,7 @@ namespace GUIs.Visual
                         new Emergente("advertencia", "ERROR", "No hay tanto stock!").ShowDialog();
                     }
                 }
-
+                
             }
             else
             {

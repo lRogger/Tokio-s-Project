@@ -176,6 +176,5 @@ namespace Individual.Visual
         {
             MoverVentana(e);
         }
-
     }
 }

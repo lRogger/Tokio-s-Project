@@ -1,4 +1,4 @@
-﻿namespace Individual.Visual
+namespace Individual.Visual
 {
     partial class FrmPrincipal
     {

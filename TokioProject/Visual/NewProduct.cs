@@ -5,6 +5,7 @@ using MySqlX.XDevAPI.Relational;
 using System.Globalization;
 using LibreriaGrupal;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Data;
 
 namespace GUIs.Visual
 {
@@ -17,21 +18,40 @@ namespace GUIs.Visual
         public NewProduct()
         {
             InitializeComponent();
+            Cargardatos();
             db = new DataBase();
             id = -1;
             cbCateg.SelectedIndex = 0;
             cbColor.SelectedIndex = 0;
             cbTalla.SelectedIndex = 0;
+            
         }
 
         public NewProduct(int id)
         {
             InitializeComponent();
+            Cargardatos();
             db = new DataBase();
             this.id = id;
             cbCateg.SelectedIndex = 0;
             cbColor.SelectedIndex = 0;
             cbTalla.SelectedIndex = 0;
+            
+        }
+
+        private void Cargardatos()
+        {
+            cbColor.DataSource = CargarListaColores().Tables[0];
+            cbColor.DisplayMember = "Color";
+            cbColor.ValueMember = "IdColor";
+
+            cbCateg.DataSource = CargarListaCategoria().Tables[0];
+            cbCateg.DisplayMember = "Categoria";
+            cbCateg.ValueMember = "IdCategoria";
+
+            cbTalla.DataSource = CargarListaTalla().Tables[0];
+            cbTalla.DisplayMember = "Talla";
+            cbTalla.ValueMember = "IdTalla";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -47,6 +67,28 @@ namespace GUIs.Visual
             
         }
 
+        private DataSet CargarListaColores()
+        {
+
+            DataBase dsc = new DataBase();
+            dsc.consultar("SELECT idColor, CAST(idColor AS VARCHAR) + '-' + Color AS Color FROM Colores;");
+            return dsc.Ds;
+        }
+
+        private DataSet CargarListaCategoria()
+        {
+            DataBase dsc = new DataBase();
+            dsc.consultar("SELECT IdCategoria, CAST(IdCategoria AS VARCHAR) + '-' + Categoria AS Categoria FROM CategoriaProducto;");
+            return dsc.Ds;
+        }
+
+        private DataSet CargarListaTalla()
+        {
+            DataBase dsc = new DataBase();
+            dsc.consultar("SELECT IdTalla, CAST(IdTalla AS VARCHAR) + '-' + Talla AS Talla FROM Talla;");
+            return dsc.Ds;
+        }
+
         private async void Editar()
         {
             if (tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
@@ -54,13 +96,23 @@ namespace GUIs.Visual
 
                 Prenda productoNuevo = new Prenda();
                 productoNuevo.Nombre = tbNombreProd.Texts;
-                productoNuevo.Categoria = cbCateg.Text;
-                productoNuevo.Talla = cbTalla.Text;
+                productoNuevo.Categoria = cbCateg.SelectedValue?.ToString()+"";
+                productoNuevo.Talla = cbTalla.SelectedValue?.ToString()+"";
                 productoNuevo.Descripcion = tbDescrip.Texts;
-                productoNuevo.Color = cbColor.Text;
+                productoNuevo.Color = cbColor.SelectedValue?.ToString()+"";
                 productoNuevo.Stock = Int32.Parse(tbStock.Texts);
                 productoNuevo.Precio = Double.Parse(tbPrecio.Texts);
                 productoNuevo.Id = id;
+
+                var productoRegistro = new Prenda();
+                productoRegistro.Nombre = tbNombreProd.Texts;
+                productoRegistro.Categoria = cbCateg.Text;
+                productoRegistro.Talla = cbTalla.Text;
+                productoRegistro.Color = cbColor.Text;
+                productoRegistro.Descripcion = tbDescrip.Texts;
+                productoRegistro.Stock = Int32.Parse(tbStock.Texts);
+                productoRegistro.Precio = Double.Parse(tbPrecio.Texts);
+                productoRegistro.Id = id;
 
                 var productos = await new DBProducto().LeerProducto(id);
                 Prenda productoAnterior = productos[0];
@@ -94,7 +146,7 @@ namespace GUIs.Visual
                 foreach (var propiedad in typeof(Prenda).GetProperties())
                 {
                     object valorAnterior = propiedad.GetValue(productoAnterior)!;
-                    object valorNuevo = propiedad.GetValue(productoNuevo)!;
+                    object valorNuevo = propiedad.GetValue(productoRegistro)!;
 
                     if (!Equals(valorAnterior, valorNuevo))
                     {
@@ -120,10 +172,10 @@ namespace GUIs.Visual
             {
                 Prenda p = new Prenda();
                 p.Nombre = tbNombreProd.Texts;
-                p.Categoria = cbCateg.Text;
-                p.Talla = cbTalla.Text;
-                p.Descripcion = tbDescrip.Texts;
-                p.Color = cbColor.Text;
+                p.Categoria = cbCateg.SelectedValue?.ToString()+"";
+                p.Talla = cbTalla.SelectedValue?.ToString()+"";
+                p.Descripcion = tbDescrip.Texts.ToString();
+                p.Color = cbColor.SelectedValue?.ToString()+"";
                 p.Stock = Int32.Parse(tbStock.Texts);
                 p.Precio = Double.Parse(tbPrecio.Texts);
 
