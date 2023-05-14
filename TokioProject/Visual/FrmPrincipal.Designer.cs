@@ -1,4 +1,4 @@
-﻿namespace Individual.Visual
+namespace Individual.Visual
 {
     partial class FrmPrincipal
     {
@@ -78,7 +78,7 @@
             // lblSesion
             // 
             lblSesion.FlatStyle = FlatStyle.Flat;
-            lblSesion.Font = new Font("Britanica-Heavy", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSesion.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblSesion.ForeColor = Color.DimGray;
             lblSesion.ImageAlign = ContentAlignment.MiddleRight;
             lblSesion.Location = new Point(0, 0);
@@ -102,10 +102,10 @@
             // lblAdmin
             // 
             lblAdmin.AutoSize = true;
-            lblAdmin.Font = new Font("Britanica-Light", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAdmin.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             lblAdmin.Location = new Point(240, 35);
             lblAdmin.Name = "lblAdmin";
-            lblAdmin.Size = new Size(43, 16);
+            lblAdmin.Size = new Size(45, 16);
             lblAdmin.TabIndex = 0;
             lblAdmin.Text = "Admin";
             lblAdmin.TextAlign = ContentAlignment.BottomRight;
@@ -191,7 +191,7 @@
             btnProductos.BackColor = Color.FromArgb(128, 27, 141);
             btnProductos.FlatAppearance.BorderColor = Color.FromArgb(100, 20, 100);
             btnProductos.FlatStyle = FlatStyle.Flat;
-            btnProductos.Font = new Font("Britanica-Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnProductos.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnProductos.ForeColor = Color.White;
             btnProductos.Location = new Point(0, 5);
             btnProductos.Margin = new Padding(0, 5, 0, 5);
@@ -201,14 +201,14 @@
             btnProductos.Text = "   👕 Productos";
             btnProductos.TextAlign = ContentAlignment.MiddleLeft;
             btnProductos.UseVisualStyleBackColor = false;
-            btnProductos.Click += btnProductos_Click_1;
+            btnProductos.Click += btnProductos_Click;
             // 
             // btnUsuarios
             // 
             btnUsuarios.BackColor = Color.FromArgb(128, 27, 141);
             btnUsuarios.FlatAppearance.BorderColor = Color.FromArgb(100, 20, 100);
             btnUsuarios.FlatStyle = FlatStyle.Flat;
-            btnUsuarios.Font = new Font("Britanica-Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUsuarios.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnUsuarios.ForeColor = Color.White;
             btnUsuarios.Location = new Point(0, 80);
             btnUsuarios.Margin = new Padding(0, 5, 0, 5);
@@ -226,7 +226,7 @@
             btnCommodities.BackColor = Color.FromArgb(128, 27, 141);
             btnCommodities.FlatAppearance.BorderColor = Color.FromArgb(100, 20, 100);
             btnCommodities.FlatStyle = FlatStyle.Flat;
-            btnCommodities.Font = new Font("Britanica-Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCommodities.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnCommodities.ForeColor = Color.White;
             btnCommodities.Location = new Point(0, 153);
             btnCommodities.Margin = new Padding(0, 5, 0, 5);
@@ -236,13 +236,14 @@
             btnCommodities.Text = "   \U0001f9f5 Commodities";
             btnCommodities.TextAlign = ContentAlignment.MiddleLeft;
             btnCommodities.UseVisualStyleBackColor = false;
+            btnCommodities.Click += btnCommodities_Click;
             // 
             // btnProveedores
             // 
             btnProveedores.BackColor = Color.FromArgb(128, 27, 141);
             btnProveedores.FlatAppearance.BorderColor = Color.FromArgb(100, 20, 100);
             btnProveedores.FlatStyle = FlatStyle.Flat;
-            btnProveedores.Font = new Font("Britanica-Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnProveedores.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnProveedores.ForeColor = Color.White;
             btnProveedores.Location = new Point(0, 228);
             btnProveedores.Margin = new Padding(0, 5, 0, 5);
@@ -252,13 +253,14 @@
             btnProveedores.Text = "   📦 Proveedores";
             btnProveedores.TextAlign = ContentAlignment.MiddleLeft;
             btnProveedores.UseVisualStyleBackColor = false;
+            btnProveedores.Click += btnProveedores_Click;
             // 
             // btnRegistros
             // 
             btnRegistros.BackColor = Color.FromArgb(128, 27, 141);
             btnRegistros.FlatAppearance.BorderColor = Color.FromArgb(100, 20, 100);
             btnRegistros.FlatStyle = FlatStyle.Flat;
-            btnRegistros.Font = new Font("Britanica-Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRegistros.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnRegistros.ForeColor = Color.White;
             btnRegistros.Location = new Point(0, 303);
             btnRegistros.Margin = new Padding(0, 5, 0, 5);
@@ -275,7 +277,7 @@
             btnBalance.BackColor = Color.FromArgb(128, 27, 141);
             btnBalance.FlatAppearance.BorderColor = Color.FromArgb(100, 20, 100);
             btnBalance.FlatStyle = FlatStyle.Flat;
-            btnBalance.Font = new Font("Britanica-Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBalance.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnBalance.ForeColor = Color.White;
             btnBalance.Location = new Point(0, 378);
             btnBalance.Margin = new Padding(0, 5, 0, 5);
@@ -285,13 +287,14 @@
             btnBalance.Text = "    💲 Balance";
             btnBalance.TextAlign = ContentAlignment.MiddleLeft;
             btnBalance.UseVisualStyleBackColor = false;
+            btnBalance.Click += btnBalance_Click;
             // 
             // btnConfig
             // 
             btnConfig.BackColor = Color.FromArgb(128, 27, 141);
             btnConfig.FlatAppearance.BorderColor = Color.FromArgb(100, 20, 100);
             btnConfig.FlatStyle = FlatStyle.Flat;
-            btnConfig.Font = new Font("Britanica-Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnConfig.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnConfig.ForeColor = Color.White;
             btnConfig.Location = new Point(0, 453);
             btnConfig.Margin = new Padding(0, 5, 0, 5);
@@ -301,7 +304,7 @@
             btnConfig.Text = "   ⚙ Configuración";
             btnConfig.TextAlign = ContentAlignment.MiddleLeft;
             btnConfig.UseVisualStyleBackColor = false;
-            btnConfig.Click += button1_Click_1;
+            btnConfig.Click += btnConfig_Click_1;
             // 
             // cerrarSesion
             // 
@@ -309,7 +312,7 @@
             cerrarSesion.Dock = DockStyle.Fill;
             cerrarSesion.FlatAppearance.BorderColor = Color.FromArgb(100, 20, 100);
             cerrarSesion.FlatStyle = FlatStyle.Flat;
-            cerrarSesion.Font = new Font("Britanica-Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            cerrarSesion.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             cerrarSesion.ForeColor = Color.White;
             cerrarSesion.Location = new Point(3, 674);
             cerrarSesion.Name = "cerrarSesion";

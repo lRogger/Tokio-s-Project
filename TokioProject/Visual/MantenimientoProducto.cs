@@ -1,4 +1,4 @@
-﻿using Entidades;
+using Entidades;
 using Datos;
 using Individual.Visual;
 using System.Data;

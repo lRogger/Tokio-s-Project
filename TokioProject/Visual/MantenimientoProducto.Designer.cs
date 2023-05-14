@@ -1,6 +1,6 @@
-﻿namespace GUIs.Visual
+namespace GUIs.Visual
 {
-    partial class MantenimientoProducto
+     partial class MantenimientoProducto
     {
         /// <summary>
         /// Required designer variable.

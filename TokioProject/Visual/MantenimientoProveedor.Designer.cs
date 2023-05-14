@@ -1,6 +1,6 @@
-﻿namespace Individual.Visual
+﻿namespace GUIs.Visual
 {
-    partial class MantenimientoUsuario
+    partial class MantenimientoProveedor
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            buscarUser = new TextBox();
+            btnRefrescar = new Button();
             usersDGV = new DataGridView();
             Id = new DataGridViewTextBoxColumn();
             Cedula = new DataGridViewTextBoxColumn();
@@ -39,26 +39,29 @@
             Correo = new DataGridViewTextBoxColumn();
             Edad = new DataGridViewTextBoxColumn();
             Imagen = new DataGridViewImageColumn();
-            btnEditar = new Button();
-            btnCrear = new Button();
-            btnEliminar = new Button();
-            btnCerrar = new ComponentesMod.RJButton();
+            buscarUser = new TextBox();
             separador = new Panel();
-            btnRefrescar = new Button();
+            btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
+            btnEliminar = new Button();
+            btnCrear = new Button();
+            btnEditar = new Button();
             ((System.ComponentModel.ISupportInitialize)usersDGV).BeginInit();
             SuspendLayout();
             // 
-            // buscarUser
+            // btnRefrescar
             // 
-            buscarUser.BackColor = Color.White;
-            buscarUser.BorderStyle = BorderStyle.None;
-            buscarUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buscarUser.Location = new Point(90, 161);
-            buscarUser.Name = "buscarUser";
-            buscarUser.PlaceholderText = " 🔎 Buscar...";
-            buscarUser.Size = new Size(537, 22);
-            buscarUser.TabIndex = 1;
-            buscarUser.TextChanged += buscarUser_TextChanged;
+            btnRefrescar.BackColor = Color.Transparent;
+            btnRefrescar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnRefrescar.FlatAppearance.BorderSize = 0;
+            btnRefrescar.FlatStyle = FlatStyle.Flat;
+            btnRefrescar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
+            btnRefrescar.Location = new Point(489, 76);
+            btnRefrescar.Name = "btnRefrescar";
+            btnRefrescar.Size = new Size(50, 56);
+            btnRefrescar.TabIndex = 18;
+            btnRefrescar.Text = "🔄";
+            btnRefrescar.UseVisualStyleBackColor = false;
             // 
             // usersDGV
             // 
@@ -92,7 +95,7 @@
             usersDGV.EnableHeadersVisualStyles = false;
             usersDGV.GridColor = Color.FromArgb(64, 64, 64);
             usersDGV.ImeMode = ImeMode.NoControl;
-            usersDGV.Location = new Point(90, 193);
+            usersDGV.Location = new Point(100, 179);
             usersDGV.MultiSelect = false;
             usersDGV.Name = "usersDGV";
             usersDGV.ReadOnly = true;
@@ -103,7 +106,7 @@
             usersDGV.ScrollBars = ScrollBars.Vertical;
             usersDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             usersDGV.Size = new Size(537, 348);
-            usersDGV.TabIndex = 0;
+            usersDGV.TabIndex = 11;
             // 
             // Id
             // 
@@ -154,57 +157,24 @@
             Imagen.ReadOnly = true;
             Imagen.Width = 55;
             // 
-            // btnEditar
+            // buscarUser
             // 
-            btnEditar.BackColor = Color.Transparent;
-            btnEditar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEditar.Location = new Point(170, 97);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 43);
-            btnEditar.TabIndex = 5;
-            btnEditar.Text = "Editar";
-            btnEditar.TextAlign = ContentAlignment.MiddleLeft;
-            btnEditar.UseVisualStyleBackColor = false;
-            btnEditar.Click += editar_Click;
+            buscarUser.BackColor = Color.White;
+            buscarUser.BorderStyle = BorderStyle.None;
+            buscarUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buscarUser.Location = new Point(100, 147);
+            buscarUser.Name = "buscarUser";
+            buscarUser.PlaceholderText = " 🔎 Buscar...";
+            buscarUser.Size = new Size(537, 22);
+            buscarUser.TabIndex = 12;
             // 
-            // btnCrear
+            // separador
             // 
-            btnCrear.BackColor = Color.Transparent;
-            btnCrear.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnCrear.FlatAppearance.BorderSize = 0;
-            btnCrear.FlatStyle = FlatStyle.Flat;
-            btnCrear.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
-            btnCrear.Location = new Point(91, 97);
-            btnCrear.Margin = new Padding(0);
-            btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(76, 43);
-            btnCrear.TabIndex = 6;
-            btnCrear.Text = "Crear";
-            btnCrear.TextAlign = ContentAlignment.MiddleLeft;
-            btnCrear.UseVisualStyleBackColor = false;
-            btnCrear.Click += crear_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.BackColor = Color.Transparent;
-            btnEliminar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEliminar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEliminar.Location = new Point(258, 97);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(114, 43);
-            btnEliminar.TabIndex = 7;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.TextAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.UseVisualStyleBackColor = false;
-            btnEliminar.Click += eliminar_Click;
+            separador.BackColor = Color.FromArgb(70, 15, 75);
+            separador.Location = new Point(100, 132);
+            separador.Name = "separador";
+            separador.Size = new Size(537, 2);
+            separador.TabIndex = 17;
             // 
             // btnCerrar
             // 
@@ -218,44 +188,67 @@
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             btnCerrar.ForeColor = Color.White;
-            btnCerrar.Location = new Point(529, 102);
+            btnCerrar.Location = new Point(539, 88);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(97, 33);
-            btnCerrar.TabIndex = 8;
+            btnCerrar.TabIndex = 16;
             btnCerrar.Text = "Cerrar";
             btnCerrar.TextColor = Color.White;
             btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
             // 
-            // separador
+            // btnEliminar
             // 
-            separador.BackColor = Color.FromArgb(70, 15, 75);
-            separador.Location = new Point(90, 146);
-            separador.Name = "separador";
-            separador.Size = new Size(537, 2);
-            separador.TabIndex = 9;
+            btnEliminar.BackColor = Color.Transparent;
+            btnEliminar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminar.ForeColor = Color.FromArgb(118, 27, 141);
+            btnEliminar.Location = new Point(268, 83);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(114, 43);
+            btnEliminar.TabIndex = 15;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.TextAlign = ContentAlignment.MiddleLeft;
+            btnEliminar.UseVisualStyleBackColor = false;
             // 
-            // btnRefrescar
+            // btnCrear
             // 
-            btnRefrescar.BackColor = Color.Transparent;
-            btnRefrescar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.FlatAppearance.BorderSize = 0;
-            btnRefrescar.FlatStyle = FlatStyle.Flat;
-            btnRefrescar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.Location = new Point(479, 90);
-            btnRefrescar.Name = "btnRefrescar";
-            btnRefrescar.Size = new Size(50, 56);
-            btnRefrescar.TabIndex = 10;
-            btnRefrescar.Text = "🔄";
-            btnRefrescar.UseVisualStyleBackColor = false;
-            btnRefrescar.Click += btnRefrescar_Click;
+            btnCrear.BackColor = Color.Transparent;
+            btnCrear.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnCrear.FlatAppearance.BorderSize = 0;
+            btnCrear.FlatStyle = FlatStyle.Flat;
+            btnCrear.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
+            btnCrear.Location = new Point(101, 83);
+            btnCrear.Margin = new Padding(0);
+            btnCrear.Name = "btnCrear";
+            btnCrear.Size = new Size(76, 43);
+            btnCrear.TabIndex = 14;
+            btnCrear.Text = "Crear";
+            btnCrear.TextAlign = ContentAlignment.MiddleLeft;
+            btnCrear.UseVisualStyleBackColor = false;
             // 
-            // MantenimientoUsuario
+            // btnEditar
+            // 
+            btnEditar.BackColor = Color.Transparent;
+            btnEditar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnEditar.FlatAppearance.BorderSize = 0;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
+            btnEditar.Location = new Point(180, 83);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(82, 43);
+            btnEditar.TabIndex = 13;
+            btnEditar.Text = "Editar";
+            btnEditar.TextAlign = ContentAlignment.MiddleLeft;
+            btnEditar.UseVisualStyleBackColor = false;
+            // 
+            // MantenimientoProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(744, 650);
             Controls.Add(btnRefrescar);
             Controls.Add(usersDGV);
@@ -266,29 +259,28 @@
             Controls.Add(btnCrear);
             Controls.Add(btnEditar);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "MantenimientoUsuario";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "MantenimientoUsuario";
-            MouseMove += MantenimientoUsuario_MouseMove;
+            Name = "MantenimientoProveedor";
+            Text = "MantenimientoProveedor";
             ((System.ComponentModel.ISupportInitialize)usersDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private TextBox buscarUser;
-        private Button btnEditar;
-        private Button btnCrear;
-        private Button btnEliminar;
-        public DataGridView usersDGV;
-        private ComponentesMod.RJButton btnCerrar;
-        private Panel separador;
+
         private Button btnRefrescar;
+        public DataGridView usersDGV;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Cedula;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Edad;
         private DataGridViewImageColumn Imagen;
+        private TextBox buscarUser;
+        private Panel separador;
+        private Individual.Visual.ComponentesMod.RJButton btnCerrar;
+        private Button btnEliminar;
+        private Button btnCrear;
+        private Button btnEditar;
     }
 }

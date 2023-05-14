@@ -1,4 +1,4 @@
-﻿namespace GUIs.Visual
+namespace GUIs.Visual
 {
     partial class Balance
     {
@@ -311,5 +311,5 @@
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Valor;
-    }
+    } 
 }

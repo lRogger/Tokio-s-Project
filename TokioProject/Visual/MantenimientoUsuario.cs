@@ -5,7 +5,7 @@ using Entidades;
 
 namespace Individual.Visual
 {
-    
+
 
     public partial class MantenimientoUsuario : Form
     {
@@ -37,7 +37,7 @@ namespace Individual.Visual
                     {
 
                         if (cell.Value != null &&
-                            (cell.Value.ToString()+"").ToLower().Contains(buscarUser.Text.ToLower()))
+                            (cell.Value.ToString() + "").ToLower().Contains(buscarUser.Text.ToLower()))
                         {
                             encontrado = true;
                             break;
@@ -50,16 +50,16 @@ namespace Individual.Visual
                     }
                     else
                     {
-                        
+
                         row.Visible = false;
                     }
                 }
             }
             else
             {
-                foreach(DataGridViewRow row in usersDGV.Rows)
+                foreach (DataGridViewRow row in usersDGV.Rows)
                 {
-                    if(!row.Visible)
+                    if (!row.Visible)
                     {
                         row.Visible = true;
                     }
@@ -81,7 +81,7 @@ namespace Individual.Visual
 
                 var personas = new DBPersona().LeerPersona((string)usersDGV.Rows[i].Cells["Cedula"].Value);
                 Persona p = personas[0];
-                
+
                 NewUser nu = new NewUser();
                 nu.cedUser.Text = p.Cedula;
                 nu.cedUser.Enabled = false;
@@ -176,11 +176,11 @@ namespace Individual.Visual
                 btnEditar.Enabled = true;
                 btnEliminar.Enabled = true;
                 btnCerrar.Enabled = true;
-            
+
                 usersDGV.Rows.Clear();
                 foreach (Persona persona in listaPersonas)
                 {
-                    if(persona.Cedula != "0")
+                    if (persona.Cedula != "0")
                     {
                         usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
                         , persona.Edad, persona.Foto);
@@ -189,7 +189,7 @@ namespace Individual.Visual
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 new Emergente("advertencia", "ERROR", "Ha ocurrido un error al cargar la base de datos\n " +
                      ex.Message).ShowDialog();
