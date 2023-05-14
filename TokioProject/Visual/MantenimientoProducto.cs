@@ -10,6 +10,7 @@ namespace GUIs.Visual
     {
         private DataBase db = new DataBase();
         private List<Prenda> listaPrendas;
+        
 
         public MantenimientoProducto()
         {
@@ -20,6 +21,38 @@ namespace GUIs.Visual
             listaPrendas = new List<Prenda>();
         }
 
+        private async void CargarTabla()
+        {
+            try
+            {
+                btnRefrescar.Enabled = false;
+
+
+                listaPrendas = await new DBProducto().LeerProductos();
+
+                btnRefrescar.Enabled = true;
+
+
+
+                productoDGV.Rows.Clear();
+
+                for (int i = listaPrendas.Count - 1; i >= 0; i--)
+                {
+                    productoDGV.Rows.Add(listaPrendas[i].Id, listaPrendas[i].Nombre,
+                        listaPrendas[i].Categoria, listaPrendas[i].Talla, listaPrendas[i].Color, listaPrendas[i].Stock, listaPrendas[i].Precio);
+
+                }
+
+            }
+            
+            catch (Exception ex)
+            {
+                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
+                     ex.Message).ShowDialog();
+            }
+        }
+
+        /* DESCONTINUADO -
         private async void CargarTabla()
         {
             try
@@ -63,7 +96,7 @@ namespace GUIs.Visual
                      ex.Message).ShowDialog();
             }
             
-        }
+        }*/
 
         private void FiltrarDGVProducto()
         {

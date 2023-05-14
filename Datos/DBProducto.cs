@@ -21,6 +21,7 @@ namespace Datos
             db.instruccionDB($"UPDATE Productos SET Activo = 1 WHERE IDproducto = {id}");
         }
 
+        
         public async Task<List<Prenda>> LeerProducto(int id)
         {
             DataBase db = new DataBase();
@@ -47,7 +48,34 @@ namespace Datos
             }
             return prendas;
         }
+        
 
+        public async Task<List<Prenda>> LeerProductos()
+        {
+            DataBase db = new DataBase();
+            SqlDataReader reader = await db.SpConsulta("ObtenerProductos");
+            var listaProductos = new List<Prenda>();
+
+            while (reader.Read())
+            {
+                Prenda p = new Prenda();
+                p.Id = reader.GetInt32(0);
+                p.Categoria = reader.GetString(1);
+                p.Talla = reader.GetString(2);
+                p.Nombre = reader.GetString(3);
+                p.Descripcion = reader.GetString(4);
+                p.Color = reader.GetString(5);
+                p.Stock = reader.GetInt32(6);
+                p.Precio = reader.GetDouble(7);
+                p.Activo = reader.GetBoolean(8);
+
+                listaProductos.Add(p);
+            }
+
+            return listaProductos;
+        }
+
+        /* DESCONTINUADO -
         public async Task<List<Prenda>> LeerProducto()
         {
             DataBase db = new DataBase();
@@ -74,6 +102,7 @@ namespace Datos
             }
             return prendas;
         }
+        */
 
         public async Task<int> CrearProducto(Prenda p)
         {

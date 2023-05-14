@@ -96,10 +96,10 @@ namespace GUIs.Visual
 
                 Prenda productoNuevo = new Prenda();
                 productoNuevo.Nombre = tbNombreProd.Texts;
-                productoNuevo.Categoria = cbCateg.SelectedValue.ToString();
-                productoNuevo.Talla = cbTalla.SelectedValue.ToString();
+                productoNuevo.Categoria = cbCateg.SelectedValue?.ToString()+"";
+                productoNuevo.Talla = cbTalla.SelectedValue?.ToString()+"";
                 productoNuevo.Descripcion = tbDescrip.Texts;
-                productoNuevo.Color = cbColor.SelectedValue.ToString();
+                productoNuevo.Color = cbColor.SelectedValue?.ToString()+"";
                 productoNuevo.Stock = Int32.Parse(tbStock.Texts);
                 productoNuevo.Precio = Double.Parse(tbPrecio.Texts);
                 productoNuevo.Id = id;
@@ -162,10 +162,10 @@ namespace GUIs.Visual
             {
                 Prenda p = new Prenda();
                 p.Nombre = tbNombreProd.Texts;
-                p.Categoria = cbCateg.SelectedValue.ToString();
-                p.Talla = cbTalla.SelectedValue.ToString();
+                p.Categoria = cbCateg.SelectedValue?.ToString()+"";
+                p.Talla = cbTalla.SelectedValue?.ToString()+"";
                 p.Descripcion = tbDescrip.Texts.ToString();
-                p.Color = cbColor.SelectedValue.ToString();
+                p.Color = cbColor.SelectedValue?.ToString()+"";
                 p.Stock = Int32.Parse(tbStock.Texts);
                 p.Precio = Double.Parse(tbPrecio.Texts);
 
