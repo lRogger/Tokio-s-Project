@@ -25,7 +25,20 @@ namespace Datos
         public async Task<List<Prenda>> LeerProducto(int id)
         {
             DataBase db = new DataBase();
-            await Task.Run(() => db.consultar($"SELECT * FROM Productos WHERE IDproducto = '{id}'"));
+            await Task.Run(() => db.consultar($"SELECT IDproducto," +
+                                                $"CAST(C.IdCategoria AS VARCHAR) + '-' + C.Categoria AS Categoria," +
+                                                $"CAST(T.IdTalla AS VARCHAR) + '-' + T.Talla AS Talla," +
+                                                $"Nombre," +
+                                                $"Descripcion," +
+                                                $"CAST(CL.IdColor AS VARCHAR) + '-' + CL.Color AS Color," +
+                                                $"Stock," +
+                                                $"Precio," +
+                                                $"Activo " +
+                                               $"FROM Productos P " +
+                                               $"INNER JOIN Talla T ON P.Talla = T.IdTalla " +
+                                               $"INNER JOIN CategoriaProducto C ON P.Categoria = C.IdCategoria " +
+                                               $"INNER JOIN Colores CL ON P.Color = CL.IdColor " +
+                                               $"WHERE IDproducto = {id};"));
             DataSet ds = db.Ds;
             var prendas = new List<Prenda>();
 

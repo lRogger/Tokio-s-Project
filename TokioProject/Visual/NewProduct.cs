@@ -71,21 +71,21 @@ namespace GUIs.Visual
         {
 
             DataBase dsc = new DataBase();
-            dsc.consultar("SELECT idColor, CAST(idColor AS VARCHAR) + ' - ' + Color AS Color FROM Colores;");
+            dsc.consultar("SELECT idColor, CAST(idColor AS VARCHAR) + '-' + Color AS Color FROM Colores;");
             return dsc.Ds;
         }
 
         private DataSet CargarListaCategoria()
         {
             DataBase dsc = new DataBase();
-            dsc.consultar("SELECT IdCategoria, CAST(IdCategoria AS VARCHAR) + ' - ' + Categoria AS Categoria FROM CategoriaProducto;");
+            dsc.consultar("SELECT IdCategoria, CAST(IdCategoria AS VARCHAR) + '-' + Categoria AS Categoria FROM CategoriaProducto;");
             return dsc.Ds;
         }
 
         private DataSet CargarListaTalla()
         {
             DataBase dsc = new DataBase();
-            dsc.consultar("SELECT IdTalla, CAST(IdTalla AS VARCHAR) + ' - ' + Talla AS Talla FROM Talla;");
+            dsc.consultar("SELECT IdTalla, CAST(IdTalla AS VARCHAR) + '-' + Talla AS Talla FROM Talla;");
             return dsc.Ds;
         }
 
@@ -103,6 +103,16 @@ namespace GUIs.Visual
                 productoNuevo.Stock = Int32.Parse(tbStock.Texts);
                 productoNuevo.Precio = Double.Parse(tbPrecio.Texts);
                 productoNuevo.Id = id;
+
+                var productoRegistro = new Prenda();
+                productoRegistro.Nombre = tbNombreProd.Texts;
+                productoRegistro.Categoria = cbCateg.Text;
+                productoRegistro.Talla = cbTalla.Text;
+                productoRegistro.Color = cbColor.Text;
+                productoRegistro.Descripcion = tbDescrip.Texts;
+                productoRegistro.Stock = Int32.Parse(tbStock.Texts);
+                productoRegistro.Precio = Double.Parse(tbPrecio.Texts);
+                productoRegistro.Id = id;
 
                 var productos = await new DBProducto().LeerProducto(id);
                 Prenda productoAnterior = productos[0];
@@ -136,7 +146,7 @@ namespace GUIs.Visual
                 foreach (var propiedad in typeof(Prenda).GetProperties())
                 {
                     object valorAnterior = propiedad.GetValue(productoAnterior)!;
-                    object valorNuevo = propiedad.GetValue(productoNuevo)!;
+                    object valorNuevo = propiedad.GetValue(productoRegistro)!;
 
                     if (!Equals(valorAnterior, valorNuevo))
                     {
