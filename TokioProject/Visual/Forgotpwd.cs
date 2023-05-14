@@ -69,13 +69,13 @@ namespace Individual
 
         }
 
-        private async void Validar()
+        private void Validar()
         {
             if (correofpwd.Text != "" && cedulafpwd.Text != "")
             {
                 ds.Tables.Clear();
-                await Task.Run(() => db.consultar("SELECT * FROM Personas WHERE Correo = '" +
-                correofpwd.Text.ToLower() + "' AND Cedula = '" + cedulafpwd.Text + "'"));
+                db.consultar("SELECT * FROM Personas WHERE Correo = '" +
+                correofpwd.Text.ToLower() + "' AND Cedula = '" + cedulafpwd.Text + "'");
                 ds = db.Ds;
 
                 try

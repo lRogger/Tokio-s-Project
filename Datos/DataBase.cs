@@ -57,14 +57,14 @@ namespace Datos
 
         }
 
-        public async void instruccionDB(string cmd)
+        public void instruccionDB(string cmd)
         {
             SqlConnection con = conectarDB();
             SqlCommand comando = new SqlCommand(cmd, con);
 
             try
             {
-                await comando.ExecuteNonQueryAsync();
+                comando.ExecuteNonQuery();
             }
 
             catch (Exception e)
@@ -75,7 +75,7 @@ namespace Datos
             con.Close();
         }
 
-        public async void SpDB(string sp, List<SqlParameter> parametros)
+        public void SpDB(string sp, List<SqlParameter> parametros)
         {
 
             SqlConnection con = conectarDB();
@@ -87,18 +87,18 @@ namespace Datos
             {
                 comando.Parameters.Add(p);
             }
-            await comando.ExecuteNonQueryAsync();
+            comando.ExecuteNonQuery();
             con.Close();
         }
 
-        public async Task<SqlDataReader> SpConsulta(string sp)
+        public SqlDataReader SpConsulta(string sp)
         {
             SqlConnection con = conectarDB();
 
             SqlCommand comando = new SqlCommand(sp, con);
             comando.CommandType = CommandType.StoredProcedure;
 
-            SqlDataReader reader = await comando.ExecuteReaderAsync();
+            SqlDataReader reader = comando.ExecuteReader();
 
             return reader;
 

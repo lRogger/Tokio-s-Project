@@ -19,7 +19,7 @@ namespace TokiosProject.Visual
             this.sesion = sesion;
         }
 
-        private async void rjButton1_Click(object sender, EventArgs e)
+        private void rjButton1_Click(object sender, EventArgs e)
         {
             if(tbPwdAnt.Texts != "" && tbPwdNew.Texts != "" && tbPwdRep.Texts != "")
             {
@@ -29,9 +29,9 @@ namespace TokiosProject.Visual
                     {
                         DataBase db = new DataBase();
                         
-                        await Task.Run(() => db.instruccionDB("UPDATE Personas SET Password = '" +
+                        db.instruccionDB("UPDATE Personas SET Password = '" +
                             BCrypt.Net.BCrypt.HashPassword(tbPwdNew.Texts.Trim())+
-                            "' WHERE Cedula = '" + sesion.Cedula + "'"));
+                            "' WHERE Cedula = '" + sesion.Cedula + "'");
                         this.Close();
 
                         new Emergente("advertencia", "Hecho", "La contraseña se ha cambiado correctamente" +

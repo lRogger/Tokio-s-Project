@@ -22,10 +22,10 @@ namespace Datos
         }
 
         
-        public async Task<List<Prenda>> LeerProducto(int id)
+        public List<Prenda> LeerProducto(int id)
         {
             DataBase db = new DataBase();
-            await Task.Run(() => db.consultar($"SELECT IDproducto," +
+            db.consultar($"SELECT IDproducto," +
                                                 $"CAST(C.IdCategoria AS VARCHAR) + '-' + C.Categoria AS Categoria," +
                                                 $"CAST(T.IdTalla AS VARCHAR) + '-' + T.Talla AS Talla," +
                                                 $"Nombre," +
@@ -38,7 +38,7 @@ namespace Datos
                                                $"INNER JOIN Talla T ON P.Talla = T.IdTalla " +
                                                $"INNER JOIN CategoriaProducto C ON P.Categoria = C.IdCategoria " +
                                                $"INNER JOIN Colores CL ON P.Color = CL.IdColor " +
-                                               $"WHERE IDproducto = {id};"));
+                                               $"WHERE IDproducto = {id};");
             DataSet ds = db.Ds;
             var prendas = new List<Prenda>();
 
@@ -63,10 +63,10 @@ namespace Datos
         }
         
 
-        public async Task<List<Prenda>> LeerProductos()
+        public List<Prenda> LeerProductos()
         {
             DataBase db = new DataBase();
-            SqlDataReader reader = await db.SpConsulta("ObtenerProductos");
+            SqlDataReader reader = db.SpConsulta("ObtenerProductos");
             var listaProductos = new List<Prenda>();
 
             while (reader.Read())
@@ -117,7 +117,7 @@ namespace Datos
         }
         */
 
-        public async Task<int> CrearProducto(Prenda p)
+        public int CrearProducto(Prenda p)
         {
             //Esto se usa por problemas con double en sql
             string doubleArreglado = p.Precio.ToString("0.00", CultureInfo.InvariantCulture);
@@ -143,7 +143,7 @@ namespace Datos
                         Direction = ParameterDirection.Output
                     };
                     command.Parameters.Add(outputIdParam);
-                    await command.ExecuteNonQueryAsync();
+                    command.ExecuteNonQuery();
 
                     idProducto = Convert.ToInt32(outputIdParam.Value);
                 }

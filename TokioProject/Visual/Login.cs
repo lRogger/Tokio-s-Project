@@ -25,7 +25,7 @@ namespace Individual
 
         }
 
-        private async void ingresar()
+        private void ingresar()
         {
 
             if (tbpwd.Texts != "" && tbUser.Texts != "")
@@ -37,7 +37,7 @@ namespace Individual
                     tbUser.Enabled = false;
                     btnIniciar.Enabled = false;
                     
-                    List<Persona> personas = await new DBPersona().LeerPersona(tbUser.Texts);
+                    List<Persona> personas = new DBPersona().LeerPersona(tbUser.Texts);
                     
 
                     if (personas.Count > 0)

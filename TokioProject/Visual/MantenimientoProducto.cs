@@ -21,14 +21,14 @@ namespace GUIs.Visual
             listaPrendas = new List<Prenda>();
         }
 
-        private async void CargarTabla()
+        private void CargarTabla()
         {
             try
             {
                 btnRefrescar.Enabled = false;
 
 
-                listaPrendas = await new DBProducto().LeerProductos();
+                listaPrendas = new DBProducto().LeerProductos();
 
                 btnRefrescar.Enabled = true;
 
@@ -195,13 +195,13 @@ namespace GUIs.Visual
             
         }
 
-        private async void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             if (productoDGV.SelectedRows.Count > 0)
             {
                 int i = productoDGV.CurrentRow.Index;
 
-                var productos = await new DBProducto().LeerProducto((int)productoDGV.Rows[i].Cells["ID"].Value);
+                var productos = new DBProducto().LeerProducto((int)productoDGV.Rows[i].Cells["ID"].Value);
                 Prenda p = productos[0];
                 
                 NewProduct np = new NewProduct(p.Id);
@@ -231,7 +231,7 @@ namespace GUIs.Visual
             }
         }
 
-        private async void btnSuma_Click(object sender, EventArgs e)
+        private void btnSuma_Click(object sender, EventArgs e)
         {
             if(productoDGV.CurrentRow != null)
             {
@@ -258,7 +258,7 @@ namespace GUIs.Visual
                         var parent = this.ParentForm as FrmPrincipal;
                         Persona usuario = parent!.Sesion;
 
-                        var productos = await new DBProducto().LeerProducto(IDproducto);
+                        var productos = new DBProducto().LeerProducto(IDproducto);
 
                         Registros registro = new Registros();
                         registro.Fecha = DateTime.Now;
@@ -310,7 +310,7 @@ namespace GUIs.Visual
             }    
         }
 
-        private async void btnMenos_Click(object sender, EventArgs e)
+        private void btnMenos_Click(object sender, EventArgs e)
         {
             if(productoDGV.CurrentRow != null)
             {
@@ -334,7 +334,7 @@ namespace GUIs.Visual
                             var parent = this.ParentForm as FrmPrincipal;
                             Persona usuario = parent!.Sesion;
 
-                            var productos = await new DBProducto().LeerProducto(IDproducto);
+                            var productos = new DBProducto().LeerProducto(IDproducto);
 
                             Registros registro = new Registros();
                             registro.Fecha = DateTime.Now;
@@ -365,7 +365,7 @@ namespace GUIs.Visual
                             var parent = this.ParentForm as FrmPrincipal;
                             Persona usuario = parent!.Sesion;
 
-                            var productos = await new DBProducto().LeerProducto(IDproducto);
+                            var productos = new DBProducto().LeerProducto(IDproducto);
 
                             Registros registro = new Registros();
                             registro.Fecha = DateTime.Now;

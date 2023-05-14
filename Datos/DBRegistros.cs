@@ -8,10 +8,10 @@ namespace Datos
         public DBRegistros() { }
 
 
-        public async Task<List<Registros>> LeerRegistros()
+        public List<Registros> LeerRegistros()
         {
             DataBase db = new DataBase();
-            SqlDataReader reader = await db.SpConsulta("ObtenerRegistrosCompleto");
+            SqlDataReader reader = db.SpConsulta("ObtenerRegistrosCompleto");
             var listaRegistros = new List<Registros>();
 
             while (reader.Read())

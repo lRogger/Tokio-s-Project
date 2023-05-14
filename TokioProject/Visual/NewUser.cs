@@ -79,7 +79,7 @@ namespace Individual.Visual
         }
 
 
-        private async void btnEnviar_Click(object sender, EventArgs e)
+        private void btnEnviar_Click(object sender, EventArgs e)
         {
             if (!cedUser.Enabled)
             {
@@ -92,8 +92,8 @@ namespace Individual.Visual
                     if(correoUser.Text.IndexOf('@')>-1 && correoUser.Text.IndexOf('.') > -1)
                     {
                         DataSet ds = new DataSet();
-                        await Task.Run(() => db.consultar($"SELECT Cedula, Correo FROM Personas WHERE Cedula = '{cedUser.Text}'" +
-                            $" OR Correo = '{correoUser.Text}'" ));
+                        db.consultar($"SELECT Cedula, Correo FROM Personas WHERE Cedula = '{cedUser.Text}'" +
+                            $" OR Correo = '{correoUser.Text}'" );
                         ds = db.Ds;
                         if (ds.Tables.Count > 0)
                         {

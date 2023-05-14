@@ -13,10 +13,10 @@ namespace Datos
             db.instruccionDB($"Delete from Personas WHERE Cedula = '{ced}'");
         }
 
-        public async Task<List<Persona>> LeerPersona(string ced)
+        public List<Persona> LeerPersona(string ced)
         {
             DataBase db = new DataBase();
-            await Task.Run(() => db.consultar($"SELECT * FROM Personas WHERE Cedula = '{ced}'"));
+            db.consultar($"SELECT * FROM Personas WHERE Cedula = '{ced}'");
             DataSet ds = db.Ds;
             var personas = new List<Persona>();
 
@@ -36,10 +36,10 @@ namespace Datos
             return personas;
         }
 
-        public async Task<List<Persona>> LeerPersona()
+        public List<Persona> LeerPersona()
         {
             DataBase db = new DataBase();
-            await Task.Run(() => db.consultar($"SELECT * FROM Personas"));
+            db.consultar($"SELECT * FROM Personas");
             DataSet ds = db.Ds;
             var personas = new List<Persona>();
 

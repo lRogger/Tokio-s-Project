@@ -89,7 +89,7 @@ namespace GUIs.Visual
             return dsc.Ds;
         }
 
-        private async void Editar()
+        private void Editar()
         {
             if (tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
             {
@@ -114,7 +114,7 @@ namespace GUIs.Visual
                 productoRegistro.Precio = Double.Parse(tbPrecio.Texts);
                 productoRegistro.Id = id;
 
-                var productos = await new DBProducto().LeerProducto(id);
+                var productos = new DBProducto().LeerProducto(id);
                 Prenda productoAnterior = productos[0];
                 if (productoNuevo.Stock==0)
                 {
@@ -166,7 +166,7 @@ namespace GUIs.Visual
             }
         }
 
-        private async void Enviar()
+        private void Enviar()
         {
             if(tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
             {
@@ -182,7 +182,7 @@ namespace GUIs.Visual
                 this.Hide();
 
                 //INSERCIÓN DE PRODUCTO
-                p.Id = await new DBProducto().CrearProducto(p);
+                p.Id = new DBProducto().CrearProducto(p);
 
                 //SECCION DONDE SE CREA EL REGISTRO
                 var owner = this.Owner as FrmPrincipal;

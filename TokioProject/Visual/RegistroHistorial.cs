@@ -39,14 +39,14 @@ namespace GUIs.Visual
             CargarTabla();
         }
 
-        private async void CargarTabla()
+        private void CargarTabla()
         {
             try
             {
                 btnRefrescar.Enabled = false;
 
 
-                listaRegistros = await new DBRegistros().LeerRegistros();
+                listaRegistros = new DBRegistros().LeerRegistros();
 
                 btnRefrescar.Enabled = true;
 

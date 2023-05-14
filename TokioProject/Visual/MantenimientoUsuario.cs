@@ -16,9 +16,11 @@ namespace Individual.Visual
         public MantenimientoUsuario()
         {
             InitializeComponent();
-            CargarTabla();
             usersDGV.RowTemplate.Height = 55;
             usersDGV.RowHeadersVisible = false;
+            CargarTabla();
+            
+           
         }
 
 
@@ -70,14 +72,14 @@ namespace Individual.Visual
 
         }
 
-        private async void editar_Click(object sender, EventArgs e)
+        private void editar_Click(object sender, EventArgs e)
         {
             if (usersDGV.SelectedRows.Count > 0)
             {
                 int i = usersDGV.CurrentRow.Index;
 
 
-                var personas = await new DBPersona().LeerPersona((string)usersDGV.Rows[i].Cells["Cedula"].Value);
+                var personas = new DBPersona().LeerPersona((string)usersDGV.Rows[i].Cells["Cedula"].Value);
                 Persona p = personas[0];
                 
                 NewUser nu = new NewUser();
@@ -158,7 +160,7 @@ namespace Individual.Visual
             this.Close();
         }
 
-        private async void CargarTabla()
+        private void CargarTabla()
         {
 
             try
@@ -168,7 +170,7 @@ namespace Individual.Visual
                 btnEliminar.Enabled = false;
                 btnCerrar.Enabled = false;
 
-                List<Persona> listaPersonas = await new DBPersona().LeerPersona();
+                List<Persona> listaPersonas = new DBPersona().LeerPersona();
 
                 btnRefrescar.Enabled = true;
                 btnEditar.Enabled = true;
