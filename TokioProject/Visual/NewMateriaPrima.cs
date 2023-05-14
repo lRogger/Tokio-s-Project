@@ -56,7 +56,7 @@ namespace GUIs.Visual
                 productoNuevo.Precio = Double.Parse(tbPrecioUnitario.Texts);
                 productoNuevo.Id = id;
 
-                var productos = await new DBProducto().LeerProducto(id);
+                var productos = new DBProducto().LeerProducto(id);
                 Prenda productoAnterior = productos[0];
                 if (productoNuevo.Stock == 0)
                 {
@@ -123,7 +123,7 @@ namespace GUIs.Visual
                 this.Hide();
 
                 //INSERCIÓN DE PRODUCTO
-                p.Id = await new DBProducto().CrearProducto(p);
+                p.Id = new DBProducto().CrearProducto(p);
 
                 //SECCION DONDE SE CREA EL REGISTRO
                 var owner = this.Owner as FrmPrincipal;

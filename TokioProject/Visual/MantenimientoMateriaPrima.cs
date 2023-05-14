@@ -17,13 +17,13 @@ namespace GUIs.Visual
             materiaPrimaDGV.RowHeadersVisible = false;
         }
 
-        private async Task CargarTabla()
+        private void CargarTabla()
         {
             try
             {
                 List<MateriaPrima> lista = new List<MateriaPrima>();
                 DataTable dt = new DataTable();
-                lista = await control.ListarMateriaPrima();
+                lista = control.ListarMateriaPrima();
                 materiaPrimaDGV.Rows.Clear();
                 foreach (MateriaPrima materiaPrima in lista)
                 {
@@ -41,12 +41,12 @@ namespace GUIs.Visual
 
         private async void btnRefrescar_Click(object sender, EventArgs e)
         {
-            await CargarTabla();
+            CargarTabla();
         }
 
         private async void MantenimientoMateriaPrima_Load(object sender, EventArgs e)
         {
-            await CargarTabla();
+            CargarTabla();
         }
 
         private async void btnCrear_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace GUIs.Visual
             if (crear.ShowDialog() != DialogResult.Abort)
             {
                 new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
-                await CargarTabla();
+                CargarTabla();
 
             }
             else

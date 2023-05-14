@@ -7,14 +7,14 @@ namespace Datos
     {
         DataBase dataBase = new DataBase();
 
-        public async Task<List<MateriaPrima>> CargarDatosMateriaPrima()
+        public List<MateriaPrima> CargarDatosMateriaPrima()
         {
             try
             {
                 List<MateriaPrima> lista = new List<MateriaPrima>();
                 MateriaPrima materiaPrima = new MateriaPrima();
 
-                using (SqlDataReader reader = await dataBase.SpConsulta("ObtenerDatosMateriaPrima"))
+                using (SqlDataReader reader = dataBase.SpConsulta("ObtenerDatosMateriaPrima"))
                 {
                     while (reader.Read())
                     {
@@ -35,7 +35,6 @@ namespace Datos
             {
                 throw new Exception(ex.Message);
             }
-
         }
     }
 }
