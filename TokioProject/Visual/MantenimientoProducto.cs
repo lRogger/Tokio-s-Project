@@ -16,9 +16,9 @@ namespace GUIs.Visual
         {
             InitializeComponent();
             cbTalla.SelectedIndex = 0;
-            CargarTabla();
             productoDGV.RowHeadersVisible = false;
             listaPrendas = new List<Prenda>();
+            CargarTabla();
         }
 
         private void CargarTabla()
@@ -36,13 +36,24 @@ namespace GUIs.Visual
 
                 productoDGV.Rows.Clear();
 
-                for (int i = listaPrendas.Count - 1; i >= 0; i--)
+                for (int i = 0; i < listaPrendas.Count; i++)
                 {
                     productoDGV.Rows.Add(listaPrendas[i].Id, listaPrendas[i].Nombre,
                         listaPrendas[i].Categoria, listaPrendas[i].Talla, listaPrendas[i].Color, listaPrendas[i].Stock, listaPrendas[i].Precio);
+                    if (!listaPrendas[i].Activo && !cbInactivo.Checked)
+                    {
 
+                        productoDGV.Rows[i].Visible = false;
+
+                    }
+                    if (!listaPrendas[i].Activo)
+                    {
+                        //productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242,231,243);
+                        productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+                    }
+                    
                 }
-
+                
             }
             
             catch (Exception ex)
@@ -309,6 +320,7 @@ namespace GUIs.Visual
                 }
             }    
         }
+
 
         private void btnMenos_Click(object sender, EventArgs e)
         {
