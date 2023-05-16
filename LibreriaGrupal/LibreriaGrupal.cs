@@ -10,9 +10,6 @@ namespace LibreriaGrupal
 
     public class Utilidades
     {
-
-
-
         public bool validar(char e, string tipo)
         {
             switch (tipo)
@@ -41,8 +38,17 @@ namespace LibreriaGrupal
             }
             return false;
         }
-
+        public bool estaVacio(params string[] textos)
+        {
+            foreach(string texto in textos)
+            {
+                if(texto == "" || string.IsNullOrEmpty(texto))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
-
 
 }//Lindsay estuvo aqui

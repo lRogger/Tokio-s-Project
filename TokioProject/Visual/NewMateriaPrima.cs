@@ -44,16 +44,16 @@ namespace GUIs.Visual
 
         }
 
-        private async void Editar()
+        private void Editar()
         {
-            if (tbNombreMat.Texts.Trim() != "" && tbPrecioUnitario.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
+            if (txtNombre.Texts.Trim() != "" && txtPrecio.Texts.Trim() != "" && txtStock.Texts.Trim() != "")
             {
 
                 Prenda productoNuevo = new Prenda();
-                productoNuevo.Nombre = tbNombreMat.Texts;
+                productoNuevo.Nombre = txtNombre.Texts;
                 productoNuevo.Descripcion = tbDescrip.Texts;
-                productoNuevo.Stock = Int32.Parse(tbStock.Texts);
-                productoNuevo.Precio = Double.Parse(tbPrecioUnitario.Texts);
+                productoNuevo.Stock = Int32.Parse(txtStock.Texts);
+                productoNuevo.Precio = Double.Parse(txtPrecio.Texts);
                 productoNuevo.Id = id;
 
                 var productos = new DBProducto().LeerProducto(id);
@@ -110,15 +110,15 @@ namespace GUIs.Visual
             }
         }
 
-        private async void Enviar()
+        private void Enviar()
         {
-            if (tbNombreMat.Texts.Trim() != "" && tbPrecioUnitario.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
+            if (txtNombre.Texts.Trim() != "" && txtPrecio.Texts.Trim() != "" && txtStock.Texts.Trim() != "")
             {
                 Prenda p = new Prenda();
-                p.Nombre = tbNombreMat.Texts;
+                p.Nombre = txtNombre.Texts;
                 p.Descripcion = tbDescrip.Texts;
-                p.Stock = Int32.Parse(tbStock.Texts);
-                p.Precio = Double.Parse(tbPrecioUnitario.Texts);
+                p.Stock = Int32.Parse(txtStock.Texts);
+                p.Precio = Double.Parse(txtPrecio.Texts);
 
                 this.Hide();
 
@@ -154,7 +154,7 @@ namespace GUIs.Visual
             Utilidades u = new Utilidades();
             e.Handled = u.validar((char)e.KeyChar, "numero");
 
-            if (tbStock.Texts.Length > 3 && !char.IsControl(e.KeyChar))
+            if (txtStock.Texts.Length > 3 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -165,11 +165,11 @@ namespace GUIs.Visual
             Utilidades u = new Utilidades();
             e.Handled = u.validar((char)e.KeyChar, "decimal");
 
-            if ((e.KeyChar == ',') && (tbPrecioUnitario.Texts.IndexOf(',') > -1))
+            if ((e.KeyChar == ',') && (txtPrecio.Texts.IndexOf(',') > -1))
             {
                 e.Handled = true;
             }
-            if (tbPrecioUnitario.Texts.Length > 10 && !char.IsControl(e.KeyChar))
+            if (txtPrecio.Texts.Length > 10 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

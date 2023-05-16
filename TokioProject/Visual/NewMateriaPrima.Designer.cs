@@ -32,14 +32,14 @@
             panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
             fechaUltCompra = new DateTimePicker();
             tbProveedor = new CustomControls.RJControls.RJTextBox();
-            tbStock = new CustomControls.RJControls.RJTextBox();
+            txtStock = new CustomControls.RJControls.RJTextBox();
             label1 = new Label();
             tbDescrip = new CustomControls.RJControls.RJTextBox();
             label7 = new Label();
             label6 = new Label();
             label4 = new Label();
-            tbPrecioUnitario = new CustomControls.RJControls.RJTextBox();
-            tbNombreMat = new CustomControls.RJControls.RJTextBox();
+            txtPrecio = new CustomControls.RJControls.RJTextBox();
+            txtNombre = new CustomControls.RJControls.RJTextBox();
             label3 = new Label();
             label2 = new Label();
             btnGuardar = new Individual.Visual.ComponentesMod.RJButton();
@@ -64,14 +64,14 @@
             panelMod1.BorderRadius = 40;
             panelMod1.Controls.Add(fechaUltCompra);
             panelMod1.Controls.Add(tbProveedor);
-            panelMod1.Controls.Add(tbStock);
+            panelMod1.Controls.Add(txtStock);
             panelMod1.Controls.Add(label1);
             panelMod1.Controls.Add(tbDescrip);
             panelMod1.Controls.Add(label7);
             panelMod1.Controls.Add(label6);
             panelMod1.Controls.Add(label4);
-            panelMod1.Controls.Add(tbPrecioUnitario);
-            panelMod1.Controls.Add(tbNombreMat);
+            panelMod1.Controls.Add(txtPrecio);
+            panelMod1.Controls.Add(txtNombre);
             panelMod1.Controls.Add(label3);
             panelMod1.Controls.Add(label2);
             panelMod1.ForeColor = Color.Black;
@@ -116,28 +116,28 @@
             tbProveedor.Texts = "";
             tbProveedor.UnderlinedStyle = false;
             // 
-            // tbStock
+            // txtStock
             // 
-            tbStock.BackColor = Color.White;
-            tbStock.BorderColor = SystemColors.ActiveBorder;
-            tbStock.BorderFocusColor = SystemColors.ActiveCaption;
-            tbStock.BorderRadius = 10;
-            tbStock.BorderSize = 1;
-            tbStock.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            tbStock.ForeColor = Color.FromArgb(64, 64, 64);
-            tbStock.Location = new Point(426, 27);
-            tbStock.Margin = new Padding(4);
-            tbStock.Multiline = false;
-            tbStock.Name = "tbStock";
-            tbStock.Padding = new Padding(10, 7, 10, 7);
-            tbStock.PasswordChar = false;
-            tbStock.PlaceholderColor = Color.DarkGray;
-            tbStock.PlaceholderText = "";
-            tbStock.Size = new Size(59, 31);
-            tbStock.TabIndex = 13;
-            tbStock.Texts = "";
-            tbStock.UnderlinedStyle = false;
-            tbStock.KeyPress += tbStock_KeyPress;
+            txtStock.BackColor = Color.White;
+            txtStock.BorderColor = SystemColors.ActiveBorder;
+            txtStock.BorderFocusColor = SystemColors.ActiveCaption;
+            txtStock.BorderRadius = 10;
+            txtStock.BorderSize = 1;
+            txtStock.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtStock.ForeColor = Color.FromArgb(64, 64, 64);
+            txtStock.Location = new Point(426, 27);
+            txtStock.Margin = new Padding(4);
+            txtStock.Multiline = false;
+            txtStock.Name = "txtStock";
+            txtStock.Padding = new Padding(10, 7, 10, 7);
+            txtStock.PasswordChar = false;
+            txtStock.PlaceholderColor = Color.DarkGray;
+            txtStock.PlaceholderText = "";
+            txtStock.Size = new Size(59, 31);
+            txtStock.TabIndex = 13;
+            txtStock.Texts = "";
+            txtStock.UnderlinedStyle = false;
+            txtStock.KeyPress += tbStock_KeyPress;
             // 
             // label1
             // 
@@ -205,51 +205,51 @@
             label4.TabIndex = 4;
             label4.Text = "Proveedor:";
             // 
-            // tbPrecioUnitario
+            // txtPrecio
             // 
-            tbPrecioUnitario.BackColor = Color.White;
-            tbPrecioUnitario.BorderColor = SystemColors.ActiveBorder;
-            tbPrecioUnitario.BorderFocusColor = SystemColors.ActiveCaption;
-            tbPrecioUnitario.BorderRadius = 10;
-            tbPrecioUnitario.BorderSize = 1;
-            tbPrecioUnitario.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            tbPrecioUnitario.ForeColor = Color.FromArgb(64, 64, 64);
-            tbPrecioUnitario.Location = new Point(313, 27);
-            tbPrecioUnitario.Margin = new Padding(4);
-            tbPrecioUnitario.Multiline = false;
-            tbPrecioUnitario.Name = "tbPrecioUnitario";
-            tbPrecioUnitario.Padding = new Padding(10, 7, 10, 7);
-            tbPrecioUnitario.PasswordChar = false;
-            tbPrecioUnitario.PlaceholderColor = Color.DarkGray;
-            tbPrecioUnitario.PlaceholderText = "";
-            tbPrecioUnitario.Size = new Size(59, 31);
-            tbPrecioUnitario.TabIndex = 3;
-            tbPrecioUnitario.Texts = "";
-            tbPrecioUnitario.UnderlinedStyle = false;
-            tbPrecioUnitario.KeyPress += tbPrecio_KeyPress;
+            txtPrecio.BackColor = Color.White;
+            txtPrecio.BorderColor = SystemColors.ActiveBorder;
+            txtPrecio.BorderFocusColor = SystemColors.ActiveCaption;
+            txtPrecio.BorderRadius = 10;
+            txtPrecio.BorderSize = 1;
+            txtPrecio.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPrecio.ForeColor = Color.FromArgb(64, 64, 64);
+            txtPrecio.Location = new Point(313, 27);
+            txtPrecio.Margin = new Padding(4);
+            txtPrecio.Multiline = false;
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Padding = new Padding(10, 7, 10, 7);
+            txtPrecio.PasswordChar = false;
+            txtPrecio.PlaceholderColor = Color.DarkGray;
+            txtPrecio.PlaceholderText = "";
+            txtPrecio.Size = new Size(59, 31);
+            txtPrecio.TabIndex = 3;
+            txtPrecio.Texts = "";
+            txtPrecio.UnderlinedStyle = false;
+            txtPrecio.KeyPress += tbPrecio_KeyPress;
             // 
-            // tbNombreMat
+            // txtNombre
             // 
-            tbNombreMat.BackColor = Color.White;
-            tbNombreMat.BorderColor = SystemColors.ActiveBorder;
-            tbNombreMat.BorderFocusColor = SystemColors.ActiveCaption;
-            tbNombreMat.BorderRadius = 10;
-            tbNombreMat.BorderSize = 1;
-            tbNombreMat.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            tbNombreMat.ForeColor = Color.FromArgb(64, 64, 64);
-            tbNombreMat.Location = new Point(74, 27);
-            tbNombreMat.Margin = new Padding(4);
-            tbNombreMat.Multiline = false;
-            tbNombreMat.Name = "tbNombreMat";
-            tbNombreMat.Padding = new Padding(10, 7, 10, 7);
-            tbNombreMat.PasswordChar = false;
-            tbNombreMat.PlaceholderColor = Color.DarkGray;
-            tbNombreMat.PlaceholderText = "";
-            tbNombreMat.Size = new Size(167, 31);
-            tbNombreMat.TabIndex = 2;
-            tbNombreMat.Texts = "";
-            tbNombreMat.UnderlinedStyle = false;
-            tbNombreMat.KeyPress += tbNombreProd_KeyPress;
+            txtNombre.BackColor = Color.White;
+            txtNombre.BorderColor = SystemColors.ActiveBorder;
+            txtNombre.BorderFocusColor = SystemColors.ActiveCaption;
+            txtNombre.BorderRadius = 10;
+            txtNombre.BorderSize = 1;
+            txtNombre.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNombre.ForeColor = Color.FromArgb(64, 64, 64);
+            txtNombre.Location = new Point(74, 27);
+            txtNombre.Margin = new Padding(4);
+            txtNombre.Multiline = false;
+            txtNombre.Name = "txtNombre";
+            txtNombre.Padding = new Padding(10, 7, 10, 7);
+            txtNombre.PasswordChar = false;
+            txtNombre.PlaceholderColor = Color.DarkGray;
+            txtNombre.PlaceholderText = "";
+            txtNombre.Size = new Size(167, 31);
+            txtNombre.TabIndex = 2;
+            txtNombre.Texts = "";
+            txtNombre.UnderlinedStyle = false;
+            txtNombre.KeyPress += tbNombreProd_KeyPress;
             // 
             // label3
             // 
@@ -343,10 +343,10 @@
         private Label label6;
         private Label label4;
         private Label label1;
-        public CustomControls.RJControls.RJTextBox tbPrecioUnitario;
-        public CustomControls.RJControls.RJTextBox tbNombreMat;
+        public CustomControls.RJControls.RJTextBox txtPrecio;
+        public CustomControls.RJControls.RJTextBox txtNombre;
         public CustomControls.RJControls.RJTextBox tbDescrip;
-        public CustomControls.RJControls.RJTextBox tbStock;
+        public CustomControls.RJControls.RJTextBox txtStock;
         public Label lblTitulo;
         public CustomControls.RJControls.RJTextBox tbProveedor;
         public DateTimePicker fechaUltCompra;
