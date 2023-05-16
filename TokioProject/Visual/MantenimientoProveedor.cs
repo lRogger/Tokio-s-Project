@@ -1,4 +1,4 @@
-﻿using Controladores;
+﻿using Datos;
 using Entidades;
 using Individual.Visual;
 using System;
@@ -15,7 +15,7 @@ namespace GUIs.Visual
 {
     public partial class MantenimientoProveedor : Form
     {
-        CtrlProveedor control = new CtrlProveedor();
+        DBProveedor dataBase = new DBProveedor();
 
         public MantenimientoProveedor()
         {
@@ -35,7 +35,7 @@ namespace GUIs.Visual
         {
             try
             {
-                List<Proveedor> lista = control.ListarProveedores();
+                List<Proveedor> lista = dataBase.CargarDatosProveedores();
 
                 proveedoresDGV.Rows.Clear();
                 foreach (Proveedor proveedor in lista)
@@ -100,7 +100,7 @@ namespace GUIs.Visual
                                                           ).ShowDialog();
                 if(confirmacion == DialogResult.OK)
                 {
-                    control.EliminarProveedor(identificacion);
+                    dataBase.BorrarProveedor(identificacion);
                 }
             }
             else

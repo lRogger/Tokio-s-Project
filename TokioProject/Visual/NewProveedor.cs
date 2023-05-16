@@ -5,14 +5,13 @@ using System.Data;
 using Entidades;
 using System.Data.SqlClient;
 using System.Runtime.ConstrainedExecution;
-using Controladores;
 
 namespace Individual.Visual
 {
 
     public partial class NewProveedor : Form
     {
-        CtrlProveedor control = new CtrlProveedor();
+        DBProveedor dataBase = new DBProveedor();
         Utilidades u = new Utilidades();
 
         int posY = 0, posX = 0;
@@ -57,13 +56,20 @@ namespace Individual.Visual
         }
         private void Nuevo()
         {
+
             if (u.estaVacio(nomProveedor.Text, cedProveedor.Text, correoProveedor.Text, telefProveedor.Text))
             {
                 new Emergente("advertencia", "AVISO", "Hay campos vacíos").ShowDialog();
             }
             else
             {
-                if (control.GuardarProveedor(nomProveedor.Text, cedProveedor.Text, correoProveedor.Text, telefProveedor.Text))
+                Proveedor proveedor = new Proveedor();
+                proveedor.Nombre = nomProveedor.Text.Trim();
+                proveedor.Cedula_ruc = cedProveedor.Text.Trim();
+                proveedor.Correo = correoProveedor.Text.Trim().ToLower();
+                proveedor.Telefono = telefProveedor.Text.Trim();
+
+                if (dataBase.InsertarProveedor(proveedor))
                 {
                     Guardado = true;
                     new Emergente("advertencia", "EXITO", "Proveedor guardado correctamente!").ShowDialog();
@@ -80,7 +86,13 @@ namespace Individual.Visual
         {
             if (fueronModificados(nomProveedor, correoProveedor, telefProveedor))
             {
-                if (control.EditarProveedor(nomProveedor.Text, cedProveedor.Text, correoProveedor.Text, telefProveedor.Text))
+                Proveedor proveedor = new Proveedor();
+                proveedor.Nombre = nomProveedor.Text;
+                proveedor.Cedula_ruc = cedProveedor.Text;
+                proveedor.Correo = correoProveedor.Text;
+                proveedor.Telefono = telefProveedor.Text;
+
+                if (dataBase.EditarProveedor(proveedor))
                 {
                     Guardado = true;
                     new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();

@@ -110,7 +110,7 @@ namespace GUIs.Visual
             }
         }
 
-        private async void Enviar()
+        private void Enviar()
         {
             if (txtNombre.Texts.Trim() != "" && txtPrecio.Texts.Trim() != "" && txtStock.Texts.Trim() != "")
             {

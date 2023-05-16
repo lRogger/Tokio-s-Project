@@ -1,14 +1,14 @@
 ﻿using Entidades;
-using Controladores;
 using Individual.Visual;
 using System.Data;
 using System.Drawing;
+using Datos;
 
 namespace GUIs.Visual
 {
     public partial class MantenimientoMateriaPrima : Form
     {
-        CtrlMateriaPrima control = new CtrlMateriaPrima();
+        DBMateriaPrima dataBase = new DBMateriaPrima();
 
         public MantenimientoMateriaPrima()
         {
@@ -21,7 +21,7 @@ namespace GUIs.Visual
         {
             try
             {
-                List<MateriaPrima> lista = control.ListarMateriaPrima();
+                List<MateriaPrima> lista = dataBase.CargarDatosMateriaPrima();
 
                 materiaPrimaDGV.Rows.Clear();
                 foreach (MateriaPrima materiaPrima in lista)
