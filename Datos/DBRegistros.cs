@@ -28,7 +28,7 @@ namespace Datos
                 usuario.Edad = reader.GetInt32(6);
                 usuario.Password = reader.GetString(7);
                 usuario.Admin = reader.GetBoolean(8);
-                usuario.Foto = reader.GetSqlBinary(9).Value;
+                usuario.Foto = reader.GetString(9);
                 registro.Usuario = usuario;
 
                 Prenda producto = new Prenda();

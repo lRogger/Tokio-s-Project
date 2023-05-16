@@ -1,6 +1,7 @@
 ﻿using Datos;
 using System.Data;
 using Entidades;
+using System.Windows.Forms;
 
 
 namespace Individual.Visual
@@ -91,9 +92,7 @@ namespace Individual.Visual
                 nu.edadUser.Text = p.Edad.ToString();
                 nu.admUser.Checked = p.Admin;
 
-                MemoryStream ms = new MemoryStream(p.Foto);
-                Image img = Image.FromStream(ms);
-                nu.fotoUser.Image = img;
+                nu.fotoUser.ImageLocation = p.Foto;
 
                 if (nu.ShowDialog() != DialogResult.Abort)
                 {
@@ -160,7 +159,7 @@ namespace Individual.Visual
             this.Close();
         }
 
-        private void CargarTabla()
+        private async void CargarTabla()
         {
 
             try
@@ -182,8 +181,9 @@ namespace Individual.Visual
                 {
                     if (persona.Cedula != "0")
                     {
+
                         usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
-                        , persona.Edad, persona.Foto);
+                            ,persona.Edad,new System.Net.WebClient().DownloadData(persona.Foto));
                     }
                 }
 

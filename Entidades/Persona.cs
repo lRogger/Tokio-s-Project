@@ -8,7 +8,7 @@
         private string correo;
         private int edad;
         private bool admin;
-        private byte[] foto;
+        private string foto;
         private string password;
 
         public Persona()
@@ -19,11 +19,11 @@
             this.password = "";
             this.edad = 0;
             this.admin = false;
-            this.foto = new byte[0];
+            this.foto = "";
         }
 
         public Persona(string nombre, string cedula, string correo,
-            int edad, bool admin, byte[] foto, string password)
+            int edad, bool admin, string foto, string password)
         {
             this.password = password;
             this.nombre = nombre;
@@ -40,7 +40,7 @@
         public string Correo { get => correo; set => correo = value; }
         public int Edad { get => edad; set => edad = value; }
         public bool Admin { get => admin; set => admin = value; }
-        public byte[] Foto { get => foto; set => foto = value; }
+        public string Foto { get => foto; set => foto = value; }
         public string Password { get => password; set => password = value; }
     }
 }

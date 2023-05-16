@@ -28,7 +28,7 @@ namespace Datos
                 p.Nombre = "" + fila["Nombre"].ToString();
                 p.Correo = "" + fila["Correo"].ToString();
                 p.Edad = (int)fila["Edad"];
-                p.Foto = (byte[])fila["Imagen"];
+                p.Foto = (string)fila["Imagen"];
                 p.Password = (string)fila["Password"];
                 p.Admin = (bool)fila["Admin"];
                 personas.Add(p);
@@ -51,7 +51,7 @@ namespace Datos
                 p.Nombre = "" + fila["Nombre"].ToString();
                 p.Correo = "" + fila["Correo"].ToString();
                 p.Edad = (int)fila["Edad"];
-                p.Foto = (byte[])fila["Imagen"];
+                p.Foto = (string)fila["Imagen"];
                 p.Password = (string)fila["Password"];
                 p.Admin = (bool)fila["Admin"];
                 personas.Add(p);

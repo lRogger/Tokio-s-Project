@@ -36,7 +36,7 @@ namespace Individual.Visual
         }
 
 
-        private void Enviar()
+        private async void Enviar()
         {
             if (cedUser.Text.Trim() != "" && nomUser.Text.Trim() != ""
                 && correoUser.Text.Trim().ToLower() != "" && edadUser.Text.Trim() != "")
@@ -46,14 +46,19 @@ namespace Individual.Visual
                 MemoryStream ms = new MemoryStream();
                 fotoUser.Image.Save(ms, fotoUser.Image.RawFormat);
                 byte[] aByte = ms.GetBuffer();
+                Imgur foto = new Imgur();
+                string fotoUsu = await foto.SubirImagen(aByte);
 
                 Persona p = new Persona(nomUser.Text, cedUser.Text, correoUser.Text,
-                    Int32.Parse(edadUser.Text), admin, aByte, "");
+                    Int32.Parse(edadUser.Text), admin, fotoUsu, "");
 
+
+                
                 this.Hide();
 
                 new DBPersona().ActualizaUsuario(p);
                 this.Close();
+                
             }
             else
             {

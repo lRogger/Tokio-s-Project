@@ -10,7 +10,7 @@ namespace Individual.Visual
     {
         private int posX = 0, posY = 0;
         private Persona sesion;
-        Form activeForm = null;
+        Form activeForm;
 
         public Persona Sesion { get => sesion; set => sesion = value; }
 
@@ -26,9 +26,7 @@ namespace Individual.Visual
             lblSesion.Text = Sesion.Nombre;
             try
             {
-                MemoryStream ms = new MemoryStream(Sesion.Foto);
-                Image img = Image.FromStream(ms);
-                profileP.Image = img;
+                profileP.ImageLocation = Sesion.Foto;
             }
             catch
             {
@@ -137,9 +135,8 @@ namespace Individual.Visual
 
             if (Sesion.Foto != null)
             {
-                MemoryStream ms = new MemoryStream(Sesion.Foto);
-                Image img = Image.FromStream(ms);
-                nu.fotoUser.Image = img;
+
+                nu.fotoUser.ImageLocation = Sesion.Foto;
             }
             if (nu.ShowDialog() != DialogResult.Abort)
             {
