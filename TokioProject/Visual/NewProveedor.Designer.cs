@@ -32,7 +32,7 @@
             correoProveedor = new TextBox();
             nomProveedor = new TextBox();
             cedProveedor = new TextBox();
-            btnEnviar = new ComponentesMod.RJButton();
+            btnGuardar = new ComponentesMod.RJButton();
             panelMod1 = new ComponentesMod.PanelMod();
             label4 = new Label();
             label3 = new Label();
@@ -50,12 +50,11 @@
             telefProveedor.BorderStyle = BorderStyle.FixedSingle;
             telefProveedor.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             telefProveedor.Location = new Point(223, 139);
-            telefProveedor.MaxLength = 3;
             telefProveedor.MinimumSize = new Size(0, 27);
             telefProveedor.Name = "telefProveedor";
             telefProveedor.Size = new Size(185, 27);
             telefProveedor.TabIndex = 5;
-            telefProveedor.KeyPress += edadUser_KeyPress;
+            telefProveedor.KeyPress += telefProveedor_KeyPress;
             // 
             // correoProveedor
             // 
@@ -77,7 +76,7 @@
             nomProveedor.Name = "nomProveedor";
             nomProveedor.Size = new Size(185, 27);
             nomProveedor.TabIndex = 3;
-            nomProveedor.KeyPress += nomUser_KeyPress;
+            nomProveedor.KeyPress += nomProveedor_KeyPress;
             // 
             // cedProveedor
             // 
@@ -90,27 +89,27 @@
             cedProveedor.Name = "cedProveedor";
             cedProveedor.Size = new Size(152, 27);
             cedProveedor.TabIndex = 2;
-            cedProveedor.KeyPress += cedUser_KeyPress;
+            cedProveedor.KeyPress += cedProveedor_KeyPress;
             // 
-            // btnEnviar
+            // btnGuardar
             // 
-            btnEnviar.BackColor = Color.FromArgb(128, 27, 141);
-            btnEnviar.BackgroundColor = Color.FromArgb(128, 27, 141);
-            btnEnviar.BorderColor = Color.FromArgb(224, 224, 224);
-            btnEnviar.BorderRadius = 15;
-            btnEnviar.BorderSize = 0;
-            btnEnviar.FlatAppearance.BorderSize = 0;
-            btnEnviar.FlatStyle = FlatStyle.Flat;
-            btnEnviar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEnviar.ForeColor = Color.White;
-            btnEnviar.Location = new Point(339, 289);
-            btnEnviar.Name = "btnEnviar";
-            btnEnviar.Size = new Size(135, 35);
-            btnEnviar.TabIndex = 9;
-            btnEnviar.Text = "Guardar";
-            btnEnviar.TextColor = Color.White;
-            btnEnviar.UseVisualStyleBackColor = false;
-            btnEnviar.Click += btnEnviar_Click;
+            btnGuardar.BackColor = Color.FromArgb(128, 27, 141);
+            btnGuardar.BackgroundColor = Color.FromArgb(128, 27, 141);
+            btnGuardar.BorderColor = Color.FromArgb(224, 224, 224);
+            btnGuardar.BorderRadius = 15;
+            btnGuardar.BorderSize = 0;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.Location = new Point(339, 289);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(135, 35);
+            btnGuardar.TabIndex = 9;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.TextColor = Color.White;
+            btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // panelMod1
             // 
@@ -210,6 +209,7 @@
             btnCerrar.Text = "Cancelar";
             btnCerrar.TextColor = Color.FromArgb(128, 27, 141);
             btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // lblTitulo
             // 
@@ -229,7 +229,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
             ClientSize = new Size(500, 350);
-            Controls.Add(btnEnviar);
+            Controls.Add(btnGuardar);
             Controls.Add(btnCerrar);
             Controls.Add(lblTitulo);
             Controls.Add(panelMod1);
@@ -251,7 +251,7 @@
         public TextBox correoProveedor;
         public TextBox nomProveedor;
         public TextBox cedProveedor;
-        private ComponentesMod.RJButton btnEnviar;
+        private ComponentesMod.RJButton btnGuardar;
         private ComponentesMod.PanelMod panelMod1;
         private ComponentesMod.RJButton btnCerrar;
         private Label lblTitulo;

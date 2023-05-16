@@ -21,9 +21,8 @@ namespace GUIs.Visual
         {
             try
             {
-                List<MateriaPrima> lista = new List<MateriaPrima>();
-                DataTable dt = new DataTable();
-                lista = control.ListarMateriaPrima();
+                List<MateriaPrima> lista = control.ListarMateriaPrima();
+
                 materiaPrimaDGV.Rows.Clear();
                 foreach (MateriaPrima materiaPrima in lista)
                 {
@@ -39,17 +38,17 @@ namespace GUIs.Visual
             }
         }
 
-        private async void btnRefrescar_Click(object sender, EventArgs e)
+        private void btnRefrescar_Click(object sender, EventArgs e)
         {
             CargarTabla();
         }
 
-        private async void MantenimientoMateriaPrima_Load(object sender, EventArgs e)
+        private void MantenimientoMateriaPrima_Load(object sender, EventArgs e)
         {
             CargarTabla();
         }
 
-        private async void btnCrear_Click(object sender, EventArgs e)
+        private void btnCrear_Click(object sender, EventArgs e)
         {
             Form crear = new NewMateriaPrima();
             if (crear.ShowDialog() != DialogResult.Abort)
@@ -62,6 +61,11 @@ namespace GUIs.Visual
             {
                 new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
             }
+        }
+
+        private void buscarMateriaPrima_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

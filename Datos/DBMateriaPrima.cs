@@ -12,12 +12,12 @@ namespace Datos
             try
             {
                 List<MateriaPrima> lista = new List<MateriaPrima>();
-                MateriaPrima materiaPrima = new MateriaPrima();
 
-                using (SqlDataReader reader = dataBase.SpConsulta("ObtenerDatosMateriaPrima"))
+                using (SqlDataReader reader = dataBase.SpConsulta("ObtenerMateriaPrima"))
                 {
                     while (reader.Read())
                     {
+                        MateriaPrima materiaPrima = new MateriaPrima();
                         materiaPrima.Id = (int)reader[0];
                         materiaPrima.Nombre = (string)reader[1];
                         materiaPrima.Proveedor.Cedula_ruc = (string)reader[2];
