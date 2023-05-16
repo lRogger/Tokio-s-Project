@@ -19,8 +19,8 @@ namespace Individual.Visual
             usersDGV.RowTemplate.Height = 55;
             usersDGV.RowHeadersVisible = false;
             CargarTabla();
-            
-           
+
+
         }
 
 

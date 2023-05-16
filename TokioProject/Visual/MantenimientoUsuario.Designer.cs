@@ -33,18 +33,18 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             buscarUser = new TextBox();
             usersDGV = new DataGridView();
-            Id = new DataGridViewTextBoxColumn();
-            Cedula = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Edad = new DataGridViewTextBoxColumn();
-            Imagen = new DataGridViewImageColumn();
             btnEditar = new Button();
             btnCrear = new Button();
             btnEliminar = new Button();
             btnCerrar = new ComponentesMod.RJButton();
             separador = new Panel();
             btnRefrescar = new Button();
+            Id = new DataGridViewTextBoxColumn();
+            Cedula = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            Edad = new DataGridViewTextBoxColumn();
+            Imagen = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)usersDGV).BeginInit();
             SuspendLayout();
             // 
@@ -53,10 +53,10 @@
             buscarUser.BackColor = Color.White;
             buscarUser.BorderStyle = BorderStyle.None;
             buscarUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buscarUser.Location = new Point(90, 161);
+            buscarUser.Location = new Point(12, 66);
             buscarUser.Name = "buscarUser";
             buscarUser.PlaceholderText = " 🔎 Buscar...";
-            buscarUser.Size = new Size(537, 22);
+            buscarUser.Size = new Size(721, 22);
             buscarUser.TabIndex = 1;
             buscarUser.TextChanged += buscarUser_TextChanged;
             // 
@@ -92,7 +92,7 @@
             usersDGV.EnableHeadersVisualStyles = false;
             usersDGV.GridColor = Color.FromArgb(64, 64, 64);
             usersDGV.ImeMode = ImeMode.NoControl;
-            usersDGV.Location = new Point(90, 193);
+            usersDGV.Location = new Point(12, 99);
             usersDGV.MultiSelect = false;
             usersDGV.Name = "usersDGV";
             usersDGV.ReadOnly = true;
@@ -102,57 +102,8 @@
             usersDGV.RowTemplate.Height = 25;
             usersDGV.ScrollBars = ScrollBars.Vertical;
             usersDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            usersDGV.Size = new Size(537, 348);
+            usersDGV.Size = new Size(721, 539);
             usersDGV.TabIndex = 0;
-            // 
-            // Id
-            // 
-            Id.Frozen = true;
-            Id.HeaderText = "ID";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Width = 50;
-            // 
-            // Cedula
-            // 
-            Cedula.Frozen = true;
-            Cedula.HeaderText = "Cedula";
-            Cedula.Name = "Cedula";
-            Cedula.ReadOnly = true;
-            Cedula.Width = 80;
-            // 
-            // Nombre
-            // 
-            Nombre.Frozen = true;
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            Nombre.Width = 105;
-            // 
-            // Correo
-            // 
-            Correo.Frozen = true;
-            Correo.HeaderText = "Correo";
-            Correo.Name = "Correo";
-            Correo.ReadOnly = true;
-            Correo.Width = 180;
-            // 
-            // Edad
-            // 
-            Edad.Frozen = true;
-            Edad.HeaderText = "Edad";
-            Edad.Name = "Edad";
-            Edad.ReadOnly = true;
-            Edad.Width = 50;
-            // 
-            // Imagen
-            // 
-            Imagen.Frozen = true;
-            Imagen.HeaderText = "Imagen";
-            Imagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
-            Imagen.Name = "Imagen";
-            Imagen.ReadOnly = true;
-            Imagen.Width = 55;
             // 
             // btnEditar
             // 
@@ -160,9 +111,9 @@
             btnEditar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEditar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEditar.Location = new Point(170, 97);
+            btnEditar.Location = new Point(75, 10);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(82, 43);
             btnEditar.TabIndex = 5;
@@ -177,9 +128,9 @@
             btnCrear.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
             btnCrear.FlatAppearance.BorderSize = 0;
             btnCrear.FlatStyle = FlatStyle.Flat;
-            btnCrear.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCrear.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
-            btnCrear.Location = new Point(91, 97);
+            btnCrear.Location = new Point(9, 9);
             btnCrear.Margin = new Padding(0);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(76, 43);
@@ -195,9 +146,9 @@
             btnEliminar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEliminar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEliminar.Location = new Point(258, 97);
+            btnEliminar.Location = new Point(150, 9);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(114, 43);
             btnEliminar.TabIndex = 7;
@@ -218,7 +169,7 @@
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             btnCerrar.ForeColor = Color.White;
-            btnCerrar.Location = new Point(529, 102);
+            btnCerrar.Location = new Point(635, 12);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(97, 33);
             btnCerrar.TabIndex = 8;
@@ -230,9 +181,9 @@
             // separador
             // 
             separador.BackColor = Color.FromArgb(70, 15, 75);
-            separador.Location = new Point(90, 146);
+            separador.Location = new Point(12, 51);
             separador.Name = "separador";
-            separador.Size = new Size(537, 2);
+            separador.Size = new Size(721, 2);
             separador.TabIndex = 9;
             // 
             // btnRefrescar
@@ -243,7 +194,7 @@
             btnRefrescar.FlatStyle = FlatStyle.Flat;
             btnRefrescar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.Location = new Point(479, 90);
+            btnRefrescar.Location = new Point(585, 0);
             btnRefrescar.Name = "btnRefrescar";
             btnRefrescar.Size = new Size(50, 56);
             btnRefrescar.TabIndex = 10;
@@ -251,13 +202,60 @@
             btnRefrescar.UseVisualStyleBackColor = false;
             btnRefrescar.Click += btnRefrescar_Click;
             // 
+            // Id
+            // 
+            Id.Frozen = true;
+            Id.HeaderText = "ID";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Width = 50;
+            // 
+            // Cedula
+            // 
+            Cedula.Frozen = true;
+            Cedula.HeaderText = "Cedula";
+            Cedula.Name = "Cedula";
+            Cedula.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            Nombre.Frozen = true;
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 250;
+            // 
+            // Correo
+            // 
+            Correo.Frozen = true;
+            Correo.HeaderText = "Correo";
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            Correo.Width = 200;
+            // 
+            // Edad
+            // 
+            Edad.Frozen = true;
+            Edad.HeaderText = "Edad";
+            Edad.Name = "Edad";
+            Edad.ReadOnly = true;
+            Edad.Width = 60;
+            // 
+            // Imagen
+            // 
+            Imagen.Frozen = true;
+            Imagen.HeaderText = "Imagen";
+            Imagen.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            Imagen.Name = "Imagen";
+            Imagen.ReadOnly = true;
+            Imagen.Width = 60;
+            // 
             // MantenimientoUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(744, 650);
-            Controls.Add(btnRefrescar);
             Controls.Add(usersDGV);
             Controls.Add(buscarUser);
             Controls.Add(separador);
@@ -265,6 +263,7 @@
             Controls.Add(btnEliminar);
             Controls.Add(btnCrear);
             Controls.Add(btnEditar);
+            Controls.Add(btnRefrescar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MantenimientoUsuario";
             StartPosition = FormStartPosition.CenterScreen;

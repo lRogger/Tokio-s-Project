@@ -31,39 +31,40 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label1 = new Label();
             separador = new Panel();
             btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
             btnRefrescar = new Button();
             registrosDGV = new DataGridView();
+            tbBuscarRegistro = new TextBox();
+            btnDescripcion = new Individual.Visual.ComponentesMod.RJButton();
             Id = new DataGridViewTextBoxColumn();
             Fecha = new DataGridViewTextBoxColumn();
             Encargado = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
-            tbBuscarRegistro = new TextBox();
-            btnDescripcion = new Individual.Visual.ComponentesMod.RJButton();
             ((System.ComponentModel.ISupportInitialize)registrosDGV).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Britanica-Heavy", 27.7499962F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(118, 27, 141);
-            label1.Location = new Point(85, 92);
+            label1.Location = new Point(13, 9);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(152, 42);
+            label1.Size = new Size(155, 45);
             label1.TabIndex = 0;
             label1.Text = "Historial";
             // 
             // separador
             // 
             separador.BackColor = Color.FromArgb(70, 15, 75);
-            separador.Location = new Point(89, 146);
+            separador.Location = new Point(22, 60);
             separador.Name = "separador";
-            separador.Size = new Size(537, 2);
+            separador.Size = new Size(709, 2);
             separador.TabIndex = 18;
             // 
             // btnCerrar
@@ -78,7 +79,7 @@
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             btnCerrar.ForeColor = Color.White;
-            btnCerrar.Location = new Point(529, 98);
+            btnCerrar.Location = new Point(635, 12);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(97, 33);
             btnCerrar.TabIndex = 19;
@@ -95,7 +96,7 @@
             btnRefrescar.FlatStyle = FlatStyle.Flat;
             btnRefrescar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.Location = new Point(476, 91);
+            btnRefrescar.Location = new Point(582, 5);
             btnRefrescar.Name = "btnRefrescar";
             btnRefrescar.Size = new Size(50, 48);
             btnRefrescar.TabIndex = 20;
@@ -109,99 +110,59 @@
             registrosDGV.AllowUserToDeleteRows = false;
             registrosDGV.AllowUserToResizeColumns = false;
             registrosDGV.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            registrosDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             registrosDGV.BackgroundColor = Color.White;
             registrosDGV.BorderStyle = BorderStyle.None;
             registrosDGV.CausesValidation = false;
             registrosDGV.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             registrosDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            registrosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle2.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            registrosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             registrosDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             registrosDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Fecha, Encargado, Producto, Cantidad });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            registrosDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            registrosDGV.DefaultCellStyle = dataGridViewCellStyle3;
             registrosDGV.EnableHeadersVisualStyles = false;
             registrosDGV.GridColor = Color.FromArgb(64, 64, 64);
             registrosDGV.ImeMode = ImeMode.NoControl;
-            registrosDGV.Location = new Point(90, 192);
+            registrosDGV.Location = new Point(22, 105);
             registrosDGV.MultiSelect = false;
             registrosDGV.Name = "registrosDGV";
             registrosDGV.ReadOnly = true;
             registrosDGV.RowHeadersVisible = false;
             registrosDGV.RowHeadersWidth = 4;
             registrosDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 51, 102);
-            registrosDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(51, 51, 102);
+            registrosDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             registrosDGV.RowTemplate.Height = 25;
             registrosDGV.ScrollBars = ScrollBars.Vertical;
             registrosDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            registrosDGV.Size = new Size(537, 305);
+            registrosDGV.Size = new Size(709, 497);
             registrosDGV.TabIndex = 21;
             registrosDGV.SelectionChanged += registrosDGV_SelectionChanged;
-            // 
-            // Id
-            // 
-            Id.Frozen = true;
-            Id.HeaderText = "ID";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Width = 50;
-            // 
-            // Fecha
-            // 
-            Fecha.Frozen = true;
-            Fecha.HeaderText = "Fecha";
-            Fecha.Name = "Fecha";
-            Fecha.ReadOnly = true;
-            Fecha.Width = 90;
-            // 
-            // Encargado
-            // 
-            Encargado.Frozen = true;
-            Encargado.HeaderText = "Encargado";
-            Encargado.Name = "Encargado";
-            Encargado.ReadOnly = true;
-            Encargado.Width = 125;
-            // 
-            // Producto
-            // 
-            Producto.Frozen = true;
-            Producto.HeaderText = "Producto";
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
-            Producto.Width = 180;
-            // 
-            // Cantidad
-            // 
-            Cantidad.Frozen = true;
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
-            Cantidad.Resizable = DataGridViewTriState.True;
-            Cantidad.SortMode = DataGridViewColumnSortMode.NotSortable;
-            Cantidad.Width = 85;
             // 
             // tbBuscarRegistro
             // 
             tbBuscarRegistro.BackColor = Color.White;
             tbBuscarRegistro.BorderStyle = BorderStyle.None;
             tbBuscarRegistro.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tbBuscarRegistro.Location = new Point(89, 159);
+            tbBuscarRegistro.Location = new Point(22, 72);
             tbBuscarRegistro.Name = "tbBuscarRegistro";
             tbBuscarRegistro.PlaceholderText = " 🔎 Buscar...";
-            tbBuscarRegistro.Size = new Size(537, 22);
+            tbBuscarRegistro.Size = new Size(710, 22);
             tbBuscarRegistro.TabIndex = 22;
             tbBuscarRegistro.TextChanged += buscarUser_TextChanged;
             // 
@@ -215,16 +176,57 @@
             btnDescripcion.DialogResult = DialogResult.Cancel;
             btnDescripcion.FlatAppearance.BorderSize = 0;
             btnDescripcion.FlatStyle = FlatStyle.Flat;
-            btnDescripcion.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDescripcion.Font = new Font("Britanica-Heavy", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             btnDescripcion.ForeColor = Color.White;
-            btnDescripcion.Location = new Point(501, 507);
+            btnDescripcion.Location = new Point(592, 608);
             btnDescripcion.Name = "btnDescripcion";
-            btnDescripcion.Size = new Size(125, 30);
+            btnDescripcion.Size = new Size(139, 30);
             btnDescripcion.TabIndex = 29;
             btnDescripcion.Text = "Ver Detalles";
             btnDescripcion.TextColor = Color.White;
             btnDescripcion.UseVisualStyleBackColor = false;
             btnDescripcion.Click += btnDescripcion_Click;
+            // 
+            // Id
+            // 
+            Id.Frozen = true;
+            Id.HeaderText = "ID";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Width = 40;
+            // 
+            // Fecha
+            // 
+            Fecha.Frozen = true;
+            Fecha.HeaderText = "Fecha";
+            Fecha.Name = "Fecha";
+            Fecha.ReadOnly = true;
+            // 
+            // Encargado
+            // 
+            Encargado.Frozen = true;
+            Encargado.HeaderText = "Responsable";
+            Encargado.Name = "Encargado";
+            Encargado.ReadOnly = true;
+            Encargado.Width = 240;
+            // 
+            // Producto
+            // 
+            Producto.Frozen = true;
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            Producto.Width = 170;
+            // 
+            // Cantidad
+            // 
+            Cantidad.Frozen = true;
+            Cantidad.HeaderText = "Cantidad Alterada";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            Cantidad.Resizable = DataGridViewTriState.True;
+            Cantidad.SortMode = DataGridViewColumnSortMode.NotSortable;
+            Cantidad.Width = 170;
             // 
             // RegistroHistorial
             // 
