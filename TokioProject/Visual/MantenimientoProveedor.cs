@@ -22,6 +22,13 @@ namespace GUIs.Visual
             InitializeComponent();
         }
 
+        //Evento load
+        private void MantenimientoProveedor_Load(object sender, EventArgs e)
+        {
+            CargarTabla();
+        }
+
+        //Eventos click de las opciones del módulo (crear, editar, eliminar y refrescar)
         private void btnCrear_Click(object sender, EventArgs e)
         {
             NewProveedor proveedor = new NewProveedor();
@@ -31,37 +38,6 @@ namespace GUIs.Visual
                 CargarTabla();
             }
         }
-        private void CargarTabla()
-        {
-            try
-            {
-                List<Proveedor> lista = dataBase.CargarDatosProveedores();
-
-                proveedoresDGV.Rows.Clear();
-                foreach (Proveedor proveedor in lista)
-                {
-                    proveedoresDGV.Rows.Add(
-                        proveedor.Id, proveedor.Nombre,
-                        proveedor.Cedula_ruc, proveedor.Correo,
-                        proveedor.Telefono);
-                }
-            }
-            catch (Exception ex)
-            {
-                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
-            }
-        }
-
-        private void MantenimientoProveedor_Load(object sender, EventArgs e)
-        {
-            CargarTabla();
-        }
-
-        private void btnRefrescar_Click(object sender, EventArgs e)
-        {
-            CargarTabla();
-        }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (proveedoresDGV.SelectedCells.Count > 0)
@@ -71,10 +47,10 @@ namespace GUIs.Visual
                 NewProveedor proveedor = new NewProveedor();
                 proveedor.cedProveedor.Enabled = false;
 
-                proveedor.nomProveedor.Text = proveedoresDGV.Rows[selected].Cells[1].Value.ToString();
-                proveedor.cedProveedor.Text = proveedoresDGV.Rows[selected].Cells[2].Value.ToString();
-                proveedor.correoProveedor.Text = proveedoresDGV.Rows[selected].Cells[3].Value.ToString();
-                proveedor.telefProveedor.Text = proveedoresDGV.Rows[selected].Cells[4].Value.ToString();
+                proveedor.nomProveedor.Text = (string)proveedoresDGV.Rows[selected].Cells[1].Value;
+                proveedor.cedProveedor.Text = (string)proveedoresDGV.Rows[selected].Cells[2].Value;
+                proveedor.correoProveedor.Text = (string)proveedoresDGV.Rows[selected].Cells[3].Value;
+                proveedor.telefProveedor.Text = (string)proveedoresDGV.Rows[selected].Cells[4].Value;
 
                 proveedor.ShowDialog();
                 if (proveedor.Guardado)
@@ -96,7 +72,7 @@ namespace GUIs.Visual
                 string identificacion = (string)proveedoresDGV.Rows[selected].Cells[2].Value;
 
                 DialogResult confirmacion = new Emergente("si / no","CONFIRMACIÓN", 
-                                                          "Está seguro de eliminar el proveedor \n Este proceso es irreversible"
+                                                          "Está seguro de eliminar el proveedor? \n\n Este proceso es irreversible"
                                                           ).ShowDialog();
                 if(confirmacion == DialogResult.OK)
                 {
@@ -108,10 +84,54 @@ namespace GUIs.Visual
                 new Emergente("advertencia", "AVISO", "Debe seleccionar un proveedor").ShowDialog();
             }
         }
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            CargarTabla();
+        }
+        //----------------------------------------------------------------------------------------------------------------------------
+
+        //Evento textChanged para buscar en la tabla
 
         private void buscarProveedor_TextChanged(object sender, EventArgs e)
         {
+            busquedaDGV(buscarProveedor.Text.ToLower());
+        }
+        //----------------------------------------------------------------------------------------------------------------------------
+
+        //Metodo de cargar datos en la tabla
+        private void CargarTabla()
+        {
+            try
+            {
+                List<Proveedor> lista = dataBase.CargarDatosProveedores();
+
+                proveedoresDGV.Rows.Clear();
+                foreach (Proveedor proveedor in lista)
+                {
+                    proveedoresDGV.Rows.Add(
+                        proveedor.Id, proveedor.Nombre,
+                        proveedor.Cedula_ruc, proveedor.Correo,
+                        proveedor.Telefono);
+                }
+            }
+            catch (Exception ex)
+            {
+                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
+            }
+        }
+
+        //Metodo con algoritmo de busqueda
+        private void busquedaDGV(string entrada)
+        {
+            proveedoresDGV.ClearSelection();
             
+            foreach(DataGridViewRow row in proveedoresDGV.Rows)
+            {
+                string nombre = ((string)row.Cells[1].Value).ToLower();
+                string cedula_ruc = ((string)row.Cells[2].Value).ToLower();
+
+                row.Visible = (nombre.Contains(entrada) || cedula_ruc.Contains(entrada))? true : false;
+            }
         }
     }
 }
