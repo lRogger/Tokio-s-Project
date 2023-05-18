@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
             btnRefrescar = new Button();
             proveedoresDGV = new DataGridView();
             Id = new DataGridViewTextBoxColumn();
@@ -75,24 +76,24 @@
             proveedoresDGV.CausesValidation = false;
             proveedoresDGV.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             proveedoresDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            proveedoresDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle13.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle13.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            proveedoresDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             proveedoresDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             proveedoresDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Nombre, Cedula, Correo, Edad });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            proveedoresDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = SystemColors.Window;
+            dataGridViewCellStyle14.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle14.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            proveedoresDGV.DefaultCellStyle = dataGridViewCellStyle14;
             proveedoresDGV.EnableHeadersVisualStyles = false;
             proveedoresDGV.GridColor = Color.FromArgb(64, 64, 64);
             proveedoresDGV.ImeMode = ImeMode.NoControl;
@@ -100,10 +101,18 @@
             proveedoresDGV.MultiSelect = false;
             proveedoresDGV.Name = "proveedoresDGV";
             proveedoresDGV.ReadOnly = true;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = SystemColors.Control;
+            dataGridViewCellStyle15.Font = new Font("Britanica-Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            proveedoresDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             proveedoresDGV.RowHeadersVisible = false;
             proveedoresDGV.RowHeadersWidth = 4;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 51, 102);
-            proveedoresDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(51, 51, 102);
+            proveedoresDGV.RowsDefaultCellStyle = dataGridViewCellStyle16;
             proveedoresDGV.RowTemplate.Height = 25;
             proveedoresDGV.ScrollBars = ScrollBars.Vertical;
             proveedoresDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -154,11 +163,11 @@
             // 
             buscarProveedor.BackColor = Color.White;
             buscarProveedor.BorderStyle = BorderStyle.None;
-            buscarProveedor.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buscarProveedor.Font = new Font("Britanica-Bold", 11.98F, FontStyle.Regular, GraphicsUnit.Point);
             buscarProveedor.Location = new Point(12, 66);
             buscarProveedor.Name = "buscarProveedor";
             buscarProveedor.PlaceholderText = " 🔎 Buscar...";
-            buscarProveedor.Size = new Size(591, 22);
+            buscarProveedor.Size = new Size(591, 20);
             buscarProveedor.TabIndex = 12;
             buscarProveedor.TextChanged += buscarProveedor_TextChanged;
             // 
@@ -180,7 +189,7 @@
             btnCerrar.DialogResult = DialogResult.Cancel;
             btnCerrar.FlatAppearance.BorderSize = 0;
             btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrar.Font = new Font("Britanica-Heavy", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             btnCerrar.ForeColor = Color.White;
             btnCerrar.Location = new Point(635, 12);
             btnCerrar.Name = "btnCerrar";
@@ -196,7 +205,7 @@
             btnEliminar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEliminar.ForeColor = Color.FromArgb(118, 27, 141);
             btnEliminar.Location = new Point(150, 9);
             btnEliminar.Name = "btnEliminar";
@@ -213,7 +222,7 @@
             btnCrear.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
             btnCrear.FlatAppearance.BorderSize = 0;
             btnCrear.FlatStyle = FlatStyle.Flat;
-            btnCrear.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCrear.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
             btnCrear.Location = new Point(9, 9);
             btnCrear.Margin = new Padding(0);
@@ -231,7 +240,7 @@
             btnEditar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEditar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
             btnEditar.Location = new Point(75, 10);
             btnEditar.Name = "btnEditar";
@@ -246,11 +255,12 @@
             // 
             checkActivos.AutoSize = true;
             checkActivos.FlatStyle = FlatStyle.Flat;
-            checkActivos.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
-            checkActivos.Location = new Point(644, 66);
+            checkActivos.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            checkActivos.ForeColor = SystemColors.ControlDarkDark;
+            checkActivos.Location = new Point(643, 66);
             checkActivos.Name = "checkActivos";
             checkActivos.RightToLeft = RightToLeft.Yes;
-            checkActivos.Size = new Size(88, 24);
+            checkActivos.Size = new Size(89, 23);
             checkActivos.TabIndex = 19;
             checkActivos.Text = "Inactivos";
             checkActivos.TextAlign = ContentAlignment.MiddleCenter;
@@ -268,9 +278,9 @@
             Controls.Add(separador);
             Controls.Add(btnCerrar);
             Controls.Add(btnEliminar);
-            Controls.Add(btnCrear);
             Controls.Add(btnEditar);
             Controls.Add(btnRefrescar);
+            Controls.Add(btnCrear);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MantenimientoProveedor";
             Text = "MantenimientoProveedor";

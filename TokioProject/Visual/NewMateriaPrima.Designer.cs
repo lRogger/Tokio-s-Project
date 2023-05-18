@@ -52,11 +52,11 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.Font = new Font("Britanica-Heavy", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = Color.FromArgb(128, 27, 141);
             lblTitulo.Location = new Point(23, 23);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(343, 39);
+            lblTitulo.Size = new Size(338, 42);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Nueva Materia Prima";
             // 
@@ -109,6 +109,7 @@
             // 
             // cmbProveedor
             // 
+            cmbProveedor.Font = new Font("Britanica-Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cmbProveedor.FormattingEnabled = true;
             cmbProveedor.Location = new Point(129, 29);
             cmbProveedor.Name = "cmbProveedor";
@@ -119,11 +120,11 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.WhiteSmoke;
-            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
             label4.Location = new Point(38, 32);
             label4.Name = "label4";
-            label4.Size = new Size(85, 20);
+            label4.Size = new Size(82, 19);
             label4.TabIndex = 4;
             label4.Text = "Proveedor:";
             // 
@@ -131,11 +132,11 @@
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.WhiteSmoke;
-            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.DimGray;
             label6.Location = new Point(38, 75);
             label6.Name = "label6";
-            label6.Size = new Size(115, 20);
+            label6.Size = new Size(110, 19);
             label6.TabIndex = 7;
             label6.Text = "Última compra:";
             // 
@@ -143,21 +144,21 @@
             // 
             fechaUltCompra.CalendarTitleBackColor = SystemColors.ControlText;
             fechaUltCompra.CalendarTitleForeColor = SystemColors.GrayText;
-            fechaUltCompra.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            fechaUltCompra.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             fechaUltCompra.Format = DateTimePickerFormat.Short;
             fechaUltCompra.Location = new Point(166, 69);
             fechaUltCompra.Name = "fechaUltCompra";
-            fechaUltCompra.Size = new Size(163, 26);
+            fechaUltCompra.Size = new Size(163, 27);
             fechaUltCompra.TabIndex = 15;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
             label5.Location = new Point(27, 104);
             label5.Name = "label5";
-            label5.Size = new Size(50, 20);
+            label5.Size = new Size(49, 19);
             label5.TabIndex = 17;
             label5.Text = "Color:";
             // 
@@ -168,7 +169,7 @@
             txtStock.BorderFocusColor = SystemColors.ActiveCaption;
             txtStock.BorderRadius = 10;
             txtStock.BorderSize = 1;
-            txtStock.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtStock.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             txtStock.ForeColor = Color.FromArgb(64, 64, 64);
             txtStock.Location = new Point(409, 44);
             txtStock.Margin = new Padding(4);
@@ -187,11 +188,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
             label1.Location = new Point(359, 50);
             label1.Name = "label1";
-            label1.Size = new Size(54, 20);
+            label1.Size = new Size(52, 19);
             label1.TabIndex = 12;
             label1.Text = "Stock:";
             // 
@@ -202,7 +203,7 @@
             txtPrecio.BorderFocusColor = SystemColors.ActiveCaption;
             txtPrecio.BorderRadius = 10;
             txtPrecio.BorderSize = 1;
-            txtPrecio.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPrecio.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             txtPrecio.ForeColor = Color.FromArgb(64, 64, 64);
             txtPrecio.Location = new Point(409, 93);
             txtPrecio.Margin = new Padding(4);
@@ -225,7 +226,7 @@
             txtNombre.BorderFocusColor = SystemColors.ActiveCaption;
             txtNombre.BorderRadius = 10;
             txtNombre.BorderSize = 1;
-            txtNombre.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNombre.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             txtNombre.ForeColor = Color.FromArgb(64, 64, 64);
             txtNombre.Location = new Point(118, 44);
             txtNombre.Margin = new Padding(4);
@@ -244,22 +245,22 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
             label3.Location = new Point(344, 99);
             label3.Name = "label3";
-            label3.Size = new Size(70, 20);
+            label3.Size = new Size(68, 19);
             label3.TabIndex = 1;
             label3.Text = "Precio/u:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.DimGray;
             label2.Location = new Point(27, 50);
             label2.Name = "label2";
-            label2.Size = new Size(69, 20);
+            label2.Size = new Size(66, 19);
             label2.TabIndex = 0;
             label2.Text = "Nombre:";
             // 
@@ -272,7 +273,7 @@
             btnGuardar.BorderSize = 0;
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGuardar.Font = new Font("Britanica-Heavy", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(388, 368);
             btnGuardar.Name = "btnGuardar";
@@ -293,7 +294,7 @@
             btnCancelar.DialogResult = DialogResult.Abort;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.Font = new Font("Britanica-Heavy", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ForeColor = Color.FromArgb(128, 27, 141);
             btnCancelar.Location = new Point(247, 368);
             btnCancelar.Name = "btnCancelar";

@@ -48,7 +48,7 @@
             // telefProveedor
             // 
             telefProveedor.BorderStyle = BorderStyle.FixedSingle;
-            telefProveedor.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            telefProveedor.Font = new Font("Britanica-Bold", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             telefProveedor.Location = new Point(223, 139);
             telefProveedor.MinimumSize = new Size(0, 27);
             telefProveedor.Name = "telefProveedor";
@@ -59,7 +59,7 @@
             // correoProveedor
             // 
             correoProveedor.BorderStyle = BorderStyle.FixedSingle;
-            correoProveedor.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            correoProveedor.Font = new Font("Britanica-Bold", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             correoProveedor.Location = new Point(223, 104);
             correoProveedor.MinimumSize = new Size(0, 27);
             correoProveedor.Name = "correoProveedor";
@@ -69,7 +69,7 @@
             // nomProveedor
             // 
             nomProveedor.BorderStyle = BorderStyle.FixedSingle;
-            nomProveedor.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            nomProveedor.Font = new Font("Britanica-Bold", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             nomProveedor.Location = new Point(223, 68);
             nomProveedor.MaximumSize = new Size(0, 25);
             nomProveedor.MinimumSize = new Size(0, 27);
@@ -81,7 +81,7 @@
             // cedProveedor
             // 
             cedProveedor.BorderStyle = BorderStyle.FixedSingle;
-            cedProveedor.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            cedProveedor.Font = new Font("Britanica-Bold", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             cedProveedor.Location = new Point(256, 35);
             cedProveedor.MaximumSize = new Size(200, 25);
             cedProveedor.MaxLength = 13;
@@ -100,7 +100,7 @@
             btnGuardar.BorderSize = 0;
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGuardar.Font = new Font("Britanica-Heavy", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(339, 289);
             btnGuardar.Name = "btnGuardar";
@@ -137,44 +137,44 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
             label4.Location = new Point(148, 143);
             label4.Name = "label4";
-            label4.Size = new Size(75, 20);
+            label4.Size = new Size(70, 19);
             label4.TabIndex = 10;
             label4.Text = "Teléfono:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
             label3.Location = new Point(148, 108);
             label3.Name = "label3";
-            label3.Size = new Size(61, 20);
+            label3.Size = new Size(59, 19);
             label3.TabIndex = 9;
             label3.Text = "Correo:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
             label1.Location = new Point(148, 72);
             label1.Name = "label1";
-            label1.Size = new Size(69, 20);
+            label1.Size = new Size(66, 19);
             label1.TabIndex = 8;
             label1.Text = "Nombre:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.DimGray;
             label2.Location = new Point(148, 38);
             label2.Name = "label2";
-            label2.Size = new Size(102, 20);
+            label2.Size = new Size(96, 19);
             label2.TabIndex = 7;
             label2.Text = "Cedula/RUC:";
             // 
@@ -200,7 +200,7 @@
             btnCerrar.FlatAppearance.BorderColor = Color.WhiteSmoke;
             btnCerrar.FlatAppearance.BorderSize = 0;
             btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrar.Font = new Font("Britanica-Heavy", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCerrar.ForeColor = Color.FromArgb(128, 27, 141);
             btnCerrar.Location = new Point(218, 289);
             btnCerrar.Name = "btnCerrar";
@@ -215,11 +215,11 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.Font = new Font("Britanica-Heavy", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = Color.FromArgb(128, 27, 141);
             lblTitulo.Location = new Point(24, 21);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(286, 39);
+            lblTitulo.Size = new Size(278, 42);
             lblTitulo.TabIndex = 13;
             lblTitulo.Text = "Nuevo Proveedor";
             // 
