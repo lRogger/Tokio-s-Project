@@ -80,7 +80,7 @@ namespace GUIs.Visual
                                                           ).ShowDialog();
                 if (confirmacion == DialogResult.OK)
                 {
-                    dataBase.DesactivarActivarProveedor(identificacion,valor);
+                    dataBase.DesactivarActivarProveedor(identificacion, valor);
                     CargarTabla();
                     verificarDGV();
                 }
@@ -160,7 +160,7 @@ namespace GUIs.Visual
         }
         private void verificarDGV()
         {
-            if(checkActivos.Checked && proveedoresDGV.Rows.Count < 1)
+            if (checkActivos.Checked && proveedoresDGV.Rows.Count < 1)
             {
                 checkActivos.Checked = false;
             }

@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             btnRefrescar = new Button();
             proveedoresDGV = new DataGridView();
-            Id = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Cedula = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Edad = new DataGridViewTextBoxColumn();
             buscarProveedor = new TextBox();
             separador = new Panel();
             btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
@@ -45,6 +40,11 @@
             btnCrear = new Button();
             btnEditar = new Button();
             checkActivos = new CheckBox();
+            Id = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Cedula = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            Edad = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)proveedoresDGV).BeginInit();
             SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             btnRefrescar.FlatStyle = FlatStyle.Flat;
             btnRefrescar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.Location = new Point(489, 76);
+            btnRefrescar.Location = new Point(585, 0);
             btnRefrescar.Name = "btnRefrescar";
             btnRefrescar.Size = new Size(50, 56);
             btnRefrescar.TabIndex = 18;
@@ -75,97 +75,58 @@
             proveedoresDGV.CausesValidation = false;
             proveedoresDGV.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             proveedoresDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            proveedoresDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            proveedoresDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             proveedoresDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             proveedoresDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Nombre, Cedula, Correo, Edad });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            proveedoresDGV.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            proveedoresDGV.DefaultCellStyle = dataGridViewCellStyle2;
             proveedoresDGV.EnableHeadersVisualStyles = false;
             proveedoresDGV.GridColor = Color.FromArgb(64, 64, 64);
             proveedoresDGV.ImeMode = ImeMode.NoControl;
-            proveedoresDGV.Location = new Point(100, 179);
+            proveedoresDGV.Location = new Point(12, 99);
             proveedoresDGV.MultiSelect = false;
             proveedoresDGV.Name = "proveedoresDGV";
             proveedoresDGV.ReadOnly = true;
             proveedoresDGV.RowHeadersWidth = 4;
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(51, 51, 102);
-            proveedoresDGV.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 51, 102);
+            proveedoresDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             proveedoresDGV.RowTemplate.Height = 25;
             proveedoresDGV.ScrollBars = ScrollBars.Vertical;
             proveedoresDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            proveedoresDGV.Size = new Size(537, 348);
+            proveedoresDGV.Size = new Size(720, 539);
             proveedoresDGV.TabIndex = 11;
-            // 
-            // Id
-            // 
-            Id.Frozen = true;
-            Id.HeaderText = "ID";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Width = 50;
-            // 
-            // Nombre
-            // 
-            Nombre.Frozen = true;
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            Nombre.Width = 150;
-            // 
-            // Cedula
-            // 
-            Cedula.Frozen = true;
-            Cedula.HeaderText = "Cedula/RUC";
-            Cedula.Name = "Cedula";
-            Cedula.ReadOnly = true;
-            Cedula.Width = 80;
-            // 
-            // Correo
-            // 
-            Correo.Frozen = true;
-            Correo.HeaderText = "Correo";
-            Correo.Name = "Correo";
-            Correo.ReadOnly = true;
-            Correo.Width = 180;
-            // 
-            // Edad
-            // 
-            Edad.Frozen = true;
-            Edad.HeaderText = "Telefono";
-            Edad.Name = "Edad";
-            Edad.ReadOnly = true;
             // 
             // buscarProveedor
             // 
             buscarProveedor.BackColor = Color.White;
             buscarProveedor.BorderStyle = BorderStyle.None;
             buscarProveedor.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buscarProveedor.Location = new Point(100, 147);
+            buscarProveedor.Location = new Point(12, 66);
             buscarProveedor.Name = "buscarProveedor";
             buscarProveedor.PlaceholderText = " 🔎 Buscar...";
-            buscarProveedor.Size = new Size(439, 22);
+            buscarProveedor.Size = new Size(591, 22);
             buscarProveedor.TabIndex = 12;
             buscarProveedor.TextChanged += buscarProveedor_TextChanged;
             // 
             // separador
             // 
             separador.BackColor = Color.FromArgb(70, 15, 75);
-            separador.Location = new Point(100, 132);
+            separador.Location = new Point(12, 51);
             separador.Name = "separador";
-            separador.Size = new Size(537, 2);
+            separador.Size = new Size(720, 2);
             separador.TabIndex = 17;
             // 
             // btnCerrar
@@ -180,7 +141,7 @@
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             btnCerrar.ForeColor = Color.White;
-            btnCerrar.Location = new Point(539, 88);
+            btnCerrar.Location = new Point(635, 12);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(97, 33);
             btnCerrar.TabIndex = 16;
@@ -196,7 +157,7 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEliminar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEliminar.Location = new Point(268, 83);
+            btnEliminar.Location = new Point(150, 9);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(114, 43);
             btnEliminar.TabIndex = 15;
@@ -213,7 +174,7 @@
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
-            btnCrear.Location = new Point(101, 83);
+            btnCrear.Location = new Point(9, 9);
             btnCrear.Margin = new Padding(0);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(76, 43);
@@ -231,7 +192,7 @@
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEditar.Location = new Point(180, 83);
+            btnEditar.Location = new Point(75, 10);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(82, 43);
             btnEditar.TabIndex = 13;
@@ -244,16 +205,56 @@
             // 
             checkActivos.AutoSize = true;
             checkActivos.FlatStyle = FlatStyle.Flat;
-            checkActivos.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
-            checkActivos.Location = new Point(545, 147);
+            checkActivos.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            checkActivos.Location = new Point(644, 66);
             checkActivos.Name = "checkActivos";
             checkActivos.RightToLeft = RightToLeft.Yes;
-            checkActivos.Size = new Size(89, 23);
+            checkActivos.Size = new Size(88, 24);
             checkActivos.TabIndex = 19;
             checkActivos.Text = "Inactivos";
             checkActivos.TextAlign = ContentAlignment.MiddleCenter;
             checkActivos.UseVisualStyleBackColor = true;
             checkActivos.CheckedChanged += checkActivos_CheckedChanged;
+            // 
+            // Id
+            // 
+            Id.Frozen = true;
+            Id.HeaderText = "ID";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Width = 50;
+            // 
+            // Nombre
+            // 
+            Nombre.Frozen = true;
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 180;
+            // 
+            // Cedula
+            // 
+            Cedula.Frozen = true;
+            Cedula.HeaderText = "Cedula/RUC";
+            Cedula.Name = "Cedula";
+            Cedula.ReadOnly = true;
+            Cedula.Width = 150;
+            // 
+            // Correo
+            // 
+            Correo.Frozen = true;
+            Correo.HeaderText = "Correo";
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            Correo.Width = 180;
+            // 
+            // Edad
+            // 
+            Edad.Frozen = true;
+            Edad.HeaderText = "Telefono";
+            Edad.Name = "Edad";
+            Edad.ReadOnly = true;
+            Edad.Width = 150;
             // 
             // MantenimientoProveedor
             // 
@@ -261,7 +262,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(744, 650);
             Controls.Add(checkActivos);
-            Controls.Add(btnRefrescar);
             Controls.Add(proveedoresDGV);
             Controls.Add(buscarProveedor);
             Controls.Add(separador);
@@ -269,6 +269,7 @@
             Controls.Add(btnEliminar);
             Controls.Add(btnCrear);
             Controls.Add(btnEditar);
+            Controls.Add(btnRefrescar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MantenimientoProveedor";
             Text = "MantenimientoProveedor";
@@ -288,11 +289,11 @@
         private Button btnEliminar;
         private Button btnCrear;
         private Button btnEditar;
+        private CheckBox checkActivos;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Cedula;
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Edad;
-        private CheckBox checkActivos;
     }
 }
