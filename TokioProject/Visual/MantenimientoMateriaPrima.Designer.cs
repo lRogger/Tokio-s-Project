@@ -33,12 +33,6 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             materiaPrimaDGV = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            nombre = new DataGridViewTextBoxColumn();
-            proveedor = new DataGridViewTextBoxColumn();
-            stock = new DataGridViewTextBoxColumn();
-            precio = new DataGridViewTextBoxColumn();
-            fecha_compra = new DataGridViewTextBoxColumn();
             buscarMateriaPrima = new TextBox();
             separador = new Panel();
             cbProveedor = new ComboBox();
@@ -53,6 +47,12 @@
             btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             label2 = new Label();
+            id = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            proveedor = new DataGridViewTextBoxColumn();
+            stock = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            fecha_compra = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)materiaPrimaDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbCantidad).BeginInit();
             panel1.SuspendLayout();
@@ -90,7 +90,7 @@
             materiaPrimaDGV.EnableHeadersVisualStyles = false;
             materiaPrimaDGV.GridColor = Color.FromArgb(64, 64, 64);
             materiaPrimaDGV.ImeMode = ImeMode.NoControl;
-            materiaPrimaDGV.Location = new Point(94, 187);
+            materiaPrimaDGV.Location = new Point(12, 99);
             materiaPrimaDGV.MultiSelect = false;
             materiaPrimaDGV.Name = "materiaPrimaDGV";
             materiaPrimaDGV.ReadOnly = true;
@@ -108,63 +108,27 @@
             materiaPrimaDGV.RowTemplate.Height = 25;
             materiaPrimaDGV.ScrollBars = ScrollBars.Vertical;
             materiaPrimaDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            materiaPrimaDGV.Size = new Size(540, 286);
+            materiaPrimaDGV.Size = new Size(720, 472);
             materiaPrimaDGV.TabIndex = 11;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Width = 50;
-            // 
-            // nombre
-            // 
-            nombre.HeaderText = "Nombre";
-            nombre.Name = "nombre";
-            nombre.ReadOnly = true;
-            // 
-            // proveedor
-            // 
-            proveedor.HeaderText = "Proveedor";
-            proveedor.Name = "proveedor";
-            proveedor.ReadOnly = true;
-            // 
-            // stock
-            // 
-            stock.HeaderText = "Stock";
-            stock.Name = "stock";
-            stock.ReadOnly = true;
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio Unitario";
-            precio.Name = "precio";
-            precio.ReadOnly = true;
-            // 
-            // fecha_compra
-            // 
-            fecha_compra.HeaderText = "Ultima Compra";
-            fecha_compra.Name = "fecha_compra";
-            fecha_compra.ReadOnly = true;
             // 
             // buscarMateriaPrima
             // 
             buscarMateriaPrima.BackColor = Color.White;
             buscarMateriaPrima.BorderStyle = BorderStyle.None;
-            buscarMateriaPrima.Location = new Point(98, 154);
+            buscarMateriaPrima.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buscarMateriaPrima.Location = new Point(12, 66);
             buscarMateriaPrima.Name = "buscarMateriaPrima";
             buscarMateriaPrima.PlaceholderText = " 🔎 Buscar...";
-            buscarMateriaPrima.Size = new Size(272, 16);
+            buscarMateriaPrima.Size = new Size(479, 22);
             buscarMateriaPrima.TabIndex = 12;
             buscarMateriaPrima.TextChanged += buscarMateriaPrima_TextChanged;
             // 
             // separador
             // 
             separador.BackColor = Color.FromArgb(70, 15, 75);
-            separador.Location = new Point(98, 135);
+            separador.Location = new Point(12, 51);
             separador.Name = "separador";
-            separador.Size = new Size(537, 2);
+            separador.Size = new Size(720, 2);
             separador.TabIndex = 17;
             // 
             // cbProveedor
@@ -172,7 +136,7 @@
             cbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProveedor.FormattingEnabled = true;
             cbProveedor.Items.AddRange(new object[] { "Todas", "S", "M", "L", "XL" });
-            cbProveedor.Location = new Point(470, 151);
+            cbProveedor.Location = new Point(577, 66);
             cbProveedor.Name = "cbProveedor";
             cbProveedor.Size = new Size(155, 23);
             cbProveedor.TabIndex = 19;
@@ -180,11 +144,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(390, 154);
+            label1.Location = new Point(486, 68);
             label1.Name = "label1";
-            label1.Size = new Size(74, 16);
+            label1.Size = new Size(85, 20);
             label1.TabIndex = 20;
             label1.Text = "Proveedor:";
             // 
@@ -198,7 +162,7 @@
             btnRefrescar.FlatStyle = FlatStyle.Flat;
             btnRefrescar.Font = new Font("Arial", 24.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.Location = new Point(592, 82);
+            btnRefrescar.Location = new Point(672, 0);
             btnRefrescar.Margin = new Padding(0);
             btnRefrescar.Name = "btnRefrescar";
             btnRefrescar.Size = new Size(60, 48);
@@ -216,10 +180,10 @@
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
-            btnCrear.Location = new Point(95, 85);
+            btnCrear.Location = new Point(9, 9);
             btnCrear.Margin = new Padding(0);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(67, 43);
+            btnCrear.Size = new Size(76, 43);
             btnCrear.TabIndex = 22;
             btnCrear.Text = "Crear";
             btnCrear.TextAlign = ContentAlignment.MiddleLeft;
@@ -235,7 +199,7 @@
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEditar.Location = new Point(166, 85);
+            btnEditar.Location = new Point(75, 10);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(71, 43);
             btnEditar.TabIndex = 21;
@@ -246,7 +210,7 @@
             // 
             // cbCantidad
             // 
-            cbCantidad.Location = new Point(428, 21);
+            cbCantidad.Location = new Point(614, 21);
             cbCantidad.Name = "cbCantidad";
             cbCantidad.Size = new Size(45, 23);
             cbCantidad.TabIndex = 26;
@@ -259,9 +223,9 @@
             panel1.Controls.Add(btnMenos);
             panel1.Controls.Add(btnSuma);
             panel1.Controls.Add(cbCantidad);
-            panel1.Location = new Point(98, 471);
+            panel1.Location = new Point(12, 577);
             panel1.Name = "panel1";
-            panel1.Size = new Size(539, 61);
+            panel1.Size = new Size(720, 61);
             panel1.TabIndex = 27;
             // 
             // lblDesc
@@ -282,7 +246,7 @@
             lblDescripcion.ForeColor = SystemColors.Window;
             lblDescripcion.Location = new Point(7, 24);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(372, 37);
+            lblDescripcion.Size = new Size(552, 37);
             lblDescripcion.TabIndex = 30;
             // 
             // btnMenos
@@ -299,7 +263,7 @@
             btnMenos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnMenos.ForeColor = Color.White;
             btnMenos.ImageAlign = ContentAlignment.TopCenter;
-            btnMenos.Location = new Point(381, 17);
+            btnMenos.Location = new Point(565, 15);
             btnMenos.Margin = new Padding(0);
             btnMenos.Name = "btnMenos";
             btnMenos.RightToLeft = RightToLeft.Yes;
@@ -322,7 +286,7 @@
             btnSuma.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnSuma.ForeColor = Color.White;
             btnSuma.ImageAlign = ContentAlignment.TopCenter;
-            btnSuma.Location = new Point(483, 17);
+            btnSuma.Location = new Point(667, 15);
             btnSuma.Margin = new Padding(0);
             btnSuma.Name = "btnSuma";
             btnSuma.RightToLeft = RightToLeft.Yes;
@@ -342,6 +306,45 @@
             label2.Size = new Size(0, 16);
             label2.TabIndex = 28;
             // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Width = 50;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "Nombre";
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            nombre.Width = 180;
+            // 
+            // proveedor
+            // 
+            proveedor.HeaderText = "Proveedor";
+            proveedor.Name = "proveedor";
+            proveedor.ReadOnly = true;
+            proveedor.Width = 180;
+            // 
+            // stock
+            // 
+            stock.HeaderText = "Stock";
+            stock.Name = "stock";
+            stock.ReadOnly = true;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio Unitario";
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            // 
+            // fecha_compra
+            // 
+            fecha_compra.HeaderText = "Ultima Compra";
+            fecha_compra.Name = "fecha_compra";
+            fecha_compra.ReadOnly = true;
+            // 
             // MantenimientoMateriaPrima
             // 
             AllowDrop = true;
@@ -353,12 +356,12 @@
             Controls.Add(label2);
             Controls.Add(panel1);
             Controls.Add(btnRefrescar);
-            Controls.Add(btnCrear);
-            Controls.Add(btnEditar);
             Controls.Add(label1);
             Controls.Add(cbProveedor);
             Controls.Add(buscarMateriaPrima);
             Controls.Add(separador);
+            Controls.Add(btnEditar);
+            Controls.Add(btnCrear);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MantenimientoMateriaPrima";
             StartPosition = FormStartPosition.WindowsDefaultBounds;
