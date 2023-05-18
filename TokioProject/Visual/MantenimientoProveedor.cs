@@ -38,6 +38,7 @@ namespace GUIs.Visual
                 CargarTabla();
             }
         }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (proveedoresDGV.SelectedCells.Count > 0)
@@ -68,15 +69,20 @@ namespace GUIs.Visual
         {
             if (proveedoresDGV.SelectedCells.Count > 0)
             {
+                int valor = (checkActivos.Checked) ? 1 : 0;
+                string accion = (checkActivos.Checked) ? "habilitar" : "inhabilitar";
+
                 int selected = proveedoresDGV.CurrentRow.Index;
                 string identificacion = (string)proveedoresDGV.Rows[selected].Cells[2].Value;
 
-                DialogResult confirmacion = new Emergente("si / no","CONFIRMACIÓN", 
-                                                          "Está seguro de eliminar el proveedor? \n\n Este proceso es irreversible"
+                DialogResult confirmacion = new Emergente("si / no", "CONFIRMACIÓN",
+                                                          $"Está seguro de {accion} el proveedor?"
                                                           ).ShowDialog();
-                if(confirmacion == DialogResult.OK)
+                if (confirmacion == DialogResult.OK)
                 {
-                    dataBase.BorrarProveedor(identificacion);
+                    dataBase.DesactivarActivarProveedor(identificacion,valor);
+                    CargarTabla();
+                    verificarDGV();
                 }
             }
             else
@@ -84,6 +90,7 @@ namespace GUIs.Visual
                 new Emergente("advertencia", "AVISO", "Debe seleccionar un proveedor").ShowDialog();
             }
         }
+
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             CargarTabla();
@@ -95,6 +102,14 @@ namespace GUIs.Visual
         private void buscarProveedor_TextChanged(object sender, EventArgs e)
         {
             busquedaDGV(buscarProveedor.Text.ToLower());
+        }
+        //Evento para mostrar proveedores inactivos
+        private void checkActivos_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarTabla();
+            buscarProveedor.Clear();
+            btnEliminar.Text = (checkActivos.Checked) ? "Habilitar" : "Inhabilitar";
+            btnEditar.Enabled = (checkActivos.Checked) ? false : true;
         }
         //----------------------------------------------------------------------------------------------------------------------------
 
@@ -108,10 +123,20 @@ namespace GUIs.Visual
                 proveedoresDGV.Rows.Clear();
                 foreach (Proveedor proveedor in lista)
                 {
-                    proveedoresDGV.Rows.Add(
-                        proveedor.Id, proveedor.Nombre,
-                        proveedor.Cedula_ruc, proveedor.Correo,
-                        proveedor.Telefono);
+                    if (checkActivos.Checked && !proveedor.Activo)
+                    {
+                        proveedoresDGV.Rows.Add(
+                            proveedor.Id, proveedor.Nombre,
+                            proveedor.Cedula_ruc, proveedor.Correo,
+                            proveedor.Telefono);
+                    }
+                    else if (!checkActivos.Checked && proveedor.Activo)
+                    {
+                        proveedoresDGV.Rows.Add(
+                            proveedor.Id, proveedor.Nombre,
+                            proveedor.Cedula_ruc, proveedor.Correo,
+                            proveedor.Telefono);
+                    }
                 }
             }
             catch (Exception ex)
@@ -124,13 +149,20 @@ namespace GUIs.Visual
         private void busquedaDGV(string entrada)
         {
             proveedoresDGV.ClearSelection();
-            
-            foreach(DataGridViewRow row in proveedoresDGV.Rows)
+
+            foreach (DataGridViewRow row in proveedoresDGV.Rows)
             {
                 string nombre = ((string)row.Cells[1].Value).ToLower();
                 string cedula_ruc = ((string)row.Cells[2].Value).ToLower();
 
-                row.Visible = (nombre.Contains(entrada) || cedula_ruc.Contains(entrada))? true : false;
+                row.Visible = (nombre.Contains(entrada) || cedula_ruc.Contains(entrada)) ? true : false;
+            }
+        }
+        private void verificarDGV()
+        {
+            if(checkActivos.Checked && proveedoresDGV.Rows.Count < 1)
+            {
+                checkActivos.Checked = false;
             }
         }
     }

@@ -62,6 +62,7 @@ namespace Datos
                         proveedor.Cedula_ruc = (string)reader[2];
                         proveedor.Correo = (string)reader[3];
                         proveedor.Telefono = (string)reader[4];
+                        proveedor.Activo = (bool)reader[5];
 
                         lista.Add(proveedor);
                     }
@@ -108,9 +109,9 @@ namespace Datos
             }
         }
 
-        public void BorrarProveedor(string id)
+        public void DesactivarActivarProveedor(string id, int valor)
         {
-            dataBase.instruccionDB($"DELETE FROM Proveedor WHERE cedula_ruc = '{id}'");
+            dataBase.instruccionDB($"UPDATE Proveedor SET activo = {valor} WHERE cedula_ruc = '{id}'");
         }
     }
 }

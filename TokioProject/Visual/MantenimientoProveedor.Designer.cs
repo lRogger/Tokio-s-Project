@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             btnRefrescar = new Button();
             proveedoresDGV = new DataGridView();
             Id = new DataGridViewTextBoxColumn();
@@ -44,6 +44,7 @@
             btnEliminar = new Button();
             btnCrear = new Button();
             btnEditar = new Button();
+            checkActivos = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)proveedoresDGV).BeginInit();
             SuspendLayout();
             // 
@@ -74,24 +75,24 @@
             proveedoresDGV.CausesValidation = false;
             proveedoresDGV.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             proveedoresDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            proveedoresDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            proveedoresDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             proveedoresDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             proveedoresDGV.Columns.AddRange(new DataGridViewColumn[] { Id, Nombre, Cedula, Correo, Edad });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            proveedoresDGV.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            proveedoresDGV.DefaultCellStyle = dataGridViewCellStyle8;
             proveedoresDGV.EnableHeadersVisualStyles = false;
             proveedoresDGV.GridColor = Color.FromArgb(64, 64, 64);
             proveedoresDGV.ImeMode = ImeMode.NoControl;
@@ -100,8 +101,8 @@
             proveedoresDGV.Name = "proveedoresDGV";
             proveedoresDGV.ReadOnly = true;
             proveedoresDGV.RowHeadersWidth = 4;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(51, 51, 102);
-            proveedoresDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(51, 51, 102);
+            proveedoresDGV.RowsDefaultCellStyle = dataGridViewCellStyle9;
             proveedoresDGV.RowTemplate.Height = 25;
             proveedoresDGV.ScrollBars = ScrollBars.Vertical;
             proveedoresDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -155,7 +156,7 @@
             buscarProveedor.Location = new Point(100, 147);
             buscarProveedor.Name = "buscarProveedor";
             buscarProveedor.PlaceholderText = " 🔎 Buscar...";
-            buscarProveedor.Size = new Size(537, 22);
+            buscarProveedor.Size = new Size(439, 22);
             buscarProveedor.TabIndex = 12;
             buscarProveedor.TextChanged += buscarProveedor_TextChanged;
             // 
@@ -199,7 +200,7 @@
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(114, 43);
             btnEliminar.TabIndex = 15;
-            btnEliminar.Text = "Eliminar";
+            btnEliminar.Text = "Inhabilitar";
             btnEliminar.TextAlign = ContentAlignment.MiddleLeft;
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
@@ -239,11 +240,27 @@
             btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 
+            // checkActivos
+            // 
+            checkActivos.AutoSize = true;
+            checkActivos.FlatStyle = FlatStyle.Flat;
+            checkActivos.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            checkActivos.Location = new Point(545, 147);
+            checkActivos.Name = "checkActivos";
+            checkActivos.RightToLeft = RightToLeft.Yes;
+            checkActivos.Size = new Size(89, 23);
+            checkActivos.TabIndex = 19;
+            checkActivos.Text = "Inactivos";
+            checkActivos.TextAlign = ContentAlignment.MiddleCenter;
+            checkActivos.UseVisualStyleBackColor = true;
+            checkActivos.CheckedChanged += checkActivos_CheckedChanged;
+            // 
             // MantenimientoProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(744, 650);
+            Controls.Add(checkActivos);
             Controls.Add(btnRefrescar);
             Controls.Add(proveedoresDGV);
             Controls.Add(buscarProveedor);
@@ -276,5 +293,6 @@
         private DataGridViewTextBoxColumn Cedula;
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Edad;
+        private CheckBox checkActivos;
     }
 }

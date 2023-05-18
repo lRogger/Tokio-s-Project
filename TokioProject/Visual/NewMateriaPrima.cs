@@ -5,19 +5,23 @@ using MySqlX.XDevAPI.Relational;
 using System.Globalization;
 using LibreriaGrupal;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Data;
+using System.Drawing;
 
 namespace GUIs.Visual
 {
     public partial class NewMateriaPrima : Form
     {
-        private DataBase db;
+        DataBase dataBase = new DataBase();
+        DBProveedor dBProveedor = new DBProveedor();
         private int id;
         int posY = 0, posX = 0;
 
         public NewMateriaPrima()
         {
             InitializeComponent();
-            db = new DataBase();
+            CargarDatos();
+            //db = new DataBase();
             id = -1;
 
         }
@@ -25,128 +29,86 @@ namespace GUIs.Visual
         public NewMateriaPrima(int id)
         {
             InitializeComponent();
-            db = new DataBase();
+            //db = new DataBase();
             this.id = id;
 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (id == -1)
-            {
-                Enviar();
-
-            }
-            else
-            {
-                Editar();
-            }
 
         }
 
-        private void Editar()
+        //Metodos para cargar los comboBox con sus respectivos datos
+        private void CargarDatos()
         {
-            if (txtNombre.Texts.Trim() != "" && txtPrecio.Texts.Trim() != "" && txtStock.Texts.Trim() != "")
-            {
-
-                Prenda productoNuevo = new Prenda();
-                productoNuevo.Nombre = txtNombre.Texts;
-                productoNuevo.Descripcion = tbDescrip.Texts;
-                productoNuevo.Stock = Int32.Parse(txtStock.Texts);
-                productoNuevo.Precio = Double.Parse(txtPrecio.Texts);
-                productoNuevo.Id = id;
-
-                var productos = new DBProducto().LeerProducto(id);
-                Prenda productoAnterior = productos[0];
-                if (productoNuevo.Stock == 0)
-                {
-                    productoNuevo.Activo = false;
-                }
-                else
-                {
-                    productoNuevo.Activo = true;
-                }
-
-
-                //UPDATE DEL PRODUCTO
-                new DBProducto().EditarProducto(productoNuevo, id);
-
-                //SECCION PARA CREAR EL REGISTRO
-                var owner = this.Owner as FrmPrincipal;
-
-                Registros registro = new Registros();
-                registro.Fecha = DateTime.Now;
-                registro.Usuario = owner!.Sesion;
-                registro.Producto = productoNuevo;
-                if (productoNuevo.Stock == 0)
-                {
-                    registro.Descripcion = "•Se ha inactivado el producto por falta de stock\n";
-                }
-                else if (productoAnterior.Stock == 0 && productoNuevo.Stock > 0)
-                {
-                    registro.Descripcion = "•Se ha activado el producto por ingreso de stock\n";
-                }
-
-                foreach (var propiedad in typeof(Prenda).GetProperties())
-                {
-                    object valorAnterior = propiedad.GetValue(productoAnterior)!;
-                    object valorNuevo = propiedad.GetValue(productoNuevo)!;
-
-                    if (!Equals(valorAnterior, valorNuevo))
-                    {
-                        registro.Descripcion += $"•{propiedad.Name}: {valorAnterior} => {valorNuevo}\n";
-                    }
-                }
-                registro.Cantidad = productoNuevo.Stock - productoAnterior.Stock;
-                new DBRegistros().CrearRegistro(registro);
-
-                //-------------------------------------------------------------------
-
-                this.Close();
-            }
-            else
-            {
-                new Emergente("advertencia", "ERROR", "Hay campos sin completar").ShowDialog();
-            }
+            CargarColores();
+            CargarProveedores();
         }
 
-        private void Enviar()
+        private void CargarColores()
         {
-            if (txtNombre.Texts.Trim() != "" && txtPrecio.Texts.Trim() != "" && txtStock.Texts.Trim() != "")
+            var colores = new List<Tuple<int, string>>();
+
+            dataBase.consultar("SELECT idColor, Color FROM Colores;");
+            DataTable table = dataBase.Ds.Tables[0];
+            
+            foreach(DataRow row in table.Rows)
             {
-                Prenda p = new Prenda();
-                p.Nombre = txtNombre.Texts;
-                p.Descripcion = tbDescrip.Texts;
-                p.Stock = Int32.Parse(txtStock.Texts);
-                p.Precio = Double.Parse(txtPrecio.Texts);
+                int idColor = (System.Int16)row["idColor"];
+                string color = (string)row["Color"];
 
-                this.Hide();
-
-                //INSERCIÓN DE PRODUCTO
-                p.Id = new DBProducto().CrearProducto(p);
-
-                //SECCION DONDE SE CREA EL REGISTRO
-                var owner = this.Owner as FrmPrincipal;
-
-                Registros registro = new Registros();
-                registro.Fecha = DateTime.Now;
-                registro.Usuario = owner!.Sesion;
-                registro.Producto = p;
-                registro.Descripcion = "•Se ha creado este producto";
-                registro.Cantidad = p.Stock;
-                new DBRegistros().CrearRegistro(registro);
-                //-------------------------------------------------------------------
-
-
-
-
-
-                this.Close();
+                colores.Add(new Tuple<int, string>(idColor, color));
             }
-            else
+
+            var colorElegir = new Tuple<int, string>(0, "Elija un color..."); //Valor por defecto, elija un color...
+            colores.Insert(0, colorElegir);
+
+            cmbColor.DataSource = colores;
+            cmbColor.DisplayMember = "Item2";
+            cmbColor.ValueMember = "Item1";
+
+            //Activar campo de busqueda
+            cmbColor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbColor.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
+        private void CargarProveedores()
+        {
+            var proveedores = dBProveedor.CargarDatosProveedores();
+
+            var proveedorElegir = new Proveedor
             {
-                new Emergente("advertencia", "ERROR", "Hay campos sin completar").ShowDialog();
+                Id = 0,
+                Nombre = "Elija un proveedor...", //Valor por defecto, elija un proveedor...
+                Cedula_ruc = string.Empty,
+                Correo = string.Empty,
+                Telefono = string.Empty
+            };
+
+            for (int i = proveedores.Count - 1; i >= 0; i--)
+            {
+                Proveedor proveedor = proveedores[i];
+                if (!proveedor.Activo)
+                {
+                    proveedores.RemoveAt(i); //Remover proveedores que no están activos
+                }
             }
+            proveedores.Insert(0, proveedorElegir);
+
+            cmbProveedor.DataSource = proveedores;
+            cmbProveedor.DisplayMember = "Nombre";
+            cmbProveedor.ValueMember = "Cedula_ruc";
+
+            //Activar campo de busqueda
+            cmbProveedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbProveedor.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
+
+        //Eventos keypress para validar los campos----------------------------
+        private void tbNombreProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utilidades u = new Utilidades();
+            e.Handled = u.validar((char)e.KeyChar, "letras");
         }
 
         private void tbStock_KeyPress(object sender, KeyPressEventArgs e)
@@ -175,13 +137,9 @@ namespace GUIs.Visual
             }
 
         }
+        //----------------------------------------------------------------------
 
-        private void tbNombreProd_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Utilidades u = new Utilidades();
-            e.Handled = u.validar((char)e.KeyChar, "letras");
-        }
-
+        //Evento para mover la ventana
         private void NewProduct_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)

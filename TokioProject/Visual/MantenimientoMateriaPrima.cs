@@ -67,5 +67,10 @@ namespace GUIs.Visual
         {
 
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
