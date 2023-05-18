@@ -14,29 +14,44 @@ namespace GUIs.Visual
     {
         DataBase dataBase = new DataBase();
         DBProveedor dBProveedor = new DBProveedor();
+        DBMateriaPrima dBMateriaPrima = new DBMateriaPrima();
+
         private int id;
+        public bool Guardado = false;
         int posY = 0, posX = 0;
 
-        public NewMateriaPrima()
+        public NewMateriaPrima(int id = 0)
         {
             InitializeComponent();
             CargarDatos();
-            //db = new DataBase();
-            id = -1;
-
-        }
-
-        public NewMateriaPrima(int id)
-        {
-            InitializeComponent();
-            //db = new DataBase();
             this.id = id;
 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (id > 0)
+            {
+                Editar();
+            }
+            else
+            {
+                Crear();
+            }
+        }
+        private void Editar()
+        {
 
+        }
+        private void Crear()
+        {
+            //Crear
+            MateriaPrima materiaPrima = new MateriaPrima();
+            materiaPrima.Nombre = txtNombre.Texts.Trim();
+            materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
+            materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
+            materiaPrima.Proveedor.Id = Int32.Parse(cmbProveedor.SelectedValue.ToString());
+            //dBMateriaPrima.InsertarMateriaPrima();
         }
 
         //Metodos para cargar los comboBox con sus respectivos datos
@@ -52,8 +67,8 @@ namespace GUIs.Visual
 
             dataBase.consultar("SELECT idColor, Color FROM Colores;");
             DataTable table = dataBase.Ds.Tables[0];
-            
-            foreach(DataRow row in table.Rows)
+
+            foreach (DataRow row in table.Rows)
             {
                 int idColor = (System.Int16)row["idColor"];
                 string color = (string)row["Color"];
@@ -97,7 +112,7 @@ namespace GUIs.Visual
 
             cmbProveedor.DataSource = proveedores;
             cmbProveedor.DisplayMember = "Nombre";
-            cmbProveedor.ValueMember = "Cedula_ruc";
+            cmbProveedor.ValueMember = "Id";
 
             //Activar campo de busqueda
             cmbProveedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;

@@ -32,8 +32,8 @@ namespace GUIs.Visual
         private void btnCrear_Click(object sender, EventArgs e)
         {
             NewProveedor proveedor = new NewProveedor();
-            proveedor.ShowDialog();
-            if (proveedor.Guardado)
+
+            if (proveedor.ShowDialog() != DialogResult.Abort)
             {
                 CargarTabla();
             }
@@ -53,8 +53,7 @@ namespace GUIs.Visual
                 proveedor.correoProveedor.Text = (string)proveedoresDGV.Rows[selected].Cells[3].Value;
                 proveedor.telefProveedor.Text = (string)proveedoresDGV.Rows[selected].Cells[4].Value;
 
-                proveedor.ShowDialog();
-                if (proveedor.Guardado)
+                if (proveedor.ShowDialog() != DialogResult.Abort)
                 {
                     CargarTabla();
                 }
@@ -154,8 +153,9 @@ namespace GUIs.Visual
             {
                 string nombre = ((string)row.Cells[1].Value).ToLower();
                 string cedula_ruc = ((string)row.Cells[2].Value).ToLower();
+                string correo = ((string)row.Cells[3].Value).ToLower();
 
-                row.Visible = (nombre.Contains(entrada) || cedula_ruc.Contains(entrada)) ? true : false;
+                row.Visible = (nombre.Contains(entrada) || cedula_ruc.Contains(entrada) || correo.Contains(entrada)) ? true : false;
             }
         }
         private void verificarDGV()

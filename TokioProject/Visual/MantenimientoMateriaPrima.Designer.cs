@@ -33,6 +33,12 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             materiaPrimaDGV = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            proveedor = new DataGridViewTextBoxColumn();
+            stock = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            fecha_compra = new DataGridViewTextBoxColumn();
             buscarMateriaPrima = new TextBox();
             separador = new Panel();
             cbProveedor = new ComboBox();
@@ -47,12 +53,6 @@
             btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             label2 = new Label();
-            id = new DataGridViewTextBoxColumn();
-            nombre = new DataGridViewTextBoxColumn();
-            proveedor = new DataGridViewTextBoxColumn();
-            stock = new DataGridViewTextBoxColumn();
-            precio = new DataGridViewTextBoxColumn();
-            fecha_compra = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)materiaPrimaDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbCantidad).BeginInit();
             panel1.SuspendLayout();
@@ -111,6 +111,45 @@
             materiaPrimaDGV.Size = new Size(720, 472);
             materiaPrimaDGV.TabIndex = 11;
             // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Width = 50;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "Nombre";
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            nombre.Width = 180;
+            // 
+            // proveedor
+            // 
+            proveedor.HeaderText = "Proveedor";
+            proveedor.Name = "proveedor";
+            proveedor.ReadOnly = true;
+            proveedor.Width = 180;
+            // 
+            // stock
+            // 
+            stock.HeaderText = "Stock";
+            stock.Name = "stock";
+            stock.ReadOnly = true;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio Unitario";
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            // 
+            // fecha_compra
+            // 
+            fecha_compra.HeaderText = "Ultima Compra";
+            fecha_compra.Name = "fecha_compra";
+            fecha_compra.ReadOnly = true;
+            // 
             // buscarMateriaPrima
             // 
             buscarMateriaPrima.BackColor = Color.White;
@@ -135,7 +174,6 @@
             // 
             cbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProveedor.FormattingEnabled = true;
-            cbProveedor.Items.AddRange(new object[] { "Todas", "S", "M", "L", "XL" });
             cbProveedor.Location = new Point(577, 66);
             cbProveedor.Name = "cbProveedor";
             cbProveedor.Size = new Size(155, 23);
@@ -305,45 +343,6 @@
             label2.Name = "label2";
             label2.Size = new Size(0, 16);
             label2.TabIndex = 28;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Width = 50;
-            // 
-            // nombre
-            // 
-            nombre.HeaderText = "Nombre";
-            nombre.Name = "nombre";
-            nombre.ReadOnly = true;
-            nombre.Width = 180;
-            // 
-            // proveedor
-            // 
-            proveedor.HeaderText = "Proveedor";
-            proveedor.Name = "proveedor";
-            proveedor.ReadOnly = true;
-            proveedor.Width = 180;
-            // 
-            // stock
-            // 
-            stock.HeaderText = "Stock";
-            stock.Name = "stock";
-            stock.ReadOnly = true;
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio Unitario";
-            precio.Name = "precio";
-            precio.ReadOnly = true;
-            // 
-            // fecha_compra
-            // 
-            fecha_compra.HeaderText = "Ultima Compra";
-            fecha_compra.Name = "fecha_compra";
-            fecha_compra.ReadOnly = true;
             // 
             // MantenimientoMateriaPrima
             // 

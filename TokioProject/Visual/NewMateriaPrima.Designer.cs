@@ -30,7 +30,9 @@
         {
             lblTitulo = new Label();
             panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
+            cmbColor = new ComboBox();
             panelMod2 = new Individual.Visual.ComponentesMod.PanelMod();
+            cmbProveedor = new ComboBox();
             label4 = new Label();
             label6 = new Label();
             fechaUltCompra = new DateTimePicker();
@@ -43,8 +45,6 @@
             label2 = new Label();
             btnGuardar = new Individual.Visual.ComponentesMod.RJButton();
             btnCancelar = new Individual.Visual.ComponentesMod.RJButton();
-            cmbColor = new ComboBox();
-            cmbProveedor = new ComboBox();
             panelMod1.SuspendLayout();
             panelMod2.SuspendLayout();
             SuspendLayout();
@@ -82,6 +82,14 @@
             panelMod1.Size = new Size(500, 280);
             panelMod1.TabIndex = 1;
             // 
+            // cmbColor
+            // 
+            cmbColor.FormattingEnabled = true;
+            cmbColor.Location = new Point(118, 101);
+            cmbColor.Name = "cmbColor";
+            cmbColor.Size = new Size(200, 23);
+            cmbColor.TabIndex = 20;
+            // 
             // panelMod2
             // 
             panelMod2.BackColor = Color.White;
@@ -98,6 +106,14 @@
             panelMod2.Name = "panelMod2";
             panelMod2.Size = new Size(375, 120);
             panelMod2.TabIndex = 19;
+            // 
+            // cmbProveedor
+            // 
+            cmbProveedor.FormattingEnabled = true;
+            cmbProveedor.Location = new Point(129, 29);
+            cmbProveedor.Name = "cmbProveedor";
+            cmbProveedor.Size = new Size(200, 23);
+            cmbProveedor.TabIndex = 21;
             // 
             // label4
             // 
@@ -287,22 +303,6 @@
             btnCancelar.TextColor = Color.FromArgb(128, 27, 141);
             btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // cmbColor
-            // 
-            cmbColor.FormattingEnabled = true;
-            cmbColor.Location = new Point(118, 101);
-            cmbColor.Name = "cmbColor";
-            cmbColor.Size = new Size(200, 23);
-            cmbColor.TabIndex = 20;
-            // 
-            // cmbProveedor
-            // 
-            cmbProveedor.FormattingEnabled = true;
-            cmbProveedor.Location = new Point(129, 29);
-            cmbProveedor.Name = "cmbProveedor";
-            cmbProveedor.Size = new Size(200, 23);
-            cmbProveedor.TabIndex = 21;
-            // 
             // NewMateriaPrima
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -326,7 +326,6 @@
         }
 
         #endregion
-        private Individual.Visual.ComponentesMod.PanelMod panelMod1;
         private Label label3;
         private Label label2;
         private Individual.Visual.ComponentesMod.RJButton btnGuardar;
@@ -341,7 +340,8 @@
         public DateTimePicker fechaUltCompra;
         private Label label5;
         private Individual.Visual.ComponentesMod.PanelMod panelMod2;
-        private ComboBox cmbColor;
-        private ComboBox cmbProveedor;
+        public ComboBox cmbColor;
+        public ComboBox cmbProveedor;
+        public Individual.Visual.ComponentesMod.PanelMod panelMod1;
     }
 }

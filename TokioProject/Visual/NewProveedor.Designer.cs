@@ -84,7 +84,7 @@
             cedProveedor.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
             cedProveedor.Location = new Point(256, 35);
             cedProveedor.MaximumSize = new Size(200, 25);
-            cedProveedor.MaxLength = 10;
+            cedProveedor.MaxLength = 13;
             cedProveedor.MinimumSize = new Size(0, 27);
             cedProveedor.Name = "cedProveedor";
             cedProveedor.Size = new Size(152, 27);

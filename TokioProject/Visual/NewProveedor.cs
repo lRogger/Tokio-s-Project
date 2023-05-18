@@ -15,7 +15,6 @@ namespace Individual.Visual
         Utilidades u = new Utilidades();
 
         int posY = 0, posX = 0;
-        public bool Guardado = false;
 
         public NewProveedor()
         {
@@ -40,7 +39,7 @@ namespace Individual.Visual
         {
             try
             {
-                if(cedProveedor.Enabled == true)
+                if (cedProveedor.Enabled == true)
                 {
                     Nuevo();
                 }
@@ -71,7 +70,6 @@ namespace Individual.Visual
 
                 if (dataBase.InsertarProveedor(proveedor))
                 {
-                    Guardado = true;
                     new Emergente("advertencia", "EXITO", "Proveedor guardado correctamente!").ShowDialog();
                     this.Close();
                 }
@@ -94,7 +92,6 @@ namespace Individual.Visual
 
                 if (dataBase.EditarProveedor(proveedor))
                 {
-                    Guardado = true;
                     new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
                     this.Close();
                 }
@@ -112,7 +109,7 @@ namespace Individual.Visual
         }
         private bool fueronModificados(params TextBox[] textBoxs)
         {
-            foreach(TextBox textbox in textBoxs)
+            foreach (TextBox textbox in textBoxs)
             {
                 if (textbox.Modified)
                 {

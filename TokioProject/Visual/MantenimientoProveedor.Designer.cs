@@ -33,6 +33,11 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             btnRefrescar = new Button();
             proveedoresDGV = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Cedula = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            Edad = new DataGridViewTextBoxColumn();
             buscarProveedor = new TextBox();
             separador = new Panel();
             btnCerrar = new Individual.Visual.ComponentesMod.RJButton();
@@ -40,11 +45,6 @@
             btnCrear = new Button();
             btnEditar = new Button();
             checkActivos = new CheckBox();
-            Id = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Cedula = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Edad = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)proveedoresDGV).BeginInit();
             SuspendLayout();
             // 
@@ -100,6 +100,7 @@
             proveedoresDGV.MultiSelect = false;
             proveedoresDGV.Name = "proveedoresDGV";
             proveedoresDGV.ReadOnly = true;
+            proveedoresDGV.RowHeadersVisible = false;
             proveedoresDGV.RowHeadersWidth = 4;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 51, 102);
             proveedoresDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
@@ -108,6 +109,46 @@
             proveedoresDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             proveedoresDGV.Size = new Size(720, 539);
             proveedoresDGV.TabIndex = 11;
+            // 
+            // Id
+            // 
+            Id.Frozen = true;
+            Id.HeaderText = "ID";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Width = 50;
+            // 
+            // Nombre
+            // 
+            Nombre.Frozen = true;
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            Nombre.Width = 180;
+            // 
+            // Cedula
+            // 
+            Cedula.Frozen = true;
+            Cedula.HeaderText = "Cedula/RUC";
+            Cedula.Name = "Cedula";
+            Cedula.ReadOnly = true;
+            Cedula.Width = 150;
+            // 
+            // Correo
+            // 
+            Correo.Frozen = true;
+            Correo.HeaderText = "Correo";
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            Correo.Width = 180;
+            // 
+            // Edad
+            // 
+            Edad.Frozen = true;
+            Edad.HeaderText = "Telefono";
+            Edad.Name = "Edad";
+            Edad.ReadOnly = true;
+            Edad.Width = 150;
             // 
             // buscarProveedor
             // 
@@ -215,46 +256,6 @@
             checkActivos.TextAlign = ContentAlignment.MiddleCenter;
             checkActivos.UseVisualStyleBackColor = true;
             checkActivos.CheckedChanged += checkActivos_CheckedChanged;
-            // 
-            // Id
-            // 
-            Id.Frozen = true;
-            Id.HeaderText = "ID";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Width = 50;
-            // 
-            // Nombre
-            // 
-            Nombre.Frozen = true;
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            Nombre.Width = 180;
-            // 
-            // Cedula
-            // 
-            Cedula.Frozen = true;
-            Cedula.HeaderText = "Cedula/RUC";
-            Cedula.Name = "Cedula";
-            Cedula.ReadOnly = true;
-            Cedula.Width = 150;
-            // 
-            // Correo
-            // 
-            Correo.Frozen = true;
-            Correo.HeaderText = "Correo";
-            Correo.Name = "Correo";
-            Correo.ReadOnly = true;
-            Correo.Width = 180;
-            // 
-            // Edad
-            // 
-            Edad.Frozen = true;
-            Edad.HeaderText = "Telefono";
-            Edad.Name = "Edad";
-            Edad.ReadOnly = true;
-            Edad.Width = 150;
             // 
             // MantenimientoProveedor
             // 

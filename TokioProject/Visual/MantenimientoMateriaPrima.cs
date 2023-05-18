@@ -13,7 +13,6 @@ namespace GUIs.Visual
         public MantenimientoMateriaPrima()
         {
             InitializeComponent();
-            cbProveedor.SelectedIndex = 0;
             materiaPrimaDGV.RowHeadersVisible = false;
         }
 
@@ -53,13 +52,8 @@ namespace GUIs.Visual
             Form crear = new NewMateriaPrima();
             if (crear.ShowDialog() != DialogResult.Abort)
             {
-                new Emergente("advertencia", "HECHO", "El proceso se ha completado exitosamente").ShowDialog();
+                new Emergente("advertencia", "EXITO", "Registro guardado correctamente!").ShowDialog();
                 CargarTabla();
-
-            }
-            else
-            {
-                new Emergente("advertencia", "ERROR", "Operación no completada").ShowDialog();
             }
         }
 
@@ -67,10 +61,29 @@ namespace GUIs.Visual
         {
 
         }
-
+        //------------------------------------------------------------------------------------------
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (materiaPrimaDGV.SelectedRows.Count > 0)
+            {
+                int selected = materiaPrimaDGV.CurrentRow.Index;
+                int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
 
+                NewMateriaPrima editar = new NewMateriaPrima(id);
+                //TRABAJO EN PROGRESO - NO TERMINADO
+                editar.txtNombre.Text = (string)materiaPrimaDGV.Rows[selected].Cells[1].Value;
+                editar.cmbProveedor.SelectedValue = (int)materiaPrimaDGV.Rows[selected].Cells[2].Value;
+                editar.txtStock.Texts = (string)materiaPrimaDGV.Rows[selected].Cells[3].Value;
+                editar.txtPrecio.Texts = (string)materiaPrimaDGV.Rows[selected].Cells[4].Value;
+                editar.fechaUltCompra.Value = (DateTime)materiaPrimaDGV.Rows[selected].Cells[5].Value;
+
+
+                if (editar.ShowDialog() != DialogResult.Abort)
+                {
+                    new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
+                    CargarTabla();
+                }
+            }
         }
     }
 }
