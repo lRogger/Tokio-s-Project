@@ -13,7 +13,6 @@ namespace GUIs.Visual
         public MantenimientoMateriaPrima()
         {
             InitializeComponent();
-            materiaPrimaDGV.RowHeadersVisible = false;
         }
 
         private void CargarTabla()
@@ -27,8 +26,9 @@ namespace GUIs.Visual
                 {
                     materiaPrimaDGV.Rows.Add(
                         materiaPrima.Id, materiaPrima.Nombre,
-                        materiaPrima.Proveedor.Cedula_ruc, materiaPrima.Stock,
-                        materiaPrima.Precio, materiaPrima.FechaCompra.ToShortDateString());
+                        materiaPrima.Color, materiaPrima.Stock,
+                        materiaPrima.Proveedor.Nombre, materiaPrima.Precio,
+                        materiaPrima.FechaCompra.ToShortDateString());
                 }
             }
             catch (Exception ex)
@@ -52,7 +52,6 @@ namespace GUIs.Visual
             Form crear = new NewMateriaPrima();
             if (crear.ShowDialog() != DialogResult.Abort)
             {
-                new Emergente("advertencia", "EXITO", "Registro guardado correctamente!").ShowDialog();
                 CargarTabla();
             }
         }
@@ -70,12 +69,20 @@ namespace GUIs.Visual
                 int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
 
                 NewMateriaPrima editar = new NewMateriaPrima(id);
-                //TRABAJO EN PROGRESO - NO TERMINADO
-                editar.txtNombre.Text = (string)materiaPrimaDGV.Rows[selected].Cells[1].Value;
-                editar.cmbProveedor.SelectedValue = (int)materiaPrimaDGV.Rows[selected].Cells[2].Value;
-                editar.txtStock.Texts = (string)materiaPrimaDGV.Rows[selected].Cells[3].Value;
-                editar.txtPrecio.Texts = (string)materiaPrimaDGV.Rows[selected].Cells[4].Value;
-                editar.fechaUltCompra.Value = (DateTime)materiaPrimaDGV.Rows[selected].Cells[5].Value;
+
+                //Obtener los indices para seleccione el valor correcto del comboBox de proveedor y color
+                string nombreProveedor = (string)materiaPrimaDGV.Rows[selected].Cells[4].Value;
+                int indiceProveedor = editar.cmbProveedor.FindStringExact(nombreProveedor);
+                string nombreColor = (string)materiaPrimaDGV.Rows[selected].Cells[2].Value;
+                int indiceColor = editar.cmbColor.FindStringExact(nombreColor);
+
+                //Asignar los valores a la ventana de editar
+                editar.txtNombre.Texts = materiaPrimaDGV.Rows[selected].Cells[1].Value.ToString();
+                editar.cmbColor.SelectedIndex = indiceColor;
+                editar.txtStock.Texts = materiaPrimaDGV.Rows[selected].Cells[3].Value.ToString();
+                editar.cmbProveedor.SelectedIndex = indiceProveedor;
+                editar.txtPrecio.Texts = materiaPrimaDGV.Rows[selected].Cells[5].Value.ToString();
+                editar.fechaUltCompra.Value = DateTime.Parse(materiaPrimaDGV.Rows[selected].Cells[6].Value.ToString());
 
 
                 if (editar.ShowDialog() != DialogResult.Abort)

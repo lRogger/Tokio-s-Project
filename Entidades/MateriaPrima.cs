@@ -8,6 +8,7 @@
         private int stock;
         private double precio;
         private DateTime fechaCompra;
+        private String color;
 
         public MateriaPrima()
         {
@@ -17,9 +18,10 @@
             this.stock = 0;
             this.precio = 0;
             this.fechaCompra = DateTime.Now;
+            this.color = String.Empty;
         }
 
-        public MateriaPrima(int id, string nombre, Proveedor proveedor, int stock, double precio, DateTime fechaCompra)
+        public MateriaPrima(int id, string nombre, Proveedor proveedor, int stock, double precio, DateTime fechaCompra, string color)
         {
             Id = id;
             Nombre = nombre;
@@ -27,6 +29,7 @@
             Stock = stock;
             Precio = precio;
             FechaCompra = fechaCompra;
+            Color = color;
         }
 
         public int Id { get => id; set => id = value; }
@@ -35,5 +38,6 @@
         public int Stock { get => stock; set => stock = value; }
         public double Precio { get => precio; set => precio = value; }
         public DateTime FechaCompra { get => fechaCompra; set => fechaCompra = value; }
+        public string Color { get => color; set => color = value; }
     }
 }

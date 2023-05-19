@@ -7,6 +7,7 @@ using LibreriaGrupal;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using System.Data;
 using System.Drawing;
+using CustomControls.RJControls;
 
 namespace GUIs.Visual
 {
@@ -19,13 +20,19 @@ namespace GUIs.Visual
         private int id;
         public bool Guardado = false;
         int posY = 0, posX = 0;
+        private DateTime valorInicial;
 
         public NewMateriaPrima(int id = 0)
         {
             InitializeComponent();
             CargarDatos();
             this.id = id;
-
+            if(id > 0)
+            {
+                this.ActiveControl = null;
+                lblTitulo.Text = "Editar Materia Prima";
+            }
+            this.valorInicial = fechaUltCompra.Value;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -41,17 +48,60 @@ namespace GUIs.Visual
         }
         private void Editar()
         {
+            if (fueronModificados())
+            {
+                //Proveedor proveedor = new Proveedor();
+                //proveedor.Nombre = nomProveedor.Text;
+                //proveedor.Cedula_ruc = cedProveedor.Text;
+                //proveedor.Correo = correoProveedor.Text;
+                //proveedor.Telefono = telefProveedor.Text;
 
+                //if (dataBase.EditarProveedor(proveedor))
+                //{
+                //    new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
+                //    this.Close();
+                //}
+                //else
+                //{
+                //    new Emergente("advertencia", "ERROR", "No se pudo actualizar").ShowDialog();
+                //    this.Close();
+                //}
+            }
+            else
+            {
+                new Emergente("advertencia", "AVISO", "No hubieron cambios para guardar").ShowDialog();
+                this.Close();
+            }
+        }
+        private bool fueronModificados()
+        {
+            RJTextBox[] textBoxs = { txtNombre, txtPrecio, txtStock };
+            foreach (RJTextBox textbox in textBoxs)
+            {
+                if (textbox.Modified)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         private void Crear()
         {
             //Crear
             MateriaPrima materiaPrima = new MateriaPrima();
             materiaPrima.Nombre = txtNombre.Texts.Trim();
-            materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
+            materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
             materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
-            materiaPrima.Proveedor.Id = Int32.Parse(cmbProveedor.SelectedValue.ToString());
-            //dBMateriaPrima.InsertarMateriaPrima();
+            materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
+            materiaPrima.FechaCompra = fechaUltCompra.Value;
+            materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
+
+            if (dBMateriaPrima.InsertarMateriaPrima(materiaPrima))
+            {
+                this.Close();
+                new Emergente("advertencia", "EXITO", "Registro guardado correctamente!").ShowDialog();
+            }
         }
 
         //Metodos para cargar los comboBox con sus respectivos datos
@@ -122,8 +172,7 @@ namespace GUIs.Visual
         //Eventos keypress para validar los campos----------------------------
         private void tbNombreProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utilidades u = new Utilidades();
-            e.Handled = u.validar((char)e.KeyChar, "letras");
+
         }
 
         private void tbStock_KeyPress(object sender, KeyPressEventArgs e)

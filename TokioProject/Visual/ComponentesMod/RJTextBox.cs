@@ -147,6 +147,17 @@ namespace CustomControls.RJControls
                 SetPlaceholder();//If it is the case.
             }
         }
+        public bool Modified
+        {
+            get
+            {
+                return textBox1.Modified;
+            }
+            set
+            {
+                this.textBox1.Modified = value;
+            }
+        }
 
         [Category("RJ Code Advance")]
         public int BorderRadius

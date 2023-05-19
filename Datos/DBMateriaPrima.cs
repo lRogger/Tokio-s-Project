@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
@@ -20,10 +21,11 @@ namespace Datos
                         MateriaPrima materiaPrima = new MateriaPrima();
                         materiaPrima.Id = (int)reader[0];
                         materiaPrima.Nombre = (string)reader[1];
-                        materiaPrima.Proveedor.Cedula_ruc = (string)reader[2];
-                        materiaPrima.Stock = (int)reader[3];
-                        materiaPrima.Precio = (double)reader[4];
-                        materiaPrima.FechaCompra = (DateTime)reader[5];
+                        materiaPrima.Color = (string)reader[2];
+                        materiaPrima.Proveedor.Nombre = (string)reader[3];
+                        materiaPrima.Stock = (int)reader[4];
+                        materiaPrima.Precio = (double)reader[5];
+                        materiaPrima.FechaCompra = (DateTime)reader[6];
 
                         lista.Add(materiaPrima);
                     }
@@ -32,6 +34,43 @@ namespace Datos
                 return lista;
             }
             catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public bool InsertarMateriaPrima(MateriaPrima materiaPrima)
+        {
+            try
+            {
+                using (SqlConnection cn = dataBase.conectarDB())
+                {
+                    using (SqlCommand cmd = new SqlCommand("InsertarMateriaPrima", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@nombre", materiaPrima.Nombre);
+                        cmd.Parameters.AddWithValue("@proveedorId", materiaPrima.Proveedor.Id);
+                        cmd.Parameters.AddWithValue("@stock", materiaPrima.Stock);
+                        cmd.Parameters.AddWithValue("@precio", materiaPrima.Precio);
+                        cmd.Parameters.AddWithValue("@fecha", materiaPrima.FechaCompra);
+                        cmd.Parameters.AddWithValue("@color", materiaPrima.Color);
+
+                        SqlParameter registroExitosoParam = new SqlParameter("@Insert", SqlDbType.Bit)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        cmd.Parameters.Add(registroExitosoParam);
+
+                        cmd.ExecuteNonQuery();
+
+                        // Obtener el valor del parámetro de salida que indica si el registro fue exitoso o no
+                        return (bool)registroExitosoParam.Value;
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
