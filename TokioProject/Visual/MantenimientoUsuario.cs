@@ -183,12 +183,8 @@ namespace Individual.Visual
                     {
                         int edad = DateTime.Today.Year - persona.Edad.Year;
                         if (DateTime.Today.Month >= persona.Edad.Month)
-                        {
                             if(DateTime.Today.Day < persona.Edad.Day)
-                            {
                                 edad--;
-                            }
-                        }
 
                         usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
                             , edad, new System.Net.WebClient().DownloadData(persona.Foto));
