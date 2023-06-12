@@ -159,7 +159,7 @@ namespace Individual.Visual
             this.Close();
         }
 
-        private async void CargarTabla()
+        private void CargarTabla()
         {
 
             try
@@ -183,7 +183,7 @@ namespace Individual.Visual
                     {
 
                         usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
-                            ,persona.Edad,new System.Net.WebClient().DownloadData(persona.Foto));
+                            ,persona.Edad, new System.Net.WebClient().DownloadData(persona.Foto));
                     }
                 }
 
