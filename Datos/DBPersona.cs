@@ -26,7 +26,7 @@ namespace Datos
                 p.Id = (int)fila["Id"];
                 p.Cedula = "" + fila["Cedula"].ToString();
                 p.Nombre = "" + fila["Nombre"].ToString();
-                p.Correo = "" + fila["Correo"].ToString();
+                p.Correo = "" + fila["Correo"].ToString(); 
                 p.Edad = (DateTime)fila["Edad"];
                 p.Foto = (string)fila["Imagen"];
                 p.Password = (string)fila["Password"];

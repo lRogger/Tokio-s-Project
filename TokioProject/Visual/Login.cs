@@ -31,8 +31,8 @@ namespace Individual
             if (tbpwd.Texts != "" && tbUser.Texts != "")
             {
 
-                //try
-                //{
+                try
+                {
                     tbpwd.Enabled = false;
                     tbUser.Enabled = false;
                     btnIniciar.Enabled = false;
@@ -86,8 +86,8 @@ namespace Individual
                         tbUser.Texts = "";
                     }
 
-                //}
-                /*catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     new Emergente("advertencia", "ERROR", "Problema al conectar la base de datos \n"
                         +ex.Message).ShowDialog();
@@ -96,7 +96,7 @@ namespace Individual
                     btnIniciar.Enabled = true;
                     tbpwd.Texts = "";
                     tbUser.Texts = "";
-                }*/
+                }
 
             }
             else
