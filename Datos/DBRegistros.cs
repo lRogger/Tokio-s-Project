@@ -25,7 +25,7 @@ namespace Datos
                 usuario.Cedula = reader.GetString(3);
                 usuario.Nombre = reader.GetString(4);
                 usuario.Correo = reader.GetString(5);
-                usuario.Edad = reader.GetInt32(6);
+                usuario.Edad = reader.GetDateTime(6);
                 usuario.Password = reader.GetString(7);
                 usuario.Admin = reader.GetBoolean(8);
                 usuario.Foto = reader.GetString(9);

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewUser));
             this.admUser = new System.Windows.Forms.CheckBox();
-            this.edadUser = new System.Windows.Forms.TextBox();
             this.correoUser = new System.Windows.Forms.TextBox();
             this.nomUser = new System.Windows.Forms.TextBox();
             this.cedUser = new System.Windows.Forms.TextBox();
@@ -38,6 +37,7 @@
             this.fotoUser = new System.Windows.Forms.PictureBox();
             this.btnEnviar = new Individual.Visual.ComponentesMod.RJButton();
             this.panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,18 +59,6 @@
             this.admUser.TabIndex = 6;
             this.admUser.Text = "Admin";
             this.admUser.UseVisualStyleBackColor = false;
-            // 
-            // edadUser
-            // 
-            this.edadUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.edadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.edadUser.Location = new System.Drawing.Point(215, 139);
-            this.edadUser.MaxLength = 3;
-            this.edadUser.MinimumSize = new System.Drawing.Size(0, 27);
-            this.edadUser.Name = "edadUser";
-            this.edadUser.Size = new System.Drawing.Size(190, 27);
-            this.edadUser.TabIndex = 5;
-            this.edadUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edadUser_KeyPress);
             // 
             // correoUser
             // 
@@ -158,11 +146,11 @@
             // 
             this.panelMod1.BackColor = System.Drawing.Color.White;
             this.panelMod1.BorderRadius = 25;
+            this.panelMod1.Controls.Add(this.dtpFechaNac);
             this.panelMod1.Controls.Add(this.label4);
             this.panelMod1.Controls.Add(this.label3);
             this.panelMod1.Controls.Add(this.label1);
             this.panelMod1.Controls.Add(this.label2);
-            this.panelMod1.Controls.Add(this.edadUser);
             this.panelMod1.Controls.Add(this.admUser);
             this.panelMod1.Controls.Add(this.cedUser);
             this.panelMod1.Controls.Add(this.correoUser);
@@ -179,6 +167,16 @@
             this.panelMod1.TabIndex = 12;
             this.panelMod1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMod1_MouseMove);
             // 
+            // dtpFechaNac
+            // 
+            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNac.Location = new System.Drawing.Point(307, 141);
+            this.dtpFechaNac.MaxDate = new System.DateTime(2023, 6, 12, 0, 0, 0, 0);
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Size = new System.Drawing.Size(98, 23);
+            this.dtpFechaNac.TabIndex = 11;
+            this.dtpFechaNac.Value = new System.DateTime(2023, 6, 12, 0, 0, 0, 0);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -186,9 +184,10 @@
             this.label4.ForeColor = System.Drawing.Color.DimGray;
             this.label4.Location = new System.Drawing.Point(148, 143);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 19);
+            this.label4.Size = new System.Drawing.Size(101, 19);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Edad:";
+            this.label4.Text = "F. Nacimiento:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -296,5 +295,6 @@
         private Label label3;
         private Label label1;
         private Label label2;
+        public DateTimePicker dtpFechaNac;
     }
 }

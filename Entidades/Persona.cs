@@ -6,7 +6,7 @@
         private string nombre;
         private string cedula;
         private string correo;
-        private int edad;
+        private DateTime edad;
         private bool admin;
         private string foto;
         private string password;
@@ -17,13 +17,13 @@
             this.cedula = "";
             this.correo = "";
             this.password = "";
-            this.edad = 0;
+            this.edad = DateTime.Today;
             this.admin = false;
             this.foto = "";
         }
 
         public Persona(string nombre, string cedula, string correo,
-            int edad, bool admin, string foto, string password)
+            DateTime edad, bool admin, string foto, string password)
         {
             this.password = password;
             this.nombre = nombre;
@@ -38,7 +38,7 @@
         public string Nombre { get => nombre; set => nombre = value; }
         public string Cedula { get => cedula; set => cedula = value; }
         public string Correo { get => correo; set => correo = value; }
-        public int Edad { get => edad; set => edad = value; }
+        public DateTime Edad { get => edad; set => edad = value; }
         public bool Admin { get => admin; set => admin = value; }
         public string Foto { get => foto; set => foto = value; }
         public string Password { get => password; set => password = value; }

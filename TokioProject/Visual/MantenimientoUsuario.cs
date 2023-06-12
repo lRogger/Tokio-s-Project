@@ -89,7 +89,7 @@ namespace Individual.Visual
 
                 nu.nomUser.Text = p.Nombre;
                 nu.correoUser.Text = p.Correo;
-                nu.edadUser.Text = p.Edad.ToString();
+                nu.dtpFechaNac.Value = p.Edad.Date;
                 nu.admUser.Checked = p.Admin;
 
                 nu.fotoUser.ImageLocation = p.Foto;
@@ -181,9 +181,17 @@ namespace Individual.Visual
                 {
                     if (persona.Cedula != "0")
                     {
+                        int edad = DateTime.Today.Year - persona.Edad.Year;
+                        if (DateTime.Today.Month >= persona.Edad.Month)
+                        {
+                            if(DateTime.Today.Day < persona.Edad.Day)
+                            {
+                                edad--;
+                            }
+                        }
 
                         usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
-                            ,persona.Edad, new System.Net.WebClient().DownloadData(persona.Foto));
+                            , edad, new System.Net.WebClient().DownloadData(persona.Foto));
                     }
                 }
 

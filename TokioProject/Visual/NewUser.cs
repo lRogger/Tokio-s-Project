@@ -39,7 +39,7 @@ namespace Individual.Visual
         private async void Enviar()
         {
             if (cedUser.Text.Trim() != "" && nomUser.Text.Trim() != ""
-                && correoUser.Text.Trim().ToLower() != "" && edadUser.Text.Trim() != "")
+                && correoUser.Text.Trim().ToLower() != "" && dtpFechaNac.Text.Trim() != "")
             {
                 bool admin = admUser.Checked;
 
@@ -50,7 +50,7 @@ namespace Individual.Visual
                 string fotoUsu = await foto.SubirImagen(aByte);
 
                 Persona p = new Persona(nomUser.Text, cedUser.Text, correoUser.Text,
-                    Int32.Parse(edadUser.Text), admin, fotoUsu, "");
+                    dtpFechaNac.Value.Date, admin, fotoUsu, "");
 
 
                 
@@ -165,18 +165,25 @@ namespace Individual.Visual
             e.Handled = u.validar((char)e.KeyChar, "numero");
         }
 
+        /*
         private void edadUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilidades u = new Utilidades();
 
             e.Handled = u.validar((char)e.KeyChar, "numero");
         }
+        */
 
         private void nomUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utilidades u = new Utilidades();
 
             e.Handled = u.validar((char)e.KeyChar, "letras");
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void NewUser_Load(object sender, EventArgs e)
