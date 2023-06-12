@@ -75,5 +75,9 @@ namespace Datos
                 throw new Exception(ex.Message);
             }
         }
+        public bool EditarMateriaPrima(MateriaPrima materiaPrima)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

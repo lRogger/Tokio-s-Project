@@ -31,7 +31,7 @@ namespace Datos
         public SqlConnection conectarDB()
         {
 
-            SqlConnection con = new SqlConnection();
+            SqlConnection con = new SqlConnection();    
             con.ConnectionString = strCon;
             con.Open();
             return con;

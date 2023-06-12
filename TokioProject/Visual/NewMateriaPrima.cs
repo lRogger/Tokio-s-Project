@@ -29,7 +29,6 @@ namespace GUIs.Visual
             this.id = id;
             if(id > 0)
             {
-                this.ActiveControl = null;
                 lblTitulo.Text = "Editar Materia Prima";
             }
             this.valorInicial = fechaUltCompra.Value;
@@ -50,22 +49,24 @@ namespace GUIs.Visual
         {
             if (fueronModificados())
             {
-                //Proveedor proveedor = new Proveedor();
-                //proveedor.Nombre = nomProveedor.Text;
-                //proveedor.Cedula_ruc = cedProveedor.Text;
-                //proveedor.Correo = correoProveedor.Text;
-                //proveedor.Telefono = telefProveedor.Text;
+                MateriaPrima materiaPrima = new MateriaPrima();
+                materiaPrima.Nombre = txtNombre.Texts.Trim();
+                materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
+                materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
+                materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
+                materiaPrima.FechaCompra = fechaUltCompra.Value;
+                materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
 
-                //if (dataBase.EditarProveedor(proveedor))
-                //{
-                //    new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
-                //    this.Close();
-                //}
-                //else
-                //{
-                //    new Emergente("advertencia", "ERROR", "No se pudo actualizar").ShowDialog();
-                //    this.Close();
-                //}
+                if (dBMateriaPrima.EditarMateriaPrima(materiaPrima))
+                {
+                    new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    new Emergente("advertencia", "ERROR", "No se pudo actualizar").ShowDialog();
+                    this.Close();
+                }
             }
             else
             {
