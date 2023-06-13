@@ -16,10 +16,10 @@ namespace Datos
         {
             
             //SE EL SERVIDOR DE LA BASE DE DATOS
-            this.server = "tokio.database.windows.net";
+            this.server = "tokio-server.database.windows.net";
             this.user = "tokio";
             this.pass = "semestre6!";
-            this.db = "TOKIO_PROYECTO";
+            this.db = "TOKIO-PROYECTO";
 
             this.strCon = $"Data Source={server};Initial Catalog={db};Persist Security Info=True;User ID={user};Password={pass};";
 
