@@ -15,7 +15,7 @@ namespace Datos
         public DataBase()
         {
             
-            //SE EL SERVIDOR DE LA BASE DE DATOS
+            //SE CAMBIO EL SERVIDOR DE LA BASE DE DATOS
             this.server = "tokio-server.database.windows.net";
             this.user = "tokio";
             this.pass = "semestre6!";
