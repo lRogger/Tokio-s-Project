@@ -16,6 +16,7 @@ namespace GUIs.Visual
         DataBase dataBase = new DataBase();
         DBProveedor dBProveedor = new DBProveedor();
         DBMateriaPrima dBMateriaPrima = new DBMateriaPrima();
+        Utilidades u = new Utilidades();
 
         private int id;
         public bool Guardado = false;
@@ -32,7 +33,6 @@ namespace GUIs.Visual
                 this.ActiveControl = null;
                 lblTitulo.Text = "Editar Materia Prima";
             }
-            this.valorInicial = fechaUltCompra.Value;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -48,29 +48,37 @@ namespace GUIs.Visual
         }
         private void Editar()
         {
-            if (fueronModificados())
-            {
-                //Proveedor proveedor = new Proveedor();
-                //proveedor.Nombre = nomProveedor.Text;
-                //proveedor.Cedula_ruc = cedProveedor.Text;
-                //proveedor.Correo = correoProveedor.Text;
-                //proveedor.Telefono = telefProveedor.Text;
+            try { 
+                if (fueronModificados())
+                {
+                    MateriaPrima materiaPrima = new MateriaPrima();
+                    materiaPrima.Nombre = txtNombre.Texts.Trim();
+                    materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
+                    materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
+                    materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
+                    materiaPrima.FechaCompra = fechaUltCompra.Value;
+                    materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
 
-                //if (dataBase.EditarProveedor(proveedor))
-                //{
-                //    new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
-                //    this.Close();
-                //}
-                //else
-                //{
-                //    new Emergente("advertencia", "ERROR", "No se pudo actualizar").ShowDialog();
-                //    this.Close();
-                //}
+                    if (dBMateriaPrima.EditarMateriaPrima(materiaPrima))
+                    {
+                        new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        new Emergente("advertencia", "ERROR", "No se pudo actualizar").ShowDialog();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    new Emergente("advertencia", "AVISO", "No hubieron cambios para guardar").ShowDialog();
+                    this.Close();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                new Emergente("advertencia", "AVISO", "No hubieron cambios para guardar").ShowDialog();
-                this.Close();
+                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
             }
         }
         private bool fueronModificados()
@@ -88,22 +96,52 @@ namespace GUIs.Visual
         }
         private void Crear()
         {
-            //Crear
-            MateriaPrima materiaPrima = new MateriaPrima();
-            materiaPrima.Nombre = txtNombre.Texts.Trim();
-            materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
-            materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
-            materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
-            materiaPrima.FechaCompra = fechaUltCompra.Value;
-            materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
-
-            if (dBMateriaPrima.InsertarMateriaPrima(materiaPrima))
+            try
             {
-                this.Close();
-                new Emergente("advertencia", "EXITO", "Registro guardado correctamente!").ShowDialog();
+                if (validarCamposCrear())
+                {
+                    //Crear
+                    MateriaPrima materiaPrima = new MateriaPrima();
+                    materiaPrima.Nombre = txtNombre.Texts.Trim();
+                    materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
+                    materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
+                    materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
+                    materiaPrima.FechaCompra = fechaUltCompra.Value;
+                    materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
+
+                    if (dBMateriaPrima.InsertarMateriaPrima(materiaPrima))
+                    {
+                        new Emergente("advertencia", "EXITO", "Registro guardado correctamente!").ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        new Emergente("advertencia", "ERROR", "No se pudo guardar el registro!").ShowDialog();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    new Emergente("advertencia", "AVISO", "Debe ingresar todos los campos").ShowDialog();
+                }
             }
+            catch (Exception ex)
+            {
+                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
+            } 
         }
 
+        private bool validarCamposCrear()
+        {
+            if(!u.estaVacio(txtNombre.Texts, txtPrecio.Texts, txtStock.Texts))
+            {
+                return true;
+            }
+            if(cmbColor.SelectedIndex != 0 || cmbProveedor.SelectedIndex != 0){
+                return true;
+            }
+            return false;
+        }
         //Metodos para cargar los comboBox con sus respectivos datos
         private void CargarDatos()
         {
@@ -177,7 +215,6 @@ namespace GUIs.Visual
 
         private void tbStock_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utilidades u = new Utilidades();
             e.Handled = u.validar((char)e.KeyChar, "numero");
 
             if (txtStock.Texts.Length > 3 && !char.IsControl(e.KeyChar))
@@ -188,7 +225,6 @@ namespace GUIs.Visual
 
         private void tbPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utilidades u = new Utilidades();
             e.Handled = u.validar((char)e.KeyChar, "decimal");
 
             if ((e.KeyChar == ',') && (txtPrecio.Texts.IndexOf(',') > -1))
