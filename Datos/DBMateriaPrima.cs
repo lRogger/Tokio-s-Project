@@ -39,6 +39,11 @@ namespace Datos
             }
         }
 
+        public bool EditarMateriaPrima(MateriaPrima materiaPrima)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool InsertarMateriaPrima(MateriaPrima materiaPrima)
         {
             try
