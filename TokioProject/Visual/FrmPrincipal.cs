@@ -128,7 +128,7 @@ namespace Individual.Visual
 
             nu.nomUser.Text = Sesion.Nombre;
             nu.correoUser.Text = Sesion.Correo;
-            nu.edadUser.Text = Sesion.Edad.ToString();
+            nu.dtpFechaNac.Value = Sesion.Edad.Date;
             nu.admUser.Checked = Sesion.Admin;
 
             nu.admUser.Enabled = false;
