@@ -10,6 +10,8 @@ namespace Individual.Visual
     {
         private int posX = 0, posY = 0;
         private Persona sesion;
+        private Button activeButton;
+
         Form activeForm;
 
         public Persona Sesion { get => sesion; set => sesion = value; }
@@ -19,6 +21,7 @@ namespace Individual.Visual
             InitializeComponent();
             this.sesion = sesion;
             menuConfig.IsMainMenu = true;
+            SetActiveButton(btnProductos);
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
@@ -57,6 +60,7 @@ namespace Individual.Visual
         }
         private void btnRegistros_Click(object sender, EventArgs e)
         {
+            SetActiveButton(btnRegistros);
             if (!(activeForm is RegistroHistorial))
             {
                 LoadFormInPanel(new RegistroHistorial(), panelPrincipal, ref activeForm);
@@ -65,6 +69,7 @@ namespace Individual.Visual
 
         private void btnCommodities_Click(object sender, EventArgs e)
         {
+            SetActiveButton(btnCommodities);
             if (!(activeForm is MantenimientoMateriaPrima))
             {
                 LoadFormInPanel(new MantenimientoMateriaPrima(), panelPrincipal, ref activeForm);
@@ -73,6 +78,7 @@ namespace Individual.Visual
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
+            SetActiveButton(btnProveedores);
             if (!(activeForm is MantenimientoProveedor))
             {
                 LoadFormInPanel(new MantenimientoProveedor(), panelPrincipal, ref activeForm);
@@ -81,6 +87,7 @@ namespace Individual.Visual
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
+            SetActiveButton(btnProductos);
             if (!(activeForm is MantenimientoProducto))
             {
                 LoadFormInPanel(new MantenimientoProducto(), panelPrincipal, ref activeForm);
@@ -89,18 +96,22 @@ namespace Individual.Visual
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
+            SetActiveButton(btnUsuarios);
             if (!(activeForm is MantenimientoUsuario))
             {
                 LoadFormInPanel(new MantenimientoUsuario(), panelPrincipal, ref activeForm);
             }
         }
+
         private void btnBalance_Click(object sender, EventArgs e)
         {
+            SetActiveButton(btnBalance);
             if (!(activeForm is Balance))
             {
                 LoadFormInPanel(new Balance(), panelPrincipal, ref activeForm);
             }
         }
+
         private void cerrarSesion_Click(object sender, EventArgs e)
         {
             string mensaje = "Está seguro que desea cerrar la sesión actual?";
@@ -127,6 +138,19 @@ namespace Individual.Visual
                 childForm.Close();
 
             }
+        }
+
+        private void SetActiveButton(Button button)
+        {
+            if (activeButton != null)
+            {
+                // Restaurar el color original del botón activo anterior
+                activeButton.BackColor = Color.FromArgb(128, 27, 141);
+            }
+
+            // Establecer el nuevo botón activo y cambiar su color de fondo
+            activeButton = button;
+            activeButton.BackColor = Color.FromArgb(128, 0, 128);
         }
         private void MoverVentana(MouseEventArgs e)
         {
