@@ -1,13 +1,15 @@
 ﻿using Datos;
 using Entidades;
 using Individual.Visual;
+using System;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace GUIs.Visual
 {
     public partial class MantenimientoMateriaPrima : Form
     {
-        private readonly DBMateriaPrima dbMateriaPrima;
-        private readonly DBProveedor dBProveedor;
+        private DBMateriaPrima dbMateriaPrima;
+        private DBProveedor dBProveedor;
         private Proveedor proveedorSeleccionado;
 
         public MantenimientoMateriaPrima()
@@ -54,14 +56,6 @@ namespace GUIs.Visual
                 Telefono = string.Empty
             };
 
-            for (int i = proveedores.Count - 1; i >= 0; i--)
-            {
-                Proveedor proveedor = proveedores[i];
-                if (!proveedor.Activo)
-                {
-                    proveedores.RemoveAt(i); //Remover proveedores que no están activos
-                }
-            }
             proveedores.Insert(0, proveedorElegir);
 
             cbProveedor.DataSource = proveedores;
@@ -77,15 +71,11 @@ namespace GUIs.Visual
             CargarTabla();
         }
 
-        private void MantenimientoMateriaPrima_Load(object sender, EventArgs e)
-        {
-            CargarTabla();
-        }
-
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            Form crear = new NewMateriaPrima();
-            if (crear.ShowDialog() != DialogResult.Abort)
+            NewMateriaPrima crear = new NewMateriaPrima();
+            crear.ShowDialog();
+            if (crear.Guardado)
             {
                 CargarTabla();
             }
@@ -119,16 +109,24 @@ namespace GUIs.Visual
                 editar.txtPrecio.Texts = materiaPrimaDGV.Rows[selected].Cells[5].Value.ToString();
                 editar.fechaUltCompra.Value = DateTime.Parse(materiaPrimaDGV.Rows[selected].Cells[6].Value.ToString());
 
-                if (editar.ShowDialog() != DialogResult.Abort)
+                editar.ShowDialog();
+                if (editar.Guardado)
                 {
-                    MostrarMensajeEmergente("EXITO", "Datos actualizados correctamente!");
                     CargarTabla();
                 }
             }
             else
             {
-                MostrarMensajeEmergente("AVISO", "Debe seleccionar una comoditie");
+                MostrarMensajeEmergente("AVISO", "Debe seleccionar una commoditie");
             }
+        }
+        private void btnSuma_Click(object sender, EventArgs e)
+        {
+            AlterarStock("agregar");
+        }
+        private void btnMenos_Click(object sender, EventArgs e)
+        {
+            AlterarStock("restar");
         }
         private void MostrarMensajeEmergente(string titulo, string mensaje)
         {
@@ -155,5 +153,54 @@ namespace GUIs.Visual
                 row.Visible = (nombre.Contains(entrada) || color.Contains(entrada)) && filtroProveedor;
             }
         }
+
+        private void AlterarStock(string operacion)
+        {
+            try
+            {
+                if (cbCantidad.Value > 0)
+                {
+                    if (materiaPrimaDGV.SelectedRows.Count > 0)
+                    {
+
+                        int selected = materiaPrimaDGV.CurrentRow.Index;
+                        int cantidad = (int)cbCantidad.Value;
+                        int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
+                        string nombre = (string)materiaPrimaDGV.Rows[selected].Cells[1].Value;
+
+                        DialogResult confirmacion = new Emergente("si / no", "CONFIRMACIÓN",
+                                                                    $"Desea {operacion} {cantidad} a {nombre}?"
+                                                                    ).ShowDialog();
+                        if (confirmacion == DialogResult.OK)
+                        {
+                            if (dbMateriaPrima.AlterarStock(operacion, id, cantidad))
+                            {
+                                MostrarMensajeEmergente("EXITO", "Stock actualizado exitosamente");
+                                cbCantidad.Value = 0;
+                                CargarTabla();
+                            }
+                            else
+                            {
+                                MostrarMensajeEmergente("ERROR", "Hubo un error al actualizar el estado");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MostrarMensajeEmergente("AVISO", "Debe seleccionar una commoditie");
+                    }
+                }
+                else
+                {
+                    MostrarMensajeEmergente("AVISO", "Debe ingresar una cifra válida");
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
+            }
+        }
+
     }
 }

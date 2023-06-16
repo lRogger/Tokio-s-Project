@@ -4,6 +4,7 @@ using Datos;
 using LibreriaGrupal;
 using System.Data;
 using CustomControls.RJControls;
+using System.Diagnostics;
 
 namespace GUIs.Visual
 {
@@ -20,13 +21,13 @@ namespace GUIs.Visual
         public NewMateriaPrima(int id = 0)
         {
             InitializeComponent();
+            this.id = id;
             dataBase = new DataBase();
             dBProveedor = new DBProveedor();
             dBMateriaPrima = new DBMateriaPrima();
             utilidades = new Utilidades();
             CargarDatos();
-            this.id = id;
-            if (id > 0)
+            if (this.id > 0)
             {
                 this.ActiveControl = null;
                 lblTitulo.Text = "Editar Materia Prima";
@@ -35,7 +36,7 @@ namespace GUIs.Visual
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (id > 0)
+            if (this.id > 0)
             {
                 Editar();
             }
@@ -56,19 +57,19 @@ namespace GUIs.Visual
                     if (dBMateriaPrima.EditarMateriaPrima(materiaPrima))
                     {
                         MostrarMensajeEmergente("EXITO", "Datos actualizados correctamente!");
+                        this.Guardado = true;
                         this.Close();
                     }
                     else
                     {
                         MostrarMensajeEmergente("ERROR", "No se pudo actualizar");
-                        this.Close();
                     }
                 }
                 else
                 {
                     MostrarMensajeEmergente("AVISO", "No hubieron cambios para guardar");
-                    this.Close();
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -101,6 +102,7 @@ namespace GUIs.Visual
                     if (dBMateriaPrima.InsertarMateriaPrima(materiaPrima))
                     {
                         MostrarMensajeEmergente("EXITO", "Registro guardado correctamente!");
+                        this.Guardado = true;
                         this.Close();
                     }
                     else
@@ -184,12 +186,15 @@ namespace GUIs.Visual
                 Telefono = string.Empty
             };
 
-            for (int i = proveedores.Count - 1; i >= 0; i--)
+            if (this.id == 0)
             {
-                Proveedor proveedor = proveedores[i];
-                if (!proveedor.Activo)
+                for (int i = proveedores.Count - 1; i >= 0; i--)
                 {
-                    proveedores.RemoveAt(i);
+                    Proveedor proveedor = proveedores[i];
+                    if (!proveedor.Activo)
+                    {
+                        proveedores.RemoveAt(i);
+                    }
                 }
             }
             proveedores.Insert(0, proveedorElegir);
@@ -210,6 +215,7 @@ namespace GUIs.Visual
         private MateriaPrima CargarDatosDeFormulario()
         {
             MateriaPrima materiaPrima = new MateriaPrima();
+            materiaPrima.Id = this.id;
             materiaPrima.Nombre = txtNombre.Texts.Trim();
             materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
             materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());

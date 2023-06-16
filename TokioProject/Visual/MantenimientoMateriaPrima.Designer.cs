@@ -49,8 +49,6 @@
             btnEditar = new Button();
             cbCantidad = new NumericUpDown();
             panel1 = new Panel();
-            lblDesc = new Label();
-            lblDescripcion = new Label();
             btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             label2 = new Label();
@@ -267,8 +265,6 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(128, 27, 141);
-            panel1.Controls.Add(lblDesc);
-            panel1.Controls.Add(lblDescripcion);
             panel1.Controls.Add(btnMenos);
             panel1.Controls.Add(btnSuma);
             panel1.Controls.Add(cbCantidad);
@@ -276,27 +272,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(720, 61);
             panel1.TabIndex = 27;
-            // 
-            // lblDesc
-            // 
-            lblDesc.AutoSize = true;
-            lblDesc.Font = new Font("Britanica-Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDesc.ForeColor = SystemColors.Window;
-            lblDesc.Location = new Point(6, 5);
-            lblDesc.Name = "lblDesc";
-            lblDesc.Size = new Size(92, 19);
-            lblDesc.TabIndex = 31;
-            lblDesc.Text = "Descripción";
-            lblDesc.Visible = false;
-            // 
-            // lblDescripcion
-            // 
-            lblDescripcion.Font = new Font("Britanica-Bold", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-            lblDescripcion.ForeColor = SystemColors.Window;
-            lblDescripcion.Location = new Point(7, 24);
-            lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(552, 37);
-            lblDescripcion.TabIndex = 30;
             // 
             // btnMenos
             // 
@@ -321,6 +296,7 @@
             btnMenos.Text = "➖";
             btnMenos.TextColor = Color.White;
             btnMenos.UseVisualStyleBackColor = false;
+            btnMenos.Click += btnMenos_Click;
             // 
             // btnSuma
             // 
@@ -344,6 +320,7 @@
             btnSuma.Text = "➕";
             btnSuma.TextColor = Color.White;
             btnSuma.UseVisualStyleBackColor = false;
+            btnSuma.Click += btnSuma_Click;
             // 
             // label2
             // 
@@ -376,7 +353,6 @@
             Name = "MantenimientoMateriaPrima";
             StartPosition = FormStartPosition.WindowsDefaultBounds;
             Text = "MantenimientoProducto";
-            Load += MantenimientoMateriaPrima_Load;
             ((System.ComponentModel.ISupportInitialize)materiaPrimaDGV).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbCantidad).EndInit();
             panel1.ResumeLayout(false);
@@ -397,8 +373,6 @@
         private Panel panel1;
         private Individual.Visual.ComponentesMod.RJButton btnMenos;
         private Individual.Visual.ComponentesMod.RJButton btnSuma;
-        private Label lblDescripcion;
-        private Label lblDesc;
         private Label label2;
         public Button btnCrear;
         private DataGridViewTextBoxColumn id;

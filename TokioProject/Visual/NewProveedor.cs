@@ -7,14 +7,16 @@ namespace Individual.Visual
 
     public partial class NewProveedor : Form
     {
-        DBProveedor dataBase = new DBProveedor();
-        Utilidades u = new Utilidades();
-
+        private DBProveedor dataBase;
+        private Utilidades u;
+        public bool Guardado = false;
         int posY = 0, posX = 0;
 
         public NewProveedor()
         {
             InitializeComponent();
+            dataBase = new DBProveedor();
+            u = new Utilidades();
         }
 
         //Evento load
@@ -46,7 +48,7 @@ namespace Individual.Visual
             }
             catch (Exception ex)
             {
-                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
+                MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
             }
         }
         private void Nuevo()
@@ -54,7 +56,7 @@ namespace Individual.Visual
 
             if (u.estaVacio(nomProveedor.Text, cedProveedor.Text, correoProveedor.Text, telefProveedor.Text))
             {
-                new Emergente("advertencia", "AVISO", "Hay campos vacíos").ShowDialog();
+                MostrarMensajeEmergente("AVISO", "Hay campos vacíos");
             }
             else
             {
@@ -62,12 +64,13 @@ namespace Individual.Visual
 
                 if (dataBase.InsertarProveedor(proveedor))
                 {
-                    new Emergente("advertencia", "EXITO", "Proveedor guardado correctamente!").ShowDialog();
+                    MostrarMensajeEmergente("EXITO", "Proveedor guardado correctamente!");
+                    this.Guardado = true;
                     this.Close();
                 }
                 else
                 {
-                    new Emergente("advertencia", "ERROR", "La Cédula/RUC ya se encuentra registrada").ShowDialog();
+                    MostrarMensajeEmergente("ERROR", "La Cédula/RUC ya se encuentra registrada");
                 }
             }
         }
@@ -80,18 +83,19 @@ namespace Individual.Visual
 
                 if (dataBase.EditarProveedor(proveedor))
                 {
-                    new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
+                    MostrarMensajeEmergente("EXITO", "Datos actualizados correctamente!");
+                    this.Guardado = true;
                     this.Close();
                 }
                 else
                 {
-                    new Emergente("advertencia", "ERROR", "No se pudo actualizar").ShowDialog();
+                    MostrarMensajeEmergente("ERROR", "No se pudo actualizar");
                     this.Close();
                 }
             }
             else
             {
-                new Emergente("advertencia", "AVISO", "No hubieron cambios para guardar").ShowDialog();
+                MostrarMensajeEmergente("AVISO", "No hubieron cambios para guardar");
                 this.Close();
             }
         }
@@ -114,6 +118,10 @@ namespace Individual.Visual
             proveedor.Correo = correoProveedor.Text.Trim().ToLower();
             proveedor.Telefono = telefProveedor.Text.Trim();
             return proveedor;
+        }
+        private void MostrarMensajeEmergente(string titulo, string mensaje)
+        {
+            new Emergente("advertencia", titulo, mensaje).ShowDialog();
         }
 
         //Eventos keypress para validaciones

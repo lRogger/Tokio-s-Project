@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Datos
 {
@@ -39,11 +40,6 @@ namespace Datos
             }
         }
 
-        public bool EditarMateriaPrima(MateriaPrima materiaPrima)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool InsertarMateriaPrima(MateriaPrima materiaPrima)
         {
             try
@@ -72,6 +68,78 @@ namespace Datos
 
                         // Obtener el valor del parámetro de salida que indica si el registro fue exitoso o no
                         return (bool)registroExitosoParam.Value;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public bool EditarMateriaPrima(MateriaPrima materiaPrima)
+        {
+            try
+            {
+                using (SqlConnection cn = dataBase.conectarDB())
+                {
+                    using (SqlCommand cmd = new SqlCommand("ActualizarMateriaPrima", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@id", materiaPrima.Id);
+                        cmd.Parameters.AddWithValue("@nombre", materiaPrima.Nombre);
+                        cmd.Parameters.AddWithValue("@proveedorId", materiaPrima.Proveedor.Id);
+                        cmd.Parameters.AddWithValue("@stock", materiaPrima.Stock);
+                        cmd.Parameters.AddWithValue("@precio", materiaPrima.Precio);
+                        cmd.Parameters.AddWithValue("@fecha", materiaPrima.FechaCompra);
+                        cmd.Parameters.AddWithValue("@color", materiaPrima.Color);
+
+                        SqlParameter actualizadoExitosoParam = new SqlParameter("@Actualizado", SqlDbType.Bit)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        cmd.Parameters.Add(actualizadoExitosoParam);
+
+                        cmd.ExecuteNonQuery();
+
+                        // Obtener el valor del parámetro de salida que indica si la actualiación fue exitoso o no
+                        return (bool)actualizadoExitosoParam.Value;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public bool AlterarStock(string operacion, int id, int cantidad)
+        {
+            try
+            {
+                using (SqlConnection cn = dataBase.conectarDB())
+                {
+                    using (SqlCommand cmd = new SqlCommand("AlterarStockMateriaPrima", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                        cmd.Parameters.AddWithValue("@operacion", operacion);
+
+                        SqlParameter actualizadoExitosoParam = new SqlParameter("@Actualizado", SqlDbType.Bit)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        cmd.Parameters.Add(actualizadoExitosoParam);
+
+                        cmd.ExecuteNonQuery();
+
+                        // Obtener el valor del parámetro de salida que indica si la actualiación fue exitoso o no
+                        return (bool)actualizadoExitosoParam.Value;
                     }
                 }
             }

@@ -20,7 +20,8 @@ namespace GUIs.Visual
         {
             NewProveedor proveedor = new NewProveedor();
 
-            if (proveedor.ShowDialog() != DialogResult.Abort)
+            proveedor.ShowDialog();
+            if (proveedor.Guardado)
             {
                 CargarTabla();
             }
@@ -40,7 +41,8 @@ namespace GUIs.Visual
                 proveedor.correoProveedor.Text = (string)proveedoresDGV.Rows[selected].Cells[3].Value;
                 proveedor.telefProveedor.Text = (string)proveedoresDGV.Rows[selected].Cells[4].Value;
 
-                if (proveedor.ShowDialog() != DialogResult.Abort)
+                proveedor.ShowDialog();
+                if (proveedor.Guardado)
                 {
                     CargarTabla();
                 }
