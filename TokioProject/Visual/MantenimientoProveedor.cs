@@ -1,30 +1,17 @@
 ﻿using Datos;
 using Entidades;
 using Individual.Visual;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GUIs.Visual
 {
     public partial class MantenimientoProveedor : Form
     {
-        DBProveedor dataBase = new DBProveedor();
+        private DBProveedor dataBase;
 
         public MantenimientoProveedor()
         {
             InitializeComponent();
-        }
-
-        //Evento load
-        private void MantenimientoProveedor_Load(object sender, EventArgs e)
-        {
+            dataBase = new DBProveedor();
             CargarTabla();
         }
 
@@ -60,7 +47,7 @@ namespace GUIs.Visual
             }
             else
             {
-                new Emergente("advertencia", "AVISO", "Debe seleccionar un proveedor").ShowDialog();
+                MostrarMensajeEmergente("AVISO", "Debe seleccionar un proveedor");
             }
         }
 
@@ -86,7 +73,7 @@ namespace GUIs.Visual
             }
             else
             {
-                new Emergente("advertencia", "AVISO", "Debe seleccionar un proveedor").ShowDialog();
+                MostrarMensajeEmergente("AVISO", "Debe seleccionar un proveedor");
             }
         }
 
@@ -140,7 +127,7 @@ namespace GUIs.Visual
             }
             catch (Exception ex)
             {
-                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
+                MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
             }
         }
 
@@ -164,6 +151,10 @@ namespace GUIs.Visual
             {
                 checkActivos.Checked = false;
             }
+        }
+        private void MostrarMensajeEmergente(string titulo, string mensaje)
+        {
+            new Emergente("advertencia", titulo, mensaje).ShowDialog();
         }
     }
 }

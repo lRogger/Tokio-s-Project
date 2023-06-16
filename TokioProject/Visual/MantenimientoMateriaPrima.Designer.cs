@@ -188,6 +188,7 @@
             cbProveedor.Name = "cbProveedor";
             cbProveedor.Size = new Size(155, 23);
             cbProveedor.TabIndex = 19;
+            cbProveedor.SelectedIndexChanged += cbProveedor_SelectedIndexChanged;
             // 
             // label1
             // 

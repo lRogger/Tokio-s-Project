@@ -1,34 +1,32 @@
 ﻿using Entidades;
 using Individual.Visual;
 using Datos;
-using MySqlX.XDevAPI.Relational;
-using System.Globalization;
 using LibreriaGrupal;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using System.Data;
-using System.Drawing;
 using CustomControls.RJControls;
 
 namespace GUIs.Visual
 {
     public partial class NewMateriaPrima : Form
     {
-        DataBase dataBase = new DataBase();
-        DBProveedor dBProveedor = new DBProveedor();
-        DBMateriaPrima dBMateriaPrima = new DBMateriaPrima();
-        Utilidades u = new Utilidades();
-
+        private DataBase dataBase;
+        private DBProveedor dBProveedor;
+        private DBMateriaPrima dBMateriaPrima;
+        private Utilidades utilidades;
         private int id;
         public bool Guardado = false;
-        int posY = 0, posX = 0;
-        private DateTime valorInicial;
+        private int posY = 0, posX = 0;
 
         public NewMateriaPrima(int id = 0)
         {
             InitializeComponent();
+            dataBase = new DataBase();
+            dBProveedor = new DBProveedor();
+            dBMateriaPrima = new DBMateriaPrima();
+            utilidades = new Utilidades();
             CargarDatos();
             this.id = id;
-            if(id > 0)
+            if (id > 0)
             {
                 this.ActiveControl = null;
                 lblTitulo.Text = "Editar Materia Prima";
@@ -46,42 +44,39 @@ namespace GUIs.Visual
                 Crear();
             }
         }
+
         private void Editar()
         {
-            try { 
-                if (fueronModificados())
+            try
+            {
+                if (FueronModificados())
                 {
-                    MateriaPrima materiaPrima = new MateriaPrima();
-                    materiaPrima.Nombre = txtNombre.Texts.Trim();
-                    materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
-                    materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
-                    materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
-                    materiaPrima.FechaCompra = fechaUltCompra.Value;
-                    materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
+                    MateriaPrima materiaPrima = CargarDatosDeFormulario();
 
                     if (dBMateriaPrima.EditarMateriaPrima(materiaPrima))
                     {
-                        new Emergente("advertencia", "EXITO", "Datos actualizados correctamente!").ShowDialog();
+                        MostrarMensajeEmergente("EXITO", "Datos actualizados correctamente!");
                         this.Close();
                     }
                     else
                     {
-                        new Emergente("advertencia", "ERROR", "No se pudo actualizar").ShowDialog();
+                        MostrarMensajeEmergente("ERROR", "No se pudo actualizar");
                         this.Close();
                     }
                 }
                 else
                 {
-                    new Emergente("advertencia", "AVISO", "No hubieron cambios para guardar").ShowDialog();
+                    MostrarMensajeEmergente("AVISO", "No hubieron cambios para guardar");
                     this.Close();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
+                MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
             }
         }
-        private bool fueronModificados()
+
+        private bool FueronModificados()
         {
             RJTextBox[] textBoxs = { txtNombre, txtPrecio, txtStock };
             foreach (RJTextBox textbox in textBoxs)
@@ -94,55 +89,56 @@ namespace GUIs.Visual
 
             return false;
         }
+
         private void Crear()
         {
             try
             {
-                if (validarCamposCrear())
+                if (ValidarCamposCrear())
                 {
-                    //Crear
-                    MateriaPrima materiaPrima = new MateriaPrima();
-                    materiaPrima.Nombre = txtNombre.Texts.Trim();
-                    materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
-                    materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
-                    materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
-                    materiaPrima.FechaCompra = fechaUltCompra.Value;
-                    materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
+                    MateriaPrima materiaPrima = CargarDatosDeFormulario();
 
                     if (dBMateriaPrima.InsertarMateriaPrima(materiaPrima))
                     {
-                        new Emergente("advertencia", "EXITO", "Registro guardado correctamente!").ShowDialog();
+                        MostrarMensajeEmergente("EXITO", "Registro guardado correctamente!");
                         this.Close();
                     }
                     else
                     {
-                        new Emergente("advertencia", "ERROR", "No se pudo guardar el registro!").ShowDialog();
+                        MostrarMensajeEmergente("ERROR", "No se pudo guardar el registro!");
                         this.Close();
                     }
                 }
                 else
                 {
-                    new Emergente("advertencia", "AVISO", "Debe ingresar todos los campos").ShowDialog();
+                    MostrarMensajeEmergente("AVISO", "Debe ingresar todos los campos");
                 }
             }
             catch (Exception ex)
             {
-                new Emergente("advertencia", "ERROR DE EXCEPCIÓN", ex.Message).ShowDialog();
-            } 
+                MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
+            }
         }
 
-        private bool validarCamposCrear()
+        private bool ValidarCamposCrear()
         {
-            if(!u.estaVacio(txtNombre.Texts, txtPrecio.Texts, txtStock.Texts))
+            if (utilidades.estaVacio(txtNombre.Texts, txtPrecio.Texts, txtStock.Texts))
             {
-                return true;
+                return false;
             }
-            if(cmbColor.SelectedIndex != 0 || cmbProveedor.SelectedIndex != 0){
-                return true;
+
+            if (cmbColor.SelectedIndex == 0)
+            {
+                return false;
             }
-            return false;
+            if (cmbProveedor.SelectedIndex == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
-        //Metodos para cargar los comboBox con sus respectivos datos
+
         private void CargarDatos()
         {
             CargarColores();
@@ -164,17 +160,17 @@ namespace GUIs.Visual
                 colores.Add(new Tuple<int, string>(idColor, color));
             }
 
-            var colorElegir = new Tuple<int, string>(0, "Elija un color..."); //Valor por defecto, elija un color...
+            var colorElegir = new Tuple<int, string>(0, "Elija un color...");
             colores.Insert(0, colorElegir);
 
             cmbColor.DataSource = colores;
             cmbColor.DisplayMember = "Item2";
             cmbColor.ValueMember = "Item1";
 
-            //Activar campo de busqueda
             cmbColor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbColor.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
+
         private void CargarProveedores()
         {
             var proveedores = dBProveedor.CargarDatosProveedores();
@@ -182,7 +178,7 @@ namespace GUIs.Visual
             var proveedorElegir = new Proveedor
             {
                 Id = 0,
-                Nombre = "Elija un proveedor...", //Valor por defecto, elija un proveedor...
+                Nombre = "Elija un proveedor...",
                 Cedula_ruc = string.Empty,
                 Correo = string.Empty,
                 Telefono = string.Empty
@@ -193,7 +189,7 @@ namespace GUIs.Visual
                 Proveedor proveedor = proveedores[i];
                 if (!proveedor.Activo)
                 {
-                    proveedores.RemoveAt(i); //Remover proveedores que no están activos
+                    proveedores.RemoveAt(i);
                 }
             }
             proveedores.Insert(0, proveedorElegir);
@@ -202,20 +198,31 @@ namespace GUIs.Visual
             cmbProveedor.DisplayMember = "Nombre";
             cmbProveedor.ValueMember = "Id";
 
-            //Activar campo de busqueda
             cmbProveedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbProveedor.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
-        //Eventos keypress para validar los campos----------------------------
-        private void tbNombreProd_KeyPress(object sender, KeyPressEventArgs e)
+        private void MostrarMensajeEmergente(string titulo, string mensaje)
         {
-
+            new Emergente("advertencia", titulo, mensaje).ShowDialog();
         }
 
+        private MateriaPrima CargarDatosDeFormulario()
+        {
+            MateriaPrima materiaPrima = new MateriaPrima();
+            materiaPrima.Nombre = txtNombre.Texts.Trim();
+            materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
+            materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
+            materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
+            materiaPrima.FechaCompra = fechaUltCompra.Value;
+            materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
+            return materiaPrima;
+        }
+
+        // Eventos keypress para validar los campos
         private void tbStock_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = u.validar((char)e.KeyChar, "numero");
+            e.Handled = utilidades.validar((char)e.KeyChar, "numero");
 
             if (txtStock.Texts.Length > 3 && !char.IsControl(e.KeyChar))
             {
@@ -225,7 +232,7 @@ namespace GUIs.Visual
 
         private void tbPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = u.validar((char)e.KeyChar, "decimal");
+            e.Handled = utilidades.validar((char)e.KeyChar, "decimal");
 
             if ((e.KeyChar == ',') && (txtPrecio.Texts.IndexOf(',') > -1))
             {
@@ -235,11 +242,9 @@ namespace GUIs.Visual
             {
                 e.Handled = true;
             }
-
         }
-        //----------------------------------------------------------------------
 
-        //Evento para mover la ventana
+        // Evento para mover la ventana
         private void NewProduct_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)

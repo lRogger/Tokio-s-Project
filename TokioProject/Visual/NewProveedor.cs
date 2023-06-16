@@ -1,10 +1,6 @@
 ﻿using Datos;
 using LibreriaGrupal;
-using MySql.Data.MySqlClient;
-using System.Data;
 using Entidades;
-using System.Data.SqlClient;
-using System.Runtime.ConstrainedExecution;
 
 namespace Individual.Visual
 {
@@ -62,11 +58,7 @@ namespace Individual.Visual
             }
             else
             {
-                Proveedor proveedor = new Proveedor();
-                proveedor.Nombre = nomProveedor.Text.Trim();
-                proveedor.Cedula_ruc = cedProveedor.Text.Trim();
-                proveedor.Correo = correoProveedor.Text.Trim().ToLower();
-                proveedor.Telefono = telefProveedor.Text.Trim();
+                Proveedor proveedor = CargarDatosDeFormulario();
 
                 if (dataBase.InsertarProveedor(proveedor))
                 {
@@ -84,11 +76,7 @@ namespace Individual.Visual
         {
             if (fueronModificados(nomProveedor, correoProveedor, telefProveedor))
             {
-                Proveedor proveedor = new Proveedor();
-                proveedor.Nombre = nomProveedor.Text;
-                proveedor.Cedula_ruc = cedProveedor.Text;
-                proveedor.Correo = correoProveedor.Text;
-                proveedor.Telefono = telefProveedor.Text;
+                Proveedor proveedor = CargarDatosDeFormulario();
 
                 if (dataBase.EditarProveedor(proveedor))
                 {
@@ -117,6 +105,15 @@ namespace Individual.Visual
                 }
             }
             return false;
+        }
+        private Proveedor CargarDatosDeFormulario()
+        {
+            Proveedor proveedor = new Proveedor();   
+            proveedor.Nombre = nomProveedor.Text.Trim();
+            proveedor.Cedula_ruc = cedProveedor.Text.Trim();
+            proveedor.Correo = correoProveedor.Text.Trim().ToLower();
+            proveedor.Telefono = telefProveedor.Text.Trim();
+            return proveedor;
         }
 
         //Eventos keypress para validaciones

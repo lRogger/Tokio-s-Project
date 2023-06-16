@@ -284,7 +284,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "MantenimientoProveedor";
             Text = "MantenimientoProveedor";
-            Load += MantenimientoProveedor_Load;
             ((System.ComponentModel.ISupportInitialize)proveedoresDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();

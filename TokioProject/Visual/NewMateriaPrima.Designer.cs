@@ -240,7 +240,6 @@
             txtNombre.TabIndex = 2;
             txtNombre.Texts = "";
             txtNombre.UnderlinedStyle = false;
-            txtNombre.KeyPress += tbNombreProd_KeyPress;
             // 
             // label3
             // 
