@@ -57,27 +57,49 @@ namespace Individual.Visual
         }
         private void btnRegistros_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new RegistroHistorial(), panelPrincipal, ref activeForm);
+            if (!(activeForm is RegistroHistorial))
+            {
+                LoadFormInPanel(new RegistroHistorial(), panelPrincipal, ref activeForm);
+            }
         }
+
         private void btnCommodities_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new MantenimientoMateriaPrima(), panelPrincipal, ref activeForm);
+            if (!(activeForm is MantenimientoMateriaPrima))
+            {
+                LoadFormInPanel(new MantenimientoMateriaPrima(), panelPrincipal, ref activeForm);
+            }
         }
+
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new MantenimientoProveedor(), panelPrincipal, ref activeForm);
+            if (!(activeForm is MantenimientoProveedor))
+            {
+                LoadFormInPanel(new MantenimientoProveedor(), panelPrincipal, ref activeForm);
+            }
         }
+
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new MantenimientoProducto(), panelPrincipal, ref activeForm);
+            if (!(activeForm is MantenimientoProducto))
+            {
+                LoadFormInPanel(new MantenimientoProducto(), panelPrincipal, ref activeForm);
+            }
         }
+
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new MantenimientoUsuario(), panelPrincipal, ref activeForm);
+            if (!(activeForm is MantenimientoUsuario))
+            {
+                LoadFormInPanel(new MantenimientoUsuario(), panelPrincipal, ref activeForm);
+            }
         }
         private void btnBalance_Click(object sender, EventArgs e)
         {
-            LoadFormInPanel(new Balance(), panelPrincipal, ref activeForm);
+            if (!(activeForm is Balance))
+            {
+                LoadFormInPanel(new Balance(), panelPrincipal, ref activeForm);
+            }
         }
         private void cerrarSesion_Click(object sender, EventArgs e)
         {
