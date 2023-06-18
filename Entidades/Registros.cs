@@ -14,6 +14,7 @@ namespace Entidades
         private Persona usuario;
         private Prenda producto;
         private MateriaPrima materiaPrima;
+        private string nombreProducto;
         private string descripcion;
         private int cantidad;
 
@@ -24,17 +25,19 @@ namespace Entidades
             this.usuario = new Persona();
             this.producto = new Prenda();
             this.materiaPrima = new MateriaPrima();
+            this.nombreProducto = "";
             this.descripcion = "";
             this.cantidad = 0;
         }
 
-        public Registros(int id, DateTime fecha, Persona usuario, Prenda producto, MateriaPrima materiaPrima, string descripcion, int cantidad)
+        public Registros(int id, DateTime fecha, Persona usuario, Prenda producto, MateriaPrima materiaPrima,string nombreProducto, string descripcion, int cantidad)
         {
             this.id = id;
             this.fecha = fecha;
             this.usuario = usuario;
             this.producto = producto;
             this.materiaPrima = materiaPrima;
+            this.nombreProducto = nombreProducto;
             this.descripcion = descripcion;
             this.cantidad = cantidad;
         }
@@ -46,5 +49,6 @@ namespace Entidades
         public Persona Usuario { get => usuario; set => usuario = value; }
         public Prenda Producto { get => producto; set => producto = value; }
         public MateriaPrima MateriaPrima { get => materiaPrima; set => materiaPrima = value; }
+        public string NombreProducto { get => nombreProducto; set => nombreProducto = value;}
     }
 }

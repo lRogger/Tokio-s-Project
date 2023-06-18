@@ -22,6 +22,9 @@ namespace GUIs.Visual
         public bool Guardado = false;
         private int posY = 0, posX = 0;
 
+        private Proveedor proveedorInicial;
+        private Tuple<int, string> colorInicial;
+
         public NewMateriaPrima(int id = 0)
         {
             InitializeComponent();
@@ -37,7 +40,13 @@ namespace GUIs.Visual
                 this.ActiveControl = null;
                 lblTitulo.Text = "Editar Materia Prima";
             }
+            proveedorInicial = ProveedorSeleccionado;
+            colorInicial = ColorSeleccionado;
         }
+
+        public Proveedor ProveedorSeleccionado => (Proveedor)cmbProveedor.SelectedItem;
+
+        public Tuple<int, string> ColorSeleccionado => (Tuple<int, string>)cmbColor.SelectedItem;
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -119,22 +128,6 @@ namespace GUIs.Visual
             }
         }
 
-
-
-        private bool FueronModificados()
-        {
-            RJTextBox[] textBoxs = { txtNombre, txtPrecio, txtStock };
-            foreach (RJTextBox textbox in textBoxs)
-            {
-                if (textbox.Modified)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         private void Crear()
         {
             try
@@ -145,7 +138,7 @@ namespace GUIs.Visual
                     int id = dBMateriaPrima.InsertarMateriaPrima(materiaPrima);
                     if (id > 0)
                     {
-                        CrearRegistro(materiaPrima, id+1, "•Se ha creado este commoditie");
+                        CrearRegistro(materiaPrima, id + 1, "•Se ha creado este commoditie");
                         MostrarMensajeEmergente("EXITO", "Registro guardado correctamente!");
                         this.Guardado = true;
                         this.Close();
@@ -165,6 +158,33 @@ namespace GUIs.Visual
             {
                 MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
             }
+        }
+
+        private bool FueronModificados()
+        {
+            RJTextBox[] textBoxs = { txtNombre, txtPrecio, txtStock };
+            foreach (RJTextBox textbox in textBoxs)
+            {
+                if (textbox.Modified)
+                {
+                    return true;
+                }
+            }
+
+            if (cmbProveedor.SelectedItem != null && cmbColor.SelectedItem != null)
+            {
+                // Obtener los valores seleccionados actualmente
+                Proveedor proveedorSeleccionado = ProveedorSeleccionado;
+                Tuple<int, string> colorSeleccionado = ColorSeleccionado;
+
+                // Comparar con los valores iniciales (guardados al cargar el formulario)
+                if (proveedorSeleccionado.Id != proveedorInicial.Id || colorSeleccionado.Item1 != colorInicial.Item1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private bool ValidarCamposCrear()
@@ -330,6 +350,12 @@ namespace GUIs.Visual
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
             }
+        }
+
+        // Evento para cerrar ventana
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

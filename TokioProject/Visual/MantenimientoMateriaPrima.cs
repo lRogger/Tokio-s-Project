@@ -2,6 +2,7 @@
 using Entidades;
 using Individual.Visual;
 using System;
+using System.Diagnostics;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace GUIs.Visual
@@ -10,6 +11,7 @@ namespace GUIs.Visual
     {
         private DBMateriaPrima dbMateriaPrima;
         private DBProveedor dBProveedor;
+        private DBRegistros dBRegistros;
         private Proveedor proveedorSeleccionado;
 
         public MantenimientoMateriaPrima()
@@ -17,6 +19,7 @@ namespace GUIs.Visual
             InitializeComponent();
             dbMateriaPrima = new DBMateriaPrima();
             dBProveedor = new DBProveedor();
+            dBRegistros = new DBRegistros();
             CargarProveedores();
             CargarTabla();
         }
@@ -70,6 +73,10 @@ namespace GUIs.Visual
         {
             CargarTabla();
         }
+        private void buscarMateriaPrima_TextChanged(object sender, EventArgs e)
+        {
+            busquedaDGV(buscarMateriaPrima.Text.ToLower());
+        }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
@@ -88,11 +95,6 @@ namespace GUIs.Visual
             }
         }
 
-        private void buscarMateriaPrima_TextChanged(object sender, EventArgs e)
-        {
-            busquedaDGV(buscarMateriaPrima.Text.ToLower());
-        }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             try
@@ -103,6 +105,9 @@ namespace GUIs.Visual
                     int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
 
                     NewMateriaPrima editar = new NewMateriaPrima(id);
+
+                    Proveedor proveedorInicial = (Proveedor)editar.cmbProveedor.SelectedItem;
+                    Tuple<int, string> colorInicial = (Tuple<int, string>)editar.cmbColor.SelectedItem;
 
                     //Obtener los indices para seleccione el valor correcto del comboBox de proveedor y color
                     string nombreProveedor = (string)materiaPrimaDGV.Rows[selected].Cells[4].Value;
@@ -142,30 +147,11 @@ namespace GUIs.Visual
         {
             AlterarStock("restar");
         }
-        private void MostrarMensajeEmergente(string titulo, string mensaje)
-        {
-            new Emergente("advertencia", titulo, mensaje).ShowDialog();
-        }
 
         private void cbProveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
             proveedorSeleccionado = cbProveedor.SelectedItem as Proveedor;
             busquedaDGV(buscarMateriaPrima.Text.ToLower());
-        }
-
-        private void busquedaDGV(string entrada)
-        {
-            materiaPrimaDGV.ClearSelection();
-
-            foreach (DataGridViewRow row in materiaPrimaDGV.Rows)
-            {
-                string nombre = ((string)row.Cells[1].Value).ToLower();
-                string color = ((string)row.Cells[2].Value).ToLower();
-
-                bool filtroProveedor = proveedorSeleccionado == null || proveedorSeleccionado.Nombre == row.Cells[4].Value.ToString() || proveedorSeleccionado.Nombre == "TODOS";
-
-                row.Visible = (nombre.Contains(entrada) || color.Contains(entrada)) && filtroProveedor;
-            }
         }
 
         private void AlterarStock(string operacion)
@@ -180,22 +166,30 @@ namespace GUIs.Visual
                         int selected = materiaPrimaDGV.CurrentRow.Index;
                         int cantidad = (int)cbCantidad.Value;
                         int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
+                        int stockActual = (int)materiaPrimaDGV.Rows[selected].Cells[3].Value;
                         string nombre = (string)materiaPrimaDGV.Rows[selected].Cells[1].Value;
-
-                        DialogResult confirmacion = new Emergente("si / no", "CONFIRMACIÓN",
-                                                                    $"Desea {operacion} {cantidad} a {nombre}?"
-                                                                    ).ShowDialog();
-                        if (confirmacion == DialogResult.OK)
+                        if(operacion == "restar" && stockActual < cantidad)
                         {
-                            if (dbMateriaPrima.AlterarStock(operacion, id, cantidad))
+                            MostrarMensajeEmergente("AVISO", "Cantidad inválida, no hay suficiente stock!");
+                        }
+                        else
+                        {
+                            DialogResult confirmacion = new Emergente("si / no", "CONFIRMACIÓN",
+                                                                        $"Desea {operacion} {cantidad} a {nombre}?"
+                                                                        ).ShowDialog();
+                            if (confirmacion == DialogResult.OK)
                             {
-                                MostrarMensajeEmergente("EXITO", "Stock actualizado exitosamente");
-                                cbCantidad.Value = 0;
-                                CargarTabla();
-                            }
-                            else
-                            {
-                                MostrarMensajeEmergente("ERROR", "Hubo un error al actualizar el estado");
+                                if (dbMateriaPrima.AlterarStock(operacion, id, cantidad))
+                                {
+                                    CrearRegistro(operacion, id, cantidad, "•Stock alterado");
+                                    MostrarMensajeEmergente("EXITO", "Stock actualizado exitosamente");
+                                    cbCantidad.Value = 0;
+                                    CargarTabla();
+                                }
+                                else
+                                {
+                                    MostrarMensajeEmergente("ERROR", "Hubo un error al actualizar el estado");
+                                }
                             }
                         }
                     }
@@ -215,6 +209,36 @@ namespace GUIs.Visual
                 MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
             }
         }
+        private void CrearRegistro(string operacion, int id, int cantidad, string descripcion)
+        {
+            var owner = this.ParentForm as FrmPrincipal;
 
+            var registro = new Registros();
+            registro.Fecha = DateTime.Now;
+            registro.Usuario = owner!.Sesion;
+            registro.Descripcion = descripcion;
+            registro.Cantidad = (operacion == "agregar") ? cantidad : -cantidad;
+            dBRegistros.CrearRegistro(registro, "m" + id);
+        }
+
+        private void busquedaDGV(string entrada)
+        {
+            materiaPrimaDGV.ClearSelection();
+
+            foreach (DataGridViewRow row in materiaPrimaDGV.Rows)
+            {
+                string nombre = ((string)row.Cells[1].Value).ToLower();
+                string color = ((string)row.Cells[2].Value).ToLower();
+
+                bool filtroProveedor = proveedorSeleccionado == null || proveedorSeleccionado.Nombre == row.Cells[4].Value.ToString() || proveedorSeleccionado.Nombre == "TODOS";
+
+                row.Visible = (nombre.Contains(entrada) || color.Contains(entrada)) && filtroProveedor;
+            }
+        }
+
+        private void MostrarMensajeEmergente(string titulo, string mensaje)
+        {
+            new Emergente("advertencia", titulo, mensaje).ShowDialog();
+        }
     }
 }
