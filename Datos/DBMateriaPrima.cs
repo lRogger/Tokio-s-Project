@@ -39,8 +39,43 @@ namespace Datos
                 throw new Exception(ex.Message);
             }
         }
+        public MateriaPrima ObtenerMateriaPrimaPorId(int id)
+        {
+            MateriaPrima materiaPrima = new MateriaPrima();
+            try
+            {
+                using (SqlConnection cn = dataBase.conectarDB())
+                {
+                    using (SqlCommand cmd = new SqlCommand($"SELECT M.id, M.nombre, M.proveedorId, M.stock, M.precio, M.fechaCompra," +
+                                                           $"(SELECT Color FROM Colores WHERE IdColor = M.colorId) AS Color " +
+                                                           $"FROM MateriaPrima M WHERE Id = @id", cn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
 
-        public bool InsertarMateriaPrima(MateriaPrima materiaPrima)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                materiaPrima.Id = (int)reader["id"];
+                                materiaPrima.Nombre = (string)reader["nombre"];
+                                materiaPrima.Proveedor.Id = (int)reader["proveedorId"];
+                                materiaPrima.Stock = (int)reader["stock"];
+                                materiaPrima.Precio = (double)reader["precio"];
+                                materiaPrima.FechaCompra = (DateTime)reader["fechaCompra"];
+                                materiaPrima.Color = (string)reader["Color"];
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return materiaPrima;
+        }
+        public int InsertarMateriaPrima(MateriaPrima materiaPrima)
         {
             try
             {
@@ -57,7 +92,7 @@ namespace Datos
                         cmd.Parameters.AddWithValue("@fecha", materiaPrima.FechaCompra);
                         cmd.Parameters.AddWithValue("@color", materiaPrima.Color);
 
-                        SqlParameter registroExitosoParam = new SqlParameter("@Insert", SqlDbType.Bit)
+                        SqlParameter registroExitosoParam = new SqlParameter("@Insert", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
                         };
@@ -66,8 +101,8 @@ namespace Datos
 
                         cmd.ExecuteNonQuery();
 
-                        // Obtener el valor del parámetro de salida que indica si el registro fue exitoso o no
-                        return (bool)registroExitosoParam.Value;
+                        // Obtener el id del producto insertado
+                        return (int)registroExitosoParam.Value;
                     }
                 }
             }

@@ -173,6 +173,7 @@
             txtStock.ForeColor = Color.FromArgb(64, 64, 64);
             txtStock.Location = new Point(409, 44);
             txtStock.Margin = new Padding(4);
+            txtStock.Modified = false;
             txtStock.Multiline = false;
             txtStock.Name = "txtStock";
             txtStock.Padding = new Padding(10, 7, 10, 7);
@@ -207,6 +208,7 @@
             txtPrecio.ForeColor = Color.FromArgb(64, 64, 64);
             txtPrecio.Location = new Point(409, 93);
             txtPrecio.Margin = new Padding(4);
+            txtPrecio.Modified = false;
             txtPrecio.Multiline = false;
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Padding = new Padding(10, 7, 10, 7);
@@ -230,6 +232,7 @@
             txtNombre.ForeColor = Color.FromArgb(64, 64, 64);
             txtNombre.Location = new Point(118, 44);
             txtNombre.Margin = new Padding(4);
+            txtNombre.Modified = false;
             txtNombre.Multiline = false;
             txtNombre.Name = "txtNombre";
             txtNombre.Padding = new Padding(10, 7, 10, 7);

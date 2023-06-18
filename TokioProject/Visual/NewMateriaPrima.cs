@@ -5,6 +5,8 @@ using LibreriaGrupal;
 using System.Data;
 using CustomControls.RJControls;
 using System.Diagnostics;
+using Microsoft.Win32;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GUIs.Visual
 {
@@ -13,7 +15,9 @@ namespace GUIs.Visual
         private DataBase dataBase;
         private DBProveedor dBProveedor;
         private DBMateriaPrima dBMateriaPrima;
+        private DBRegistros dbRegistros;
         private Utilidades utilidades;
+        private MateriaPrima registroActual;
         private int id;
         public bool Guardado = false;
         private int posY = 0, posX = 0;
@@ -25,6 +29,7 @@ namespace GUIs.Visual
             dataBase = new DataBase();
             dBProveedor = new DBProveedor();
             dBMateriaPrima = new DBMateriaPrima();
+            dbRegistros = new DBRegistros();
             utilidades = new Utilidades();
             CargarDatos();
             if (this.id > 0)
@@ -52,10 +57,47 @@ namespace GUIs.Visual
             {
                 if (FueronModificados())
                 {
-                    MateriaPrima materiaPrima = CargarDatosDeFormulario();
+                    MateriaPrima registroNuevo = CargarDatosDeFormulario();
 
-                    if (dBMateriaPrima.EditarMateriaPrima(materiaPrima))
+                    this.registroActual = dBMateriaPrima.ObtenerMateriaPrimaPorId(this.id);
+                    string descripcion = "";
+                    if (dBMateriaPrima.EditarMateriaPrima(registroNuevo))
                     {
+                        // Obtener el proveedor anterior y nuevo
+                        int proveedorAnterior = (int)this.registroActual.Proveedor.Id;
+                        int proveedorNuevo = (int)registroNuevo.Proveedor.Id;
+
+                        // Verificar si el proveedor ha cambiado
+                        if (proveedorAnterior != proveedorNuevo)
+                        {
+                            string nombreProveedorAnterior = proveedorAnterior != 0 ? cmbProveedor.GetItemText(cmbProveedor.Items[proveedorAnterior]) : "";
+                            string nombreProveedorNuevo = proveedorNuevo != 0 ? cmbProveedor.GetItemText(cmbProveedor.Items[proveedorNuevo]) : "";
+                            descripcion += $"• Proveedor: {nombreProveedorAnterior} => {nombreProveedorNuevo}\n";
+                        }
+
+                        foreach (var propiedad in typeof(MateriaPrima).GetProperties())
+                        {
+                            object valorAnterior = propiedad.GetValue(this.registroActual)!;
+                            object valorNuevo = propiedad.GetValue(registroNuevo)!;
+
+                            if (!Equals(valorAnterior, valorNuevo))
+                            {
+                                string descripcionPropiedad = "";
+
+                                if (propiedad.Name == "Proveedor")
+                                {
+                                    // El proveedor ya fue procesado antes, omitirlo aquí
+                                    continue;
+                                }
+                                else
+                                {
+                                    descripcionPropiedad = $"{propiedad.Name}: {valorAnterior} => {valorNuevo}";
+                                    descripcion += $"• {descripcionPropiedad}\n";
+                                }
+                            }
+                        }
+
+                        CrearRegistro(registroNuevo, registroNuevo.Id, descripcion);
                         MostrarMensajeEmergente("EXITO", "Datos actualizados correctamente!");
                         this.Guardado = true;
                         this.Close();
@@ -76,6 +118,8 @@ namespace GUIs.Visual
                 MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
             }
         }
+
+
 
         private bool FueronModificados()
         {
@@ -98,9 +142,10 @@ namespace GUIs.Visual
                 if (ValidarCamposCrear())
                 {
                     MateriaPrima materiaPrima = CargarDatosDeFormulario();
-
-                    if (dBMateriaPrima.InsertarMateriaPrima(materiaPrima))
+                    int id = dBMateriaPrima.InsertarMateriaPrima(materiaPrima);
+                    if (id > 0)
                     {
+                        CrearRegistro(materiaPrima, id+1, "•Se ha creado este commoditie");
                         MostrarMensajeEmergente("EXITO", "Registro guardado correctamente!");
                         this.Guardado = true;
                         this.Close();
@@ -212,18 +257,40 @@ namespace GUIs.Visual
             new Emergente("advertencia", titulo, mensaje).ShowDialog();
         }
 
+        private void CrearRegistro(MateriaPrima materiaPrima, int id, string descripcion)
+        {
+            var owner = this.Owner as FrmPrincipal;
+
+            var registro = new Registros();
+            registro.Fecha = DateTime.Now;
+            registro.Usuario = owner!.Sesion;
+            registro.Descripcion = descripcion;
+            registro.Cantidad = (this.id == 0) ? materiaPrima.Stock : materiaPrima.Stock - this.registroActual.Stock;
+            dbRegistros.CrearRegistro(registro, "m" + id);
+        }
+
         private MateriaPrima CargarDatosDeFormulario()
         {
             MateriaPrima materiaPrima = new MateriaPrima();
-            materiaPrima.Id = this.id;
-            materiaPrima.Nombre = txtNombre.Texts.Trim();
-            materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
-            materiaPrima.Stock = Int32.Parse(txtStock.Texts.Trim());
-            materiaPrima.Precio = Double.Parse(txtPrecio.Texts.Trim());
-            materiaPrima.FechaCompra = fechaUltCompra.Value;
-            materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
+            try
+            {
+                materiaPrima.Id = this.id;
+                materiaPrima.Nombre = txtNombre.Texts.Trim();
+                materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
+                materiaPrima.Stock = int.Parse(txtStock.Texts.Trim());
+                materiaPrima.Precio = double.Parse(txtPrecio.Texts.Trim());
+                materiaPrima.FechaCompra = fechaUltCompra.Value;
+                materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
+                Debug.WriteLine(materiaPrima.ToString());
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw new Exception(ex.Message);
+            }
             return materiaPrima;
         }
+
 
         // Eventos keypress para validar los campos
         private void tbStock_KeyPress(object sender, KeyPressEventArgs e)

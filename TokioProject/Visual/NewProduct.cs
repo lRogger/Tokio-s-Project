@@ -154,7 +154,7 @@ namespace GUIs.Visual
                     }
                 }
                 registro.Cantidad = productoNuevo.Stock - productoAnterior.Stock;
-                new DBRegistros().CrearRegistro(registro);
+                new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
 
                 //-------------------------------------------------------------------
 
@@ -193,7 +193,7 @@ namespace GUIs.Visual
                 registro.Producto = p;
                 registro.Descripcion = "•Se ha creado este producto";
                 registro.Cantidad = p.Stock;
-                new DBRegistros().CrearRegistro(registro);
+                new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
                 //-------------------------------------------------------------------
 
                 

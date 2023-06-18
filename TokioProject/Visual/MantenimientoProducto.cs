@@ -3,6 +3,7 @@ using Datos;
 using Individual.Visual;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace GUIs.Visual
 {
@@ -62,8 +63,9 @@ namespace GUIs.Visual
 
             catch (Exception ex)
             {
-                new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
-                     ex.Message).ShowDialog();
+                //new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
+                //     ex.Message).ShowDialog();
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -288,7 +290,7 @@ namespace GUIs.Visual
                         registro.Producto = productos[0];
                         registro.Descripcion = inactivo + "•Stock alterado";
                         registro.Cantidad = (int)cbCantidad.Value;
-                        new DBRegistros().CrearRegistro(registro);
+                        new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
 
                         //-------------------------------------------------------------------
                         cbCantidad.Value = 0;
@@ -365,7 +367,7 @@ namespace GUIs.Visual
                             registro.Producto = productos[0];
                             registro.Descripcion = "•Stock alterado";
                             registro.Cantidad = (int)cbCantidad.Value * -1;
-                            new DBRegistros().CrearRegistro(registro);
+                            new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
 
                             //-------------------------------------------------------------------
                             cbCantidad.Value = 0;
@@ -396,7 +398,7 @@ namespace GUIs.Visual
                             registro.Producto = productos[0];
                             registro.Descripcion = "•Stock Alterado\n•Producto inactivado por falta de stock";
                             registro.Cantidad = (int)cbCantidad.Value * -1;
-                            new DBRegistros().CrearRegistro(registro);
+                            new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
 
                             //-------------------------------------------------------------------
                             cbCantidad.Value = 0;

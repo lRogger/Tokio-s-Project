@@ -20,8 +20,7 @@ namespace GUIs.Visual
             lblIdentificacion.Text = r.Id.ToString();
             lblDia.Text = r.Fecha.ToString("D");
             lblEncargado.Text = r.Usuario.Nombre.ToString();
-            lblProducto.Text = r.Producto.Nombre.ToString();
-            //lblCantidad.Text = r.Cantidad.ToString();
+            lblProducto.Text = r.Producto?.Nombre?.ToString() ?? r.MateriaPrima?.Nombre?.ToString();
             this.Height += lblDescripcionRegistro.Height;
         }
 

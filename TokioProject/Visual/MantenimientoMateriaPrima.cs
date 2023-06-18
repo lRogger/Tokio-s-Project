@@ -73,11 +73,18 @@ namespace GUIs.Visual
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            NewMateriaPrima crear = new NewMateriaPrima();
-            crear.ShowDialog();
-            if (crear.Guardado)
+            try
             {
-                CargarTabla();
+                NewMateriaPrima crear = new NewMateriaPrima();
+                crear.Owner = this.ParentForm;
+                crear.ShowDialog();
+                if (crear.Guardado)
+                {
+                    CargarTabla();
+                }
+            }catch(Exception ex)
+            {
+                MostrarMensajeEmergente("ERROR DE EXCEPCION", ex.Message);
             }
         }
 
@@ -88,36 +95,43 @@ namespace GUIs.Visual
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (materiaPrimaDGV.SelectedRows.Count > 0)
+            try
             {
-                int selected = materiaPrimaDGV.CurrentRow.Index;
-                int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
-
-                NewMateriaPrima editar = new NewMateriaPrima(id);
-
-                //Obtener los indices para seleccione el valor correcto del comboBox de proveedor y color
-                string nombreProveedor = (string)materiaPrimaDGV.Rows[selected].Cells[4].Value;
-                int indiceProveedor = editar.cmbProveedor.FindStringExact(nombreProveedor);
-                string nombreColor = (string)materiaPrimaDGV.Rows[selected].Cells[2].Value;
-                int indiceColor = editar.cmbColor.FindStringExact(nombreColor);
-
-                //Asignar los valores a la ventana de editar
-                editar.txtNombre.Texts = materiaPrimaDGV.Rows[selected].Cells[1].Value.ToString();
-                editar.cmbColor.SelectedIndex = indiceColor;
-                editar.txtStock.Texts = materiaPrimaDGV.Rows[selected].Cells[3].Value.ToString();
-                editar.cmbProveedor.SelectedIndex = indiceProveedor;
-                editar.txtPrecio.Texts = materiaPrimaDGV.Rows[selected].Cells[5].Value.ToString();
-                editar.fechaUltCompra.Value = DateTime.Parse(materiaPrimaDGV.Rows[selected].Cells[6].Value.ToString());
-
-                editar.ShowDialog();
-                if (editar.Guardado)
+                if (materiaPrimaDGV.SelectedRows.Count > 0)
                 {
-                    CargarTabla();
+                    int selected = materiaPrimaDGV.CurrentRow.Index;
+                    int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
+
+                    NewMateriaPrima editar = new NewMateriaPrima(id);
+
+                    //Obtener los indices para seleccione el valor correcto del comboBox de proveedor y color
+                    string nombreProveedor = (string)materiaPrimaDGV.Rows[selected].Cells[4].Value;
+                    int indiceProveedor = editar.cmbProveedor.FindStringExact(nombreProveedor);
+                    string nombreColor = (string)materiaPrimaDGV.Rows[selected].Cells[2].Value;
+                    int indiceColor = editar.cmbColor.FindStringExact(nombreColor);
+
+                    //Asignar los valores a la ventana de editar
+                    editar.txtNombre.Texts = materiaPrimaDGV.Rows[selected].Cells[1].Value.ToString();
+                    editar.cmbColor.SelectedIndex = indiceColor;
+                    editar.txtStock.Texts = materiaPrimaDGV.Rows[selected].Cells[3].Value.ToString();
+                    editar.cmbProveedor.SelectedIndex = indiceProveedor;
+                    editar.txtPrecio.Texts = materiaPrimaDGV.Rows[selected].Cells[5].Value.ToString();
+                    editar.fechaUltCompra.Value = DateTime.Parse(materiaPrimaDGV.Rows[selected].Cells[6].Value.ToString());
+                    editar.Owner = this.ParentForm;
+                    editar.ShowDialog();
+                    if (editar.Guardado)
+                    {
+                        CargarTabla();
+                    }
+                }
+                else
+                {
+                    MostrarMensajeEmergente("AVISO", "Debe seleccionar una commoditie");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MostrarMensajeEmergente("AVISO", "Debe seleccionar una commoditie");
+                MostrarMensajeEmergente("ERROR DE EXCEPCION", ex.Message);
             }
         }
         private void btnSuma_Click(object sender, EventArgs e)
