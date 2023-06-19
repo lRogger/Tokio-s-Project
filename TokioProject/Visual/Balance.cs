@@ -19,6 +19,7 @@ namespace GUIs.Visual
         public Balance()
         {
             InitializeComponent();
+            productoDGV.RowHeadersVisible = false;
             CargarTabla();
         }
 
@@ -40,10 +41,9 @@ namespace GUIs.Visual
                     productoDGV.Rows.Add(listaBalance[i].Producto, listaBalance[i].Fecha.ToString("D"),
                         Math.Round(listaBalance[i].Valor, 2));
                     cuenta = cuenta + listaBalance[i].Valor;
-                    //productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
                     productoDGV.Rows[i].Cells[2].Style.ForeColor = (listaBalance[i].Valor>0)?Color.Green:Color.Red;
                 }
-                lblTotal.Text = cuenta.ToString();
+                lblTotal.Text = cuenta.ToString("N2");
                 if(cuenta > 0)
                 {
                     lblTotal.ForeColor = Color.Green;

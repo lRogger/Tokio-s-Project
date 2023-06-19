@@ -158,6 +158,18 @@ namespace GUIs.Visual
 
                 //-------------------------------------------------------------------
 
+                //SECCION DONDE SE CREA EL BALANCE
+                if(registro.Cantidad < 0)
+                {
+                    Balances b = new Balances();
+                    b.Producto = "p" + productoNuevo.Id;
+                    b.Fecha = DateTime.Now;
+                    b.Valor = -1*(productoNuevo.Precio * (double)registro.Cantidad);
+                    new DBbalance().InsertarBalance(b);
+                }
+                
+                //-------------------------------------------------------------------
+
                 this.Close();
             }
             else
@@ -195,11 +207,6 @@ namespace GUIs.Visual
                 registro.Cantidad = p.Stock;
                 new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
                 //-------------------------------------------------------------------
-
-                
-
-                
-
                 this.Close();
             }
             else

@@ -63,57 +63,11 @@ namespace GUIs.Visual
 
             catch (Exception ex)
             {
-                //new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
-                //     ex.Message).ShowDialog();
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        /* DESCONTINUADO -
-        private async void CargarTabla()
-        {
-            try
-            {
-                btnRefrescar.Enabled = false;
-                btnEditar.Enabled = false;
-                btnEliminar.Enabled = false;
-
-                listaPrendas = await new DBProducto().LeerProducto();
-
-                btnRefrescar.Enabled = true;
-                btnEditar.Enabled = true;
-                btnEliminar.Enabled = true;
-                tbBuscarProducto.Text = "";
-                
-                productoDGV.Rows.Clear();
-
-                for(int i=0; i<listaPrendas.Count; i++)
-                {
-                    productoDGV.Rows.Add(listaPrendas[i].Id, listaPrendas[i].Nombre, listaPrendas[i].Categoria,
-                        listaPrendas[i].Talla, listaPrendas[i].Color, listaPrendas[i].Stock,
-                        listaPrendas[i].Precio, listaPrendas[i].Activo);
-                    if (!listaPrendas[i].Activo && !cbInactivo.Checked)
-                    {
-                        
-                        productoDGV.Rows[i].Visible = false;
-
-                    }
-                    if (!listaPrendas[i].Activo) 
-                    {
-                        //productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(242,231,243);
-                        productoDGV.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
-                    }
-
-                }
-            }
-
-            catch (Exception ex)
-            {
                 new Emergente("advertencia", "ERROR", "Ha ocurrido un error al conectar con la base de datos\n " +
                      ex.Message).ShowDialog();
             }
-            
-        }*/
+        }
+
 
 
         private DataSet CargarTallas()
@@ -291,7 +245,6 @@ namespace GUIs.Visual
                         registro.Descripcion = inactivo + "•Stock alterado";
                         registro.Cantidad = (int)cbCantidad.Value;
                         new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
-
                         //-------------------------------------------------------------------
                         cbCantidad.Value = 0;
                         CargarTabla();
@@ -352,6 +305,7 @@ namespace GUIs.Visual
 
                             int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
                             int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
+                            double precioProducto = (double)productoDGV.Rows[i].Cells["Precio"].Value;
                             new DBProducto().ActualizarStock(stock, IDproducto);
 
 
@@ -370,8 +324,18 @@ namespace GUIs.Visual
                             new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
 
                             //-------------------------------------------------------------------
+
+                            //SECCION DONDE SE CREA EL BALANCE
+                            Balances b = new Balances();
+                            b.Producto = "p" + productos[0].Id;
+                            b.Fecha = DateTime.Now;
+                            b.Valor = (precioProducto * (double)cbCantidad.Value);
+                            new DBbalance().InsertarBalance(b);
+                            //-------------------------------------------------------------------
                             cbCantidad.Value = 0;
                             CargarTabla();
+
+                            
                         }
                     }
                     else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) == 0)
@@ -382,6 +346,7 @@ namespace GUIs.Visual
                         {
                             int IDproducto = (int)productoDGV.Rows[i].Cells["ID"].Value;
                             int stock = ((int)productoDGV.Rows[i].Cells["Stock"].Value - (int)cbCantidad.Value);
+                            double precioProducto = (double)productoDGV.Rows[i].Cells["Precio"].Value;
                             new DBProducto().ActualizarStock(stock, IDproducto);
                             db.instruccionDB($"UPDATE Productos SET " +
                                 $"Activo= 0 WHERE IDproducto = {IDproducto}");
@@ -400,6 +365,14 @@ namespace GUIs.Visual
                             registro.Cantidad = (int)cbCantidad.Value * -1;
                             new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
 
+                            //-------------------------------------------------------------------
+
+                            //SECCION DONDE SE CREA EL BALANCE
+                            Balances b = new Balances();
+                            b.Producto = "p" + productos[0].Id;
+                            b.Fecha = DateTime.Now;
+                            b.Valor = (precioProducto * (double)cbCantidad.Value);
+                            new DBbalance().InsertarBalance(b);
                             //-------------------------------------------------------------------
                             cbCantidad.Value = 0;
                             CargarTabla();

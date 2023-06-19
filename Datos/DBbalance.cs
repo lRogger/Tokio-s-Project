@@ -29,7 +29,7 @@ namespace Datos
                             $" Fecha, " +
                             $" Valor " +
                         $"FROM balance " +
-                        $"ORDER BY Fecha DESC ");
+                        $"ORDER BY Id DESC ");
             DataSet ds = db.Ds;
             var balance = new List<Balances>();
 
