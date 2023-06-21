@@ -28,232 +28,283 @@ namespace GUIs.Visual
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnRefrescar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbTalla = new System.Windows.Forms.ComboBox();
-            this.productoDGV = new System.Windows.Forms.DataGridView();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbBuscarProducto = new System.Windows.Forms.TextBox();
-            this.separador = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            btnRefrescar = new Button();
+            label1 = new Label();
+            balanceDGV = new DataGridView();
+            Producto = new DataGridViewTextBoxColumn();
+            Fecha = new DataGridViewTextBoxColumn();
+            Valor = new DataGridViewTextBoxColumn();
+            tbBuscar = new TextBox();
+            separador = new Panel();
+            panel1 = new Panel();
+            lblTotal = new Label();
+            label2 = new Label();
+            dtpFechaInicio = new DateTimePicker();
+            label3 = new Label();
+            dtpFechaFin = new DateTimePicker();
+            chkInhabilitar = new CheckBox();
+            panel2 = new Panel();
+            ((System.ComponentModel.ISupportInitialize)balanceDGV).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            SuspendLayout();
             // 
             // btnRefrescar
             // 
-            this.btnRefrescar.AutoSize = true;
-            this.btnRefrescar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRefrescar.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefrescar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnRefrescar.FlatAppearance.BorderSize = 0;
-            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefrescar.Font = new System.Drawing.Font("Arial", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRefrescar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.btnRefrescar.Location = new System.Drawing.Point(686, 1);
-            this.btnRefrescar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(60, 48);
-            this.btnRefrescar.TabIndex = 34;
-            this.btnRefrescar.Text = "🔄";
-            this.btnRefrescar.UseVisualStyleBackColor = false;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            btnRefrescar.AutoSize = true;
+            btnRefrescar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnRefrescar.BackColor = Color.Transparent;
+            btnRefrescar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnRefrescar.FlatAppearance.BorderSize = 0;
+            btnRefrescar.FlatStyle = FlatStyle.Flat;
+            btnRefrescar.Font = new Font("Arial", 24.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
+            btnRefrescar.Location = new Point(686, 1);
+            btnRefrescar.Margin = new Padding(0);
+            btnRefrescar.Name = "btnRefrescar";
+            btnRefrescar.Size = new Size(60, 48);
+            btnRefrescar.TabIndex = 34;
+            btnRefrescar.Text = "🔄";
+            btnRefrescar.UseVisualStyleBackColor = false;
+            btnRefrescar.Click += btnRefrescar_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(443, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 19);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Periodo:";
+            label1.AutoSize = true;
+            label1.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ControlDarkDark;
+            label1.Location = new Point(297, 65);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 19);
+            label1.TabIndex = 30;
+            label1.Text = "Desde:";
             // 
-            // cbTalla
+            // balanceDGV
             // 
-            this.cbTalla.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTalla.FormattingEnabled = true;
-            this.cbTalla.Items.AddRange(new object[] {
-            "Todas",
-            "S",
-            "M",
-            "L",
-            "XL"});
-            this.cbTalla.Location = new System.Drawing.Point(513, 65);
-            this.cbTalla.Name = "cbTalla";
-            this.cbTalla.Size = new System.Drawing.Size(220, 23);
-            this.cbTalla.TabIndex = 29;
-            // 
-            // productoDGV
-            // 
-            this.productoDGV.AllowUserToAddRows = false;
-            this.productoDGV.AllowUserToDeleteRows = false;
-            this.productoDGV.AllowUserToResizeColumns = false;
-            this.productoDGV.AllowUserToResizeRows = false;
-            this.productoDGV.BackgroundColor = System.Drawing.Color.White;
-            this.productoDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.productoDGV.CausesValidation = false;
-            this.productoDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.productoDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Britanica-Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productoDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.productoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productoDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Producto,
-            this.Fecha,
-            this.Valor});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Britanica-Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productoDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.productoDGV.EnableHeadersVisualStyles = false;
-            this.productoDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.productoDGV.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.productoDGV.Location = new System.Drawing.Point(10, 98);
-            this.productoDGV.MultiSelect = false;
-            this.productoDGV.Name = "productoDGV";
-            this.productoDGV.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productoDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.productoDGV.RowHeadersWidth = 4;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.productoDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.productoDGV.RowTemplate.Height = 25;
-            this.productoDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.productoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productoDGV.Size = new System.Drawing.Size(722, 487);
-            this.productoDGV.TabIndex = 26;
+            balanceDGV.AllowUserToAddRows = false;
+            balanceDGV.AllowUserToDeleteRows = false;
+            balanceDGV.AllowUserToResizeColumns = false;
+            balanceDGV.AllowUserToResizeRows = false;
+            balanceDGV.BackgroundColor = Color.White;
+            balanceDGV.BorderStyle = BorderStyle.None;
+            balanceDGV.CausesValidation = false;
+            balanceDGV.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            balanceDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle1.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(128, 27, 141);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            balanceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            balanceDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            balanceDGV.Columns.AddRange(new DataGridViewColumn[] { Producto, Fecha, Valor });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            balanceDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            balanceDGV.EnableHeadersVisualStyles = false;
+            balanceDGV.GridColor = Color.FromArgb(64, 64, 64);
+            balanceDGV.ImeMode = ImeMode.NoControl;
+            balanceDGV.Location = new Point(10, 99);
+            balanceDGV.MultiSelect = false;
+            balanceDGV.Name = "balanceDGV";
+            balanceDGV.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            balanceDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            balanceDGV.RowHeadersWidth = 4;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(51, 51, 102);
+            balanceDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            balanceDGV.RowTemplate.Height = 25;
+            balanceDGV.ScrollBars = ScrollBars.Vertical;
+            balanceDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            balanceDGV.Size = new Size(722, 476);
+            balanceDGV.TabIndex = 26;
             // 
             // Producto
             // 
-            this.Producto.Frozen = true;
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 350;
+            Producto.Frozen = true;
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            Producto.Width = 350;
             // 
             // Fecha
             // 
-            this.Fecha.Frozen = true;
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 200;
+            Fecha.Frozen = true;
+            Fecha.HeaderText = "Fecha";
+            Fecha.Name = "Fecha";
+            Fecha.ReadOnly = true;
+            Fecha.Width = 200;
             // 
             // Valor
             // 
-            this.Valor.Frozen = true;
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            this.Valor.Width = 200;
+            Valor.Frozen = true;
+            Valor.HeaderText = "Valor";
+            Valor.Name = "Valor";
+            Valor.ReadOnly = true;
+            Valor.Width = 200;
             // 
-            // tbBuscarProducto
+            // tbBuscar
             // 
-            this.tbBuscarProducto.BackColor = System.Drawing.Color.White;
-            this.tbBuscarProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbBuscarProducto.Font = new System.Drawing.Font("Britanica-Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscarProducto.Location = new System.Drawing.Point(11, 64);
-            this.tbBuscarProducto.Name = "tbBuscarProducto";
-            this.tbBuscarProducto.PlaceholderText = " 🔎 Buscar...";
-            this.tbBuscarProducto.Size = new System.Drawing.Size(426, 20);
-            this.tbBuscarProducto.TabIndex = 27;
+            tbBuscar.BackColor = Color.White;
+            tbBuscar.BorderStyle = BorderStyle.None;
+            tbBuscar.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tbBuscar.Location = new Point(11, 64);
+            tbBuscar.Name = "tbBuscar";
+            tbBuscar.PlaceholderText = " 🔎 Buscar...";
+            tbBuscar.Size = new Size(280, 20);
+            tbBuscar.TabIndex = 27;
             // 
             // separador
             // 
-            this.separador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(15)))), ((int)(((byte)(75)))));
-            this.separador.Location = new System.Drawing.Point(11, 47);
-            this.separador.Name = "separador";
-            this.separador.Size = new System.Drawing.Size(721, 2);
-            this.separador.TabIndex = 28;
+            separador.BackColor = Color.FromArgb(70, 15, 75);
+            separador.Location = new Point(11, 47);
+            separador.Name = "separador";
+            separador.Size = new Size(721, 2);
+            separador.TabIndex = 28;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(27)))), ((int)(((byte)(141)))));
-            this.panel1.Controls.Add(this.lblTotal);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(12, 591);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(721, 47);
-            this.panel1.TabIndex = 35;
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(lblTotal);
+            panel1.Controls.Add(label2);
+            panel1.Location = new Point(12, 588);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(721, 47);
+            panel1.TabIndex = 35;
             // 
             // lblTotal
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Britanica-Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.ForeColor = System.Drawing.Color.White;
-            this.lblTotal.Location = new System.Drawing.Point(626, 7);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(84, 32);
-            this.lblTotal.TabIndex = 1;
-            this.lblTotal.Text = "00.00";
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Britanica-Bold", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotal.ForeColor = Color.FromArgb(128, 27, 141);
+            lblTotal.Location = new Point(626, 7);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(84, 32);
+            lblTotal.TabIndex = 1;
+            lblTotal.Text = "00.00";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Britanica-Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "TOTAL";
+            label2.AutoSize = true;
+            label2.Font = new Font("Britanica-Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(128, 27, 141);
+            label2.Location = new Point(12, 10);
+            label2.Name = "label2";
+            label2.Size = new Size(72, 25);
+            label2.TabIndex = 0;
+            label2.Text = "TOTAL";
+            // 
+            // dtpFechaInicio
+            // 
+            dtpFechaInicio.CalendarFont = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpFechaInicio.CalendarTitleBackColor = Color.Purple;
+            dtpFechaInicio.Cursor = Cursors.Hand;
+            dtpFechaInicio.DropDownAlign = LeftRightAlignment.Right;
+            dtpFechaInicio.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpFechaInicio.Format = DateTimePickerFormat.Short;
+            dtpFechaInicio.Location = new Point(353, 62);
+            dtpFechaInicio.Name = "dtpFechaInicio";
+            dtpFechaInicio.RightToLeft = RightToLeft.Yes;
+            dtpFechaInicio.Size = new Size(117, 25);
+            dtpFechaInicio.TabIndex = 36;
+            dtpFechaInicio.ValueChanged += dtpFechaInicio_ValueChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.ControlDarkDark;
+            label3.Location = new Point(475, 65);
+            label3.Name = "label3";
+            label3.Size = new Size(50, 19);
+            label3.TabIndex = 37;
+            label3.Text = "Hasta:";
+            // 
+            // dtpFechaFin
+            // 
+            dtpFechaFin.CalendarFont = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpFechaFin.CalendarTitleBackColor = Color.Purple;
+            dtpFechaFin.Cursor = Cursors.Hand;
+            dtpFechaFin.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpFechaFin.Format = DateTimePickerFormat.Short;
+            dtpFechaFin.Location = new Point(527, 62);
+            dtpFechaFin.Name = "dtpFechaFin";
+            dtpFechaFin.Size = new Size(114, 25);
+            dtpFechaFin.TabIndex = 38;
+            dtpFechaFin.ValueChanged += dtpFechaFin_ValueChanged;
+            // 
+            // chkInhabilitar
+            // 
+            chkInhabilitar.AutoSize = true;
+            chkInhabilitar.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            chkInhabilitar.ForeColor = SystemColors.Control;
+            chkInhabilitar.Location = new Point(6, 2);
+            chkInhabilitar.Name = "chkInhabilitar";
+            chkInhabilitar.Size = new Size(70, 23);
+            chkInhabilitar.TabIndex = 39;
+            chkInhabilitar.Text = "Todos";
+            chkInhabilitar.UseVisualStyleBackColor = true;
+            chkInhabilitar.CheckedChanged += chkInhabilitar_CheckedChanged;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Purple;
+            panel2.Controls.Add(chkInhabilitar);
+            panel2.Location = new Point(650, 60);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(82, 26);
+            panel2.TabIndex = 40;
             // 
             // Balance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 650);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbTalla);
-            this.Controls.Add(this.productoDGV);
-            this.Controls.Add(this.tbBuscarProducto);
-            this.Controls.Add(this.separador);
-            this.Controls.Add(this.btnRefrescar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Balance";
-            this.Text = "Balance";
-            ((System.ComponentModel.ISupportInitialize)(this.productoDGV)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(744, 650);
+            Controls.Add(panel2);
+            Controls.Add(dtpFechaFin);
+            Controls.Add(label3);
+            Controls.Add(dtpFechaInicio);
+            Controls.Add(panel1);
+            Controls.Add(label1);
+            Controls.Add(balanceDGV);
+            Controls.Add(tbBuscar);
+            Controls.Add(separador);
+            Controls.Add(btnRefrescar);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Balance";
+            Text = "Balance";
+            ((System.ComponentModel.ISupportInitialize)balanceDGV).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnRefrescar;
         private Label label1;
-        private ComboBox cbTalla;
-        public DataGridView productoDGV;
-        private TextBox tbBuscarProducto;
+        public DataGridView balanceDGV;
+        private TextBox tbBuscar;
         private Panel separador;
         private Panel panel1;
         private DataGridViewTextBoxColumn Producto;
@@ -261,5 +312,10 @@ namespace GUIs.Visual
         private DataGridViewTextBoxColumn Valor;
         private Label lblTotal;
         private Label label2;
+        private DateTimePicker dtpFechaInicio;
+        private Label label3;
+        private DateTimePicker dtpFechaFin;
+        private CheckBox chkInhabilitar;
+        private Panel panel2;
     }
 }

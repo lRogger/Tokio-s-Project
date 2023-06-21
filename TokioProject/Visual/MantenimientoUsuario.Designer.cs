@@ -33,18 +33,17 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             buscarUser = new TextBox();
             usersDGV = new DataGridView();
-            btnEditar = new Button();
-            btnCrear = new Button();
-            btnEliminar = new Button();
-            btnCerrar = new ComponentesMod.RJButton();
-            separador = new Panel();
-            btnRefrescar = new Button();
             Id = new DataGridViewTextBoxColumn();
             Cedula = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Correo = new DataGridViewTextBoxColumn();
             Edad = new DataGridViewTextBoxColumn();
             Imagen = new DataGridViewImageColumn();
+            btnEditar = new Button();
+            btnCrear = new Button();
+            btnEliminar = new Button();
+            separador = new Panel();
+            btnRefrescar = new Button();
             ((System.ComponentModel.ISupportInitialize)usersDGV).BeginInit();
             SuspendLayout();
             // 
@@ -105,103 +104,6 @@
             usersDGV.Size = new Size(721, 539);
             usersDGV.TabIndex = 0;
             // 
-            // btnEditar
-            // 
-            btnEditar.BackColor = Color.Transparent;
-            btnEditar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEditar.Location = new Point(75, 10);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 43);
-            btnEditar.TabIndex = 5;
-            btnEditar.Text = "Editar";
-            btnEditar.TextAlign = ContentAlignment.MiddleLeft;
-            btnEditar.UseVisualStyleBackColor = false;
-            btnEditar.Click += editar_Click;
-            // 
-            // btnCrear
-            // 
-            btnCrear.BackColor = Color.Transparent;
-            btnCrear.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnCrear.FlatAppearance.BorderSize = 0;
-            btnCrear.FlatStyle = FlatStyle.Flat;
-            btnCrear.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
-            btnCrear.Location = new Point(9, 9);
-            btnCrear.Margin = new Padding(0);
-            btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(76, 43);
-            btnCrear.TabIndex = 6;
-            btnCrear.Text = "Crear";
-            btnCrear.TextAlign = ContentAlignment.MiddleLeft;
-            btnCrear.UseVisualStyleBackColor = false;
-            btnCrear.Click += crear_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.BackColor = Color.Transparent;
-            btnEliminar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEliminar.ForeColor = Color.FromArgb(118, 27, 141);
-            btnEliminar.Location = new Point(150, 9);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(114, 43);
-            btnEliminar.TabIndex = 7;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.TextAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.UseVisualStyleBackColor = false;
-            btnEliminar.Click += eliminar_Click;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.BackColor = Color.FromArgb(70, 15, 75);
-            btnCerrar.BackgroundColor = Color.FromArgb(70, 15, 75);
-            btnCerrar.BorderColor = Color.Transparent;
-            btnCerrar.BorderRadius = 10;
-            btnCerrar.BorderSize = 0;
-            btnCerrar.DialogResult = DialogResult.Cancel;
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCerrar.ForeColor = Color.White;
-            btnCerrar.Location = new Point(635, 12);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(97, 33);
-            btnCerrar.TabIndex = 8;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.TextColor = Color.White;
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // separador
-            // 
-            separador.BackColor = Color.FromArgb(70, 15, 75);
-            separador.Location = new Point(12, 51);
-            separador.Name = "separador";
-            separador.Size = new Size(721, 2);
-            separador.TabIndex = 9;
-            // 
-            // btnRefrescar
-            // 
-            btnRefrescar.BackColor = Color.Transparent;
-            btnRefrescar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.FlatAppearance.BorderSize = 0;
-            btnRefrescar.FlatStyle = FlatStyle.Flat;
-            btnRefrescar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
-            btnRefrescar.Location = new Point(585, 0);
-            btnRefrescar.Name = "btnRefrescar";
-            btnRefrescar.Size = new Size(50, 56);
-            btnRefrescar.TabIndex = 10;
-            btnRefrescar.Text = "🔄";
-            btnRefrescar.UseVisualStyleBackColor = false;
-            btnRefrescar.Click += btnRefrescar_Click;
-            // 
             // Id
             // 
             Id.Frozen = true;
@@ -250,6 +152,79 @@
             Imagen.ReadOnly = true;
             Imagen.Width = 60;
             // 
+            // btnEditar
+            // 
+            btnEditar.BackColor = Color.Transparent;
+            btnEditar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnEditar.FlatAppearance.BorderSize = 0;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
+            btnEditar.Location = new Point(106, 7);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(82, 43);
+            btnEditar.TabIndex = 5;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += editar_Click;
+            // 
+            // btnCrear
+            // 
+            btnCrear.BackColor = Color.Transparent;
+            btnCrear.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnCrear.FlatAppearance.BorderSize = 0;
+            btnCrear.FlatStyle = FlatStyle.Flat;
+            btnCrear.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
+            btnCrear.Location = new Point(9, 7);
+            btnCrear.Margin = new Padding(0);
+            btnCrear.Name = "btnCrear";
+            btnCrear.Size = new Size(94, 43);
+            btnCrear.TabIndex = 6;
+            btnCrear.Text = "Agregar";
+            btnCrear.UseVisualStyleBackColor = false;
+            btnCrear.Click += crear_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.Transparent;
+            btnEliminar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminar.ForeColor = Color.FromArgb(118, 27, 141);
+            btnEliminar.Location = new Point(194, 7);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(114, 43);
+            btnEliminar.TabIndex = 7;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += eliminar_Click;
+            // 
+            // separador
+            // 
+            separador.BackColor = Color.FromArgb(70, 15, 75);
+            separador.Location = new Point(12, 51);
+            separador.Name = "separador";
+            separador.Size = new Size(721, 2);
+            separador.TabIndex = 9;
+            // 
+            // btnRefrescar
+            // 
+            btnRefrescar.BackColor = Color.Transparent;
+            btnRefrescar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
+            btnRefrescar.FlatAppearance.BorderSize = 0;
+            btnRefrescar.FlatStyle = FlatStyle.Flat;
+            btnRefrescar.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRefrescar.ForeColor = Color.FromArgb(70, 15, 75);
+            btnRefrescar.Location = new Point(683, -1);
+            btnRefrescar.Name = "btnRefrescar";
+            btnRefrescar.Size = new Size(50, 56);
+            btnRefrescar.TabIndex = 10;
+            btnRefrescar.Text = "🔄";
+            btnRefrescar.UseVisualStyleBackColor = false;
+            btnRefrescar.Click += btnRefrescar_Click;
+            // 
             // MantenimientoUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -259,7 +234,6 @@
             Controls.Add(usersDGV);
             Controls.Add(buscarUser);
             Controls.Add(separador);
-            Controls.Add(btnCerrar);
             Controls.Add(btnEliminar);
             Controls.Add(btnCrear);
             Controls.Add(btnEditar);
@@ -280,7 +254,6 @@
         private Button btnCrear;
         private Button btnEliminar;
         public DataGridView usersDGV;
-        private ComponentesMod.RJButton btnCerrar;
         private Panel separador;
         private Button btnRefrescar;
         private DataGridViewTextBoxColumn Id;

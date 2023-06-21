@@ -89,7 +89,8 @@ namespace GUIs.Visual
                 {
                     CargarTabla();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MostrarMensajeEmergente("ERROR DE EXCEPCION", ex.Message);
             }
@@ -168,7 +169,7 @@ namespace GUIs.Visual
                         int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
                         int stockActual = (int)materiaPrimaDGV.Rows[selected].Cells[3].Value;
                         string nombre = (string)materiaPrimaDGV.Rows[selected].Cells[1].Value;
-                        if(operacion == "restar" && stockActual < cantidad)
+                        if (operacion == "restar" && stockActual < cantidad)
                         {
                             MostrarMensajeEmergente("AVISO", "Cantidad inválida, no hay suficiente stock!");
                         }
@@ -204,7 +205,7 @@ namespace GUIs.Visual
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MostrarMensajeEmergente("ERROR DE EXCEPCIÓN", ex.Message);
             }

@@ -271,12 +271,11 @@ namespace GUIs.Visual
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEliminar.ForeColor = System.Drawing.Color.FromArgb(118, 27, 141);
-            btnEliminar.Location = new Point(155, 9);
+            btnEliminar.Location = new Point(186, 11);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(116, 43);
             btnEliminar.TabIndex = 23;
             btnEliminar.Text = "Inhabilitar";
-            btnEliminar.TextAlign = ContentAlignment.MiddleLeft;
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
@@ -289,13 +288,12 @@ namespace GUIs.Visual
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = System.Drawing.Color.FromArgb(118, 27, 141);
-            btnCrear.Location = new Point(9, 9);
+            btnCrear.Location = new Point(9, 11);
             btnCrear.Margin = new Padding(0);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(67, 43);
+            btnCrear.Size = new Size(101, 43);
             btnCrear.TabIndex = 22;
-            btnCrear.Text = "Crear";
-            btnCrear.TextAlign = ContentAlignment.MiddleLeft;
+            btnCrear.Text = "Agregar";
             btnCrear.UseVisualStyleBackColor = false;
             btnCrear.Click += btnCrear_Click;
             // 
@@ -308,12 +306,11 @@ namespace GUIs.Visual
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.ForeColor = System.Drawing.Color.FromArgb(118, 27, 141);
-            btnEditar.Location = new Point(79, 9);
+            btnEditar.Location = new Point(113, 11);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(71, 43);
             btnEditar.TabIndex = 21;
             btnEditar.Text = "Editar";
-            btnEditar.TextAlign = ContentAlignment.MiddleLeft;
             btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 

@@ -153,11 +153,6 @@ namespace Individual.Visual
             CargarTabla();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-        }
 
         private void CargarTabla()
         {
@@ -167,14 +162,12 @@ namespace Individual.Visual
                 btnRefrescar.Enabled = false;
                 btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
-                btnCerrar.Enabled = false;
 
                 List<Persona> listaPersonas = new DBPersona().LeerPersona();
 
                 btnRefrescar.Enabled = true;
                 btnEditar.Enabled = true;
                 btnEliminar.Enabled = true;
-                btnCerrar.Enabled = true;
 
                 usersDGV.Rows.Clear();
                 foreach (Persona persona in listaPersonas)
@@ -183,7 +176,7 @@ namespace Individual.Visual
                     {
                         int edad = DateTime.Today.Year - persona.Edad.Year;
                         if (DateTime.Today.Month >= persona.Edad.Month)
-                            if(DateTime.Today.Day < persona.Edad.Day)
+                            if (DateTime.Today.Day < persona.Edad.Day)
                                 edad--;
 
                         usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo

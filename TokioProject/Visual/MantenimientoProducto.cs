@@ -244,7 +244,7 @@ namespace GUIs.Visual
                         registro.Producto = productos[0];
                         registro.Descripcion = inactivo + "•Stock alterado";
                         registro.Cantidad = (int)cbCantidad.Value;
-                        new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
+                        new DBRegistros().CrearRegistro(registro, "p" + registro.Producto.Id.ToString());
                         //-------------------------------------------------------------------
                         cbCantidad.Value = 0;
                         CargarTabla();
@@ -321,7 +321,7 @@ namespace GUIs.Visual
                             registro.Producto = productos[0];
                             registro.Descripcion = "•Stock alterado";
                             registro.Cantidad = (int)cbCantidad.Value * -1;
-                            new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
+                            new DBRegistros().CrearRegistro(registro, "p" + registro.Producto.Id.ToString());
 
                             //-------------------------------------------------------------------
 
@@ -335,7 +335,7 @@ namespace GUIs.Visual
                             cbCantidad.Value = 0;
                             CargarTabla();
 
-                            
+
                         }
                     }
                     else if ((Convert.ToInt32(productoDGV.Rows[i].Cells["Stock"].Value) - cbCantidad.Value) == 0)
@@ -363,7 +363,7 @@ namespace GUIs.Visual
                             registro.Producto = productos[0];
                             registro.Descripcion = "•Stock Alterado\n•Producto inactivado por falta de stock";
                             registro.Cantidad = (int)cbCantidad.Value * -1;
-                            new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
+                            new DBRegistros().CrearRegistro(registro, "p" + registro.Producto.Id.ToString());
 
                             //-------------------------------------------------------------------
 
