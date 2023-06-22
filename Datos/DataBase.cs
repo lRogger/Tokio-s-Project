@@ -16,7 +16,7 @@ namespace Datos
         {
             
             //SE CAMBIO EL SERVIDOR DE LA BASE DE DATOS
-            this.server = "tokio-server.database.windows.net";
+            this.server = "tokio-s.database.windows.net";
             this.user = "tokio";
             this.pass = "semestre6!";
             this.db = "TOKIO-PROYECTO";
