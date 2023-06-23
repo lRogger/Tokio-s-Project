@@ -75,7 +75,7 @@ namespace GUIs.Visual
         }
         private void buscarMateriaPrima_TextChanged(object sender, EventArgs e)
         {
-            busquedaDGV(buscarMateriaPrima.Text.ToLower());
+            //IDK
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -151,8 +151,7 @@ namespace GUIs.Visual
 
         private void cbProveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            proveedorSeleccionado = cbProveedor.SelectedItem as Proveedor;
-            busquedaDGV(buscarMateriaPrima.Text.ToLower());
+             //IDK
         }
 
         private void AlterarStock(string operacion)
@@ -240,6 +239,17 @@ namespace GUIs.Visual
         private void MostrarMensajeEmergente(string titulo, string mensaje)
         {
             new Emergente("advertencia", titulo, mensaje).ShowDialog();
+        }
+
+        private void buscarMateriaPrima_TextChanged_1(object sender, EventArgs e)
+        {
+            busquedaDGV(buscarMateriaPrima.Text.ToLower());
+        }
+
+        private void cbProveedor_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            proveedorSeleccionado = cbProveedor.SelectedItem as Proveedor;
+            busquedaDGV(buscarMateriaPrima.Text.ToLower());
         }
     }
 }

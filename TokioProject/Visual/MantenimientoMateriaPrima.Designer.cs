@@ -167,6 +167,7 @@
             buscarMateriaPrima.PlaceholderText = " 🔎 Buscar...";
             buscarMateriaPrima.Size = new Size(468, 20);
             buscarMateriaPrima.TabIndex = 12;
+            buscarMateriaPrima.TextChanged += buscarMateriaPrima_TextChanged_1;
             // 
             // separador
             // 
@@ -185,6 +186,7 @@
             cbProveedor.Name = "cbProveedor";
             cbProveedor.Size = new Size(155, 23);
             cbProveedor.TabIndex = 19;
+            cbProveedor.SelectedIndexChanged += cbProveedor_SelectedIndexChanged_1;
             // 
             // label1
             // 
@@ -256,7 +258,7 @@
             // 
             cbCantidad.Location = new Point(614, 21);
             cbCantidad.Name = "cbCantidad";
-            cbCantidad.Size = new Size(45, 24);
+            cbCantidad.Size = new Size(45, 23);
             cbCantidad.TabIndex = 26;
             // 
             // panel1
