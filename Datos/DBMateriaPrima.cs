@@ -103,6 +103,7 @@ namespace Datos
 
                         // Obtener el id del producto insertado
                         return (int)registroExitosoParam.Value;
+                        Debug.WriteLine(registroExitosoParam.Value);
                     }
                 }
             }

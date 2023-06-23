@@ -138,7 +138,7 @@ namespace GUIs.Visual
                     int id = dBMateriaPrima.InsertarMateriaPrima(materiaPrima);
                     if (id > 0)
                     {
-                        CrearRegistro(materiaPrima, id + 1, "•Se ha creado este commoditie");
+                        CrearRegistro(materiaPrima, id, "•Se ha creado este commoditie");
                         MostrarMensajeEmergente("EXITO", "Registro guardado correctamente!");
                         this.Guardado = true;
                         this.Close();
