@@ -319,6 +319,7 @@
             Name = "NewMateriaPrima";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NewMateriaPrima";
+            Load += NewMateriaPrima_Load;
             MouseMove += NewProduct_MouseMove;
             panelMod1.ResumeLayout(false);
             panelMod1.PerformLayout();

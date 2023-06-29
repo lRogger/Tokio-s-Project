@@ -40,13 +40,17 @@ namespace GUIs.Visual
                 this.ActiveControl = null;
                 lblTitulo.Text = "Editar Materia Prima";
             }
-            proveedorInicial = ProveedorSeleccionado;
-            colorInicial = ColorSeleccionado;
         }
 
         public Proveedor ProveedorSeleccionado => (Proveedor)cmbProveedor.SelectedItem;
 
         public Tuple<int, string> ColorSeleccionado => (Tuple<int, string>)cmbColor.SelectedItem;
+
+        private void NewMateriaPrima_Load(object sender, EventArgs e)
+        {
+            proveedorInicial = ProveedorSeleccionado;
+            colorInicial = ColorSeleccionado;
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -64,63 +68,71 @@ namespace GUIs.Visual
         {
             try
             {
-                if (FueronModificados())
+                if (fechaUltCompra.Value <= DateTime.Now)
                 {
-                    MateriaPrima registroNuevo = CargarDatosDeFormulario();
-
-                    this.registroActual = dBMateriaPrima.ObtenerMateriaPrimaPorId(this.id);
-                    string descripcion = "";
-                    if (dBMateriaPrima.EditarMateriaPrima(registroNuevo))
+                    if(FueronModificados())
                     {
-                        // Obtener el proveedor anterior y nuevo
-                        int proveedorAnterior = (int)this.registroActual.Proveedor.Id;
-                        int proveedorNuevo = (int)registroNuevo.Proveedor.Id;
+                        MateriaPrima registroNuevo = CargarDatosDeFormulario();
 
-                        // Verificar si el proveedor ha cambiado
-                        if (proveedorAnterior != proveedorNuevo)
+                        this.registroActual = dBMateriaPrima.ObtenerMateriaPrimaPorId(this.id);
+                        string descripcion = "";
+                        if (dBMateriaPrima.EditarMateriaPrima(registroNuevo))
                         {
-                            string nombreProveedorAnterior = proveedorAnterior != 0 ? cmbProveedor.GetItemText(cmbProveedor.Items[proveedorAnterior]) : "";
-                            string nombreProveedorNuevo = proveedorNuevo != 0 ? cmbProveedor.GetItemText(cmbProveedor.Items[proveedorNuevo]) : "";
-                            descripcion += $"• Proveedor: {nombreProveedorAnterior} => {nombreProveedorNuevo}\n";
-                        }
+                            // Obtener el proveedor anterior y nuevo
+                            int proveedorAnterior = (int)this.registroActual.Proveedor.Id;
+                            int proveedorNuevo = (int)registroNuevo.Proveedor.Id;
 
-                        foreach (var propiedad in typeof(MateriaPrima).GetProperties())
-                        {
-                            object valorAnterior = propiedad.GetValue(this.registroActual)!;
-                            object valorNuevo = propiedad.GetValue(registroNuevo)!;
-
-                            if (!Equals(valorAnterior, valorNuevo))
+                            // Verificar si el proveedor ha cambiado
+                            if (proveedorAnterior != proveedorNuevo)
                             {
-                                string descripcionPropiedad = "";
+                                string nombreProveedorAnterior = proveedorAnterior != 0 ? cmbProveedor.GetItemText(cmbProveedor.Items[proveedorAnterior]) : "";
+                                string nombreProveedorNuevo = proveedorNuevo != 0 ? cmbProveedor.GetItemText(cmbProveedor.Items[proveedorNuevo]) : "";
+                                descripcion += $"• Proveedor: {nombreProveedorAnterior} => {nombreProveedorNuevo}\n";
+                            }
 
-                                if (propiedad.Name == "Proveedor")
+                            foreach (var propiedad in typeof(MateriaPrima).GetProperties())
+                            {
+                                object valorAnterior = propiedad.GetValue(this.registroActual)!;
+                                object valorNuevo = propiedad.GetValue(registroNuevo)!;
+
+                                if (!Equals(valorAnterior, valorNuevo))
                                 {
-                                    // El proveedor ya fue procesado antes, omitirlo aquí
-                                    continue;
-                                }
-                                else
-                                {
-                                    descripcionPropiedad = $"{propiedad.Name}: {valorAnterior} => {valorNuevo}";
-                                    descripcion += $"• {descripcionPropiedad}\n";
+                                    string descripcionPropiedad = "";
+
+                                    if (propiedad.Name == "Proveedor")
+                                    {
+                                        // El proveedor ya fue procesado antes, omitirlo aquí
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        descripcionPropiedad = $"{propiedad.Name}: {valorAnterior} => {valorNuevo}";
+                                        descripcion += $"• {descripcionPropiedad}\n";
+                                    }
                                 }
                             }
-                        }
 
-                        CrearRegistro(registroNuevo, registroNuevo.Id, descripcion);
-                        MostrarMensajeEmergente("EXITO", "Datos actualizados correctamente!");
-                        this.Guardado = true;
-                        this.Close();
+                            CrearRegistro(registroNuevo, registroNuevo.Id, descripcion);
+                            MostrarMensajeEmergente("EXITO", "Datos actualizados correctamente!");
+                            this.Guardado = true;
+                            this.Close();
+                        }
+                        else
+                        {
+                            MostrarMensajeEmergente("ERROR", "No se pudo actualizar");
+                            this.Close();
+                        }
                     }
                     else
                     {
-                        MostrarMensajeEmergente("ERROR", "No se pudo actualizar");
+                        MostrarMensajeEmergente("AVISO", "No hubieron cambios para guardar");
+                        this.Close();
                     }
                 }
                 else
                 {
-                    MostrarMensajeEmergente("AVISO", "No hubieron cambios para guardar");
+                    MostrarMensajeEmergente("AVISO", "La fecha de la última compra no puede ser mayor a la fecha actual");
                 }
-                this.Close();
             }
             catch (Exception ex)
             {
@@ -132,26 +144,33 @@ namespace GUIs.Visual
         {
             try
             {
-                if (ValidarCamposCrear())
+                if (fechaUltCompra.Value <= DateTime.Now)
                 {
-                    MateriaPrima materiaPrima = CargarDatosDeFormulario();
-                    int id = dBMateriaPrima.InsertarMateriaPrima(materiaPrima);
-                    if (id > 0)
+                    if (ValidarCamposCrear())
                     {
-                        CrearRegistro(materiaPrima, id, "•Se ha creado este commoditie");
-                        MostrarMensajeEmergente("EXITO", "Registro guardado correctamente!");
-                        this.Guardado = true;
-                        this.Close();
+                        MateriaPrima materiaPrima = CargarDatosDeFormulario();
+                        int id = dBMateriaPrima.InsertarMateriaPrima(materiaPrima);
+                        if (id > 0)
+                        {
+                            CrearRegistro(materiaPrima, id, "•Se ha creado este commoditie");
+                            MostrarMensajeEmergente("EXITO", "Registro guardado correctamente!");
+                            this.Guardado = true;
+                            this.Close();
+                        }
+                        else
+                        {
+                            MostrarMensajeEmergente("ERROR", "No se pudo guardar el registro!");
+                            this.Close();
+                        }
                     }
                     else
                     {
-                        MostrarMensajeEmergente("ERROR", "No se pudo guardar el registro!");
-                        this.Close();
+                        MostrarMensajeEmergente("AVISO", "Debe ingresar todos los campos correctamente");
                     }
                 }
                 else
                 {
-                    MostrarMensajeEmergente("AVISO", "Debe ingresar todos los campos");
+                    MostrarMensajeEmergente("AVISO", "La fecha de la última compra no puede ser mayor a la fecha actual");
                 }
             }
             catch (Exception ex)
@@ -193,7 +212,6 @@ namespace GUIs.Visual
             {
                 return false;
             }
-
             if (cmbColor.SelectedIndex == 0)
             {
                 return false;
@@ -301,11 +319,9 @@ namespace GUIs.Visual
                 materiaPrima.Precio = double.Parse(txtPrecio.Texts.Trim());
                 materiaPrima.FechaCompra = fechaUltCompra.Value;
                 materiaPrima.Color = ((Tuple<int, string>)cmbColor.SelectedItem).Item2;
-                Debug.WriteLine(materiaPrima.ToString());
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
                 throw new Exception(ex.Message);
             }
             return materiaPrima;
@@ -357,5 +373,6 @@ namespace GUIs.Visual
         {
             this.Close();
         }
+
     }
 }
