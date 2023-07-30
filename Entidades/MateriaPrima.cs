@@ -3,7 +3,8 @@
     public class MateriaPrima
     {
         private int id;
-        private string nombre;
+        private string categoria;
+        private string descripcion;
         private Proveedor proveedor;
         private int stock;
         private double precio;
@@ -13,7 +14,8 @@
         public MateriaPrima()
         {
             this.id = 0;
-            this.nombre = String.Empty;
+            this.categoria = String.Empty;
+            this.descripcion = String.Empty;
             this.proveedor = new Proveedor();
             this.stock = 0;
             this.precio = 0;
@@ -21,10 +23,11 @@
             this.color = String.Empty;
         }
 
-        public MateriaPrima(int id, string nombre, Proveedor proveedor, int stock, double precio, DateTime fechaCompra, string color)
+        public MateriaPrima(int id, string categoria, string descripcion, Proveedor proveedor, int stock, double precio, DateTime fechaCompra, string color)
         {
             Id = id;
-            Nombre = nombre;
+            Categoria = categoria;
+            Descripcion = descripcion;
             Proveedor = proveedor;
             Stock = stock;
             Precio = precio;
@@ -33,7 +36,8 @@
         }
 
         public int Id { get => id; set => id = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
+        public string Categoria { get => categoria; set => categoria = value; }
+        public string Descripcion { get => descripcion; set => descripcion = value; }
         public Proveedor Proveedor { get => proveedor; set => proveedor = value; }
         public int Stock { get => stock; set => stock = value; }
         public double Precio { get => precio; set => precio = value; }

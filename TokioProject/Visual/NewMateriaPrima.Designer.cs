@@ -30,6 +30,8 @@
         {
             lblTitulo = new Label();
             panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
+            cmbCategoria = new ComboBox();
+            label7 = new Label();
             cmbColor = new ComboBox();
             panelMod2 = new Individual.Visual.ComponentesMod.PanelMod();
             cmbProveedor = new ComboBox();
@@ -40,7 +42,7 @@
             txtStock = new CustomControls.RJControls.RJTextBox();
             label1 = new Label();
             txtPrecio = new CustomControls.RJControls.RJTextBox();
-            txtNombre = new CustomControls.RJControls.RJTextBox();
+            txtDescripcion = new CustomControls.RJControls.RJTextBox();
             label3 = new Label();
             label2 = new Label();
             btnGuardar = new Individual.Visual.ComponentesMod.RJButton();
@@ -64,13 +66,15 @@
             // 
             panelMod1.BackColor = Color.White;
             panelMod1.BorderRadius = 40;
+            panelMod1.Controls.Add(cmbCategoria);
+            panelMod1.Controls.Add(label7);
             panelMod1.Controls.Add(cmbColor);
             panelMod1.Controls.Add(panelMod2);
             panelMod1.Controls.Add(label5);
             panelMod1.Controls.Add(txtStock);
             panelMod1.Controls.Add(label1);
             panelMod1.Controls.Add(txtPrecio);
-            panelMod1.Controls.Add(txtNombre);
+            panelMod1.Controls.Add(txtDescripcion);
             panelMod1.Controls.Add(label3);
             panelMod1.Controls.Add(label2);
             panelMod1.ForeColor = Color.Black;
@@ -79,13 +83,32 @@
             panelMod1.GradientTopColor = Color.White;
             panelMod1.Location = new Point(23, 73);
             panelMod1.Name = "panelMod1";
-            panelMod1.Size = new Size(500, 280);
+            panelMod1.Size = new Size(590, 284);
             panelMod1.TabIndex = 1;
+            // 
+            // cmbCategoria
+            // 
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Location = new Point(118, 36);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(189, 23);
+            cmbCategoria.TabIndex = 22;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.DimGray;
+            label7.Location = new Point(21, 40);
+            label7.Name = "label7";
+            label7.Size = new Size(78, 19);
+            label7.TabIndex = 21;
+            label7.Text = "Categoria:";
             // 
             // cmbColor
             // 
             cmbColor.FormattingEnabled = true;
-            cmbColor.Location = new Point(118, 101);
+            cmbColor.Location = new Point(368, 36);
             cmbColor.Name = "cmbColor";
             cmbColor.Size = new Size(200, 23);
             cmbColor.TabIndex = 20;
@@ -102,7 +125,7 @@
             panelMod2.GradientAngle = 0F;
             panelMod2.GradientBottomColor = Color.WhiteSmoke;
             panelMod2.GradientTopColor = Color.WhiteSmoke;
-            panelMod2.Location = new Point(60, 147);
+            panelMod2.Location = new Point(107, 130);
             panelMod2.Name = "panelMod2";
             panelMod2.Size = new Size(375, 120);
             panelMod2.TabIndex = 19;
@@ -156,7 +179,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
-            label5.Location = new Point(27, 104);
+            label5.Location = new Point(313, 39);
             label5.Name = "label5";
             label5.Size = new Size(49, 19);
             label5.TabIndex = 17;
@@ -171,7 +194,7 @@
             txtStock.BorderSize = 1;
             txtStock.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             txtStock.ForeColor = Color.FromArgb(64, 64, 64);
-            txtStock.Location = new Point(409, 44);
+            txtStock.Location = new Point(376, 77);
             txtStock.Margin = new Padding(4);
             txtStock.Modified = false;
             txtStock.Multiline = false;
@@ -191,7 +214,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(359, 50);
+            label1.Location = new Point(326, 83);
             label1.Name = "label1";
             label1.Size = new Size(52, 19);
             label1.TabIndex = 12;
@@ -206,7 +229,7 @@
             txtPrecio.BorderSize = 1;
             txtPrecio.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             txtPrecio.ForeColor = Color.FromArgb(64, 64, 64);
-            txtPrecio.Location = new Point(409, 93);
+            txtPrecio.Location = new Point(509, 77);
             txtPrecio.Margin = new Padding(4);
             txtPrecio.Modified = false;
             txtPrecio.Multiline = false;
@@ -221,35 +244,35 @@
             txtPrecio.UnderlinedStyle = false;
             txtPrecio.KeyPress += tbPrecio_KeyPress;
             // 
-            // txtNombre
+            // txtDescripcion
             // 
-            txtNombre.BackColor = Color.White;
-            txtNombre.BorderColor = SystemColors.ActiveBorder;
-            txtNombre.BorderFocusColor = SystemColors.ActiveCaption;
-            txtNombre.BorderRadius = 10;
-            txtNombre.BorderSize = 1;
-            txtNombre.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNombre.ForeColor = Color.FromArgb(64, 64, 64);
-            txtNombre.Location = new Point(118, 44);
-            txtNombre.Margin = new Padding(4);
-            txtNombre.Modified = false;
-            txtNombre.Multiline = false;
-            txtNombre.Name = "txtNombre";
-            txtNombre.Padding = new Padding(10, 7, 10, 7);
-            txtNombre.PasswordChar = false;
-            txtNombre.PlaceholderColor = Color.DarkGray;
-            txtNombre.PlaceholderText = "";
-            txtNombre.Size = new Size(200, 31);
-            txtNombre.TabIndex = 2;
-            txtNombre.Texts = "";
-            txtNombre.UnderlinedStyle = false;
+            txtDescripcion.BackColor = Color.White;
+            txtDescripcion.BorderColor = SystemColors.ActiveBorder;
+            txtDescripcion.BorderFocusColor = SystemColors.ActiveCaption;
+            txtDescripcion.BorderRadius = 10;
+            txtDescripcion.BorderSize = 1;
+            txtDescripcion.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDescripcion.ForeColor = Color.FromArgb(64, 64, 64);
+            txtDescripcion.Location = new Point(118, 77);
+            txtDescripcion.Margin = new Padding(4);
+            txtDescripcion.Modified = false;
+            txtDescripcion.Multiline = false;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Padding = new Padding(10, 7, 10, 7);
+            txtDescripcion.PasswordChar = false;
+            txtDescripcion.PlaceholderColor = Color.DarkGray;
+            txtDescripcion.PlaceholderText = "";
+            txtDescripcion.Size = new Size(200, 31);
+            txtDescripcion.TabIndex = 2;
+            txtDescripcion.Texts = "";
+            txtDescripcion.UnderlinedStyle = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(344, 99);
+            label3.Location = new Point(444, 83);
             label3.Name = "label3";
             label3.Size = new Size(68, 19);
             label3.TabIndex = 1;
@@ -260,11 +283,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(27, 50);
+            label2.Location = new Point(21, 83);
             label2.Name = "label2";
-            label2.Size = new Size(66, 19);
+            label2.Size = new Size(90, 19);
             label2.TabIndex = 0;
-            label2.Text = "Nombre:";
+            label2.Text = "Descripción:";
             // 
             // btnGuardar
             // 
@@ -277,7 +300,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Britanica-Heavy", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(388, 368);
+            btnGuardar.Location = new Point(478, 379);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(135, 35);
             btnGuardar.TabIndex = 2;
@@ -298,7 +321,7 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Britanica-Heavy", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ForeColor = Color.FromArgb(128, 27, 141);
-            btnCancelar.Location = new Point(247, 368);
+            btnCancelar.Location = new Point(336, 380);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(135, 35);
             btnCancelar.TabIndex = 3;
@@ -310,7 +333,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(550, 430);
+            ClientSize = new Size(637, 438);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(panelMod1);
@@ -338,7 +361,7 @@
         private Label label4;
         private Label label1;
         public CustomControls.RJControls.RJTextBox txtPrecio;
-        public CustomControls.RJControls.RJTextBox txtNombre;
+        public CustomControls.RJControls.RJTextBox txtDescripcion;
         public CustomControls.RJControls.RJTextBox txtStock;
         public Label lblTitulo;
         public DateTimePicker fechaUltCompra;
@@ -347,5 +370,7 @@
         public ComboBox cmbColor;
         public ComboBox cmbProveedor;
         public Individual.Visual.ComponentesMod.PanelMod panelMod1;
+        private Label label7;
+        public ComboBox cmbCategoria;
     }
 }

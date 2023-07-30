@@ -39,6 +39,7 @@ namespace GUIs.Visual
             {
                 this.ActiveControl = null;
                 lblTitulo.Text = "Editar Materia Prima";
+                cmbCategoria.Enabled = false;
             }
         }
 
@@ -70,7 +71,7 @@ namespace GUIs.Visual
             {
                 if (fechaUltCompra.Value <= DateTime.Now)
                 {
-                    if(FueronModificados())
+                    if (FueronModificados())
                     {
                         MateriaPrima registroNuevo = CargarDatosDeFormulario();
 
@@ -181,7 +182,7 @@ namespace GUIs.Visual
 
         private bool FueronModificados()
         {
-            RJTextBox[] textBoxs = { txtNombre, txtPrecio, txtStock };
+            RJTextBox[] textBoxs = { txtDescripcion, txtPrecio, txtStock };
             foreach (RJTextBox textbox in textBoxs)
             {
                 if (textbox.Modified)
@@ -208,7 +209,11 @@ namespace GUIs.Visual
 
         private bool ValidarCamposCrear()
         {
-            if (utilidades.estaVacio(txtNombre.Texts, txtPrecio.Texts, txtStock.Texts))
+            if (utilidades.estaVacio(txtDescripcion.Texts, txtPrecio.Texts, txtStock.Texts))
+            {
+                return false;
+            }
+            if (cmbCategoria.SelectedIndex == 0)
             {
                 return false;
             }
@@ -226,6 +231,7 @@ namespace GUIs.Visual
 
         private void CargarDatos()
         {
+            CargarCategoria();
             CargarColores();
             CargarProveedores();
         }
@@ -255,6 +261,32 @@ namespace GUIs.Visual
             cmbColor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbColor.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
+        private void CargarCategoria()
+        {
+            var categorias = new List<Tuple<int, string>>();
+
+            dataBase.consultar("SELECT id, nombreCategoria FROM CategoriaMateriaPrima;");
+            DataTable table = dataBase.Ds.Tables[0];
+
+            foreach (DataRow row in table.Rows)
+            {
+                int id = (int)row["id"];
+                string nombreCategoria = (string)row["nombreCategoria"];
+
+                categorias.Add(new Tuple<int, string>(id, nombreCategoria));
+            }
+
+            var categoriaElegir = new Tuple<int, string>(0, "Elija un categoria...");
+            categorias.Insert(0, categoriaElegir);
+
+            cmbCategoria.DataSource = categorias;
+            cmbCategoria.DisplayMember = "Item2";
+            cmbCategoria.ValueMember = "Item1";
+
+            cmbCategoria.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbCategoria.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
+
 
         private void CargarProveedores()
         {
@@ -313,7 +345,8 @@ namespace GUIs.Visual
             try
             {
                 materiaPrima.Id = this.id;
-                materiaPrima.Nombre = txtNombre.Texts.Trim();
+                materiaPrima.Categoria = ((Tuple<int, string>)cmbCategoria.SelectedItem).Item2;
+                materiaPrima.Descripcion = txtDescripcion.Texts.Trim();
                 materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
                 materiaPrima.Stock = int.Parse(txtStock.Texts.Trim());
                 materiaPrima.Precio = double.Parse(txtPrecio.Texts.Trim());

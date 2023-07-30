@@ -318,7 +318,7 @@ namespace GUIs.Visual
             // 
             cbCantidad.Location = new Point(616, 28);
             cbCantidad.Name = "cbCantidad";
-            cbCantidad.Size = new Size(45, 24);
+            cbCantidad.Size = new Size(45, 23);
             cbCantidad.TabIndex = 26;
             // 
             // panel1
@@ -344,11 +344,10 @@ namespace GUIs.Visual
             lblDesc.Size = new Size(92, 19);
             lblDesc.TabIndex = 31;
             lblDesc.Text = "Descripción";
-            lblDesc.Visible = false;
             // 
             // lblDescripcion
             // 
-            lblDescripcion.Font = new Font("Britanica-Bold", 9.749999F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDescripcion.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             lblDescripcion.ForeColor = SystemColors.Window;
             lblDescripcion.Location = new Point(10, 26);
             lblDescripcion.Name = "lblDescripcion";

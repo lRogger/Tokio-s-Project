@@ -101,7 +101,6 @@ namespace Datos
             SqlDataReader reader = comando.ExecuteReader();
 
             return reader;
-
         }
 
 

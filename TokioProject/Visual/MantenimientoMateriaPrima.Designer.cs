@@ -34,7 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             materiaPrimaDGV = new DataGridView();
             id = new DataGridViewTextBoxColumn();
-            nombre = new DataGridViewTextBoxColumn();
+            nombre_categoria = new DataGridViewTextBoxColumn();
             color = new DataGridViewTextBoxColumn();
             stock = new DataGridViewTextBoxColumn();
             proveedor = new DataGridViewTextBoxColumn();
@@ -49,9 +49,14 @@
             btnEditar = new Button();
             cbCantidad = new NumericUpDown();
             panel1 = new Panel();
+            lblMedida = new Label();
+            lblDesc = new Label();
+            lblDescripcion = new Label();
             btnMenos = new Individual.Visual.ComponentesMod.RJButton();
             btnSuma = new Individual.Visual.ComponentesMod.RJButton();
             label2 = new Label();
+            label3 = new Label();
+            cbCategoria = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)materiaPrimaDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbCantidad).BeginInit();
             panel1.SuspendLayout();
@@ -77,7 +82,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             materiaPrimaDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             materiaPrimaDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            materiaPrimaDGV.Columns.AddRange(new DataGridViewColumn[] { id, nombre, color, stock, proveedor, precio, fecha_compra });
+            materiaPrimaDGV.Columns.AddRange(new DataGridViewColumn[] { id, nombre_categoria, color, stock, proveedor, precio, fecha_compra });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -102,7 +107,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             materiaPrimaDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             materiaPrimaDGV.RowHeadersVisible = false;
-            materiaPrimaDGV.RowHeadersWidth = 4;
+            materiaPrimaDGV.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(51, 51, 102);
             materiaPrimaDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             materiaPrimaDGV.RowTemplate.Height = 25;
@@ -110,32 +115,40 @@
             materiaPrimaDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             materiaPrimaDGV.Size = new Size(720, 472);
             materiaPrimaDGV.TabIndex = 11;
+            materiaPrimaDGV.CellClick += materiaPrimaDGV_CellClick;
             // 
             // id
             // 
+            id.Frozen = true;
             id.HeaderText = "ID";
             id.Name = "id";
             id.ReadOnly = true;
+            id.Resizable = DataGridViewTriState.False;
             id.Width = 30;
             // 
-            // nombre
+            // nombre_categoria
             // 
-            nombre.HeaderText = "Nombre";
-            nombre.Name = "nombre";
-            nombre.ReadOnly = true;
-            nombre.Width = 165;
+            nombre_categoria.Frozen = true;
+            nombre_categoria.HeaderText = "Categoria";
+            nombre_categoria.Name = "nombre_categoria";
+            nombre_categoria.ReadOnly = true;
+            nombre_categoria.Resizable = DataGridViewTriState.False;
+            nombre_categoria.Width = 150;
             // 
             // color
             // 
+            color.Frozen = true;
             color.HeaderText = "Color";
             color.Name = "color";
             color.ReadOnly = true;
+            color.Resizable = DataGridViewTriState.False;
             // 
             // stock
             // 
             stock.HeaderText = "Stock";
             stock.Name = "stock";
             stock.ReadOnly = true;
+            stock.Resizable = DataGridViewTriState.False;
             stock.Width = 50;
             // 
             // proveedor
@@ -143,19 +156,23 @@
             proveedor.HeaderText = "Proveedor";
             proveedor.Name = "proveedor";
             proveedor.ReadOnly = true;
-            proveedor.Width = 165;
+            proveedor.Resizable = DataGridViewTriState.False;
+            proveedor.Width = 150;
             // 
             // precio
             // 
-            precio.HeaderText = "Precio Unitario";
+            precio.HeaderText = "Precio Total";
             precio.Name = "precio";
             precio.ReadOnly = true;
+            precio.Resizable = DataGridViewTriState.False;
             // 
             // fecha_compra
             // 
             fecha_compra.HeaderText = "Ultima Compra";
             fecha_compra.Name = "fecha_compra";
             fecha_compra.ReadOnly = true;
+            fecha_compra.Resizable = DataGridViewTriState.False;
+            fecha_compra.Width = 150;
             // 
             // buscarMateriaPrima
             // 
@@ -165,7 +182,7 @@
             buscarMateriaPrima.Location = new Point(12, 66);
             buscarMateriaPrima.Name = "buscarMateriaPrima";
             buscarMateriaPrima.PlaceholderText = " 🔎 Buscar...";
-            buscarMateriaPrima.Size = new Size(468, 20);
+            buscarMateriaPrima.Size = new Size(294, 20);
             buscarMateriaPrima.TabIndex = 12;
             buscarMateriaPrima.TextChanged += buscarMateriaPrima_TextChanged_1;
             // 
@@ -182,9 +199,9 @@
             cbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProveedor.Font = new Font("Britanica-Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cbProveedor.FormattingEnabled = true;
-            cbProveedor.Location = new Point(577, 65);
+            cbProveedor.Location = new Point(592, 64);
             cbProveedor.Name = "cbProveedor";
-            cbProveedor.Size = new Size(155, 23);
+            cbProveedor.Size = new Size(140, 23);
             cbProveedor.TabIndex = 19;
             cbProveedor.SelectedIndexChanged += cbProveedor_SelectedIndexChanged_1;
             // 
@@ -193,7 +210,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(486, 67);
+            label1.Location = new Point(507, 67);
             label1.Name = "label1";
             label1.Size = new Size(82, 19);
             label1.TabIndex = 20;
@@ -264,13 +281,45 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(128, 27, 141);
+            panel1.Controls.Add(lblMedida);
+            panel1.Controls.Add(lblDesc);
+            panel1.Controls.Add(lblDescripcion);
             panel1.Controls.Add(btnMenos);
             panel1.Controls.Add(btnSuma);
             panel1.Controls.Add(cbCantidad);
             panel1.Location = new Point(12, 577);
             panel1.Name = "panel1";
-            panel1.Size = new Size(720, 61);
+            panel1.Size = new Size(720, 69);
             panel1.TabIndex = 27;
+            // 
+            // lblMedida
+            // 
+            lblMedida.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMedida.ForeColor = SystemColors.Window;
+            lblMedida.Location = new Point(3, 47);
+            lblMedida.Name = "lblMedida";
+            lblMedida.Size = new Size(122, 22);
+            lblMedida.TabIndex = 33;
+            // 
+            // lblDesc
+            // 
+            lblDesc.AutoSize = true;
+            lblDesc.Font = new Font("Britanica-Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDesc.ForeColor = SystemColors.Window;
+            lblDesc.Location = new Point(3, 2);
+            lblDesc.Name = "lblDesc";
+            lblDesc.Size = new Size(92, 19);
+            lblDesc.TabIndex = 32;
+            lblDesc.Text = "Descripción";
+            // 
+            // lblDescripcion
+            // 
+            lblDescripcion.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDescripcion.ForeColor = SystemColors.Window;
+            lblDescripcion.Location = new Point(3, 21);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(122, 23);
+            lblDescripcion.TabIndex = 31;
             // 
             // btnMenos
             // 
@@ -286,7 +335,7 @@
             btnMenos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnMenos.ForeColor = Color.White;
             btnMenos.ImageAlign = ContentAlignment.TopCenter;
-            btnMenos.Location = new Point(565, 15);
+            btnMenos.Location = new Point(565, 17);
             btnMenos.Margin = new Padding(0);
             btnMenos.Name = "btnMenos";
             btnMenos.RightToLeft = RightToLeft.Yes;
@@ -310,7 +359,7 @@
             btnSuma.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnSuma.ForeColor = Color.White;
             btnSuma.ImageAlign = ContentAlignment.TopCenter;
-            btnSuma.Location = new Point(667, 15);
+            btnSuma.Location = new Point(667, 16);
             btnSuma.Margin = new Padding(0);
             btnSuma.Name = "btnSuma";
             btnSuma.RightToLeft = RightToLeft.Yes;
@@ -331,6 +380,28 @@
             label2.Size = new Size(0, 16);
             label2.TabIndex = 28;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.ControlDarkDark;
+            label3.Location = new Point(312, 67);
+            label3.Name = "label3";
+            label3.Size = new Size(78, 19);
+            label3.TabIndex = 30;
+            label3.Text = "Categoria:";
+            // 
+            // cbCategoria
+            // 
+            cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCategoria.Font = new Font("Britanica-Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            cbCategoria.FormattingEnabled = true;
+            cbCategoria.Location = new Point(393, 64);
+            cbCategoria.Name = "cbCategoria";
+            cbCategoria.Size = new Size(112, 23);
+            cbCategoria.TabIndex = 29;
+            cbCategoria.SelectedIndexChanged += cbCategoria_SelectedIndexChanged;
+            // 
             // MantenimientoMateriaPrima
             // 
             AllowDrop = true;
@@ -338,6 +409,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
             ClientSize = new Size(744, 650);
+            Controls.Add(label3);
+            Controls.Add(cbCategoria);
             Controls.Add(materiaPrimaDGV);
             Controls.Add(label2);
             Controls.Add(panel1);
@@ -374,12 +447,17 @@
         private Individual.Visual.ComponentesMod.RJButton btnSuma;
         private Label label2;
         public Button btnCrear;
+        private Label lblDescripcion;
         private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn nombre_categoria;
         private DataGridViewTextBoxColumn color;
         private DataGridViewTextBoxColumn stock;
         private DataGridViewTextBoxColumn proveedor;
         private DataGridViewTextBoxColumn precio;
         private DataGridViewTextBoxColumn fecha_compra;
+        private Label lblDesc;
+        private Label label3;
+        private ComboBox cbCategoria;
+        private Label lblMedida;
     }
 }

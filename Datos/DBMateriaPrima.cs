@@ -21,12 +21,13 @@ namespace Datos
                     {
                         MateriaPrima materiaPrima = new MateriaPrima();
                         materiaPrima.Id = (int)reader[0];
-                        materiaPrima.Nombre = (string)reader[1];
-                        materiaPrima.Color = (string)reader[2];
-                        materiaPrima.Proveedor.Nombre = (string)reader[3];
-                        materiaPrima.Stock = (int)reader[4];
-                        materiaPrima.Precio = (double)reader[5];
-                        materiaPrima.FechaCompra = (DateTime)reader[6];
+                        materiaPrima.Categoria = (string)reader[1];
+                        materiaPrima.Descripcion = (string)reader[2];
+                        materiaPrima.Color = (string)reader[3];
+                        materiaPrima.Proveedor.Nombre = (string)reader[4];
+                        materiaPrima.Stock = (int)reader[5];
+                        materiaPrima.Precio = (double)reader[6];
+                        materiaPrima.FechaCompra = (DateTime)reader[7];
 
                         lista.Add(materiaPrima);
                     }
@@ -46,8 +47,9 @@ namespace Datos
             {
                 using (SqlConnection cn = dataBase.conectarDB())
                 {
-                    using (SqlCommand cmd = new SqlCommand($"SELECT M.id, M.nombre, M.proveedorId, M.stock, M.precio, M.fechaCompra," +
-                                                           $"(SELECT Color FROM Colores WHERE IdColor = M.colorId) AS Color " +
+                    using (SqlCommand cmd = new SqlCommand($"SELECT M.id,(SELECT nombreCategoria FROM CategoriaMateriaPrima WHERE id = M.categoriaId) [nombreCategoria]," +
+                                                           $"M.descripcion, M.proveedorId, M.stock, M.precio, M.fechaCompra," +
+                                                           $"(SELECT Color FROM Colores WHERE IdColor = M.colorId) [Color]" +
                                                            $"FROM MateriaPrima M WHERE Id = @id", cn))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
@@ -57,13 +59,13 @@ namespace Datos
                             if (reader.Read())
                             {
                                 materiaPrima.Id = (int)reader["id"];
-                                materiaPrima.Nombre = (string)reader["nombre"];
+                                materiaPrima.Categoria = (string)reader["nombreCategoria"];
+                                materiaPrima.Descripcion = (string)reader["descripcion"];
                                 materiaPrima.Proveedor.Id = (int)reader["proveedorId"];
                                 materiaPrima.Stock = (int)reader["stock"];
                                 materiaPrima.Precio = (double)reader["precio"];
                                 materiaPrima.FechaCompra = (DateTime)reader["fechaCompra"];
                                 materiaPrima.Color = (string)reader["Color"];
-
                             }
                         }
                     }
@@ -85,7 +87,8 @@ namespace Datos
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@nombre", materiaPrima.Nombre);
+                        cmd.Parameters.AddWithValue("@categoria", materiaPrima.Categoria);
+                        cmd.Parameters.AddWithValue("@descripcion", materiaPrima.Descripcion);
                         cmd.Parameters.AddWithValue("@proveedorId", materiaPrima.Proveedor.Id);
                         cmd.Parameters.AddWithValue("@stock", materiaPrima.Stock);
                         cmd.Parameters.AddWithValue("@precio", materiaPrima.Precio);
@@ -124,7 +127,7 @@ namespace Datos
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@id", materiaPrima.Id);
-                        cmd.Parameters.AddWithValue("@nombre", materiaPrima.Nombre);
+                        cmd.Parameters.AddWithValue("@descripcion", materiaPrima.Descripcion);
                         cmd.Parameters.AddWithValue("@proveedorId", materiaPrima.Proveedor.Id);
                         cmd.Parameters.AddWithValue("@stock", materiaPrima.Stock);
                         cmd.Parameters.AddWithValue("@precio", materiaPrima.Precio);
