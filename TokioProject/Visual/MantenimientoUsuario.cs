@@ -2,7 +2,7 @@
 using System.Data;
 using Entidades;
 using System.Windows.Forms;
-
+using RestSharp;
 
 namespace Individual.Visual
 {
@@ -154,7 +154,7 @@ namespace Individual.Visual
         }
 
 
-        private void CargarTabla()
+        private async void CargarTabla()
         {
 
             try
@@ -170,17 +170,21 @@ namespace Individual.Visual
                 btnEliminar.Enabled = true;
 
                 usersDGV.Rows.Clear();
+
+                
                 foreach (Persona persona in listaPersonas)
                 {
                     if (persona.Cedula != "0")
                     {
+
                         int edad = DateTime.Today.Year - persona.Edad.Year;
                         if (DateTime.Today.Month >= persona.Edad.Month)
                             if (DateTime.Today.Day < persona.Edad.Day)
                                 edad--;
-
+                        Imgur imgur = new Imgur();
+                        Image imagen = Image.FromStream(await imgur.ObtenerImagenUrl(persona.Foto));
                         usersDGV.Rows.Add(persona.Id, persona.Cedula, persona.Nombre, persona.Correo
-                            , edad, new System.Net.WebClient().DownloadData(persona.Foto));
+                            , edad, imagen);
                     }
                 }
 

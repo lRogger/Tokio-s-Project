@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Google.Protobuf.WellKnownTypes;
+using Microsoft.EntityFrameworkCore.Metadata;
+using MySql.Data.MySqlClient.Memcached;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Asn1.Crmf;
+using RestSharp;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Datos
 {
@@ -12,6 +19,8 @@ namespace Datos
     {
         private dynamic json;
         public dynamic Json { get => json; set => json = value; }
+        static string apiKey = "f84f7d23f1f95ec";
+
 
         public Imgur()
         {
@@ -20,9 +29,7 @@ namespace Datos
 
         public async Task<string> SubirImagen(byte[] imgBt)
         {
-
-
-            string apiKey = "f84f7d23f1f95ec";
+            
 
             // Crea una nueva solicitud HTTP POST
             using (var client = new HttpClient())
@@ -55,6 +62,42 @@ namespace Datos
                 }
             }
             return Json.data.link;
+        }
+
+        public async Task<Stream> ObtenerImagen(string imageHash)
+        {
+            var client = new RestClient($"https://api.imgur.com/3/image/{imageHash}");
+            var request = new RestRequest();
+            request.Method = RestSharp.Method.Get;
+            request.AddHeader("Authorization", $"Client-ID {apiKey}");
+
+            var response = await client.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+            {
+                var responseJson = response.Content;
+                dynamic jsonData = JsonConvert.DeserializeObject(responseJson);
+                string imageUrl = jsonData.data.link;
+
+                using (var httpClient = new HttpClient())
+                {
+                    var imageBytes = await httpClient.GetByteArrayAsync(imageUrl);
+                    return new MemoryStream(imageBytes);
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<Stream> ObtenerImagenUrl(string imageUrl)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var imageBytes = await httpClient.GetByteArrayAsync(imageUrl);
+                return new MemoryStream(imageBytes);
+            }
         }
     }
 }

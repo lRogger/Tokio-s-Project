@@ -6,6 +6,9 @@ using System.Globalization;
 using LibreriaGrupal;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using System.Data;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace GUIs.Visual
 {
@@ -24,11 +27,13 @@ namespace GUIs.Visual
             cbCateg.SelectedIndex = 0;
             cbColor.SelectedIndex = 0;
             cbTalla.SelectedIndex = 0;
-            
+            dgvInsumos.AllowUserToAddRows = false;
+
         }
 
         public NewProduct(int id)
         {
+
             InitializeComponent();
             Cargardatos();
             db = new DataBase();
@@ -36,7 +41,7 @@ namespace GUIs.Visual
             cbCateg.SelectedIndex = 0;
             cbColor.SelectedIndex = 0;
             cbTalla.SelectedIndex = 0;
-            
+
         }
 
         private void Cargardatos()
@@ -52,19 +57,57 @@ namespace GUIs.Visual
             cbTalla.DataSource = CargarListaTalla().Tables[0];
             cbTalla.DisplayMember = "Talla";
             cbTalla.ValueMember = "IdTalla";
+
+            /*
+            tbInsumos.AutoCompleteCustomSource = AutoCompletarSuggest(CargarListaInsumos(), "Insumo");
+            tbInsumos.Tag = CargarListaInsumos().Tables[0].Columns["id"];
+            tbInsumos.AutoCompleteMode = AutoCompleteMode.Suggest;
+            tbInsumos.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            */
+
+
+            cbInsumos.DataSource = CargarListaInsumos().Tables[0];
+            cbInsumos.DisplayMember = "Insumo";
+            cbInsumos.ValueMember = "id";
+            cbInsumos.SelectedItem = null;
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(id == -1)
+            if (id == -1)
             {
                 Enviar();
 
-            }else
+            }
+            else
             {
                 Editar();
             }
-            
+
+        }
+
+        private AutoCompleteStringCollection AutoCompletarSuggest(DataSet ds, string columna)
+        {
+            var lista = new AutoCompleteStringCollection();
+            foreach (DataRow fila in ds.Tables[0].Rows)
+            {
+                lista.Add(Convert.ToString(fila[columna]));
+            }
+            return lista;
+
+        }
+
+        private DataSet CargarListaInsumos()
+        {
+
+            DataBase dsc = new DataBase();
+            dsc.consultar("SELECT " +
+                                "id, " +
+                                "descripcion + '(' + CAST(Stock AS VARCHAR) + ')' AS Insumo " +
+                            "FROM MateriaPrima " +
+                            "WHERE Stock > 0;");
+            return dsc.Ds;
         }
 
         private DataSet CargarListaColores()
@@ -96,10 +139,10 @@ namespace GUIs.Visual
 
                 Prenda productoNuevo = new Prenda();
                 productoNuevo.Nombre = tbNombreProd.Texts;
-                productoNuevo.Categoria = cbCateg.SelectedValue?.ToString()+"";
-                productoNuevo.Talla = cbTalla.SelectedValue?.ToString()+"";
+                productoNuevo.Categoria = cbCateg.SelectedValue?.ToString() + "";
+                productoNuevo.Talla = cbTalla.SelectedValue?.ToString() + "";
                 productoNuevo.Descripcion = tbDescrip.Texts;
-                productoNuevo.Color = cbColor.SelectedValue?.ToString()+"";
+                productoNuevo.Color = cbColor.SelectedValue?.ToString() + "";
                 productoNuevo.Stock = Int32.Parse(tbStock.Texts);
                 productoNuevo.Precio = Double.Parse(tbPrecio.Texts);
                 productoNuevo.Id = id;
@@ -116,7 +159,7 @@ namespace GUIs.Visual
 
                 var productos = new DBProducto().LeerProducto(id);
                 Prenda productoAnterior = productos[0];
-                if (productoNuevo.Stock==0)
+                if (productoNuevo.Stock == 0)
                 {
                     productoNuevo.Activo = false;
                 }
@@ -139,7 +182,9 @@ namespace GUIs.Visual
                 if (productoNuevo.Stock == 0)
                 {
                     registro.Descripcion = "•Se ha inactivado el producto por falta de stock\n";
-                }else if(productoAnterior.Stock == 0 && productoNuevo.Stock>0)  {
+                }
+                else if (productoAnterior.Stock == 0 && productoNuevo.Stock > 0)
+                {
                     registro.Descripcion = "•Se ha activado el producto por ingreso de stock\n";
                 }
 
@@ -154,20 +199,20 @@ namespace GUIs.Visual
                     }
                 }
                 registro.Cantidad = productoNuevo.Stock - productoAnterior.Stock;
-                new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
+                new DBRegistros().CrearRegistro(registro, "p" + registro.Producto.Id.ToString());
 
                 //-------------------------------------------------------------------
 
                 //SECCION DONDE SE CREA EL BALANCE
-                if(registro.Cantidad < 0)
+                if (registro.Cantidad < 0)
                 {
                     Balances b = new Balances();
                     b.Producto = "p" + productoNuevo.Id;
                     b.Fecha = DateTime.Now;
-                    b.Valor = -1*(productoNuevo.Precio * (double)registro.Cantidad);
+                    b.Valor = -1 * (productoNuevo.Precio * (double)registro.Cantidad);
                     new DBbalance().InsertarBalance(b);
                 }
-                
+
                 //-------------------------------------------------------------------
 
                 this.Close();
@@ -180,14 +225,14 @@ namespace GUIs.Visual
 
         private void Enviar()
         {
-            if(tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
+            if (tbNombreProd.Texts.Trim() != "" && tbPrecio.Texts.Trim() != "" && tbStock.Texts.Trim() != "")
             {
                 Prenda p = new Prenda();
                 p.Nombre = tbNombreProd.Texts;
-                p.Categoria = cbCateg.SelectedValue?.ToString()+"";
-                p.Talla = cbTalla.SelectedValue?.ToString()+"";
+                p.Categoria = cbCateg.SelectedValue?.ToString() + "";
+                p.Talla = cbTalla.SelectedValue?.ToString() + "";
                 p.Descripcion = tbDescrip.Texts.ToString();
-                p.Color = cbColor.SelectedValue?.ToString()+"";
+                p.Color = cbColor.SelectedValue?.ToString() + "";
                 p.Stock = Int32.Parse(tbStock.Texts);
                 p.Precio = Double.Parse(tbPrecio.Texts);
 
@@ -195,6 +240,10 @@ namespace GUIs.Visual
 
                 //INSERCIÓN DE PRODUCTO
                 p.Id = new DBProducto().CrearProducto(p);
+                foreach (DataGridViewRow fila in dgvInsumos.Rows)
+                {
+                    new DBMateriaPrima().AlterarStock("restar", Convert.ToInt32(fila.Cells["IdInsumo"].Value), Convert.ToInt32(fila.Cells["Cantidad"].Value));
+                }
 
                 //SECCION DONDE SE CREA EL REGISTRO
                 var owner = this.Owner as FrmPrincipal;
@@ -205,7 +254,18 @@ namespace GUIs.Visual
                 registro.Producto = p;
                 registro.Descripcion = "•Se ha creado este producto";
                 registro.Cantidad = p.Stock;
-                new DBRegistros().CrearRegistro(registro, "p"+registro.Producto.Id.ToString());
+                new DBRegistros().CrearRegistro(registro, "p" + registro.Producto.Id.ToString());
+
+                foreach (DataGridViewRow fila in dgvInsumos.Rows)
+                {
+                    registro.Fecha = DateTime.Now;
+                    registro.Usuario = owner!.Sesion;
+                    registro.Descripcion = "•Stock alterado para producto: " + p.Nombre;
+                    registro.Cantidad = -Convert.ToInt32(fila.Cells["Cantidad"].Value);
+                    new DBRegistros().CrearRegistro(registro, "m" + Convert.ToInt32(fila.Cells["IdInsumo"].Value));
+                }
+
+
                 //-------------------------------------------------------------------
                 this.Close();
             }
@@ -259,6 +319,68 @@ namespace GUIs.Visual
             {
                 Left = Left + (e.X - posX);
                 Top = Top + (e.Y - posY);
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            int num = Convert.ToInt32(Regex.Match(cbInsumos.Text, @"\((\d+)\)").Groups[1].Value);
+            int conteo = 0;
+            var insumo = cbInsumos.Text.Substring(0, cbInsumos.Text.IndexOf("("));
+            if (cbCantidad.Value > 0 && cbCantidad.Value <= num)
+            {
+                if (dgvInsumos.RowCount > 0)
+                {
+                    foreach (DataGridViewRow fila in dgvInsumos.Rows)
+                    {
+                        string nombreInsumo = "" + fila.Cells["Insumo"].Value.ToString();
+                        int cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value);
+
+                        if (nombreInsumo == insumo)
+                        {
+                            conteo += cantidad;
+                        }
+                    }
+                    if (num - conteo < cbCantidad.Value)
+                    {
+
+                        new Emergente("advertencia", "ERROR", "Ingrese una cantidad válida.").ShowDialog();
+                    }
+                    else
+                    {
+                        dgvInsumos.Rows.Add(cbInsumos.SelectedValue, insumo, cbCantidad.Text);
+                    }
+                }
+                else
+                    dgvInsumos.Rows.Add(cbInsumos.SelectedValue, insumo, cbCantidad.Text);
+            }
+            else
+                new Emergente("advertencia", "ERROR", "Ingrese una cantidad válida").ShowDialog();
+        }
+
+
+
+        private void cbInsumos_SelectedValueChanged(object sender, EventArgs e)
+        {
+            /*
+            string num = Regex.Match(cbInsumos.Text, @"\((\d+)\)").Groups[1].Value;
+            if (num != "" && num != null)
+                cbCantidad.Maximum = Convert.ToInt32(num);
+            */
+        }
+
+        private void cbInsumos_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnQuitar_Click_1(object sender, EventArgs e)
+        {
+            if (dgvInsumos.SelectedRows.Count > 0)
+            {
+                int rowIndex = dgvInsumos.SelectedRows[0].Index;
+                dgvInsumos.Rows.RemoveAt(rowIndex);
             }
         }
     }
