@@ -324,6 +324,12 @@ namespace GUIs.Visual
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (cbInsumos.SelectedIndex == -1) // Verificar si el ComboBox está vacío
+            {
+                new Emergente("advertencia", "ERROR", "Seleccione un insumo primero.").ShowDialog();
+                return; // Salir del método sin ejecutar el resto del código
+            }
+
             int num = Convert.ToInt32(Regex.Match(cbInsumos.Text, @"\((\d+)\)").Groups[1].Value);
             int conteo = 0;
             var insumo = cbInsumos.Text.Substring(0, cbInsumos.Text.IndexOf("("));

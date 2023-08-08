@@ -318,7 +318,7 @@ namespace GUIs.Visual
             // 
             cbCantidad.Location = new Point(616, 28);
             cbCantidad.Name = "cbCantidad";
-            cbCantidad.Size = new Size(45, 23);
+            cbCantidad.Size = new Size(45, 24);
             cbCantidad.TabIndex = 26;
             // 
             // panel1
