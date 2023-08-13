@@ -47,6 +47,8 @@
             label2 = new Label();
             btnGuardar = new Individual.Visual.ComponentesMod.RJButton();
             btnCancelar = new Individual.Visual.ComponentesMod.RJButton();
+            lblNombre = new Label();
+            txtNombre = new CustomControls.RJControls.RJTextBox();
             panelMod1.SuspendLayout();
             panelMod2.SuspendLayout();
             SuspendLayout();
@@ -54,11 +56,11 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Britanica-Heavy", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = Color.FromArgb(128, 27, 141);
             lblTitulo.Location = new Point(23, 23);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(338, 42);
+            lblTitulo.Size = new Size(343, 39);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Nueva Materia Prima";
             // 
@@ -66,6 +68,8 @@
             // 
             panelMod1.BackColor = Color.White;
             panelMod1.BorderRadius = 40;
+            panelMod1.Controls.Add(txtNombre);
+            panelMod1.Controls.Add(lblNombre);
             panelMod1.Controls.Add(cmbCategoria);
             panelMod1.Controls.Add(label7);
             panelMod1.Controls.Add(cmbColor);
@@ -83,7 +87,7 @@
             panelMod1.GradientTopColor = Color.White;
             panelMod1.Location = new Point(23, 73);
             panelMod1.Name = "panelMod1";
-            panelMod1.Size = new Size(590, 284);
+            panelMod1.Size = new Size(590, 342);
             panelMod1.TabIndex = 1;
             // 
             // cmbCategoria
@@ -97,11 +101,11 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.DimGray;
             label7.Location = new Point(21, 40);
             label7.Name = "label7";
-            label7.Size = new Size(78, 19);
+            label7.Size = new Size(82, 20);
             label7.TabIndex = 21;
             label7.Text = "Categoria:";
             // 
@@ -125,14 +129,14 @@
             panelMod2.GradientAngle = 0F;
             panelMod2.GradientBottomColor = Color.WhiteSmoke;
             panelMod2.GradientTopColor = Color.WhiteSmoke;
-            panelMod2.Location = new Point(107, 130);
+            panelMod2.Location = new Point(118, 201);
             panelMod2.Name = "panelMod2";
             panelMod2.Size = new Size(375, 120);
             panelMod2.TabIndex = 19;
             // 
             // cmbProveedor
             // 
-            cmbProveedor.Font = new Font("Britanica-Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbProveedor.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cmbProveedor.FormattingEnabled = true;
             cmbProveedor.Location = new Point(129, 29);
             cmbProveedor.Name = "cmbProveedor";
@@ -143,11 +147,11 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.WhiteSmoke;
-            label4.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
             label4.Location = new Point(38, 32);
             label4.Name = "label4";
-            label4.Size = new Size(82, 19);
+            label4.Size = new Size(85, 20);
             label4.TabIndex = 4;
             label4.Text = "Proveedor:";
             // 
@@ -155,11 +159,11 @@
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.WhiteSmoke;
-            label6.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.DimGray;
             label6.Location = new Point(38, 75);
             label6.Name = "label6";
-            label6.Size = new Size(110, 19);
+            label6.Size = new Size(115, 20);
             label6.TabIndex = 7;
             label6.Text = "Última compra:";
             // 
@@ -167,21 +171,21 @@
             // 
             fechaUltCompra.CalendarTitleBackColor = SystemColors.ControlText;
             fechaUltCompra.CalendarTitleForeColor = SystemColors.GrayText;
-            fechaUltCompra.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            fechaUltCompra.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             fechaUltCompra.Format = DateTimePickerFormat.Short;
             fechaUltCompra.Location = new Point(166, 69);
             fechaUltCompra.Name = "fechaUltCompra";
-            fechaUltCompra.Size = new Size(163, 27);
+            fechaUltCompra.Size = new Size(163, 26);
             fechaUltCompra.TabIndex = 15;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
             label5.Location = new Point(313, 39);
             label5.Name = "label5";
-            label5.Size = new Size(49, 19);
+            label5.Size = new Size(50, 20);
             label5.TabIndex = 17;
             label5.Text = "Color:";
             // 
@@ -192,7 +196,7 @@
             txtStock.BorderFocusColor = SystemColors.ActiveCaption;
             txtStock.BorderRadius = 10;
             txtStock.BorderSize = 1;
-            txtStock.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtStock.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             txtStock.ForeColor = Color.FromArgb(64, 64, 64);
             txtStock.Location = new Point(376, 77);
             txtStock.Margin = new Padding(4);
@@ -212,11 +216,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
             label1.Location = new Point(326, 83);
             label1.Name = "label1";
-            label1.Size = new Size(52, 19);
+            label1.Size = new Size(54, 20);
             label1.TabIndex = 12;
             label1.Text = "Stock:";
             // 
@@ -227,7 +231,7 @@
             txtPrecio.BorderFocusColor = SystemColors.ActiveCaption;
             txtPrecio.BorderRadius = 10;
             txtPrecio.BorderSize = 1;
-            txtPrecio.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPrecio.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             txtPrecio.ForeColor = Color.FromArgb(64, 64, 64);
             txtPrecio.Location = new Point(509, 77);
             txtPrecio.Margin = new Padding(4);
@@ -251,18 +255,18 @@
             txtDescripcion.BorderFocusColor = SystemColors.ActiveCaption;
             txtDescripcion.BorderRadius = 10;
             txtDescripcion.BorderSize = 1;
-            txtDescripcion.Font = new Font("Britanica-Bold", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDescripcion.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             txtDescripcion.ForeColor = Color.FromArgb(64, 64, 64);
-            txtDescripcion.Location = new Point(118, 77);
+            txtDescripcion.Location = new Point(118, 124);
             txtDescripcion.Margin = new Padding(4);
             txtDescripcion.Modified = false;
-            txtDescripcion.Multiline = false;
+            txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Padding = new Padding(10, 7, 10, 7);
             txtDescripcion.PasswordChar = false;
             txtDescripcion.PlaceholderColor = Color.DarkGray;
             txtDescripcion.PlaceholderText = "";
-            txtDescripcion.Size = new Size(200, 31);
+            txtDescripcion.Size = new Size(450, 59);
             txtDescripcion.TabIndex = 2;
             txtDescripcion.Texts = "";
             txtDescripcion.UnderlinedStyle = false;
@@ -270,22 +274,22 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
             label3.Location = new Point(444, 83);
             label3.Name = "label3";
-            label3.Size = new Size(68, 19);
+            label3.Size = new Size(70, 20);
             label3.TabIndex = 1;
             label3.Text = "Precio/u:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(21, 83);
+            label2.Location = new Point(21, 124);
             label2.Name = "label2";
-            label2.Size = new Size(90, 19);
+            label2.Size = new Size(96, 20);
             label2.TabIndex = 0;
             label2.Text = "Descripción:";
             // 
@@ -298,9 +302,9 @@
             btnGuardar.BorderSize = 0;
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.Font = new Font("Britanica-Heavy", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGuardar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(478, 379);
+            btnGuardar.Location = new Point(478, 421);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(135, 35);
             btnGuardar.TabIndex = 2;
@@ -319,9 +323,9 @@
             btnCancelar.DialogResult = DialogResult.Abort;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Britanica-Heavy", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ForeColor = Color.FromArgb(128, 27, 141);
-            btnCancelar.Location = new Point(336, 380);
+            btnCancelar.Location = new Point(336, 422);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(135, 35);
             btnCancelar.TabIndex = 3;
@@ -329,11 +333,45 @@
             btnCancelar.TextColor = Color.FromArgb(128, 27, 141);
             btnCancelar.UseVisualStyleBackColor = false;
             // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNombre.ForeColor = Color.DimGray;
+            lblNombre.Location = new Point(21, 83);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(69, 20);
+            lblNombre.TabIndex = 23;
+            lblNombre.Text = "Nombre:";
+            // 
+            // txtNombre
+            // 
+            txtNombre.BackColor = Color.White;
+            txtNombre.BorderColor = SystemColors.ActiveBorder;
+            txtNombre.BorderFocusColor = SystemColors.ActiveCaption;
+            txtNombre.BorderRadius = 10;
+            txtNombre.BorderSize = 1;
+            txtNombre.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNombre.ForeColor = Color.FromArgb(64, 64, 64);
+            txtNombre.Location = new Point(118, 77);
+            txtNombre.Margin = new Padding(4);
+            txtNombre.Modified = false;
+            txtNombre.Multiline = false;
+            txtNombre.Name = "txtNombre";
+            txtNombre.Padding = new Padding(10, 7, 10, 7);
+            txtNombre.PasswordChar = false;
+            txtNombre.PlaceholderColor = Color.DarkGray;
+            txtNombre.PlaceholderText = "";
+            txtNombre.Size = new Size(201, 31);
+            txtNombre.TabIndex = 24;
+            txtNombre.Texts = "";
+            txtNombre.UnderlinedStyle = false;
+            // 
             // NewMateriaPrima
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(637, 438);
+            ClientSize = new Size(640, 468);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(panelMod1);
@@ -372,5 +410,7 @@
         public Individual.Visual.ComponentesMod.PanelMod panelMod1;
         private Label label7;
         public ComboBox cmbCategoria;
+        private Label lblNombre;
+        public CustomControls.RJControls.RJTextBox txtNombre;
     }
 }

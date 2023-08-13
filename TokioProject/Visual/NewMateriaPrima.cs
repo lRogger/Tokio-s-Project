@@ -346,6 +346,7 @@ namespace GUIs.Visual
             {
                 materiaPrima.Id = this.id;
                 materiaPrima.Categoria = ((Tuple<int, string>)cmbCategoria.SelectedItem).Item2;
+                materiaPrima.Nombre = txtNombre.Texts.Trim();
                 materiaPrima.Descripcion = txtDescripcion.Texts.Trim();
                 materiaPrima.Proveedor.Id = (int)cmbProveedor.SelectedValue;
                 materiaPrima.Stock = int.Parse(txtStock.Texts.Trim());

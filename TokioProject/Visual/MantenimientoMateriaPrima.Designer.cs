@@ -33,13 +33,6 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             materiaPrimaDGV = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            nombre_categoria = new DataGridViewTextBoxColumn();
-            color = new DataGridViewTextBoxColumn();
-            stock = new DataGridViewTextBoxColumn();
-            proveedor = new DataGridViewTextBoxColumn();
-            precio = new DataGridViewTextBoxColumn();
-            fecha_compra = new DataGridViewTextBoxColumn();
             buscarMateriaPrima = new TextBox();
             separador = new Panel();
             cbProveedor = new ComboBox();
@@ -57,6 +50,14 @@
             label2 = new Label();
             label3 = new Label();
             cbCategoria = new ComboBox();
+            id = new DataGridViewTextBoxColumn();
+            nombre_categoria = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            color = new DataGridViewTextBoxColumn();
+            stock = new DataGridViewTextBoxColumn();
+            proveedor = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            fecha_compra = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)materiaPrimaDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbCantidad).BeginInit();
             panel1.SuspendLayout();
@@ -75,17 +76,17 @@
             materiaPrimaDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 27, 141);
-            dataGridViewCellStyle1.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = SystemColors.Window;
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(128, 27, 141);
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             materiaPrimaDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             materiaPrimaDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            materiaPrimaDGV.Columns.AddRange(new DataGridViewColumn[] { id, nombre_categoria, color, stock, proveedor, precio, fecha_compra });
+            materiaPrimaDGV.Columns.AddRange(new DataGridViewColumn[] { id, nombre_categoria, nombre, color, stock, proveedor, precio, fecha_compra });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Britanica-Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -100,7 +101,7 @@
             materiaPrimaDGV.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Britanica-Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
@@ -117,72 +118,15 @@
             materiaPrimaDGV.TabIndex = 11;
             materiaPrimaDGV.CellClick += materiaPrimaDGV_CellClick;
             // 
-            // id
-            // 
-            id.Frozen = true;
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Resizable = DataGridViewTriState.False;
-            id.Width = 30;
-            // 
-            // nombre_categoria
-            // 
-            nombre_categoria.Frozen = true;
-            nombre_categoria.HeaderText = "Categoria";
-            nombre_categoria.Name = "nombre_categoria";
-            nombre_categoria.ReadOnly = true;
-            nombre_categoria.Resizable = DataGridViewTriState.False;
-            nombre_categoria.Width = 150;
-            // 
-            // color
-            // 
-            color.Frozen = true;
-            color.HeaderText = "Color";
-            color.Name = "color";
-            color.ReadOnly = true;
-            color.Resizable = DataGridViewTriState.False;
-            // 
-            // stock
-            // 
-            stock.HeaderText = "Stock";
-            stock.Name = "stock";
-            stock.ReadOnly = true;
-            stock.Resizable = DataGridViewTriState.False;
-            stock.Width = 50;
-            // 
-            // proveedor
-            // 
-            proveedor.HeaderText = "Proveedor";
-            proveedor.Name = "proveedor";
-            proveedor.ReadOnly = true;
-            proveedor.Resizable = DataGridViewTriState.False;
-            proveedor.Width = 150;
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio Total";
-            precio.Name = "precio";
-            precio.ReadOnly = true;
-            precio.Resizable = DataGridViewTriState.False;
-            // 
-            // fecha_compra
-            // 
-            fecha_compra.HeaderText = "Ultima Compra";
-            fecha_compra.Name = "fecha_compra";
-            fecha_compra.ReadOnly = true;
-            fecha_compra.Resizable = DataGridViewTriState.False;
-            fecha_compra.Width = 150;
-            // 
             // buscarMateriaPrima
             // 
             buscarMateriaPrima.BackColor = Color.White;
             buscarMateriaPrima.BorderStyle = BorderStyle.None;
-            buscarMateriaPrima.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buscarMateriaPrima.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buscarMateriaPrima.Location = new Point(12, 66);
             buscarMateriaPrima.Name = "buscarMateriaPrima";
             buscarMateriaPrima.PlaceholderText = " 🔎 Buscar...";
-            buscarMateriaPrima.Size = new Size(294, 20);
+            buscarMateriaPrima.Size = new Size(294, 19);
             buscarMateriaPrima.TabIndex = 12;
             buscarMateriaPrima.TextChanged += buscarMateriaPrima_TextChanged_1;
             // 
@@ -197,7 +141,7 @@
             // cbProveedor
             // 
             cbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbProveedor.Font = new Font("Britanica-Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            cbProveedor.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cbProveedor.FormattingEnabled = true;
             cbProveedor.Location = new Point(592, 64);
             cbProveedor.Name = "cbProveedor";
@@ -208,11 +152,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
             label1.Location = new Point(507, 67);
             label1.Name = "label1";
-            label1.Size = new Size(82, 19);
+            label1.Size = new Size(85, 20);
             label1.TabIndex = 20;
             label1.Text = "Proveedor:";
             // 
@@ -242,7 +186,7 @@
             btnCrear.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
             btnCrear.FlatAppearance.BorderSize = 0;
             btnCrear.FlatStyle = FlatStyle.Flat;
-            btnCrear.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCrear.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.FromArgb(118, 27, 141);
             btnCrear.Location = new Point(9, 7);
             btnCrear.Margin = new Padding(0);
@@ -261,7 +205,7 @@
             btnEditar.FlatAppearance.BorderColor = Color.FromArgb(70, 15, 75);
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Font = new Font("Britanica-Heavy", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEditar.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.ForeColor = Color.FromArgb(118, 27, 141);
             btnEditar.Location = new Point(102, 7);
             btnEditar.Name = "btnEditar";
@@ -294,7 +238,7 @@
             // 
             // lblMedida
             // 
-            lblMedida.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMedida.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             lblMedida.ForeColor = SystemColors.Window;
             lblMedida.Location = new Point(3, 47);
             lblMedida.Name = "lblMedida";
@@ -304,17 +248,17 @@
             // lblDesc
             // 
             lblDesc.AutoSize = true;
-            lblDesc.Font = new Font("Britanica-Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDesc.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblDesc.ForeColor = SystemColors.Window;
             lblDesc.Location = new Point(3, 2);
             lblDesc.Name = "lblDesc";
-            lblDesc.Size = new Size(92, 19);
+            lblDesc.Size = new Size(92, 20);
             lblDesc.TabIndex = 32;
             lblDesc.Text = "Descripción";
             // 
             // lblDescripcion
             // 
-            lblDescripcion.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDescripcion.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             lblDescripcion.ForeColor = SystemColors.Window;
             lblDescripcion.Location = new Point(3, 21);
             lblDescripcion.Name = "lblDescripcion";
@@ -383,24 +327,88 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.ControlDarkDark;
             label3.Location = new Point(312, 67);
             label3.Name = "label3";
-            label3.Size = new Size(78, 19);
+            label3.Size = new Size(82, 20);
             label3.TabIndex = 30;
             label3.Text = "Categoria:";
             // 
             // cbCategoria
             // 
             cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbCategoria.Font = new Font("Britanica-Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            cbCategoria.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cbCategoria.FormattingEnabled = true;
             cbCategoria.Location = new Point(393, 64);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(112, 23);
             cbCategoria.TabIndex = 29;
             cbCategoria.SelectedIndexChanged += cbCategoria_SelectedIndexChanged;
+            // 
+            // id
+            // 
+            id.Frozen = true;
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Resizable = DataGridViewTriState.False;
+            id.Width = 30;
+            // 
+            // nombre_categoria
+            // 
+            nombre_categoria.Frozen = true;
+            nombre_categoria.HeaderText = "Categoria";
+            nombre_categoria.Name = "nombre_categoria";
+            nombre_categoria.ReadOnly = true;
+            nombre_categoria.Resizable = DataGridViewTriState.False;
+            // 
+            // nombre
+            // 
+            nombre.Frozen = true;
+            nombre.HeaderText = "Nombre";
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            // 
+            // color
+            // 
+            color.Frozen = true;
+            color.HeaderText = "Color";
+            color.Name = "color";
+            color.ReadOnly = true;
+            color.Resizable = DataGridViewTriState.False;
+            // 
+            // stock
+            // 
+            stock.HeaderText = "Stock";
+            stock.Name = "stock";
+            stock.ReadOnly = true;
+            stock.Resizable = DataGridViewTriState.False;
+            stock.Width = 50;
+            // 
+            // proveedor
+            // 
+            proveedor.HeaderText = "Proveedor";
+            proveedor.Name = "proveedor";
+            proveedor.ReadOnly = true;
+            proveedor.Resizable = DataGridViewTriState.False;
+            proveedor.Width = 150;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio Total";
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            precio.Resizable = DataGridViewTriState.False;
+            precio.Width = 75;
+            // 
+            // fecha_compra
+            // 
+            fecha_compra.HeaderText = "Ultima Compra";
+            fecha_compra.Name = "fecha_compra";
+            fecha_compra.ReadOnly = true;
+            fecha_compra.Resizable = DataGridViewTriState.False;
+            fecha_compra.Width = 150;
             // 
             // MantenimientoMateriaPrima
             // 
@@ -448,16 +456,17 @@
         private Label label2;
         public Button btnCrear;
         private Label lblDescripcion;
+        private Label lblDesc;
+        private Label label3;
+        private ComboBox cbCategoria;
+        private Label lblMedida;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nombre_categoria;
+        private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn color;
         private DataGridViewTextBoxColumn stock;
         private DataGridViewTextBoxColumn proveedor;
         private DataGridViewTextBoxColumn precio;
         private DataGridViewTextBoxColumn fecha_compra;
-        private Label lblDesc;
-        private Label label3;
-        private ComboBox cbCategoria;
-        private Label lblMedida;
     }
 }

@@ -22,12 +22,13 @@ namespace Datos
                         MateriaPrima materiaPrima = new MateriaPrima();
                         materiaPrima.Id = (int)reader[0];
                         materiaPrima.Categoria = (string)reader[1];
-                        materiaPrima.Descripcion = (string)reader[2];
-                        materiaPrima.Color = (string)reader[3];
-                        materiaPrima.Proveedor.Nombre = (string)reader[4];
-                        materiaPrima.Stock = (int)reader[5];
-                        materiaPrima.Precio = (double)reader[6];
-                        materiaPrima.FechaCompra = (DateTime)reader[7];
+                        materiaPrima.Nombre = (string)reader[2];
+                        materiaPrima.Descripcion = (string)reader[3];
+                        materiaPrima.Color = (string)reader[4];
+                        materiaPrima.Proveedor.Nombre = (string)reader[5];
+                        materiaPrima.Stock = (int)reader[6];
+                        materiaPrima.Precio = (double)reader[7];
+                        materiaPrima.FechaCompra = (DateTime)reader[8];
 
                         lista.Add(materiaPrima);
                     }
@@ -48,7 +49,7 @@ namespace Datos
                 using (SqlConnection cn = dataBase.conectarDB())
                 {
                     using (SqlCommand cmd = new SqlCommand($"SELECT M.id,(SELECT nombreCategoria FROM CategoriaMateriaPrima WHERE id = M.categoriaId) [nombreCategoria]," +
-                                                           $"M.descripcion, M.proveedorId, M.stock, M.precio, M.fechaCompra," +
+                                                           $"M.nombre, M.descripcion, M.proveedorId, M.stock, M.precio, M.fechaCompra," +
                                                            $"(SELECT Color FROM Colores WHERE IdColor = M.colorId) [Color]" +
                                                            $"FROM MateriaPrima M WHERE Id = @id", cn))
                     {
@@ -60,6 +61,7 @@ namespace Datos
                             {
                                 materiaPrima.Id = (int)reader["id"];
                                 materiaPrima.Categoria = (string)reader["nombreCategoria"];
+                                materiaPrima.Nombre = (string)reader["nombre"];
                                 materiaPrima.Descripcion = (string)reader["descripcion"];
                                 materiaPrima.Proveedor.Id = (int)reader["proveedorId"];
                                 materiaPrima.Stock = (int)reader["stock"];
@@ -89,6 +91,7 @@ namespace Datos
 
                         cmd.Parameters.AddWithValue("@categoria", materiaPrima.Categoria);
                         cmd.Parameters.AddWithValue("@descripcion", materiaPrima.Descripcion);
+                        cmd.Parameters.AddWithValue("@nombre", materiaPrima.Nombre);
                         cmd.Parameters.AddWithValue("@proveedorId", materiaPrima.Proveedor.Id);
                         cmd.Parameters.AddWithValue("@stock", materiaPrima.Stock);
                         cmd.Parameters.AddWithValue("@precio", materiaPrima.Precio);

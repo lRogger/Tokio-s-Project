@@ -46,10 +46,17 @@ namespace GUIs.Visual
                     materiaPrimaDGV.Rows.Add(
                         materiaPrima.Id,
                         materiaPrima.Categoria,
-                        materiaPrima.Color, materiaPrima.Stock,
-                        materiaPrima.Proveedor.Nombre, (materiaPrima.Stock * materiaPrima.Precio),
-                        materiaPrima.FechaCompra.ToShortDateString());
+                        materiaPrima.Nombre,
+                        materiaPrima.Color, 
+                        materiaPrima.Stock,
+                        materiaPrima.Proveedor.Nombre, 
+                        (materiaPrima.Stock * materiaPrima.Precio),
+                        materiaPrima.FechaCompra.ToShortDateString()
+                    );
                 }
+                materiaPrimaDGV.Columns["precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                materiaPrimaDGV.Columns["precio"].DefaultCellStyle.Format = "N2";
+
                 int id = (int)materiaPrimaDGV.Rows[0].Cells[0].Value;
                 lblDescripcion.Text = lista.Find(m => m.Id == id).Descripcion;
                 lblMedida.Text = lista.Find(m => m.Id == id).Stock + " " + ObtenerMedidaPorCategoria(lista.Find(m => m.Id == id).Categoria) + "(s)";
@@ -144,23 +151,25 @@ namespace GUIs.Visual
                     Tuple<int, string> colorInicial = (Tuple<int, string>)editar.cmbColor.SelectedItem;
 
                     //Obtener los indices para seleccione el valor correcto del comboBox de proveedor y color
-                    string nombreProveedor = (string)materiaPrimaDGV.Rows[selected].Cells[4].Value;
+                    string nombreProveedor = (string)materiaPrimaDGV.Rows[selected].Cells[5].Value;
                     int indiceProveedor = editar.cmbProveedor.FindStringExact(nombreProveedor);
-                    string nombreColor = (string)materiaPrimaDGV.Rows[selected].Cells[2].Value;
+                    string nombreColor = (string)materiaPrimaDGV.Rows[selected].Cells[3].Value;
                     int indiceColor = editar.cmbColor.FindStringExact(nombreColor);
                     string nombreCategoria = (string)materiaPrimaDGV.Rows[selected].Cells[1].Value;
+                    string nombreMateriaPrima = (string)materiaPrimaDGV.Rows[selected].Cells[2].Value;
                     int indiceCategoria = editar.cmbCategoria.FindStringExact(nombreCategoria);
-                    string stockString = materiaPrimaDGV.Rows[selected].Cells[3].Value.ToString();
-                    string precioString = materiaPrimaDGV.Rows[selected].Cells[5].Value.ToString();
+                    string stockString = materiaPrimaDGV.Rows[selected].Cells[4].Value.ToString();
+                    string precioString = materiaPrimaDGV.Rows[selected].Cells[6].Value.ToString();
 
                     //Asignar los valores a la ventana de editar
                     editar.txtDescripcion.Texts = lblDescripcion.Text;
                     editar.cmbColor.SelectedIndex = indiceColor;
                     editar.cmbCategoria.SelectedIndex = indiceCategoria;
+                    editar.txtNombre.Texts = nombreMateriaPrima;
                     editar.txtStock.Texts = stockString;
                     editar.cmbProveedor.SelectedIndex = indiceProveedor;
                     editar.txtPrecio.Texts = (Double.Parse(precioString) / Int32.Parse(stockString)).ToString();
-                    editar.fechaUltCompra.Value = DateTime.Parse(materiaPrimaDGV.Rows[selected].Cells[6].Value.ToString());
+                    editar.fechaUltCompra.Value = DateTime.Parse(materiaPrimaDGV.Rows[selected].Cells[7].Value.ToString());
                     editar.Owner = this.ParentForm;
                     editar.ShowDialog();
                     if (editar.Guardado)
@@ -220,7 +229,7 @@ namespace GUIs.Visual
                         int selected = materiaPrimaDGV.CurrentRow.Index;
                         int cantidad = (int)cbCantidad.Value;
                         int id = (int)materiaPrimaDGV.Rows[selected].Cells[0].Value;
-                        int stockActual = (int)materiaPrimaDGV.Rows[selected].Cells[3].Value;
+                        int stockActual = (int)materiaPrimaDGV.Rows[selected].Cells[4].Value;
                         string nombre = (string)materiaPrimaDGV.Rows[selected].Cells[1].Value;
                         if (operacion == "restar" && stockActual < cantidad)
                         {
@@ -284,9 +293,9 @@ namespace GUIs.Visual
                 //Buscar descripcion desde variable de lista de materias primas guardada 
 
                 string descripcion = lista.Find(x => x.Id == (int)row.Cells[0].Value).Descripcion.ToLower();
-                string color = ((string)row.Cells[2].Value).ToLower();
+                string color = ((string)row.Cells[3].Value).ToLower();
 
-                bool filtroProveedor = proveedorSeleccionado == null || proveedorSeleccionado.Nombre == row.Cells[4].Value.ToString() || proveedorSeleccionado.Nombre == "TODOS";
+                bool filtroProveedor = proveedorSeleccionado == null || proveedorSeleccionado.Nombre == row.Cells[5].Value.ToString() || proveedorSeleccionado.Nombre == "TODOS";
                 bool filtroCategoria = categoriaSeleccionada == null || categoriaSeleccionada.NombreCategoria == row.Cells[1].Value.ToString() || categoriaSeleccionada.NombreCategoria == "TODOS";
 
                 row.Visible = (descripcion.Contains(entrada) || color.Contains(entrada)) && filtroProveedor && filtroCategoria;
