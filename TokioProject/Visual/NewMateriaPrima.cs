@@ -182,7 +182,7 @@ namespace GUIs.Visual
 
         private bool FueronModificados()
         {
-            RJTextBox[] textBoxs = { txtDescripcion, txtPrecio, txtStock };
+            RJTextBox[] textBoxs = { txtDescripcion, txtPrecio, txtStock, txtNombre };
             foreach (RJTextBox textbox in textBoxs)
             {
                 if (textbox.Modified)
@@ -209,7 +209,7 @@ namespace GUIs.Visual
 
         private bool ValidarCamposCrear()
         {
-            if (utilidades.estaVacio(txtDescripcion.Texts, txtPrecio.Texts, txtStock.Texts))
+            if (utilidades.estaVacio(txtDescripcion.Texts, txtPrecio.Texts, txtStock.Texts, txtNombre.Texts))
             {
                 return false;
             }

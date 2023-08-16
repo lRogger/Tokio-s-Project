@@ -132,6 +132,7 @@ namespace Datos
                         cmd.Parameters.AddWithValue("@id", materiaPrima.Id);
                         cmd.Parameters.AddWithValue("@descripcion", materiaPrima.Descripcion);
                         cmd.Parameters.AddWithValue("@proveedorId", materiaPrima.Proveedor.Id);
+                        cmd.Parameters.AddWithValue("@nombre", materiaPrima.Nombre);
                         cmd.Parameters.AddWithValue("@stock", materiaPrima.Stock);
                         cmd.Parameters.AddWithValue("@precio", materiaPrima.Precio);
                         cmd.Parameters.AddWithValue("@fecha", materiaPrima.FechaCompra);
