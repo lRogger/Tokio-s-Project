@@ -23,7 +23,7 @@ namespace Datos
                                 $"WHEN SUBSTRING(PRODUCTO, 1, 1) = 'p' " +
                                 $"THEN (SELECT nombre FROM productos WHERE idproducto = SUBSTRING(CAST(producto AS VARCHAR(10)), 2, LEN(producto))) " +
                                 $"WHEN SUBSTRING(PRODUCTO, 1, 1) = 'm' " +
-                                $"THEN (SELECT descripcion FROM MateriaPrima WHERE id = SUBSTRING(CAST(producto AS VARCHAR(10)), 2, LEN(producto))) " +
+                                $"THEN (SELECT nombre FROM MateriaPrima WHERE id = SUBSTRING(CAST(producto AS VARCHAR(10)), 2, LEN(producto))) " +
                                 $" ELSE '-' " +
                             $"END AS producto, " +
                             $" Fecha, " +
