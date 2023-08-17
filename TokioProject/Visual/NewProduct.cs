@@ -104,7 +104,7 @@ namespace GUIs.Visual
             DataBase dsc = new DataBase();
             dsc.consultar("SELECT " +
                                 "id, " +
-                                "descripcion + '(' + CAST(Stock AS VARCHAR) + ')' AS Insumo " +
+                                "nombre + '(' + CAST(Stock AS VARCHAR) + ')' AS Insumo " +
                             "FROM MateriaPrima " +
                             "WHERE Stock > 0;");
             return dsc.Ds;
