@@ -47,9 +47,9 @@ namespace GUIs.Visual
                         materiaPrima.Id,
                         materiaPrima.Categoria,
                         materiaPrima.Nombre,
-                        materiaPrima.Color, 
+                        materiaPrima.Color,
                         materiaPrima.Stock,
-                        materiaPrima.Proveedor.Nombre, 
+                        materiaPrima.Proveedor.Nombre,
                         (materiaPrima.Stock * materiaPrima.Precio),
                         materiaPrima.FechaCompra.ToShortDateString()
                     );

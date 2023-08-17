@@ -227,7 +227,7 @@
             lblDescripcionRegistro.AutoSize = true;
             lblDescripcionRegistro.Font = new Font("Britanica-Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblDescripcionRegistro.ForeColor = Color.White;
-            lblDescripcionRegistro.Location = new Point(30, 181);
+            lblDescripcionRegistro.Location = new Point(31, 148);
             lblDescripcionRegistro.MaximumSize = new Size(390, 0);
             lblDescripcionRegistro.Name = "lblDescripcionRegistro";
             lblDescripcionRegistro.Size = new Size(0, 19);

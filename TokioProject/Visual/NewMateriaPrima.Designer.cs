@@ -30,6 +30,8 @@
         {
             lblTitulo = new Label();
             panelMod1 = new Individual.Visual.ComponentesMod.PanelMod();
+            txtNombre = new CustomControls.RJControls.RJTextBox();
+            lblNombre = new Label();
             cmbCategoria = new ComboBox();
             label7 = new Label();
             cmbColor = new ComboBox();
@@ -47,8 +49,6 @@
             label2 = new Label();
             btnGuardar = new Individual.Visual.ComponentesMod.RJButton();
             btnCancelar = new Individual.Visual.ComponentesMod.RJButton();
-            lblNombre = new Label();
-            txtNombre = new CustomControls.RJControls.RJTextBox();
             panelMod1.SuspendLayout();
             panelMod2.SuspendLayout();
             SuspendLayout();
@@ -56,11 +56,11 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTitulo.Font = new Font("Britanica-Heavy", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.ForeColor = Color.FromArgb(128, 27, 141);
             lblTitulo.Location = new Point(23, 23);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(343, 39);
+            lblTitulo.Size = new Size(338, 42);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Nueva Materia Prima";
             // 
@@ -90,6 +90,40 @@
             panelMod1.Size = new Size(590, 342);
             panelMod1.TabIndex = 1;
             // 
+            // txtNombre
+            // 
+            txtNombre.BackColor = Color.White;
+            txtNombre.BorderColor = SystemColors.ActiveBorder;
+            txtNombre.BorderFocusColor = SystemColors.ActiveCaption;
+            txtNombre.BorderRadius = 10;
+            txtNombre.BorderSize = 1;
+            txtNombre.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNombre.ForeColor = Color.FromArgb(64, 64, 64);
+            txtNombre.Location = new Point(118, 77);
+            txtNombre.Margin = new Padding(4);
+            txtNombre.Modified = false;
+            txtNombre.Multiline = false;
+            txtNombre.Name = "txtNombre";
+            txtNombre.Padding = new Padding(10, 7, 10, 7);
+            txtNombre.PasswordChar = false;
+            txtNombre.PlaceholderColor = Color.DarkGray;
+            txtNombre.PlaceholderText = "";
+            txtNombre.Size = new Size(201, 31);
+            txtNombre.TabIndex = 24;
+            txtNombre.Texts = "";
+            txtNombre.UnderlinedStyle = false;
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNombre.ForeColor = Color.DimGray;
+            lblNombre.Location = new Point(21, 83);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(66, 19);
+            lblNombre.TabIndex = 23;
+            lblNombre.Text = "Nombre:";
+            // 
             // cmbCategoria
             // 
             cmbCategoria.FormattingEnabled = true;
@@ -101,11 +135,11 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.DimGray;
             label7.Location = new Point(21, 40);
             label7.Name = "label7";
-            label7.Size = new Size(82, 20);
+            label7.Size = new Size(78, 19);
             label7.TabIndex = 21;
             label7.Text = "Categoria:";
             // 
@@ -147,11 +181,11 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.WhiteSmoke;
-            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
             label4.Location = new Point(38, 32);
             label4.Name = "label4";
-            label4.Size = new Size(85, 20);
+            label4.Size = new Size(82, 19);
             label4.TabIndex = 4;
             label4.Text = "Proveedor:";
             // 
@@ -159,11 +193,11 @@
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.WhiteSmoke;
-            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.DimGray;
             label6.Location = new Point(38, 75);
             label6.Name = "label6";
-            label6.Size = new Size(115, 20);
+            label6.Size = new Size(110, 19);
             label6.TabIndex = 7;
             label6.Text = "Última compra:";
             // 
@@ -181,11 +215,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
             label5.Location = new Point(313, 39);
             label5.Name = "label5";
-            label5.Size = new Size(50, 20);
+            label5.Size = new Size(49, 19);
             label5.TabIndex = 17;
             label5.Text = "Color:";
             // 
@@ -216,11 +250,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
             label1.Location = new Point(326, 83);
             label1.Name = "label1";
-            label1.Size = new Size(54, 20);
+            label1.Size = new Size(52, 19);
             label1.TabIndex = 12;
             label1.Text = "Stock:";
             // 
@@ -274,22 +308,22 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
             label3.Location = new Point(444, 83);
             label3.Name = "label3";
-            label3.Size = new Size(70, 20);
+            label3.Size = new Size(68, 19);
             label3.TabIndex = 1;
             label3.Text = "Precio/u:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Britanica-Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.DimGray;
             label2.Location = new Point(21, 124);
             label2.Name = "label2";
-            label2.Size = new Size(96, 20);
+            label2.Size = new Size(90, 19);
             label2.TabIndex = 0;
             label2.Text = "Descripción:";
             // 
@@ -302,7 +336,7 @@
             btnGuardar.BorderSize = 0;
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGuardar.Font = new Font("Britanica-Heavy", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(478, 421);
             btnGuardar.Name = "btnGuardar";
@@ -323,7 +357,7 @@
             btnCancelar.DialogResult = DialogResult.Abort;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.Font = new Font("Britanica-Heavy", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ForeColor = Color.FromArgb(128, 27, 141);
             btnCancelar.Location = new Point(336, 422);
             btnCancelar.Name = "btnCancelar";
@@ -332,40 +366,6 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextColor = Color.FromArgb(128, 27, 141);
             btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // lblNombre
-            // 
-            lblNombre.AutoSize = true;
-            lblNombre.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNombre.ForeColor = Color.DimGray;
-            lblNombre.Location = new Point(21, 83);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(69, 20);
-            lblNombre.TabIndex = 23;
-            lblNombre.Text = "Nombre:";
-            // 
-            // txtNombre
-            // 
-            txtNombre.BackColor = Color.White;
-            txtNombre.BorderColor = SystemColors.ActiveBorder;
-            txtNombre.BorderFocusColor = SystemColors.ActiveCaption;
-            txtNombre.BorderRadius = 10;
-            txtNombre.BorderSize = 1;
-            txtNombre.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNombre.ForeColor = Color.FromArgb(64, 64, 64);
-            txtNombre.Location = new Point(118, 77);
-            txtNombre.Margin = new Padding(4);
-            txtNombre.Modified = false;
-            txtNombre.Multiline = false;
-            txtNombre.Name = "txtNombre";
-            txtNombre.Padding = new Padding(10, 7, 10, 7);
-            txtNombre.PasswordChar = false;
-            txtNombre.PlaceholderColor = Color.DarkGray;
-            txtNombre.PlaceholderText = "";
-            txtNombre.Size = new Size(201, 31);
-            txtNombre.TabIndex = 24;
-            txtNombre.Texts = "";
-            txtNombre.UnderlinedStyle = false;
             // 
             // NewMateriaPrima
             // 
